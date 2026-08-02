@@ -1,38 +1,23 @@
 @echo off
 setlocal
-title SHADDAI MCP — Public Edition · Setup
+title SHADDAI MCP — Public Edition · Verify
 cd /d "%~dp0"
 
-echo [SHADDAI MCP] Setting up (public edition)...
+echo [SHADDAI MCP] Public edition — key-free, no setup needed.
 echo.
 
 where node >nul 2>nul
 if errorlevel 1 (
-  echo [ERROR] Node.js is required. Install from https://nodejs.org (LTS 18+), then run setup.bat again.
+  echo [ERROR] Node.js is required (18+). Install from https://nodejs.org
   pause
   exit /b 1
 )
 
-echo [1/3] Installing dependencies...
-call npm install --no-audit --no-fund
-if errorlevel 1 (
-  echo [ERROR] npm install failed.
-  pause
-  exit /b 1
-)
-
-if not exist ".env" (
-  echo [2/3] Creating .env from template...
-  copy ".env.example" ".env" >nul
-  echo   - OPEN .env and add ONE API key, e.g. GROQ_API_KEY from https://console.groq.com
-) else (
-  echo [2/3] .env already exists — leaving it alone.
-)
-
-echo [3/3] Self-test...
+echo [1/1] Running self-test...
 call node mcp-server-rag.js --self-test
 
 echo.
-echo Done. Start the server any time with:  node mcp-server-rag.js
-echo Wire it into Claude per README.md.
+echo Done. The fastest way to use this in Claude is one line (no clone needed):
+echo   claude mcp add shaddai -- npx -y shaddai-mcp
+echo Or wire this local copy per README.md.
 pause

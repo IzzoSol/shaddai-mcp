@@ -2,27 +2,17 @@
 set -e
 cd "$(dirname "$0")"
 
-echo "[SHADDAI MCP] Setting up (public edition)..."
+echo "[SHADDAI MCP] Public edition — key-free, no setup needed."
 
 if ! command -v node >/dev/null 2>&1; then
-  echo "[ERROR] Node.js is required. Install from https://nodejs.org (LTS 18+)."
+  echo "[ERROR] Node.js is required (18+). Install from https://nodejs.org"
   exit 1
 fi
 
-echo "[1/3] Installing dependencies..."
-npm install --no-audit --no-fund
-
-if [ ! -f .env ]; then
-  echo "[2/3] Creating .env from template..."
-  cp .env.example .env
-  echo "  - OPEN .env and add ONE API key, e.g. GROQ_API_KEY from https://console.groq.com"
-else
-  echo "[2/3] .env already exists — leaving it alone."
-fi
-
-echo "[3/3] Self-test..."
+echo "[1/1] Running self-test..."
 node mcp-server-rag.js --self-test
 
 echo
-echo "Done. Start the server any time with:  node mcp-server-rag.js"
-echo "Wire it into Claude per README.md."
+echo "Done. The fastest way to use this in Claude is one line (no clone needed):"
+echo "  claude mcp add shaddai -- npx -y shaddai-mcp"
+echo "Or wire this local copy per README.md."
