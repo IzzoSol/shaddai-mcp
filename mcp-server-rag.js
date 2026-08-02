@@ -9,14 +9,16 @@
  * This is the REDUCED PUBLIC BUILD: it contains the agents + knowledge only.
  * It does NOT include SHADDAI's proprietary orchestration engine, its 200+ tool
  * suite, billing, or server routes — those stay private. `rag_ask` and
- * `run_agent` are implemented here directly (RAG retrieval + a cloud LLM call).
+ * `run_agent` are implemented here directly as pure RAG retrieval: they return
+ * ranked passages plus an instruction so the connected host model (Claude)
+ * synthesizes the grounded answer. No API key, no external LLM call.
  *
  * Tools:
  *   list_agents      → the 7 agents, their role, KB doc count
  *   list_rag_docs    → documents inside one agent's knowledge base
  *   rag_search       → raw TF-IDF chunk hits (score + source doc) for a query
- *   rag_ask          → grounded answer synthesized from the KB via a cloud LLM
- *   run_agent        → RAG-injected agent run (single-pass, cloud LLM)
+ *   rag_ask          → passages + grounded-answer instruction for the host model
+ *   run_agent        → routed agent + RAG passages + persona/instruction for the host
  *
  * Resources:
  *   kb://<agent>     → an agent's knowledge-base document list (browsable)
@@ -34,12 +36,9 @@
  *   node mcp-server-rag.js --help         show usage
  *   node mcp-server-rag.js --version      show version
  *
- * Requires a cloud LLM key in backend/.env (ONE is enough, Groq is fastest):
- *   GROQ_API_KEY=...        (https://console.groq.com — free, recommended)
- *   GEMINI_API_KEY=...
- *   OPENROUTER_API_KEY=...
- *   ANTHROPIC_API_KEY=...
- *   OPENAI_API_KEY=...
+ * KEY-FREE: no API keys, no external LLM calls, no localhost server. The
+ * package is pure RAG + agents; the host model does the answering. Runs
+ * anywhere Node is installed and connects to Claude in one line.
  */
 
 'use strict';
@@ -48,7 +47,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 
-const VERSION = '2.2.0';
+const VERSION = '2.3.0';
 
 // ── Logging ────────────────────────────────────────────────────────────────────
 // stdout must carry ONLY protocol frames — redirect ALL logging to stderr.
@@ -114,7 +113,7 @@ const TOOLS = [
   },
   {
     name: 'rag_ask',
-    description: "Answer a question using one agent's RAG knowledge base: retrieves the best chunks, reasons over them with a cloud LLM, and returns a grounded answer plus source names.",
+    description: "Answer a question using one agent's RAG knowledge base. Retrieves the most relevant passages and returns them with a grounded-answer instruction for the host model. No API key needed — the connected model (Claude) synthesizes the answer from the passages.",
     inputSchema: {
       type: 'object',
       properties: {
@@ -126,7 +125,7 @@ const TOOLS = [
   },
   {
     name: 'run_agent',
-    description: 'Run a SHADDAI agent task: the goal is routed to the right agent, its RAG knowledge is injected as context, and a cloud LLM answers. Returns the final answer plus the knowledge used.',
+    description: 'Run a SHADDAI agent task: routes the goal to the right agent, injects that agent\'s RAG knowledge as passages, and returns a persona + instruction for the host model to complete the work. No API key needed — the connected model (Claude) does the task using the retrieved knowledge.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -160,97 +159,16 @@ function assertAgent(agentId) {
   }
 }
 
-// ── Cloud LLM (public build: direct HTTP, no proprietary engine) ───────────────
-const axios = require('axios');
+// ── Knowledge-only design ─────────────────────────────────────────────────────
+// This MCP server is a pure RETRIEVAL layer: it ships the 7 SHADDAI agents and
+// their mastery knowledge bases and returns ranked passages. The host model
+// (Claude itself, when connected via MCP) does the actual synthesis/answer.
+// → No API key required from the user. No localhost. No external LLM call.
+// rag_ask / run_agent return the retrieved passages PLUS an explicit
+// instruction telling the host model how to use them, so the friend just
+// wires it into Claude and instantly has a knowledge-grounded 7-agent system.
 
-function pickProvider() {
-  const c = (v) => v && String(v).trim();
-  const p = [
-    { name: 'Groq',       key: c(process.env.GROQ_API_KEY),      url: 'https://api.groq.com/openai/v1/chat/completions',          model: process.env.GROQ_MODEL || 'llama-3.3-70b-versatile', auth: 'Bearer' },
-    { name: 'OpenRouter', key: c(process.env.OPENROUTER_API_KEY), url: 'https://openrouter.ai/api/v1/chat/completions',            model: process.env.OPENROUTER_MODEL || 'meta-llama/llama-3.3-70b-instruct:free', auth: 'Bearer' },
-    { name: 'Gemini',     key: c(process.env.GEMINI_API_KEY),     url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent', model: null, auth: 'key' },
-    { name: 'Anthropic',  key: c(process.env.ANTHROPIC_API_KEY),  url: 'https://api.anthropic.com/v1/messages',                    model: process.env.ANTHROPIC_MODEL || 'claude-3-5-haiku-latest', auth: 'x-api-key' },
-    { name: 'OpenAI',     key: c(process.env.OPENAI_API_KEY),     url: 'https://api.openai.com/v1/chat/completions',               model: process.env.OPENAI_MODEL || 'gpt-4o-mini', auth: 'Bearer' },
-  ];
-  return p.find((x) => x.key) || null;
-}
-
-async function cloudChat(system, user, opts = {}) {
-  const provider = pickProvider();
-  const timeoutMs = Number(opts.timeoutMs || process.env.LLM_TIMEOUT_MS || 120000);
-
-  if (provider) {
-    const text = await callProvider(provider, system, user, timeoutMs);
-    if (text) return { text, provider: provider.name };
-  }
-
-  // Last-resort fallback: local Ollama (only if installed and reachable).
-  const ollama = await ollamaChat(system, user, timeoutMs);
-  if (ollama) return { text: ollama, provider: 'Ollama (local)' };
-
-  const e = new Error('No LLM available. Add a cloud API key to backend/.env — e.g. GROQ_API_KEY (free at https://console.groq.com).');
-  e.isConfig = true;
-  throw e;
-}
-
-async function callProvider(p, system, user, timeoutMs) {
-  // One retry with backoff on transient failures (429 rate-limit, 5xx, ECONNRESET).
-  for (let attempt = 0; attempt < 2; attempt++) {
-    try {
-      if (p.name === 'Gemini') {
-        const res = await axios.post(`${p.url}?key=${encodeURIComponent(p.key)}`, {
-          contents: [{ parts: [{ text: `${system}\n\n---\n\n${user}` }] }],
-          generationConfig: { temperature: 0.4, maxOutputTokens: 2048 },
-        }, { timeout: timeoutMs });
-        return res.data?.candidates?.[0]?.content?.parts?.map((x) => x.text).join('') || null;
-      }
-      if (p.name === 'Anthropic') {
-        const res = await axios.post(p.url, {
-          model: p.model, max_tokens: 2048, temperature: 0.4,
-          system,
-          messages: [{ role: 'user', content: user }],
-        }, {
-          timeout: timeoutMs,
-          headers: { 'x-api-key': p.key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-        });
-        return res.data?.content?.map((b) => b.text).join('') || null;
-      }
-      const headers = { 'content-type': 'application/json' };
-      if (p.auth === 'Bearer') headers.authorization = `Bearer ${p.key}`;
-      const res = await axios.post(p.url, {
-        model: p.model, temperature: 0.4, max_tokens: 2048,
-        messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
-      }, { timeout: timeoutMs, headers });
-      return res.data?.choices?.[0]?.message?.content || null;
-    } catch (err) {
-      const status = err && err.response && err.response.status;
-      const transient = status === 429 || (status >= 500 && status <= 599) || /ECONNRESET|ETIMEDOUT|ECONNABORTED/.test((err && err.code) || '');
-      if (attempt === 0 && transient) {
-        console.warn(`[llm] ${p.name} transient failure (${err && err.message}); retrying…`);
-        await new Promise((r) => setTimeout(r, 1500));
-        continue;
-      }
-      console.warn(`[llm] ${p.name} failed: ${(err && err.message) || err}`);
-      return null;
-    }
-  }
-  return null;
-}
-
-async function ollamaChat(system, user, timeoutMs) {
-  try {
-    const base = process.env.OLLAMA_API_URL || 'http://localhost:11434';
-    const model = process.env.DEFAULT_OLLAMA_MODEL || 'phi4-mini';
-    const res = await axios.post(`${base}/api/chat`, {
-      model,
-      stream: false,
-      messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
-    }, { timeout: timeoutMs });
-    return res.data?.message?.content || null;
-  } catch { return null; }
-}
-
-function progress(cb, base, current, total, message) {
+function progress(cb, current, total, message) {
   if (cb) cb({ progress: current, total, message });
 }
 
@@ -287,21 +205,31 @@ async function ragAsk(agentId, question, progressCb) {
   if (!question || !String(question).trim()) throw new TypeError('question is required');
   progress(progressCb, 1, 2, 'Retrieving knowledge from the KB…');
   const hits = kbSearch(agentId, question, 6);
+  const sources = [...new Set(hits.map((h) => h.docName))];
   if (!hits.length) {
     return {
       agent: agentId,
       kb: kbOf(agentId),
-      answer: `No relevant passages found in ${agentId}'s knowledge base for that question.`,
-      sources: [], grounded: false,
+      question,
+      sources: [],
+      groundedCount: 0,
+      passages: [],
+      instruction: `No relevant passages were found in ${agentId}'s knowledge base for that question. Answer from your own knowledge and say plainly that the SHADDAI ${agentId} knowledge base had nothing on this.`,
     };
   }
-  progress(progressCb, 2, 3, 'Reasoning over the passages with a cloud LLM…');
-  const context = hits.map((h, i) => `[Source ${i + 1}] ${h.doc}\n${h.chunk}`).join('\n\n---\n\n');
-  const system = `You are ${agentId}, the SHADDAI agent who ${AGENT_META[agentId]?.goal || 'serves the council'}. Answer ONLY from the source passages below. Be specific and cite sources as [Source n]. If the passages don't answer the question, say so plainly.`;
-  const user = `Knowledge base passages for ${agentId}:\n\n${context}\n\nQuestion: ${question}\n\nAnswer:`;
-  const { text, provider } = await cloudChat(system, user);
-  const sources = [...new Set(hits.map((h) => h.doc))];
-  return { agent: agentId, kb: kbOf(agentId), answer: text, sources, provider, grounded: true };
+  progress(progressCb, 2, 2, 'Passages ready — host model will answer.');
+  const passages = hits.map((h, i) => ({ source: h.docName, score: h.score, text: h.chunkText, index: i + 1 }));
+  const meta = AGENT_META[agentId] || {};
+  return {
+    agent: agentId,
+    role: meta.role,
+    kb: kbOf(agentId),
+    question,
+    sources,
+    groundedCount: hits.length,
+    passages,
+    instruction: `You are ${agentId}, the SHADDAI agent who ${meta.goal || 'serves the council'}. Answer the question using ONLY the passages above. Be specific and cite sources as [Source n]. If the passages do not answer the question, say so plainly rather than inventing.`,
+  };
 }
 
 // Lightweight goal router (public build — keyword match, no engine).
@@ -328,24 +256,22 @@ async function runAgent(goal, agentId, progressCb) {
   if (!goal || !String(goal).trim()) throw new TypeError('goal is required');
   const routed = agentId || routeAgent(goal);
   assertAgent(routed);
-  progress(progressCb, 1, 3, `Routing to ${routed} and retrieving its knowledge…`);
+  progress(progressCb, 1, 2, `Routing to ${routed} and retrieving its knowledge…`);
   const hits = kbSearch(routed, goal, 5);
   const meta = AGENT_META[routed] || {};
-  progress(progressCb, 2, 3, `${routed} is working on the task…`);
-  const context = hits.length
-    ? hits.map((h, i) => `[Source ${i + 1}] ${h.doc}\n${h.chunk}`).join('\n\n---\n\n')
-    : '(no relevant passages retrieved — answer from your own knowledge)';
-  const system = `You are ${routed}, the SHADDAI agent who ${meta.goal || 'serves the council'}. Complete the user's task thoroughly. Use the knowledge passages where relevant.`;
-  const user = `Task: ${goal}\n\nRelevant knowledge:\n${context}\n\nDeliver the completed work.`;
-  const { text, provider } = await cloudChat(system, user);
-  progress(progressCb, 3, 3, 'Done.');
+  progress(progressCb, 2, 2, 'Knowledge ready — host model completes the task.');
+  const passages = hits.map((h, i) => ({ source: h.docName, score: h.score, text: h.chunkText, index: i + 1 }));
+  const sources = [...new Set(hits.map((h) => h.docName))];
   return {
     agent: routed,
+    role: meta.role,
     goal,
-    answer: text,
-    provider,
-    sources: [...new Set(hits.map((h) => h.doc))],
+    kb: kbOf(routed),
+    sources,
     knowledgeUsed: hits.length,
+    passages,
+    instruction: `You are ${routed}, the SHADDAI agent who ${meta.goal || 'serves the council'}. Complete the task below thoroughly, drawing on the retrieved passages above where they help. Cite sources as [Source n] when you use one. Deliver finished work, not a summary of intentions.`,
+    persona: `${routed} — ${meta.role}: ${meta.goal}`,
   };
 }
 
@@ -411,9 +337,10 @@ Usage:
   node mcp-server-rag.js --help          show this help
   node mcp-server-rag.js --version       show version
 
-Environment (backend/.env — ONE cloud key required for rag_ask/run_agent):
-  GROQ_API_KEY, GEMINI_API_KEY, OPENROUTER_API_KEY, ANTHROPIC_API_KEY, OPENAI_API_KEY
-  Optional: DEFAULT_OLLAMA_MODEL / OLLAMA_API_URL / OLLAMA_TIMEOUT_MS (local fallback)
+Key-free: this server needs no API keys, no external LLM, and no localhost.
+The connected host model (Claude) synthesizes answers from the retrieved
+passages. Optional env (all safe defaults):
+  SHADDAI_RAG_KB_PREFIX   (default kb_)
 `;
 
 async function selfTest(full) {
@@ -476,12 +403,12 @@ async function selfTest(full) {
 
   if (full) {
     r = await call('tools/call', { name: 'rag_ask', arguments: { question: 'what is discipline', agent: 'QUILL' } }, { _meta: { progressToken: 'pt1' } });
-    (r && r.result && !r.result.isError && /answer/.test(JSON.stringify(r.result)))
-      ? pass('rag_ask returns a grounded answer') : fail('rag_ask');
+    (r && r.result && !r.result.isError && /passages/.test(JSON.stringify(r.result)) && /instruction/.test(JSON.stringify(r.result)))
+      ? pass('rag_ask returns passages + instruction') : fail('rag_ask');
 
     r = await call('tools/call', { name: 'run_agent', arguments: { goal: 'write a short note on stoic discipline', agent: 'QUILL' } });
-    (r && r.result && !r.result.isError && /answer/.test(JSON.stringify(r.result)))
-      ? pass('run_agent completes') : fail('run_agent');
+    (r && r.result && !r.result.isError && /passages/.test(JSON.stringify(r.result)) && /persona/.test(JSON.stringify(r.result)))
+      ? pass('run_agent returns persona + passages') : fail('run_agent');
   }
 
   const passed = results.filter((x) => x.includes('[PASS]')).length;
