@@ -1,0 +1,39 @@
+{
+  "name": "shaddai-mcp",
+  "version": "2.2.0",
+  "description": "SHADDAI RAG + Agents MCP server (public edition) — the 7-agent council and its mastery knowledge bases, for Claude Desktop / Claude Code / Cursor. Clean, self-contained, no proprietary engine.",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "mcp-server-rag.js",
+  "bin": {
+    "shaddai-mcp": "mcp-server-rag.js"
+  },
+  "scripts": {
+    "start": "node mcp-server-rag.js",
+    "mcp": "node mcp-server-rag.js",
+    "self": "node mcp-server-rag.js --self-test",
+    "self-full": "node mcp-server-rag.js --self-test-full"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "rag",
+    "claude",
+    "agents",
+    "shaddai"
+  ],
+  "files": [
+    "mcp-server-rag.js",
+    "rag-index.js",
+    "data/",
+    ".env.example",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7"
+  }
+}
