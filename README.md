@@ -57,6 +57,28 @@ copy instead of npx, `npm i -g shaddai-mcp` then use the `shaddai-mcp` binary.
 
 - `kb://<agent>` — each agent's knowledge base, browsable (7 resources)
 
+## What you can actually do with it
+
+This isn't just a persona plugin — it ships **7 agent knowledge bases** (85 source
+documents across the mastery stores) so your answers come with receipts, not vibes.
+
+- **Get a grounded strategy council.** Ask `run_agent` — "SHADDAI, I have $5k and a SaaS idea — plan my launch" — and get SHADDAI's orchestration persona **plus** the actual money/strategy passages from ZEROX's KB that the answer should draw on.
+- **Grounded research, cited.** `rag_ask` against ORACLE's KB returns the exact source doc + score behind every claim, then Claude writes the answer from those passages. No hallucinated "well-known" facts — it's grounded in what's actually in the library.
+- **Skip the generic.** `rag_search` lets you peek at the raw TF-IDF hits before asking, so you can steer a question straight at the right source.
+- **Every agent, one line.** Same `npx -y shaddai-mcp` gives you all 7 — SHADDAI (strategy), NEXUS (architecture), ZEROX (money), ORACLE (research), TURTLE (creative), QUILL (writing), PIKADON (security).
+
+**Try these in Claude after adding it:**
+
+1. `run_agent` — "ZEROX, price a Pro tier for a B2B SaaS using your KB."
+2. `rag_ask` — "What does ORACLE's KB say about consistent daily practice?"
+3. `run_agent` — "PIKADON, audit this login flow against your KB."
+4. `rag_search` — "NEXUS — microservices vs monolith tradeoffs"
+
+**The deal:** free, key-free, no server — your copy of Claude becomes a 7-council
+meeting room with a library. There's a richer commercial edition behind the
+SHADDAI platform (live orchestration engine, billing, agent marketplace) — but
+this package is, and stays, the open no-keys front door.
+
 ## Try it
 
 - "`rag_ask` — using the ORACLE knowledge base, what is manifestation?"
