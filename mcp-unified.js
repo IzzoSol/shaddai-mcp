@@ -1041,7 +1041,7 @@ async function loadBackendTools() {
 
 // ── HTTP helpers ─────────────────────────────────────────────────────────────
 async function callAPI(path, body, method) {
-  const headers = { 'Content-Type': 'application/json' };
+  const headers = { 'Content-Type': 'application/json', 'x-shaddai-mcp': '1' };
   if (API_KEY) headers['x-shaddai-key'] = API_KEY;
   if (process.env.SHADDAI_MCP_UID) headers['x-user-id'] = process.env.SHADDAI_MCP_UID;
   const ctrl = new AbortController();
@@ -1057,7 +1057,7 @@ async function callAPI(path, body, method) {
 }
 
 async function callAPIGet(path) {
-  const headers = {};
+  const headers = { 'x-shaddai-mcp': '1' };
   if (API_KEY) headers['x-shaddai-key'] = API_KEY;
   if (process.env.SHADDAI_MCP_UID) headers['x-user-id'] = process.env.SHADDAI_MCP_UID;
   const ctrl = new AbortController();
