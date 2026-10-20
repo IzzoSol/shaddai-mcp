@@ -163,3 +163,33 @@ const CREATIVE_TOOLS = [
 ];
 
 module.exports = { CREATIVE_TOOLS };
+
+// -- Design studio + game dev triggers (so ONE MCP reaches everything) --------
+const DESIGN_STUDIO = "C:\\Users\\Brittany\\shaddai-design-studio";
+function designStudioPortfolio() {
+  const p = path.join(DESIGN_STUDIO, "portfolio", "portfolio.json");
+  if (!fs.existsSync(p)) return "NOT FOUND: " + p;
+  return readFileBounded(p, 8000);
+}
+function designStudioTools() {
+  const d = path.join(DESIGN_STUDIO, "tools");
+  if (!fs.existsSync(d)) return "NOT FOUND: " + d;
+  return JSON.stringify(fs.readdirSync(d));
+}
+function gameDevInfo() {
+  return JSON.stringify({
+    repo: "https://github.com/IzzoSol/shaddai-gamedev-tools",
+    description: "MIT-licensed Three.js game-dev suite: flat-library reference, AI SKILLS-HUB scaffolding, six GENRE-TEMPLATES, MCP bridge for agents to build whole games.",
+    mcp_bridge: "shaddai-gamedev-tools includes an MCP bridge — install separately and point your agent at it.",
+    local: false,
+    note: "Not cloned locally. Install via: git clone https://github.com/IzzoSol/shaddai-gamedev-tools.git"
+  });
+}
+const EXTRA_TRIGGERS = [
+  { name: "design_studio_portfolio", description: "Read the SHADDAI design studio portfolio index (all diagrams, UGC pieces, gallery).", inputSchema: { type: "object", properties: {}, required: [] }, run: designStudioPortfolio },
+  { name: "design_studio_tools", description: "List the tools in the SHADDAI design studio (diagrams, portfolio, gallery, serve).", inputSchema: { type: "object", properties: {}, required: [] }, run: designStudioTools },
+  { name: "gamedev_info", description: "Info + install link for the SHADDAI game-dev tools repo (Three.js suite, MCP bridge, genre templates).", inputSchema: { type: "object", properties: {}, required: [] }, run: gameDevInfo },
+];
+for (const t of EXTRA_TRIGGERS) {
+  if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
+}
