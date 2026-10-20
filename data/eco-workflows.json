@@ -30024,6 +30024,5193 @@
         }
       ],
       "created_at": "2026-10-20T17:48:16.474Z"
+    },
+    "wf-56bcfd24a6": {
+      "id": "wf-56bcfd24a6",
+      "name": "uc-story-structure",
+      "description": "Use case: build a story structure (Pixar 22 + Save the Cat + Story Arc)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "story_pixar_22_rules",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "story_save_the_cat_15",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "story_arc_15_beats",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "shaddai_quill",
+          "args": {
+            "task": "Build a beat sheet for the story"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.134Z"
+    },
+    "wf-0a9d6405e9": {
+      "id": "wf-0a9d6405e9",
+      "name": "uc-story-craft",
+      "description": "Use case: story craft (10 elements + 7 hacks + cinematic)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "story_ten_elements",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "story_7_hacks",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "story_cinematic",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "shaddai_quill",
+          "args": {
+            "task": "Critique and improve the draft"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.212Z"
+    },
+    "wf-efa3346a04": {
+      "id": "wf-efa3346a04",
+      "name": "uc-story-marketing",
+      "description": "Use case: marketing story (bad vs great + 7 hacks + intent values)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "story_bad_vs_great",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "story_7_hacks",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "think_intrinsic_values",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "shaddai_quill",
+          "args": {
+            "task": "Write the marketing narrative"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.247Z"
+    },
+    "wf-e9dd60232d": {
+      "id": "wf-e9dd60232d",
+      "name": "uc-thinking-audit",
+      "description": "Use case: audit your own answer (9 behaviours + thinking maps)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "think_9_behaviours",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "think_thinking_maps",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "think_graphic_organizers",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.305Z"
+    },
+    "wf-72ac975299": {
+      "id": "wf-72ac975299",
+      "name": "uc-research-routing",
+      "description": "Use case: route a research question (map of human knowledge + thinking maps)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "think_map_human_knowledge",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "rag_search",
+          "args": {
+            "query": "{{topic}}",
+            "topK": 5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "think_thinking_maps",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.344Z"
+    },
+    "wf-0deb0ed8f4": {
+      "id": "wf-0deb0ed8f4",
+      "name": "uc-scifi-world",
+      "description": "Use case: sci-fi world design (compass + time travel + story arc)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "think_scifi_compass",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "story_time_travel_taxonomy",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "story_arc_15_beats",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.383Z"
+    },
+    "wf-a8aeadcfb0": {
+      "id": "wf-a8aeadcfb0",
+      "name": "uc-audio-light",
+      "description": "Use case: audio/light/frequency brief (musical spiral + palette)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "creative_musical_spiral",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "turtle_palette",
+          "args": {
+            "mood": "sacred",
+            "count": 5
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.421Z"
+    },
+    "wf-8b3ccc896d": {
+      "id": "wf-8b3ccc896d",
+      "name": "uc-dreamers-plan",
+      "description": "Use case: Dreamers build planning (roadmap + architecture + deploy)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "dreamers_build",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "deploy_plan",
+          "args": {
+            "env": "production"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "test_plan",
+          "args": {
+            "feature": "platform"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.455Z"
+    },
+    "wf-876702e95e": {
+      "id": "wf-876702e95e",
+      "name": "uc-video-ugc",
+      "description": "Use case: UGC video (cinematic + handdraw + motion graphics + social)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "story_cinematic",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "handdraw_plan",
+          "args": {
+            "project": "ugc"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "motion_graphics_plan",
+          "args": {
+            "style": "hyperframes",
+            "duration": "30s"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "social_post",
+          "args": {
+            "topic": "new video",
+            "platform": "tiktok"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.490Z"
+    },
+    "wf-723ff10e45": {
+      "id": "wf-723ff10e45",
+      "name": "uc-teach-bot",
+      "description": "Use case: teach an external bot (onboard + teach + manifest + bridge)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "bot_onboard",
+          "args": {
+            "botName": "Grok"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "tool_manifest",
+          "args": {
+            "category": "teaching"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "teach_grok_bot",
+          "args": {
+            "topic": "research"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.519Z"
+    },
+    "wf-34c6c7fd37": {
+      "id": "wf-34c6c7fd37",
+      "name": "uc-skill-discovery",
+      "description": "Use case: find and use a skill (search + get + run)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_search",
+          "args": {
+            "query": "{{topic}}",
+            "limit": 8
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "skill_count",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.549Z"
+    },
+    "wf-2b5af919f6": {
+      "id": "wf-2b5af919f6",
+      "name": "uc-rag-deep",
+      "description": "Use case: deep research (rag + web + scan + ask)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "rag_search",
+          "args": {
+            "query": "{{question}}",
+            "topK": 6
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "web_search",
+          "args": {
+            "query": "{{question}}",
+            "count": 5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "rag_ask",
+          "args": {
+            "question": "{{question}}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.586Z"
+    },
+    "wf-9c3229ba04": {
+      "id": "wf-9c3229ba04",
+      "name": "uc-rag-expand",
+      "description": "Use case: expand the brain (scan + search back)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "rag_scan",
+          "args": {
+            "url": "{{url}}",
+            "agent": "ORACLE",
+            "query": "{{topic}}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.624Z"
+    },
+    "wf-c12b0c0c53": {
+      "id": "wf-c12b0c0c53",
+      "name": "uc-money-x402",
+      "description": "Use case: paid access flow (x402 info + quote + intent)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "x402_info",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "x402_quote",
+          "args": {
+            "tool": "{{tool}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "x402_intent",
+          "args": {
+            "tool": "{{tool}}",
+            "user_id": "u1"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.654Z"
+    },
+    "wf-7c61dc6d9a": {
+      "id": "wf-7c61dc6d9a",
+      "name": "uc-mastery-sell",
+      "description": "Use case: sell a playbook (create + list + price)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "mastery_create",
+          "args": {
+            "instance_id": "u1",
+            "name": "{{name}}",
+            "price_usdc": 5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "mastery_list",
+          "args": {
+            "instance_id": "u1"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.686Z"
+    },
+    "wf-21f2650986": {
+      "id": "wf-21f2650986",
+      "name": "uc-quality-gate",
+      "description": "Use case: quality gate an answer (9 behaviours + confidence)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "think_9_behaviours",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "rag_ask",
+          "args": {
+            "question": "{{question}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "tool_search",
+          "args": {
+            "query": "verify",
+            "limit": 5
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.719Z"
+    },
+    "wf-1ffd311874": {
+      "id": "wf-1ffd311874",
+      "name": "uc-video-pipeline-full",
+      "description": "Use case: full video pipeline (media + capture + cinematic + social)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "shaddai_media_status",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "shaddai_capture",
+          "args": {
+            "mode": "media",
+            "url": "{{url}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "story_cinematic",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "social_post",
+          "args": {
+            "topic": "video",
+            "platform": "youtube"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.747Z"
+    },
+    "wf-1e8efb94ae": {
+      "id": "wf-1e8efb94ae",
+      "name": "uc-game-studio",
+      "description": "Use case: game studio (gamedev suite + styles + geometry + story arc)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "gamedev_suite",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "styles_list",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "turtle_geometry",
+          "args": {
+            "form": "metatron"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "story_arc_15_beats",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T22:50:23.783Z"
+    },
+    "wf-efe09438fa": {
+      "id": "wf-efe09438fa",
+      "name": "skill-customer-research",
+      "description": "Run the SHADDAI 'customer-research' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_customer-research",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-7cb9e52993": {
+      "id": "wf-7cb9e52993",
+      "name": "skill-directory-submissions",
+      "description": "Run the SHADDAI 'directory-submissions' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_directory-submissions",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-bfe60e3688": {
+      "id": "wf-bfe60e3688",
+      "name": "skill-ab-test-setup",
+      "description": "Run the SHADDAI 'ab-test-setup' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_ab-test-setup",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-39cda44241": {
+      "id": "wf-39cda44241",
+      "name": "skill-page-cro",
+      "description": "Run the SHADDAI 'page-cro' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_page-cro",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-8ab7cddaa3": {
+      "id": "wf-8ab7cddaa3",
+      "name": "skill-seo-audit",
+      "description": "Run the SHADDAI 'seo-audit' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_seo-audit",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-7fea400615": {
+      "id": "wf-7fea400615",
+      "name": "skill-paywall-upgrade-cro",
+      "description": "Run the SHADDAI 'paywall-upgrade-cro' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_paywall-upgrade-cro",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f148162378": {
+      "id": "wf-f148162378",
+      "name": "skill-lead-magnets",
+      "description": "Run the SHADDAI 'lead-magnets' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_lead-magnets",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f7cf3dc931": {
+      "id": "wf-f7cf3dc931",
+      "name": "skill-site-architecture",
+      "description": "Run the SHADDAI 'site-architecture' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_site-architecture",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a121b49b41": {
+      "id": "wf-a121b49b41",
+      "name": "skill-copywriting",
+      "description": "Run the SHADDAI 'copywriting' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_copywriting",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a32f64216b": {
+      "id": "wf-a32f64216b",
+      "name": "skill-image",
+      "description": "Run the SHADDAI 'image' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_image",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-0256741066": {
+      "id": "wf-0256741066",
+      "name": "skill-social-content",
+      "description": "Run the SHADDAI 'social-content' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_social-content",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-36cb85bbe7": {
+      "id": "wf-36cb85bbe7",
+      "name": "skill-content-strategy",
+      "description": "Run the SHADDAI 'content-strategy' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_content-strategy",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-0e151df4a0": {
+      "id": "wf-0e151df4a0",
+      "name": "skill-cold-email",
+      "description": "Run the SHADDAI 'cold-email' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_cold-email",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-7f092f0105": {
+      "id": "wf-7f092f0105",
+      "name": "skill-onboarding-cro",
+      "description": "Run the SHADDAI 'onboarding-cro' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_onboarding-cro",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-7d0f91a038": {
+      "id": "wf-7d0f91a038",
+      "name": "skill-ai-seo",
+      "description": "Run the SHADDAI 'ai-seo' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_ai-seo",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6a9f36108d": {
+      "id": "wf-6a9f36108d",
+      "name": "skill-free-tool-strategy",
+      "description": "Run the SHADDAI 'free-tool-strategy' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_free-tool-strategy",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-120f584903": {
+      "id": "wf-120f584903",
+      "name": "skill-signup-flow-cro",
+      "description": "Run the SHADDAI 'signup-flow-cro' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_signup-flow-cro",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f3ec58b5dd": {
+      "id": "wf-f3ec58b5dd",
+      "name": "skill-community-marketing",
+      "description": "Run the SHADDAI 'community-marketing' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_community-marketing",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-13601cdf06": {
+      "id": "wf-13601cdf06",
+      "name": "skill-form-cro",
+      "description": "Run the SHADDAI 'form-cro' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_form-cro",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-67da628148": {
+      "id": "wf-67da628148",
+      "name": "skill-revops",
+      "description": "Run the SHADDAI 'revops' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_revops",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-12d86e9bff": {
+      "id": "wf-12d86e9bff",
+      "name": "skill-sales-enablement",
+      "description": "Run the SHADDAI 'sales-enablement' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_sales-enablement",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-bb0ef2d9cf": {
+      "id": "wf-bb0ef2d9cf",
+      "name": "skill-analytics-tracking",
+      "description": "Run the SHADDAI 'analytics-tracking' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_analytics-tracking",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-4b2d28e51f": {
+      "id": "wf-4b2d28e51f",
+      "name": "skill-programmatic-seo",
+      "description": "Run the SHADDAI 'programmatic-seo' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_programmatic-seo",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-644bd9355c": {
+      "id": "wf-644bd9355c",
+      "name": "skill-churn-prevention",
+      "description": "Run the SHADDAI 'churn-prevention' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_churn-prevention",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f671ffd81a": {
+      "id": "wf-f671ffd81a",
+      "name": "skill-ad-creative",
+      "description": "Run the SHADDAI 'ad-creative' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_ad-creative",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-c988419102": {
+      "id": "wf-c988419102",
+      "name": "skill-email-sequence",
+      "description": "Run the SHADDAI 'email-sequence' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_email-sequence",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-9ad0008e61": {
+      "id": "wf-9ad0008e61",
+      "name": "skill-competitor-profiling",
+      "description": "Run the SHADDAI 'competitor-profiling' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_competitor-profiling",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e60d96506f": {
+      "id": "wf-e60d96506f",
+      "name": "skill-video",
+      "description": "Run the SHADDAI 'video' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_video",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-312dbb16b3": {
+      "id": "wf-312dbb16b3",
+      "name": "skill-competitor-alternatives",
+      "description": "Run the SHADDAI 'competitor-alternatives' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_competitor-alternatives",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6d9d69c749": {
+      "id": "wf-6d9d69c749",
+      "name": "skill-popup-cro",
+      "description": "Run the SHADDAI 'popup-cro' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_popup-cro",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-7680056fe2": {
+      "id": "wf-7680056fe2",
+      "name": "skill-copy-editing",
+      "description": "Run the SHADDAI 'copy-editing' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_copy-editing",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ff06eeed12": {
+      "id": "wf-ff06eeed12",
+      "name": "skill-schema-markup",
+      "description": "Run the SHADDAI 'schema-markup' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_schema-markup",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-65ab5130aa": {
+      "id": "wf-65ab5130aa",
+      "name": "skill-marketing-ideas",
+      "description": "Run the SHADDAI 'marketing-ideas' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_marketing-ideas",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-c654a016ad": {
+      "id": "wf-c654a016ad",
+      "name": "skill-paid-ads",
+      "description": "Run the SHADDAI 'paid-ads' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_paid-ads",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-b7351aede5": {
+      "id": "wf-b7351aede5",
+      "name": "skill-pricing-strategy",
+      "description": "Run the SHADDAI 'pricing-strategy' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_pricing-strategy",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-360d8bab57": {
+      "id": "wf-360d8bab57",
+      "name": "skill-product-marketing-context",
+      "description": "Run the SHADDAI 'product-marketing-context' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_product-marketing-context",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-9795aaa44b": {
+      "id": "wf-9795aaa44b",
+      "name": "skill-referral-program",
+      "description": "Run the SHADDAI 'referral-program' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_referral-program",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a5d425bee8": {
+      "id": "wf-a5d425bee8",
+      "name": "skill-marketing-psychology",
+      "description": "Run the SHADDAI 'marketing-psychology' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_marketing-psychology",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-476d93b84f": {
+      "id": "wf-476d93b84f",
+      "name": "skill-launch-strategy",
+      "description": "Run the SHADDAI 'launch-strategy' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_launch-strategy",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-0d3153c064": {
+      "id": "wf-0d3153c064",
+      "name": "skill-aso-audit",
+      "description": "Run the SHADDAI 'aso-audit' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_aso-audit",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-41033ff6d5": {
+      "id": "wf-41033ff6d5",
+      "name": "skill-color-theory-gen",
+      "description": "Run the SHADDAI 'color-theory-gen' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_color-theory-gen",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ef4f4257bd": {
+      "id": "wf-ef4f4257bd",
+      "name": "skill-fomo-breaker",
+      "description": "Run the SHADDAI 'fomo-breaker' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_fomo-breaker",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-8305f3a901": {
+      "id": "wf-8305f3a901",
+      "name": "skill-palette-harmony",
+      "description": "Run the SHADDAI 'palette-harmony' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_palette-harmony",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-12e9709036": {
+      "id": "wf-12e9709036",
+      "name": "skill-multi-agent-orchestrator",
+      "description": "Run the SHADDAI 'multi-agent-orchestrator' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_multi-agent-orchestrator",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6235b84c62": {
+      "id": "wf-6235b84c62",
+      "name": "skill-gate-decoder",
+      "description": "Run the SHADDAI 'gate-decoder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_gate-decoder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-62a93750a7": {
+      "id": "wf-62a93750a7",
+      "name": "skill-natal-chart-ai",
+      "description": "Run the SHADDAI 'natal-chart-ai' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_natal-chart-ai",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-295a1b621e": {
+      "id": "wf-295a1b621e",
+      "name": "skill-drum-kit-builder",
+      "description": "Run the SHADDAI 'drum-kit-builder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_drum-kit-builder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-1f89cc445b": {
+      "id": "wf-1f89cc445b",
+      "name": "skill-pomodoro-timer",
+      "description": "Run the SHADDAI 'pomodoro-timer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_pomodoro-timer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ccf7e3dd79": {
+      "id": "wf-ccf7e3dd79",
+      "name": "skill-dna-blueprint",
+      "description": "Run the SHADDAI 'dna-blueprint' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_dna-blueprint",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ff43512ae8": {
+      "id": "wf-ff43512ae8",
+      "name": "skill-master-pw-gen",
+      "description": "Run the SHADDAI 'master-pw-gen' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_master-pw-gen",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-1f6c762131": {
+      "id": "wf-1f6c762131",
+      "name": "skill-savings-optimizer",
+      "description": "Run the SHADDAI 'savings-optimizer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_savings-optimizer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-87b3d0d4c7": {
+      "id": "wf-87b3d0d4c7",
+      "name": "skill-context-broadcaster",
+      "description": "Run the SHADDAI 'context-broadcaster' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_context-broadcaster",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d60dd13fad": {
+      "id": "wf-d60dd13fad",
+      "name": "skill-bio-rhythm-calc",
+      "description": "Run the SHADDAI 'bio-rhythm-calc' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_bio-rhythm-calc",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-4e2587ff86": {
+      "id": "wf-4e2587ff86",
+      "name": "skill-hockey-stick-model",
+      "description": "Run the SHADDAI 'hockey-stick-model' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_hockey-stick-model",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-1715b9a842": {
+      "id": "wf-1715b9a842",
+      "name": "skill-chakra-aligner",
+      "description": "Run the SHADDAI 'chakra-aligner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_chakra-aligner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d309c2d9bb": {
+      "id": "wf-d309c2d9bb",
+      "name": "skill-revenue-scaler",
+      "description": "Run the SHADDAI 'revenue-scaler' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_revenue-scaler",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-4d14464d55": {
+      "id": "wf-4d14464d55",
+      "name": "skill-stellarium-sim",
+      "description": "Run the SHADDAI 'stellarium-sim' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_stellarium-sim",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-586baba7b6": {
+      "id": "wf-586baba7b6",
+      "name": "skill-dependency-mapper",
+      "description": "Run the SHADDAI 'dependency-mapper' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_dependency-mapper",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-15cbe29276": {
+      "id": "wf-15cbe29276",
+      "name": "skill-spaced-rep-builder",
+      "description": "Run the SHADDAI 'spaced-rep-builder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_spaced-rep-builder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-1a742a6ba9": {
+      "id": "wf-1a742a6ba9",
+      "name": "skill-unit-econ-analyzer",
+      "description": "Run the SHADDAI 'unit-econ-analyzer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_unit-econ-analyzer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-20c0b8ab89": {
+      "id": "wf-20c0b8ab89",
+      "name": "skill-cron-scheduler",
+      "description": "Run the SHADDAI 'cron-scheduler' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_cron-scheduler",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-734c850996": {
+      "id": "wf-734c850996",
+      "name": "skill-expense-tracker",
+      "description": "Run the SHADDAI 'expense-tracker' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_expense-tracker",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-bb53df7f5b": {
+      "id": "wf-bb53df7f5b",
+      "name": "skill-gantt-planner",
+      "description": "Run the SHADDAI 'gantt-planner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_gantt-planner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ff270348f5": {
+      "id": "wf-ff270348f5",
+      "name": "skill-2fa-enroller",
+      "description": "Run the SHADDAI '2fa-enroller' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_2fa-enroller",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ec3bdafe3f": {
+      "id": "wf-ec3bdafe3f",
+      "name": "skill-vite-builder",
+      "description": "Run the SHADDAI 'vite-builder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_vite-builder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-82fad38b6a": {
+      "id": "wf-82fad38b6a",
+      "name": "skill-zero-based-budget",
+      "description": "Run the SHADDAI 'zero-based-budget' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_zero-based-budget",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f05f05300a": {
+      "id": "wf-f05f05300a",
+      "name": "skill-reflexology-map",
+      "description": "Run the SHADDAI 'reflexology-map' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_reflexology-map",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e55dcedcb0": {
+      "id": "wf-e55dcedcb0",
+      "name": "skill-net-worth-calc",
+      "description": "Run the SHADDAI 'net-worth-calc' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_net-worth-calc",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-570ab37387": {
+      "id": "wf-570ab37387",
+      "name": "skill-obsidian-neural",
+      "description": "Run the SHADDAI 'obsidian-neural' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_obsidian-neural",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-64dea0bc28": {
+      "id": "wf-64dea0bc28",
+      "name": "skill-webauthn-setup",
+      "description": "Run the SHADDAI 'webauthn-setup' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_webauthn-setup",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d357559d50": {
+      "id": "wf-d357559d50",
+      "name": "skill-negative-space",
+      "description": "Run the SHADDAI 'negative-space' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_negative-space",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-db3dc66706": {
+      "id": "wf-db3dc66706",
+      "name": "skill-debt-payoff-optimizer",
+      "description": "Run the SHADDAI 'debt-payoff-optimizer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_debt-payoff-optimizer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-b1e31c8b68": {
+      "id": "wf-b1e31c8b68",
+      "name": "skill-binary-music-player",
+      "description": "Run the SHADDAI 'binary-music-player' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_binary-music-player",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-3ab47b1a6b": {
+      "id": "wf-3ab47b1a6b",
+      "name": "skill-ephemeris-gen",
+      "description": "Run the SHADDAI 'ephemeris-gen' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_ephemeris-gen",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-5cdf51e9cd": {
+      "id": "wf-5cdf51e9cd",
+      "name": "skill-envelope-system",
+      "description": "Run the SHADDAI 'envelope-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_envelope-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-3f11313926": {
+      "id": "wf-3f11313926",
+      "name": "skill-meridian-flow",
+      "description": "Run the SHADDAI 'meridian-flow' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_meridian-flow",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-7172025d70": {
+      "id": "wf-7172025d70",
+      "name": "skill-fibonacci-spiral",
+      "description": "Run the SHADDAI 'fibonacci-spiral' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_fibonacci-spiral",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-cb39c49d6b": {
+      "id": "wf-cb39c49d6b",
+      "name": "skill-chiaroscuro-light",
+      "description": "Run the SHADDAI 'chiaroscuro-light' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_chiaroscuro-light",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-62b663e858": {
+      "id": "wf-62b663e858",
+      "name": "skill-creative-writing",
+      "description": "Run the SHADDAI 'creative-writing' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_creative-writing",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-5753968b6d": {
+      "id": "wf-5753968b6d",
+      "name": "skill-ltv-calculator",
+      "description": "Run the SHADDAI 'ltv-calculator' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_ltv-calculator",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-107c2a2dbd": {
+      "id": "wf-107c2a2dbd",
+      "name": "skill-character-builder",
+      "description": "Run the SHADDAI 'character-builder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_character-builder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ea608d632a": {
+      "id": "wf-ea608d632a",
+      "name": "skill-velocity-tracker",
+      "description": "Run the SHADDAI 'velocity-tracker' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_velocity-tracker",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-eb4cc25d7e": {
+      "id": "wf-eb4cc25d7e",
+      "name": "skill-texture-layering",
+      "description": "Run the SHADDAI 'texture-layering' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_texture-layering",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-62f189b3dd": {
+      "id": "wf-62f189b3dd",
+      "name": "skill-emergency-fund-builder",
+      "description": "Run the SHADDAI 'emergency-fund-builder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_emergency-fund-builder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-cceff393dd": {
+      "id": "wf-cceff393dd",
+      "name": "skill-burndown-chart",
+      "description": "Run the SHADDAI 'burndown-chart' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_burndown-chart",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f19c582485": {
+      "id": "wf-f19c582485",
+      "name": "skill-choke-point-finder",
+      "description": "Run the SHADDAI 'choke-point-finder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_choke-point-finder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-918f885b99": {
+      "id": "wf-918f885b99",
+      "name": "skill-50-30-20-rule",
+      "description": "Run the SHADDAI '50-30-20-rule' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_50-30-20-rule",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-4949995fe5": {
+      "id": "wf-4949995fe5",
+      "name": "skill-argon2-hasher",
+      "description": "Run the SHADDAI 'argon2-hasher' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_argon2-hasher",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-c757292c34": {
+      "id": "wf-c757292c34",
+      "name": "skill-blog-post-generator",
+      "description": "Run the SHADDAI 'blog-post-generator' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_blog-post-generator",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e25e17ec6e": {
+      "id": "wf-e25e17ec6e",
+      "name": "skill-copywriting-sales",
+      "description": "Run the SHADDAI 'copywriting-sales' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_copywriting-sales",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-521e4ee6f2": {
+      "id": "wf-521e4ee6f2",
+      "name": "skill-kanban-boarder",
+      "description": "Run the SHADDAI 'kanban-boarder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_kanban-boarder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-57fdefa61f": {
+      "id": "wf-57fdefa61f",
+      "name": "skill-dialogue-writer",
+      "description": "Run the SHADDAI 'dialogue-writer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_dialogue-writer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a35b6f9d34": {
+      "id": "wf-a35b6f9d34",
+      "name": "skill-worldbuilding",
+      "description": "Run the SHADDAI 'worldbuilding' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_worldbuilding",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-732227646e": {
+      "id": "wf-732227646e",
+      "name": "skill-tone-shifter",
+      "description": "Run the SHADDAI 'tone-shifter' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_tone-shifter",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-66ff478d04": {
+      "id": "wf-66ff478d04",
+      "name": "skill-social-media-compose",
+      "description": "Run the SHADDAI 'social-media-compose' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_social-media-compose",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-493079d7a4": {
+      "id": "wf-493079d7a4",
+      "name": "skill-trading-strategies",
+      "description": "Run the SHADDAI 'trading-strategies' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_trading-strategies",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e37cacf57f": {
+      "id": "wf-e37cacf57f",
+      "name": "skill-email-compose",
+      "description": "Run the SHADDAI 'email-compose' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_email-compose",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6d687a2786": {
+      "id": "wf-6d687a2786",
+      "name": "skill-proofread-edit",
+      "description": "Run the SHADDAI 'proofread-edit' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_proofread-edit",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d13fc72b0a": {
+      "id": "wf-d13fc72b0a",
+      "name": "skill-headline-generator",
+      "description": "Run the SHADDAI 'headline-generator' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_headline-generator",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-b1624d7961": {
+      "id": "wf-b1624d7961",
+      "name": "skill-script-writer",
+      "description": "Run the SHADDAI 'script-writer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_script-writer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-0535863a60": {
+      "id": "wf-0535863a60",
+      "name": "skill-cost-optimization",
+      "description": "Run the SHADDAI 'cost-optimization' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_cost-optimization",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-3464348cfe": {
+      "id": "wf-3464348cfe",
+      "name": "skill-speech-writer",
+      "description": "Run the SHADDAI 'speech-writer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_speech-writer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-335441590e": {
+      "id": "wf-335441590e",
+      "name": "skill-newsletter-compose",
+      "description": "Run the SHADDAI 'newsletter-compose' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_newsletter-compose",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-99e895ee26": {
+      "id": "wf-99e895ee26",
+      "name": "skill-plot-outline",
+      "description": "Run the SHADDAI 'plot-outline' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_plot-outline",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e1fa3bf044": {
+      "id": "wf-e1fa3bf044",
+      "name": "skill-cbt-therapy",
+      "description": "Run the SHADDAI 'cbt-therapy' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_cbt-therapy",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-30f3694f58": {
+      "id": "wf-30f3694f58",
+      "name": "skill-backup-recovery",
+      "description": "Run the SHADDAI 'backup-recovery' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_backup-recovery",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-256c6b5ac7": {
+      "id": "wf-256c6b5ac7",
+      "name": "skill-agent-communication",
+      "description": "Run the SHADDAI 'agent-communication' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_agent-communication",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-39d1b1752e": {
+      "id": "wf-39d1b1752e",
+      "name": "skill-mythology-folklore",
+      "description": "Run the SHADDAI 'mythology-folklore' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_mythology-folklore",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-1d9506058b": {
+      "id": "wf-1d9506058b",
+      "name": "skill-astrology-basics",
+      "description": "Run the SHADDAI 'astrology-basics' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_astrology-basics",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-eceb42c359": {
+      "id": "wf-eceb42c359",
+      "name": "skill-linux-admin",
+      "description": "Run the SHADDAI 'linux-admin' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_linux-admin",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-da98e49cf3": {
+      "id": "wf-da98e49cf3",
+      "name": "skill-scrying-divination",
+      "description": "Run the SHADDAI 'scrying-divination' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_scrying-divination",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a28fd714b6": {
+      "id": "wf-a28fd714b6",
+      "name": "skill-agile-project-management",
+      "description": "Run the SHADDAI 'agile-project-management' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_agile-project-management",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-c37ce75b47": {
+      "id": "wf-c37ce75b47",
+      "name": "skill-networking-basics",
+      "description": "Run the SHADDAI 'networking-basics' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_networking-basics",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6f77b73d83": {
+      "id": "wf-6f77b73d83",
+      "name": "skill-monitoring-alerting",
+      "description": "Run the SHADDAI 'monitoring-alerting' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_monitoring-alerting",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e73fa9e155": {
+      "id": "wf-e73fa9e155",
+      "name": "skill-data-engineering",
+      "description": "Run the SHADDAI 'data-engineering' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_data-engineering",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ecc4f70923": {
+      "id": "wf-ecc4f70923",
+      "name": "skill-yoga-practices",
+      "description": "Run the SHADDAI 'yoga-practices' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_yoga-practices",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-20b3bb2854": {
+      "id": "wf-20b3bb2854",
+      "name": "skill-aromatherapy",
+      "description": "Run the SHADDAI 'aromatherapy' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_aromatherapy",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d39338ae69": {
+      "id": "wf-d39338ae69",
+      "name": "skill-cloud-architecture",
+      "description": "Run the SHADDAI 'cloud-architecture' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_cloud-architecture",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a2d4749dbb": {
+      "id": "wf-a2d4749dbb",
+      "name": "skill-resume-builder",
+      "description": "Run the SHADDAI 'resume-builder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_resume-builder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-655485bc05": {
+      "id": "wf-655485bc05",
+      "name": "skill-acupuncture",
+      "description": "Run the SHADDAI 'acupuncture' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_acupuncture",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6950bc89ad": {
+      "id": "wf-6950bc89ad",
+      "name": "skill-homeopathy",
+      "description": "Run the SHADDAI 'homeopathy' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_homeopathy",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-04581f7f1c": {
+      "id": "wf-04581f7f1c",
+      "name": "skill-devops-automation",
+      "description": "Run the SHADDAI 'devops-automation' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_devops-automation",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-df2a83f5d1": {
+      "id": "wf-df2a83f5d1",
+      "name": "skill-poetry-generator",
+      "description": "Run the SHADDAI 'poetry-generator' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_poetry-generator",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-de26b4978d": {
+      "id": "wf-de26b4978d",
+      "name": "skill-testing-qa",
+      "description": "Run the SHADDAI 'testing-qa' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_testing-qa",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e045fbf6eb": {
+      "id": "wf-e045fbf6eb",
+      "name": "skill-disk-space-report-generator",
+      "description": "Run the SHADDAI 'disk-space-report-generator' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_disk-space-report-generator",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ce36a8e6d5": {
+      "id": "wf-ce36a8e6d5",
+      "name": "skill-duplicate-file-detector",
+      "description": "Run the SHADDAI 'duplicate-file-detector' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_duplicate-file-detector",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-dc74e3b2eb": {
+      "id": "wf-dc74e3b2eb",
+      "name": "skill-downloads-folder-cleaner",
+      "description": "Run the SHADDAI 'downloads-folder-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_downloads-folder-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-5ec86f7b4e": {
+      "id": "wf-5ec86f7b4e",
+      "name": "skill-undefined-property-access",
+      "description": "Run the SHADDAI 'undefined-property-access' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_undefined-property-access",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-9d8f409247": {
+      "id": "wf-9d8f409247",
+      "name": "skill-sprite-path-verification",
+      "description": "Run the SHADDAI 'sprite-path-verification' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_sprite-path-verification",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-2cf2195f2f": {
+      "id": "wf-2cf2195f2f",
+      "name": "skill-zipped-folder-analyzer",
+      "description": "Run the SHADDAI 'zipped-folder-analyzer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_zipped-folder-analyzer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6487d5240d": {
+      "id": "wf-6487d5240d",
+      "name": "skill-archive-folder-analyzer",
+      "description": "Run the SHADDAI 'archive-folder-analyzer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_archive-folder-analyzer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ca1795d72d": {
+      "id": "wf-ca1795d72d",
+      "name": "skill-garbage-collection-debug",
+      "description": "Run the SHADDAI 'garbage-collection-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_garbage-collection-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-14c63b5b04": {
+      "id": "wf-14c63b5b04",
+      "name": "skill-old-installer-remover",
+      "description": "Run the SHADDAI 'old-installer-remover' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_old-installer-remover",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ead0b24b76": {
+      "id": "wf-ead0b24b76",
+      "name": "skill-entity-component-system",
+      "description": "Run the SHADDAI 'entity-component-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_entity-component-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-20c0d9cda0": {
+      "id": "wf-20c0d9cda0",
+      "name": "skill-thumbnail-cache-cleaner",
+      "description": "Run the SHADDAI 'thumbnail-cache-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_thumbnail-cache-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f7d1855ba5": {
+      "id": "wf-f7d1855ba5",
+      "name": "skill-local-storage-available",
+      "description": "Run the SHADDAI 'local-storage-available' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_local-storage-available",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a4530974f6": {
+      "id": "wf-a4530974f6",
+      "name": "skill-game-constructor-debug",
+      "description": "Run the SHADDAI 'game-constructor-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-constructor-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-2e72b443a6": {
+      "id": "wf-2e72b443a6",
+      "name": "skill-disk-space-analyzer",
+      "description": "Run the SHADDAI 'disk-space-analyzer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_disk-space-analyzer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-552dd4eda9": {
+      "id": "wf-552dd4eda9",
+      "name": "skill-framerate-optimization",
+      "description": "Run the SHADDAI 'framerate-optimization' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_framerate-optimization",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d037548f2a": {
+      "id": "wf-d037548f2a",
+      "name": "skill-emotional-resilience",
+      "description": "Run the SHADDAI 'emotional-resilience' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_emotional-resilience",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e7ff0fb4a0": {
+      "id": "wf-e7ff0fb4a0",
+      "name": "skill-game-version-migration",
+      "description": "Run the SHADDAI 'game-version-migration' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-version-migration",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-53ea77c704": {
+      "id": "wf-53ea77c704",
+      "name": "skill-delta-time-calculation",
+      "description": "Run the SHADDAI 'delta-time-calculation' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_delta-time-calculation",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-cb389dd908": {
+      "id": "wf-cb389dd908",
+      "name": "skill-game-startup-debug",
+      "description": "Run the SHADDAI 'game-startup-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-startup-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-c7c3febb4f": {
+      "id": "wf-c7c3febb4f",
+      "name": "skill-obsidian-vault-cleaner",
+      "description": "Run the SHADDAI 'obsidian-vault-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_obsidian-vault-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-9444477ab2": {
+      "id": "wf-9444477ab2",
+      "name": "skill-code-baseline-compare",
+      "description": "Run the SHADDAI 'code-baseline-compare' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_code-baseline-compare",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ee0d50ad0b": {
+      "id": "wf-ee0d50ad0b",
+      "name": "skill-game-loop-not-running",
+      "description": "Run the SHADDAI 'game-loop-not-running' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-loop-not-running",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-eede3fdba3": {
+      "id": "wf-eede3fdba3",
+      "name": "skill-update-function-debug",
+      "description": "Run the SHADDAI 'update-function-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_update-function-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-98f4885e8f": {
+      "id": "wf-98f4885e8f",
+      "name": "skill-node-modules-cleaner",
+      "description": "Run the SHADDAI 'node-modules-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_node-modules-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a84f6d97d3": {
+      "id": "wf-a84f6d97d3",
+      "name": "skill-prototype-chain-debug",
+      "description": "Run the SHADDAI 'prototype-chain-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_prototype-chain-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-fd97c9310d": {
+      "id": "wf-fd97c9310d",
+      "name": "skill-render-function-debug",
+      "description": "Run the SHADDAI 'render-function-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_render-function-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-dec4f8ef4e": {
+      "id": "wf-dec4f8ef4e",
+      "name": "skill-windows-update-cleaner",
+      "description": "Run the SHADDAI 'windows-update-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_windows-update-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-21c51f0184": {
+      "id": "wf-21c51f0184",
+      "name": "skill-animation-frame-debug",
+      "description": "Run the SHADDAI 'animation-frame-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_animation-frame-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-7e2b1b7ee9": {
+      "id": "wf-7e2b1b7ee9",
+      "name": "skill-browser-debug-console",
+      "description": "Run the SHADDAI 'browser-debug-console' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_browser-debug-console",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-235725eb1a": {
+      "id": "wf-235725eb1a",
+      "name": "skill-global-variable-debug",
+      "description": "Run the SHADDAI 'global-variable-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_global-variable-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ef3a183184": {
+      "id": "wf-ef3a183184",
+      "name": "skill-screen-resize-handler",
+      "description": "Run the SHADDAI 'screen-resize-handler' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_screen-resize-handler",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f23a505eeb": {
+      "id": "wf-f23a505eeb",
+      "name": "skill-browser-console-debug",
+      "description": "Run the SHADDAI 'browser-console-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_browser-console-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a9aac14277": {
+      "id": "wf-a9aac14277",
+      "name": "skill-recycle-bin-analyzer",
+      "description": "Run the SHADDAI 'recycle-bin-analyzer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_recycle-bin-analyzer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ba54cfba5c": {
+      "id": "wf-ba54cfba5c",
+      "name": "skill-onedrive-sync-cleaner",
+      "description": "Run the SHADDAI 'onedrive-sync-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_onedrive-sync-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-0eea6210b9": {
+      "id": "wf-0eea6210b9",
+      "name": "skill-screen-element-debug",
+      "description": "Run the SHADDAI 'screen-element-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_screen-element-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-5720eab383": {
+      "id": "wf-5720eab383",
+      "name": "skill-backup-folder-cleaner",
+      "description": "Run the SHADDAI 'backup-folder-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_backup-folder-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-31b0f10de5": {
+      "id": "wf-31b0f10de5",
+      "name": "skill-fighting-game-combat",
+      "description": "Run the SHADDAI 'fighting-game-combat' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_fighting-game-combat",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-bf28523f9b": {
+      "id": "wf-bf28523f9b",
+      "name": "skill-canvas-context-debug",
+      "description": "Run the SHADDAI 'canvas-context-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_canvas-context-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-cf0d1af0f6": {
+      "id": "wf-cf0d1af0f6",
+      "name": "skill-input-not-responding",
+      "description": "Run the SHADDAI 'input-not-responding' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_input-not-responding",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6f567b5b24": {
+      "id": "wf-6f567b5b24",
+      "name": "skill-event-listener-debug",
+      "description": "Run the SHADDAI 'event-listener-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_event-listener-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6f4b1e812b": {
+      "id": "wf-6f4b1e812b",
+      "name": "skill-game-loop-breakpoint",
+      "description": "Run the SHADDAI 'game-loop-breakpoint' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-loop-breakpoint",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-fb5865b20e": {
+      "id": "wf-fb5865b20e",
+      "name": "skill-large-file-finder",
+      "description": "Run the SHADDAI 'large-file-finder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_large-file-finder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-3114e7644f": {
+      "id": "wf-3114e7644f",
+      "name": "skill-module-pattern-debug",
+      "description": "Run the SHADDAI 'module-pattern-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_module-pattern-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-2caf8c5fbe": {
+      "id": "wf-2caf8c5fbe",
+      "name": "skill-collision-detection",
+      "description": "Run the SHADDAI 'collision-detection' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_collision-detection",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-5e9fcbe55d": {
+      "id": "wf-5e9fcbe55d",
+      "name": "skill-large-media-finder",
+      "description": "Run the SHADDAI 'large-media-finder' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_large-media-finder",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-2ed8e9b7d4": {
+      "id": "wf-2ed8e9b7d4",
+      "name": "skill-function-call-debug",
+      "description": "Run the SHADDAI 'function-call-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_function-call-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-484848ef86": {
+      "id": "wf-484848ef86",
+      "name": "skill-docker-cache-cleaner",
+      "description": "Run the SHADDAI 'docker-cache-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_docker-cache-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-9c979d54ff": {
+      "id": "wf-9c979d54ff",
+      "name": "skill-reference-error-fix",
+      "description": "Run the SHADDAI 'reference-error-fix' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_reference-error-fix",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d06a2b70b7": {
+      "id": "wf-d06a2b70b7",
+      "name": "skill-missing-class-error",
+      "description": "Run the SHADDAI 'missing-class-error' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_missing-class-error",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-dbefe0efe4": {
+      "id": "wf-dbefe0efe4",
+      "name": "skill-vscode-syntax-check",
+      "description": "Run the SHADDAI 'vscode-syntax-check' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_vscode-syntax-check",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-aade6a00e9": {
+      "id": "wf-aade6a00e9",
+      "name": "skill-parallax-background",
+      "description": "Run the SHADDAI 'parallax-background' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_parallax-background",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-c454301740": {
+      "id": "wf-c454301740",
+      "name": "skill-audio-context-debug",
+      "description": "Run the SHADDAI 'audio-context-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_audio-context-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-70f943378b": {
+      "id": "wf-70f943378b",
+      "name": "skill-game-fix-minimax",
+      "description": "Run the SHADDAI 'game-fix-minimax' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-fix-minimax",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-8e2666de20": {
+      "id": "wf-8e2666de20",
+      "name": "skill-sprite-not-loading",
+      "description": "Run the SHADDAI 'sprite-not-loading' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_sprite-not-loading",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-1c85b7250d": {
+      "id": "wf-1c85b7250d",
+      "name": "skill-boss-battle-design",
+      "description": "Run the SHADDAI 'boss-battle-design' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_boss-battle-design",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a126407c61": {
+      "id": "wf-a126407c61",
+      "name": "skill-procedural-sprites",
+      "description": "Run the SHADDAI 'procedural-sprites' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_procedural-sprites",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-349acfbbd6": {
+      "id": "wf-349acfbbd6",
+      "name": "skill-platformer-physics",
+      "description": "Run the SHADDAI 'platformer-physics' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_platformer-physics",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-b9352609b3": {
+      "id": "wf-b9352609b3",
+      "name": "skill-fallback-rendering",
+      "description": "Run the SHADDAI 'fallback-rendering' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_fallback-rendering",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-eb32154ee1": {
+      "id": "wf-eb32154ee1",
+      "name": "skill-html-element-debug",
+      "description": "Run the SHADDAI 'html-element-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_html-element-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-8ebc5bebcb": {
+      "id": "wf-8ebc5bebcb",
+      "name": "skill-animation-frame-id",
+      "description": "Run the SHADDAI 'animation-frame-id' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_animation-frame-id",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f4e57650fd": {
+      "id": "wf-f4e57650fd",
+      "name": "skill-radio-system-debug",
+      "description": "Run the SHADDAI 'radio-system-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_radio-system-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-60784b96da": {
+      "id": "wf-60784b96da",
+      "name": "skill-boss-pattern-debug",
+      "description": "Run the SHADDAI 'boss-pattern-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_boss-pattern-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-1ae8c3ee0b": {
+      "id": "wf-1ae8c3ee0b",
+      "name": "skill-log-file-cleaner",
+      "description": "Run the SHADDAI 'log-file-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_log-file-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-eecf7e723d": {
+      "id": "wf-eecf7e723d",
+      "name": "skill-html-canvas-check",
+      "description": "Run the SHADDAI 'html-canvas-check' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_html-canvas-check",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-90d3966790": {
+      "id": "wf-90d3966790",
+      "name": "skill-local-storage-save",
+      "description": "Run the SHADDAI 'local-storage-save' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_local-storage-save",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-345f0f2a14": {
+      "id": "wf-345f0f2a14",
+      "name": "skill-flower-of-life",
+      "description": "Run the SHADDAI 'flower-of-life' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_flower-of-life",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-0550173957": {
+      "id": "wf-0550173957",
+      "name": "skill-image-onload-debug",
+      "description": "Run the SHADDAI 'image-onload-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_image-onload-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-2808b6f1dd": {
+      "id": "wf-2808b6f1dd",
+      "name": "skill-keyboard-shortcuts",
+      "description": "Run the SHADDAI 'keyboard-shortcuts' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_keyboard-shortcuts",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-db38ce3d17": {
+      "id": "wf-db38ce3d17",
+      "name": "skill-prompt-sanitizer",
+      "description": "Run the SHADDAI 'prompt-sanitizer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_prompt-sanitizer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-b36beed59a": {
+      "id": "wf-b36beed59a",
+      "name": "skill-git-clone-cleaner",
+      "description": "Run the SHADDAI 'git-clone-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_git-clone-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a01bc33516": {
+      "id": "wf-a01bc33516",
+      "name": "skill-temp-file-cleaner",
+      "description": "Run the SHADDAI 'temp-file-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_temp-file-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-9a855a5e3a": {
+      "id": "wf-9a855a5e3a",
+      "name": "skill-game-loop-startup",
+      "description": "Run the SHADDAI 'game-loop-startup' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-loop-startup",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d846ceb999": {
+      "id": "wf-d846ceb999",
+      "name": "skill-numerology-calc",
+      "description": "Run the SHADDAI 'numerology-calc' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_numerology-calc",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-b352f2ade1": {
+      "id": "wf-b352f2ade1",
+      "name": "skill-window-load-event",
+      "description": "Run the SHADDAI 'window-load-event' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_window-load-event",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-b63ea806bf": {
+      "id": "wf-b63ea806bf",
+      "name": "skill-array-empty-debug",
+      "description": "Run the SHADDAI 'array-empty-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_array-empty-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d50fdabea6": {
+      "id": "wf-d50fdabea6",
+      "name": "skill-projectile-motion",
+      "description": "Run the SHADDAI 'projectile-motion' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_projectile-motion",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ed30cb5649": {
+      "id": "wf-ed30cb5649",
+      "name": "skill-css-display-debug",
+      "description": "Run the SHADDAI 'css-display-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_css-display-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-9942606286": {
+      "id": "wf-9942606286",
+      "name": "skill-class-order-issue",
+      "description": "Run the SHADDAI 'class-order-issue' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_class-order-issue",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-145acdeee3": {
+      "id": "wf-145acdeee3",
+      "name": "skill-screen-transition",
+      "description": "Run the SHADDAI 'screen-transition' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_screen-transition",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-c999899ae5": {
+      "id": "wf-c999899ae5",
+      "name": "skill-minimal-test-case",
+      "description": "Run the SHADDAI 'minimal-test-case' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_minimal-test-case",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-4435f84fd5": {
+      "id": "wf-4435f84fd5",
+      "name": "skill-canvas-renderer",
+      "description": "Run the SHADDAI 'canvas-renderer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_canvas-renderer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-c1ec110068": {
+      "id": "wf-c1ec110068",
+      "name": "skill-checkpoint-system",
+      "description": "Run the SHADDAI 'checkpoint-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_checkpoint-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-7cc3fbd583": {
+      "id": "wf-7cc3fbd583",
+      "name": "skill-canvas-game-loop",
+      "description": "Run the SHADDAI 'canvas-game-loop' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_canvas-game-loop",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-cb44fc546e": {
+      "id": "wf-cb44fc546e",
+      "name": "skill-game-error-catch",
+      "description": "Run the SHADDAI 'game-error-catch' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-error-catch",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f50b420b6e": {
+      "id": "wf-f50b420b6e",
+      "name": "skill-canvas-blank-fix",
+      "description": "Run the SHADDAI 'canvas-blank-fix' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_canvas-blank-fix",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f8aa0b8c7d": {
+      "id": "wf-f8aa0b8c7d",
+      "name": "skill-hitbox-debugging",
+      "description": "Run the SHADDAI 'hitbox-debugging' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_hitbox-debugging",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-55162c4f76": {
+      "id": "wf-55162c4f76",
+      "name": "skill-game-init-order",
+      "description": "Run the SHADDAI 'game-init-order' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-init-order",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-be2e590e48": {
+      "id": "wf-be2e590e48",
+      "name": "skill-script-tag-debug",
+      "description": "Run the SHADDAI 'script-tag-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_script-tag-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-9c61945fda": {
+      "id": "wf-9c61945fda",
+      "name": "skill-game-loop-start",
+      "description": "Run the SHADDAI 'game-loop-start' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-loop-start",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-5a41e0ef79": {
+      "id": "wf-5a41e0ef79",
+      "name": "skill-game-state-debug",
+      "description": "Run the SHADDAI 'game-state-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-state-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-6995b3568d": {
+      "id": "wf-6995b3568d",
+      "name": "skill-tilemap-renderer",
+      "description": "Run the SHADDAI 'tilemap-renderer' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_tilemap-renderer",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-32c4ab3839": {
+      "id": "wf-32c4ab3839",
+      "name": "skill-sprite-path-fix",
+      "description": "Run the SHADDAI 'sprite-path-fix' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_sprite-path-fix",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-2e8ea16551": {
+      "id": "wf-2e8ea16551",
+      "name": "skill-json-parse-error",
+      "description": "Run the SHADDAI 'json-parse-error' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_json-parse-error",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-bb0653eee1": {
+      "id": "wf-bb0653eee1",
+      "name": "skill-npm-cache-cleaner",
+      "description": "Run the SHADDAI 'npm-cache-cleaner' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_npm-cache-cleaner",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-ca242b998d": {
+      "id": "wf-ca242b998d",
+      "name": "skill-memory-leak-fix",
+      "description": "Run the SHADDAI 'memory-leak-fix' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_memory-leak-fix",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e174d65efe": {
+      "id": "wf-e174d65efe",
+      "name": "skill-try-catch-debug",
+      "description": "Run the SHADDAI 'try-catch-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_try-catch-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a8d9c07a4c": {
+      "id": "wf-a8d9c07a4c",
+      "name": "skill-level-generator",
+      "description": "Run the SHADDAI 'level-generator' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_level-generator",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a26e4b12df": {
+      "id": "wf-a26e4b12df",
+      "name": "skill-particle-system",
+      "description": "Run the SHADDAI 'particle-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_particle-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-06390e89b9": {
+      "id": "wf-06390e89b9",
+      "name": "skill-fomo-manager",
+      "description": "Run the SHADDAI 'fomo-manager' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_fomo-manager",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-235a67f192": {
+      "id": "wf-235a67f192",
+      "name": "skill-ui-menu-system",
+      "description": "Run the SHADDAI 'ui-menu-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_ui-menu-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-cd6ed8c8e7": {
+      "id": "wf-cd6ed8c8e7",
+      "name": "skill-type-error-fix",
+      "description": "Run the SHADDAI 'type-error-fix' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_type-error-fix",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-746228f9d0": {
+      "id": "wf-746228f9d0",
+      "name": "skill-sprite-loader",
+      "description": "Run the SHADDAI 'sprite-loader' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_sprite-loader",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-fb17e822fb": {
+      "id": "wf-fb17e822fb",
+      "name": "skill-touch-controls",
+      "description": "Run the SHADDAI 'touch-controls' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_touch-controls",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-60acde0823": {
+      "id": "wf-60acde0823",
+      "name": "skill-loading-screen",
+      "description": "Run the SHADDAI 'loading-screen' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_loading-screen",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-36b3e802a8": {
+      "id": "wf-36b3e802a8",
+      "name": "skill-scoring-system",
+      "description": "Run the SHADDAI 'scoring-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_scoring-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-8eb5fd108d": {
+      "id": "wf-8eb5fd108d",
+      "name": "skill-audit-logger",
+      "description": "Run the SHADDAI 'audit-logger' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_audit-logger",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a83c167d78": {
+      "id": "wf-a83c167d78",
+      "name": "skill-rbac-guard",
+      "description": "Run the SHADDAI 'rbac-guard' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_rbac-guard",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-3bd2a03297": {
+      "id": "wf-3bd2a03297",
+      "name": "skill-input-handler",
+      "description": "Run the SHADDAI 'input-handler' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_input-handler",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-5334eb9b0f": {
+      "id": "wf-5334eb9b0f",
+      "name": "skill-vs-mode-debug",
+      "description": "Run the SHADDAI 'vs-mode-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_vs-mode-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a40396176e": {
+      "id": "wf-a40396176e",
+      "name": "skill-physics-debug",
+      "description": "Run the SHADDAI 'physics-debug' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_physics-debug",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-438222d681": {
+      "id": "wf-438222d681",
+      "name": "skill-audio-manager",
+      "description": "Run the SHADDAI 'audio-manager' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_audio-manager",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-504b6ccc8c": {
+      "id": "wf-504b6ccc8c",
+      "name": "skill-camera-system",
+      "description": "Run the SHADDAI 'camera-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_camera-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-bf7791d2dd": {
+      "id": "wf-bf7791d2dd",
+      "name": "skill-health-system",
+      "description": "Run the SHADDAI 'health-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_health-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-48aadc36ef": {
+      "id": "wf-48aadc36ef",
+      "name": "skill-hud-rendering",
+      "description": "Run the SHADDAI 'hud-rendering' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_hud-rendering",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-b7e950ea65": {
+      "id": "wf-b7e950ea65",
+      "name": "skill-timer-system",
+      "description": "Run the SHADDAI 'timer-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_timer-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-5756b23045": {
+      "id": "wf-5756b23045",
+      "name": "skill-game-logging",
+      "description": "Run the SHADDAI 'game-logging' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_game-logging",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e31ffc0209": {
+      "id": "wf-e31ffc0209",
+      "name": "skill-save-system",
+      "description": "Run the SHADDAI 'save-system' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_save-system",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a959438ebe": {
+      "id": "wf-a959438ebe",
+      "name": "skill-Skills",
+      "description": "Run the SHADDAI 'Skills' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_Skills",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-741934b136": {
+      "id": "wf-741934b136",
+      "name": "skill-enemy-ai",
+      "description": "Run the SHADDAI 'enemy-ai' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_enemy-ai",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-a63fb51aa4": {
+      "id": "wf-a63fb51aa4",
+      "name": "skill-content-opportunity-identification",
+      "description": "Run the SHADDAI 'content-opportunity-identification' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_content-opportunity-identification",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-aa09d38e9f": {
+      "id": "wf-aa09d38e9f",
+      "name": "skill-numerology-pinnacle-challenges",
+      "description": "Run the SHADDAI 'numerology-pinnacle-challenges' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_numerology-pinnacle-challenges",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-63fb51c3a9": {
+      "id": "wf-63fb51c3a9",
+      "name": "skill-consumer-discretionary-analysis",
+      "description": "Run the SHADDAI 'consumer-discretionary-analysis' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_consumer-discretionary-analysis",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-69e02d7f22": {
+      "id": "wf-69e02d7f22",
+      "name": "skill-numerology-compatible-numbers",
+      "description": "Run the SHADDAI 'numerology-compatible-numbers' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_numerology-compatible-numbers",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-cbea7e7549": {
+      "id": "wf-cbea7e7549",
+      "name": "skill-numerology-personality-number",
+      "description": "Run the SHADDAI 'numerology-personality-number' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_numerology-personality-number",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-22b4f2f347": {
+      "id": "wf-22b4f2f347",
+      "name": "skill-content-discovery-optimization",
+      "description": "Run the SHADDAI 'content-discovery-optimization' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_content-discovery-optimization",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-e4d31291f0": {
+      "id": "wf-e4d31291f0",
+      "name": "skill-correlation-trading-strategies",
+      "description": "Run the SHADDAI 'correlation-trading-strategies' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_correlation-trading-strategies",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-5f73fc4823": {
+      "id": "wf-5f73fc4823",
+      "name": "skill-futures-contango-backwardation",
+      "description": "Run the SHADDAI 'futures-contango-backwardation' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_futures-contango-backwardation",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-062e04290e": {
+      "id": "wf-062e04290e",
+      "name": "skill-volatility-clustering-analysis",
+      "description": "Run the SHADDAI 'volatility-clustering-analysis' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_volatility-clustering-analysis",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-0beb8ee162": {
+      "id": "wf-0beb8ee162",
+      "name": "skill-currency-correlation-analysis",
+      "description": "Run the SHADDAI 'currency-correlation-analysis' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_currency-correlation-analysis",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-d1b4de058f": {
+      "id": "wf-d1b4de058f",
+      "name": "skill-commodity-trading-strategies",
+      "description": "Run the SHADDAI 'commodity-trading-strategies' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_commodity-trading-strategies",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-495f9c2ba5": {
+      "id": "wf-495f9c2ba5",
+      "name": "skill-inflation-hedging-strategies",
+      "description": "Run the SHADDAI 'inflation-hedging-strategies' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_inflation-hedging-strategies",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-2f49b45ace": {
+      "id": "wf-2f49b45ace",
+      "name": "skill-optimal-portfolio-allocation",
+      "description": "Run the SHADDAI 'optimal-portfolio-allocation' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_optimal-portfolio-allocation",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-20f89f8faa": {
+      "id": "wf-20f89f8faa",
+      "name": "skill-real-estate-investment-trust",
+      "description": "Run the SHADDAI 'real-estate-investment-trust' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_real-estate-investment-trust",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-7b58fb9069": {
+      "id": "wf-7b58fb9069",
+      "name": "skill-recession-indicator-analysis",
+      "description": "Run the SHADDAI 'recession-indicator-analysis' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_recession-indicator-analysis",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-da02238278": {
+      "id": "wf-da02238278",
+      "name": "skill-image-optimization-pipeline",
+      "description": "Run the SHADDAI 'image-optimization-pipeline' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_image-optimization-pipeline",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-31ba4da198": {
+      "id": "wf-31ba4da198",
+      "name": "skill-brand-archetype-development",
+      "description": "Run the SHADDAI 'brand-archetype-development' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_brand-archetype-development",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-2c1a7b9d51": {
+      "id": "wf-2c1a7b9d51",
+      "name": "skill-content-calendar-automation",
+      "description": "Run the SHADDAI 'content-calendar-automation' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_content-calendar-automation",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-93d8c05602": {
+      "id": "wf-93d8c05602",
+      "name": "skill-content-competitor-analysis",
+      "description": "Run the SHADDAI 'content-competitor-analysis' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_content-competitor-analysis",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-edc489daea": {
+      "id": "wf-edc489daea",
+      "name": "skill-enterprise-content-strategy",
+      "description": "Run the SHADDAI 'enterprise-content-strategy' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_enterprise-content-strategy",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-f1df9880fb": {
+      "id": "wf-f1df9880fb",
+      "name": "skill-healthtech-content-creation",
+      "description": "Run the SHADDAI 'healthtech-content-creation' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_healthtech-content-creation",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-082bebb34c": {
+      "id": "wf-082bebb34c",
+      "name": "skill-growth-investing-strategies",
+      "description": "Run the SHADDAI 'growth-investing-strategies' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_growth-investing-strategies",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-1af47163eb": {
+      "id": "wf-1af47163eb",
+      "name": "skill-Kelly-criterion-application",
+      "description": "Run the SHADDAI 'Kelly-criterion-application' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_Kelly-criterion-application",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-cdf0693499": {
+      "id": "wf-cdf0693499",
+      "name": "skill-perp-funding-rate-arbitrage",
+      "description": "Run the SHADDAI 'perp-funding-rate-arbitrage' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_perp-funding-rate-arbitrage",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-608dd9999c": {
+      "id": "wf-608dd9999c",
+      "name": "skill-perp-open-interest-tracking",
+      "description": "Run the SHADDAI 'perp-open-interest-tracking' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_perp-open-interest-tracking",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-2fcf045245": {
+      "id": "wf-2fcf045245",
+      "name": "skill-volatility-surface-analysis",
+      "description": "Run the SHADDAI 'volatility-surface-analysis' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_volatility-surface-analysis",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
+    },
+    "wf-c47d52f8f7": {
+      "id": "wf-c47d52f8f7",
+      "name": "skill-community-content-strategy",
+      "description": "Run the SHADDAI 'community-content-strategy' skill methodology and return the full playbook.",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "skill_community-content-strategy",
+          "args": {},
+          "on_fail": "continue"
+        }
+      ],
+      "created_at": "2026-10-20T22:52:07.000Z"
     }
   }
 }
