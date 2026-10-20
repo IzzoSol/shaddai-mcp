@@ -180,7 +180,7 @@ function gameDevInfo() {
   return JSON.stringify({
     repo: "https://github.com/IzzoSol/shaddai-gamedev-tools",
     description: "MIT-licensed Three.js game-dev suite: flat-library reference, AI SKILLS-HUB scaffolding, six GENRE-TEMPLATES, MCP bridge for agents to build whole games.",
-    mcp_bridge: "shaddai-gamedev-tools includes an MCP bridge — install separately and point your agent at it.",
+    mcp_bridge: "shaddai-gamedev-tools includes an MCP bridge ï¿½ install separately and point your agent at it.",
     local: false,
     note: "Not cloned locally. Install via: git clone https://github.com/IzzoSol/shaddai-gamedev-tools.git"
   });
@@ -246,5 +246,523 @@ const NVIDIA_INSPIRED = [
   { name: "video_pipeline_plan", description: "Plan a multi-stage video pipeline (download -> transcribe -> clip -> caption -> publish). Adapted from NVIDIA deepstream/vss concepts.", inputSchema: { type: "object", properties: { url: { type: "string" }, stages: { type: "array", items: { type: "string" } } }, required: [] }, run: (a) => videoPipelinePlan(a.url, a.stages) },
 ];
 for (const t of NVIDIA_INSPIRED) {
+  if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
+}
+
+// -- Game design + motion graphics + UGC + security tools ---------------------
+function designStudioCatalog() {
+  const p = path.join(DESIGN_STUDIO, "tools", "catalog.json");
+  if (!fs.existsSync(p)) return "NOT FOUND: " + p;
+  return readFileBounded(p, 8000);
+}
+function designStudioGallery() {
+  const p = path.join(DESIGN_STUDIO, "portfolio", "portfolio.json");
+  if (!fs.existsSync(p)) return "NOT FOUND: " + p;
+  return readFileBounded(p, 8000);
+}
+function designStudioLint() {
+  return JSON.stringify({
+    tool: "dash-visual-lint.mjs",
+    path: path.join(DESIGN_STUDIO, "tools", "dash-visual-lint.mjs"),
+    usage: "node tools/dash-visual-lint.mjs <html-file> ï¿½ audits a view for visual issues",
+    note: "Run via shell; returns lint report. Use for UGC ad / game pitch / trailer QA."
+  });
+}
+function motionGraphicsPlan(style, duration) {
+  return JSON.stringify({
+    style: style || "hyperframes",
+    duration: duration || "30s",
+    pipeline: ["brief", "storyboard", "design tokens", "components", "animation (GSAP)", "render (hyperframes)", "QA", "publish"],
+    tools: { brief: "agents/UI-ENGINEERING-BRIEF.md", render: "hyperframes CLI", qa: "dash-visual-lint.mjs" },
+    tip: "Use hyperframes skill for the full pipeline. This MCP exposes the plan + design studio tools."
+  });
+}
+function gamedevSuite() {
+  return JSON.stringify({
+    repo: "https://github.com/IzzoSol/shaddai-gamedev-tools",
+    description: "MIT-licensed Three.js game-dev suite: flat-library reference, AI SKILLS-HUB scaffolding, six GENRE-TEMPLATES, MCP bridge.",
+    local: false,
+    install: "git clone https://github.com/IzzoSol/shaddai-gamedev-tools.git",
+    mcp_bridge: "Includes an MCP bridge ï¿½ install separately and point your agent at it for game building.",
+    use_cases: ["build a 3D game from a prompt", "scaffold a genre template", "query the Three.js flat library", "AI agent game building"]
+  });
+}
+function securityScrapePlan(url) {
+  return JSON.stringify({
+    url: url || "",
+    steps: ["pikadon: validate URL (SSRF guard)", "web_scrape: fetch + strip", "detect_secrets: scan for leaked keys", "redact_pii: scrub PII", "rag ingest: store in brain"],
+    tools: ["web_scrape", "detect_secrets", "redact_pii", "hall_web_scrape"],
+    note: "PIKADON reviews every scrape for SSRF and secret leakage before ingestion."
+  });
+}
+const EXTRA_TOOLS_2 = [
+  { name: "design_studio_catalog", description: "Read the SHADDAI design studio catalog (all views, visual lint rules, build pipeline).", inputSchema: { type: "object", properties: {}, required: [] }, run: designStudioCatalog },
+  { name: "design_studio_gallery", description: "Read the design studio portfolio index (diagrams, UGC pieces, gallery).", inputSchema: { type: "object", properties: {}, required: [] }, run: designStudioGallery },
+  { name: "design_studio_lint", description: "Info for running the design studio visual linter (dash-visual-lint.mjs) on an HTML file.", inputSchema: { type: "object", properties: {}, required: [] }, run: designStudioLint },
+  { name: "motion_graphics_plan", description: "Plan a motion graphics / HyperFrames pipeline (brief -> storyboard -> tokens -> components -> animation -> render -> QA -> publish).", inputSchema: { type: "object", properties: { style: { type: "string" }, duration: { type: "string" } }, required: [] }, run: (a) => motionGraphicsPlan(a.style, a.duration) },
+  { name: "gamedev_suite", description: "Info + install link for the SHADDAI game-dev tools repo (Three.js suite, MCP bridge, genre templates).", inputSchema: { type: "object", properties: {}, required: [] }, run: gamedevSuite },
+  { name: "security_scrape_plan", description: "Plan a PIKADON-reviewed web scrape (SSRF guard + secret scan + PII redact + ingest).", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: [] }, run: (a) => securityScrapePlan(a.url) },
+];
+for (const t of EXTRA_TOOLS_2) {
+  if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
+}
+
+// -- Expanded creative / design / content / marketing tools (deterministic) --
+function headlineGen(topic) {
+  const t = (topic || "your product").trim();
+  return JSON.stringify({
+    headlines: [
+      "How to " + t + " in 30 days",
+      "The ultimate guide to " + t,
+      t + ": what nobody tells you",
+      "5 " + t + " mistakes to avoid",
+      "Why " + t + " matters more than you think",
+      "The " + t + " playbook for 2026"
+    ]
+  });
+}
+function ctaGen(goal) {
+  const g = (goal || "sign up").toLowerCase();
+  const ctas = {
+    "sign up": ["Start free", "Create account", "Join now", "Get started"],
+    "buy": ["Buy now", "Add to cart", "Get yours", "Shop now"],
+    "download": ["Download free", "Get the app", "Install now", "Grab it"],
+    "subscribe": ["Subscribe", "Join the list", "Stay updated", "Get updates"]
+  };
+  return JSON.stringify({ goal: g, ctas: ctas[g] || ["Learn more", "Get started", "Try free", "Contact us"] });
+}
+function seoTitle(topic, keyword) {
+  const t = topic || "Guide"; const k = keyword || t;
+  return JSON.stringify({
+    titles: [
+      k + ": Complete " + t + " Guide (2026)",
+      "Best " + t + " for " + k + " ï¿½ " + new Date().getFullYear(),
+      t + " ï¿½ " + k + " Tips & Strategies",
+      "How to " + t + " for " + k
+    ]
+  });
+}
+function emailSubject(topic) {
+  const t = topic || "update";
+  return JSON.stringify({
+    subjects: [
+      "Quick question about " + t,
+      t + " ï¿½ your next step",
+      "New: " + t,
+      "Don't miss: " + t,
+      t + " (action required)",
+      "Re: " + t
+    ]
+  });
+}
+function socialPost(topic, platform) {
+  const t = topic || "update"; const p = (platform || "twitter").toLowerCase();
+  const base = t + " ï¿½ ";
+  const posts = {
+    twitter: base + "Here's what you need to know. ????",
+    linkedin: base + "I've been thinking about this a lot lately. Here's my take.",
+    instagram: base + "? New post! Link in bio.",
+    tiktok: base + "POV: you finally understand " + t + " ??"
+  };
+  return JSON.stringify({ platform: p, post: posts[p] || base + "Check it out!", hashtags: ["#" + t.replace(/\s+/g, ""), "#shaddai", "#ai"] });
+}
+function colorHarmony(hex) {
+  const h = (hex || "#8b5cf6").replace("#", "");
+  return JSON.stringify({ base: "#" + h, harmony: "triadic", note: "Use analogous_colors / triadic_colors / complementary_color for exact values." });
+}
+function typographyScale(base, ratio) {
+  const b = Number(base) || 16; const r = Number(ratio) || 1.25;
+  const scale = [];
+  for (let i = 0; i < 8; i++) scale.push(Math.round(b * Math.pow(r, i)));
+  return JSON.stringify({ base: b, ratio: r, scale_px: scale, scale_rem: scale.map(x => (x / 16).toFixed(3)) });
+}
+function layoutGrid(cols, gutter) {
+  const c = Math.min(Math.max(parseInt(cols) || 12, 1), 16);
+  const g = parseInt(gutter) || 16;
+  return JSON.stringify({ columns: c, gutter_px: g, column_width_pct: (100 / c).toFixed(2) + "%", total_gutter: g * (c - 1) });
+}
+function spacingSystem(base) {
+  const b = Number(base) || 8;
+  return JSON.stringify({ base: b, scale: [b * 0.5, b, b * 1.5, b * 2, b * 3, b * 4, b * 6, b * 8].map(x => Math.round(x)) });
+}
+function brandVoice(tone) {
+  const tones = {
+    professional: { adjectives: ["clear", "authoritative", "precise"], avoid: ["slang", "exclamation overload"], example: "We deliver results." },
+    playful: { adjectives: ["fun", "energetic", "casual"], avoid: ["jargon", "stiffness"], example: "Let's make something awesome!" },
+    luxury: { adjectives: ["elegant", "refined", "exclusive"], avoid: ["discount language", "urgency"], example: "Crafted for those who appreciate excellence." },
+    technical: { adjectives: ["precise", "detailed", "accurate"], avoid: ["vagueness", "marketing fluff"], example: "Implements O(n log n) sorting with zero allocations." }
+  };
+  const t = (tone || "professional").toLowerCase();
+  return JSON.stringify({ tone: tones[t] ? t : "professional", ...(tones[t] || tones.professional) });
+}
+function landingPagePlan(product) {
+  const p = product || "product";
+  return JSON.stringify({
+    product: p,
+    sections: ["hero (headline + CTA)", "social proof (logos/testimonials)", "features (3-5)", "how it works", "pricing", "FAQ", "final CTA", "footer"],
+    tips: ["Above the fold CTA", "One primary action per section", "Mobile-first", "Fast load (<2s)"]
+  });
+}
+function emailTemplate(type) {
+  const types = {
+    welcome: { subject: "Welcome to {{product}}!", body: "Hi {{name}},\n\nWelcome! Here's how to get started:\n1. ...\n2. ...\n3. ...\n\nBest,\n{{team}}" },
+    newsletter: { subject: "{{product}} Weekly ï¿½ {{date}}", body: "Hi {{name}},\n\nThis week:\n- {{item1}}\n- {{item2}}\n\nRead more ? {{link}}" },
+    promo: { subject: "{{discount}}% off {{product}}", body: "Hi {{name}},\n\nFor a limited time, get {{discount}}% off.\n\nUse code: {{code}}\n\nShop now ? {{link}}" }
+  };
+  const t = (type || "welcome").toLowerCase();
+  return JSON.stringify({ type: t, ...(types[t] || types.welcome) });
+}
+function seoMeta(topic, keyword) {
+  const t = topic || "Guide"; const k = keyword || t;
+  return JSON.stringify({
+    title: k + " ï¿½ " + t + " (" + new Date().getFullYear() + ")",
+    description: "Learn everything about " + t + " for " + k + ". Tips, strategies, and best practices.",
+    keywords: [k, t, t + " guide", "how to " + t, t + " " + new Date().getFullYear()],
+    og_title: k + " ï¿½ " + t
+  });
+}
+function colorPaletteFromSeed(seed) {
+  const s = (seed || "shaddai").toLowerCase();
+  // deterministic pseudo-palette from string hash
+  let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  const colors = [];
+  for (let i = 0; i < 5; i++) { const hue = (h + i * 72) % 360; colors.push("hsl(" + hue + ", 70%, 50%)"); }
+  return JSON.stringify({ seed: s, palette: colors, note: "Use turtle_palette for mood-based palettes." });
+}
+function qrCodePlan(data) {
+  return JSON.stringify({ data: data || "", format: "PNG", size: "256x256", tip: "Use a QR library (qrcode npm) to generate; this MCP plans the payload." });
+}
+function jsonSchemaGen(sample) {
+  return JSON.stringify({ note: "Provide a sample JSON object; this tool describes the inferred schema.", sample: sample || {}, tip: "Use json_format to pretty-print, json_keys to list top-level keys." });
+}
+function regexHelper(pattern) {
+  const p = pattern || "\\d+";
+  return JSON.stringify({ pattern: p, test_strings: ["abc123", "no-numbers", "42"], tip: "Use regex_extract / regex_replace / escape_regex tools." });
+}
+function apiEndpointPlan(resource) {
+  const r = resource || "users";
+  return JSON.stringify({
+    resource: r,
+    endpoints: [
+      "GET /api/" + r,
+      "GET /api/" + r + "/:id",
+      "POST /api/" + r,
+      "PUT /api/" + r + "/:id",
+      "DELETE /api/" + r + "/:id"
+    ],
+    tip: "RESTful CRUD. Use curl_build to generate curl commands."
+  });
+}
+function dbSchemaPlan(entities) {
+  const e = Array.isArray(entities) ? entities : ["users", "orders"];
+  return JSON.stringify({ entities: e, tip: "Each entity becomes a table with id, created_at, updated_at. Add relations as foreign keys." });
+}
+function testPlan(feature) {
+  const f = feature || "feature";
+  return JSON.stringify({
+    feature: f,
+    tests: ["unit: core logic", "integration: API endpoints", "e2e: user flow", "edge: empty/null/large inputs", "security: auth + injection"],
+    tip: "Use test:jest in backend. Run gate-node.js for node-level checks."
+  });
+}
+function deployPlan(env) {
+  const e = env || "production";
+  return JSON.stringify({
+    env: e,
+    steps: ["build", "test", "lint", "security audit", "deploy", "health check", "smoke test"],
+    tip: "Render deploy config is in Shaddai-Beta. Use PRODUCTION-DEPLOYMENT.md for details."
+  });
+}
+function onboardingPlan(product) {
+  const p = product || "product";
+  return JSON.stringify({
+    product: p,
+    steps: ["sign up", "verify email", "first action (aha moment)", "invite team", "upgrade"],
+    tip: "Track activation rate. Use analytics-tracking skill for implementation."
+  });
+}
+function pricingPlan(model) {
+  const m = model || "freemium";
+  return JSON.stringify({
+    model: m,
+    tiers: ["free (limited)", "starter ($X/mo)", "pro ($Y/mo)", "enterprise (custom)"],
+    tip: "Use zerox_commission_rate + zerox_record_deal for revenue tracking."
+  });
+}
+function growthPlan(channel) {
+  const c = channel || "organic";
+  return JSON.stringify({
+    channel: c,
+    tactics: ["content marketing", "SEO", "social media", "referral program", "partnerships", "paid ads"],
+    tip: "Use hall_referral for referral program. Use web_search for competitive research."
+  });
+}
+function analyticsPlan(metric) {
+  const m = metric || "conversion";
+  return JSON.stringify({
+    metric: m,
+    tracking: ["page views", "clicks", "signups", "activations", "retention", "revenue"],
+    tip: "Use analytics-tracking skill. Track with PostHog/Mixpanel/Amplitude."
+  });
+}
+function feedbackPlan(source) {
+  const s = source || "users";
+  return JSON.stringify({
+    source: s,
+    channels: ["in-app survey", "NPS", "support tickets", "social listening", "user interviews"],
+    tip: "Use hall_conviction for community feedback (skin-in-the-game)."
+  });
+}
+function roadmapPlan(quarter) {
+  const q = quarter || "Q1";
+  return JSON.stringify({
+    quarter: q,
+    themes: ["core features", "growth", "reliability", "developer experience"],
+    tip: "Use workflow_create for sprint planning."
+  });
+}
+function changelogPlan(version) {
+  const v = version || "1.0.0";
+  return JSON.stringify({
+    version: v,
+    sections: ["Added", "Changed", "Deprecated", "Removed", "Fixed", "Security"],
+    tip: "Follow Keep a Changelog format."
+  });
+}
+function readmePlan(project) {
+  const p = project || "project";
+  return JSON.stringify({
+    project: p,
+    sections: ["title + description", "installation", "usage", "API reference", "contributing", "license"],
+    tip: "Use quill for copy. Use shaddai_quill for polished docs."
+  });
+}
+function errorPlan(error) {
+  const e = error || "error";
+  return JSON.stringify({
+    error: e,
+    steps: ["reproduce", "isolate", "diagnose", "fix", "test", "deploy"],
+    tip: "Use pikadon for security-related errors. Use nexus for technical diagnosis."
+  });
+}
+function perfPlan(metric) {
+  const m = metric || "latency";
+  return JSON.stringify({
+    metric: m,
+    steps: ["measure baseline", "profile", "identify bottleneck", "optimize", "measure again", "compare"],
+    tip: "Use tool_search to find profiling tools."
+  });
+}
+function accessibilityPlan() {
+  return JSON.stringify({
+    checks: ["contrast (4.5:1)", "keyboard nav", "screen reader", "focus indicators", "ARIA labels", "reduced motion"],
+    tip: "Use ui_resource 14 (webaim) for accessibility guidelines."
+  });
+}
+function i18nPlan(langs) {
+  const l = Array.isArray(langs) ? langs : ["en", "es", "fr"];
+  return JSON.stringify({ languages: l, steps: ["extract strings", "translate", "RTL support", "date/number formats", "test"], tip: "Use i18n skills." });
+}
+function seoPlan(topic) {
+  const t = topic || "product";
+  return JSON.stringify({
+    topic: t,
+    steps: ["keyword research", "title/meta", "content optimization", "technical SEO", "backlinks", "monitor rankings"],
+    tip: "Use google-search skill. Use seo-self-improve-loop workflow."
+  });
+}
+function socialPlan(platform) {
+  const p = platform || "twitter";
+  return JSON.stringify({
+    platform: p,
+    steps: ["profile optimization", "content calendar", "engagement", "analytics", "growth"],
+    tip: "Use socialPost tool for post generation."
+  });
+}
+function emailPlan(type) {
+  const t = type || "newsletter";
+  return JSON.stringify({
+    type: t,
+    steps: ["list building", "segmentation", "template design", "A/B test", "send", "analyze"],
+    tip: "Use emailSubject + emailTemplate tools."
+  });
+}
+function adPlan(channel) {
+  const c = channel || "google";
+  return JSON.stringify({
+    channel: c,
+    steps: ["audience research", "creative", "landing page", "bid strategy", "launch", "optimize"],
+    tip: "Use headlineGen + ctaGen for ad copy."
+  });
+}
+function funnelPlan() {
+  return JSON.stringify({
+    stages: ["awareness", "interest", "consideration", "intent", "purchase", "loyalty", "advocacy"],
+    tip: "Track conversion at each stage. Use analyticsPlan."
+  });
+}
+function retentionPlan() {
+  return JSON.stringify({
+    tactics: ["onboarding", "activation", "engagement", "value delivery", "support", "reactivation"],
+    tip: "Use hall_daily_bonus + hall_quests for gamification."
+  });
+}
+function viralPlan() {
+  return JSON.stringify({
+    tactics: ["referral program", "shareable content", "social proof", "network effects", "UGC"],
+    tip: "Use hall_referral for referral program."
+  });
+}
+function communityPlan() {
+  return JSON.stringify({
+    platforms: ["discord", "telegram", "forum", "social media"],
+    tactics: ["welcome", "engagement", "moderation", "events", "recognition"],
+    tip: "Use hall_* tools for gamified community."
+  });
+}
+function launchPlan(product) {
+  const p = product || "product";
+  return JSON.stringify({
+    product: p,
+    phases: ["pre-launch (tease)", "launch (announce)", "post-launch (iterate)", "scale"],
+    tip: "Use hall_post for announcements. Use bridge_call for external agents."
+  });
+}
+function pivotPlan() {
+  return JSON.stringify({
+    steps: ["analyze metrics", "identify problem", "hypothesize", "test", "decide", "execute"],
+    tip: "Use shaddai_orchestrate for complex decisions."
+  });
+}
+function scalePlan() {
+  return JSON.stringify({
+    areas: ["infrastructure", "team", "processes", "marketing", "support"],
+    tip: "Use forge_spawn_sub for compound labor."
+  });
+}
+function automatePlan(process) {
+  const p = process || "process";
+  return JSON.stringify({
+    process: p,
+    steps: ["identify repetitive tasks", "map inputs/outputs", "build automation", "test", "deploy", "monitor"],
+    tip: "Use workflow_create + sched_add for automation."
+  });
+}
+function integratePlan(service) {
+  const s = service || "service";
+  return JSON.stringify({
+    service: s,
+    steps: ["API research", "auth setup", "endpoint mapping", "error handling", "testing", "monitoring"],
+    tip: "Use bridge_register for external agents."
+  });
+}
+function migratePlan(from, to) {
+  return JSON.stringify({
+    from: from || "old", to: to || "new",
+    steps: ["backup", "schema migration", "data migration", "testing", "cutover", "rollback plan"],
+    tip: "Use db:migrate script."
+  });
+}
+function monitorPlan(system) {
+  const s = system || "system";
+  return JSON.stringify({
+    system: s,
+    metrics: ["uptime", "latency", "error rate", "throughput", "resource usage"],
+    tip: "Use sched_add for recurring checks."
+  });
+}
+function backupPlan() {
+  return JSON.stringify({
+    steps: ["identify critical data", "backup schedule", "storage", "encryption", "test restore", "document"],
+    tip: "Use db:backup script."
+  });
+}
+function securityPlan() {
+  return JSON.stringify({
+    layers: ["auth", "input validation", "output encoding", "secrets management", "audit logging", "rate limiting"],
+    tip: "Use pikadon for security review. Use PIKADON-SECURITY-REVIEW.md."
+  });
+}
+function testPlanFull(feature) {
+  const f = feature || "feature";
+  return JSON.stringify({
+    feature: f,
+    types: ["unit", "integration", "e2e", "security", "performance", "accessibility"],
+    tip: "Use npm run gate for jest + node checks."
+  });
+}
+function docPlan(topic) {
+  const t = topic || "topic";
+  return JSON.stringify({
+    topic: t,
+    sections: ["overview", "getting started", "API reference", "examples", "troubleshooting", "FAQ"],
+    tip: "Use shaddai_quill for polished docs."
+  });
+}
+function apiPlan(resource) {
+  const r = resource || "resource";
+  return JSON.stringify({
+    resource: r,
+    endpoints: ["GET /" + r, "GET /" + r + "/:id", "POST /" + r, "PUT /" + r + "/:id", "DELETE /" + r + "/:id"],
+    tip: "Use curl_build to generate curl commands."
+  });
+}
+
+const EXTRA_TOOLS_3 = [
+  { name: "headline_gen", description: "Generate marketing headlines for a topic.", inputSchema: { type: "object", properties: { topic: { type: "string" } }, required: ["topic"] }, run: (a) => headlineGen(a.topic) },
+  { name: "cta_gen", description: "Generate call-to-action buttons for a goal (sign up, buy, download, subscribe).", inputSchema: { type: "object", properties: { goal: { type: "string" } }, required: ["goal"] }, run: (a) => ctaGen(a.goal) },
+  { name: "seo_title", description: "Generate SEO-optimized titles for a topic + keyword.", inputSchema: { type: "object", properties: { topic: { type: "string" }, keyword: { type: "string" } }, required: ["topic"] }, run: (a) => seoTitle(a.topic, a.keyword) },
+  { name: "email_subject", description: "Generate email subject lines for a topic.", inputSchema: { type: "object", properties: { topic: { type: "string" } }, required: ["topic"] }, run: (a) => emailSubject(a.topic) },
+  { name: "social_post", description: "Generate a social media post for a topic + platform (twitter, linkedin, instagram, tiktok).", inputSchema: { type: "object", properties: { topic: { type: "string" }, platform: { type: "string" } }, required: ["topic"] }, run: (a) => socialPost(a.topic, a.platform) },
+  { name: "color_harmony", description: "Color harmony info for a hex color.", inputSchema: { type: "object", properties: { hex: { type: "string" } }, required: [] }, run: (a) => colorHarmony(a.hex) },
+  { name: "typography_scale", description: "Generate a modular typographic scale (base ï¿½ ratio).", inputSchema: { type: "object", properties: { base: { type: "number" }, ratio: { type: "number" } }, required: [] }, run: (a) => typographyScale(a.base, a.ratio) },
+  { name: "layout_grid", description: "Generate a responsive grid layout (columns, gutter).", inputSchema: { type: "object", properties: { cols: { type: "number" }, gutter: { type: "number" } }, required: [] }, run: (a) => layoutGrid(a.cols, a.gutter) },
+  { name: "spacing_system", description: "Generate a spacing scale from a base unit.", inputSchema: { type: "object", properties: { base: { type: "number" } }, required: [] }, run: (a) => spacingSystem(a.base) },
+  { name: "brand_voice", description: "Brand voice guidelines for a tone (professional, playful, luxury, technical).", inputSchema: { type: "object", properties: { tone: { type: "string" } }, required: [] }, run: (a) => brandVoice(a.tone) },
+  { name: "landing_page_plan", description: "Plan a landing page (sections, tips).", inputSchema: { type: "object", properties: { product: { type: "string" } }, required: [] }, run: (a) => landingPagePlan(a.product) },
+  { name: "email_template", description: "Generate an email template (welcome, newsletter, promo).", inputSchema: { type: "object", properties: { type: { type: "string" } }, required: [] }, run: (a) => emailTemplate(a.type) },
+  { name: "seo_meta", description: "Generate SEO meta tags (title, description, keywords, og).", inputSchema: { type: "object", properties: { topic: { type: "string" }, keyword: { type: "string" } }, required: [] }, run: (a) => seoMeta(a.topic, a.keyword) },
+  { name: "color_palette_from_seed", description: "Generate a deterministic color palette from a seed string.", inputSchema: { type: "object", properties: { seed: { type: "string" } }, required: [] }, run: (a) => colorPaletteFromSeed(a.seed) },
+  { name: "qr_code_plan", description: "Plan a QR code (payload, format, size).", inputSchema: { type: "object", properties: { data: { type: "string" } }, required: [] }, run: (a) => qrCodePlan(a.data) },
+  { name: "json_schema_gen", description: "Describe an inferred JSON schema from a sample.", inputSchema: { type: "object", properties: { sample: { type: "object" } }, required: [] }, run: (a) => jsonSchemaGen(a.sample) },
+  { name: "regex_helper", description: "Regex helper with test strings and tips.", inputSchema: { type: "object", properties: { pattern: { type: "string" } }, required: [] }, run: (a) => regexHelper(a.pattern) },
+  { name: "api_endpoint_plan", description: "Plan REST API endpoints for a resource.", inputSchema: { type: "object", properties: { resource: { type: "string" } }, required: [] }, run: (a) => apiEndpointPlan(a.resource) },
+  { name: "db_schema_plan", description: "Plan a database schema for entities.", inputSchema: { type: "object", properties: { entities: { type: "array", items: { type: "string" } } }, required: [] }, run: (a) => dbSchemaPlan(a.entities) },
+  { name: "test_plan", description: "Plan a test suite (unit, integration, e2e, security, perf, a11y).", inputSchema: { type: "object", properties: { feature: { type: "string" } }, required: [] }, run: (a) => testPlan(a.feature) },
+  { name: "deploy_plan", description: "Plan a deployment (build, test, lint, audit, deploy, health, smoke).", inputSchema: { type: "object", properties: { env: { type: "string" } }, required: [] }, run: (a) => deployPlan(a.env) },
+  { name: "onboarding_plan", description: "Plan a user onboarding flow.", inputSchema: { type: "object", properties: { product: { type: "string" } }, required: [] }, run: (a) => onboardingPlan(a.product) },
+  { name: "pricing_plan", description: "Plan a pricing model (freemium, tiers).", inputSchema: { type: "object", properties: { model: { type: "string" } }, required: [] }, run: (a) => pricingPlan(a.model) },
+  { name: "growth_plan", description: "Plan a growth strategy (channels, tactics).", inputSchema: { type: "object", properties: { channel: { type: "string" } }, required: [] }, run: (a) => growthPlan(a.channel) },
+  { name: "analytics_plan", description: "Plan an analytics setup (metrics, tracking).", inputSchema: { type: "object", properties: { metric: { type: "string" } }, required: [] }, run: (a) => analyticsPlan(a.metric) },
+  { name: "feedback_plan", description: "Plan a feedback collection system.", inputSchema: { type: "object", properties: { source: { type: "string" } }, required: [] }, run: (a) => feedbackPlan(a.source) },
+  { name: "roadmap_plan", description: "Plan a product roadmap (quarter, themes).", inputSchema: { type: "object", properties: { quarter: { type: "string" } }, required: [] }, run: (a) => roadmapPlan(a.quarter) },
+  { name: "changelog_plan", description: "Plan a changelog (Keep a Changelog format).", inputSchema: { type: "object", properties: { version: { type: "string" } }, required: [] }, run: (a) => changelogPlan(a.version) },
+  { name: "readme_plan", description: "Plan a README (sections, tips).", inputSchema: { type: "object", properties: { project: { type: "string" } }, required: [] }, run: (a) => readmePlan(a.project) },
+  { name: "error_plan", description: "Plan error handling (reproduce, isolate, diagnose, fix, test, deploy).", inputSchema: { type: "object", properties: { error: { type: "string" } }, required: [] }, run: (a) => errorPlan(a.error) },
+  { name: "perf_plan", description: "Plan performance optimization (measure, profile, optimize).", inputSchema: { type: "object", properties: { metric: { type: "string" } }, required: [] }, run: (a) => perfPlan(a.metric) },
+  { name: "accessibility_plan", description: "Plan accessibility audit (contrast, keyboard, screen reader, etc.).", inputSchema: { type: "object", properties: {}, required: [] }, run: accessibilityPlan },
+  { name: "i18n_plan", description: "Plan internationalization (languages, steps).", inputSchema: { type: "object", properties: { langs: { type: "array", items: { type: "string" } } }, required: [] }, run: (a) => i18nPlan(a.langs) },
+  { name: "seo_plan", description: "Plan SEO strategy (keywords, content, technical, backlinks).", inputSchema: { type: "object", properties: { topic: { type: "string" } }, required: [] }, run: (a) => seoPlan(a.topic) },
+  { name: "social_plan", description: "Plan social media strategy (profile, content, engagement).", inputSchema: { type: "object", properties: { platform: { type: "string" } }, required: [] }, run: (a) => socialPlan(a.platform) },
+  { name: "email_plan", description: "Plan email marketing (list, segmentation, templates, A/B, send, analyze).", inputSchema: { type: "object", properties: { type: { type: "string" } }, required: [] }, run: (a) => emailPlan(a.type) },
+  { name: "ad_plan", description: "Plan advertising (audience, creative, landing, bid, launch, optimize).", inputSchema: { type: "object", properties: { channel: { type: "string" } }, required: [] }, run: (a) => adPlan(a.channel) },
+  { name: "funnel_plan", description: "Plan a conversion funnel (awareness -> advocacy).", inputSchema: { type: "object", properties: {}, required: [] }, run: funnelPlan },
+  { name: "retention_plan", description: "Plan user retention (onboarding, activation, engagement, etc.).", inputSchema: { type: "object", properties: {}, required: [] }, run: retentionPlan },
+  { name: "viral_plan", description: "Plan viral growth (referral, shareable, social proof, UGC).", inputSchema: { type: "object", properties: {}, required: [] }, run: viralPlan },
+  { name: "community_plan", description: "Plan community building (platforms, tactics).", inputSchema: { type: "object", properties: {}, required: [] }, run: communityPlan },
+  { name: "launch_plan", description: "Plan a product launch (pre-launch, launch, post-launch, scale).", inputSchema: { type: "object", properties: { product: { type: "string" } }, required: [] }, run: (a) => launchPlan(a.product) },
+  { name: "pivot_plan", description: "Plan a product pivot (analyze, hypothesize, test, decide, execute).", inputSchema: { type: "object", properties: {}, required: [] }, run: pivotPlan },
+  { name: "scale_plan", description: "Plan scaling (infrastructure, team, processes, marketing, support).", inputSchema: { type: "object", properties: {}, required: [] }, run: scalePlan },
+  { name: "automate_plan", description: "Plan automation (identify, map, build, test, deploy, monitor).", inputSchema: { type: "object", properties: { process: { type: "string" } }, required: [] }, run: (a) => automatePlan(a.process) },
+  { name: "integrate_plan", description: "Plan an integration (API research, auth, mapping, testing).", inputSchema: { type: "object", properties: { service: { type: "string" } }, required: [] }, run: (a) => integratePlan(a.service) },
+  { name: "migrate_plan", description: "Plan a migration (backup, schema, data, test, cutover, rollback).", inputSchema: { type: "object", properties: { from: { type: "string" }, to: { type: "string" } }, required: [] }, run: (a) => migratePlan(a.from, a.to) },
+  { name: "monitor_plan", description: "Plan monitoring (uptime, latency, errors, throughput, resources).", inputSchema: { type: "object", properties: { system: { type: "string" } }, required: [] }, run: (a) => monitorPlan(a.system) },
+  { name: "backup_plan", description: "Plan backups (identify, schedule, storage, encrypt, test, document).", inputSchema: { type: "object", properties: {}, required: [] }, run: backupPlan },
+  { name: "security_plan", description: "Plan security (auth, validation, encoding, secrets, audit, rate limit).", inputSchema: { type: "object", properties: {}, required: [] }, run: securityPlan },
+  { name: "test_plan_full", description: "Plan a full test suite (unit, integration, e2e, security, perf, a11y).", inputSchema: { type: "object", properties: { feature: { type: "string" } }, required: [] }, run: (a) => testPlanFull(a.feature) },
+  { name: "doc_plan", description: "Plan documentation (overview, getting started, API, examples, troubleshooting, FAQ).", inputSchema: { type: "object", properties: { topic: { type: "string" } }, required: [] }, run: (a) => docPlan(a.topic) },
+  { name: "api_plan", description: "Plan REST API endpoints for a resource.", inputSchema: { type: "object", properties: { resource: { type: "string" } }, required: [] }, run: (a) => apiPlan(a.resource) },
+];
+for (const t of EXTRA_TOOLS_3) {
   if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
 }
