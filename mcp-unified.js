@@ -990,6 +990,15 @@ TOOLS.push({
   description: 'Check MCP + backend health: API reachability, tool count, money gate state, rate limit. Run this first if anything seems broken.',
   inputSchema: { type: 'object', properties: {}, required: [] },
 });
+TOOLS.push({
+  name: 'rag_scan',
+  description: 'Scan a URL into the RAG brain: PIKADON security review + web scrape + secret scan + PII redact + ingest into the agent brain, then search it back. Use when a topic is not in the brain yet.',
+  inputSchema: { type: 'object', properties: {
+    url: { type: 'string', description: 'Public https URL to scan into the brain.' },
+    agent: { type: 'string', description: 'Which agent brain to write into: SHADDAI | ORACLE | ZEROX | NEXUS | TURTLE | QUILL | PIKADON. Default ORACLE.' },
+    query: { type: 'string', description: 'Optional: after ingesting, search the brain for this.' },
+  }, required: ['url'] },
+});
 
 // ── Creative tools (ported from Shaddai-Frames) so ONE MCP carries everything ─
 const CREATIVE_TOOL_NAMES = new Set();
@@ -1010,7 +1019,6 @@ const BACKEND_TOOL_NAMES = new Set();
 let BACKEND_TOOLS_LOADED = false;
 async function loadBackendTools() {
   if (BACKEND_TOOLS_LOADED) return;
-  BACKEND_TOOLS_LOADED = true;
   try {
     const d = await callAPIGet('/api/agent-tools/list');
     if (!d || !d.ok || !Array.isArray(d.tools)) return;
@@ -1025,6 +1033,7 @@ async function loadBackendTools() {
         inputSchema: t.inputSchema || { type: 'object', properties: {}, additionalProperties: true },
       });
     }
+    BACKEND_TOOLS_LOADED = true;
   } catch (e) {
     process.stderr.write('backend tools load failed: ' + String((e && e.message) || e) + '\n');
   }
@@ -1237,8 +1246,48 @@ async function callTool(name, args) {
     ).join('\n\n');
   }
 
-  if (name === 'rag_ask') {
-    const qs = 'q=' + encodeURIComponent(args.question) +
+  if (name === 'rag_scan') {
+    const url = String(args.url || '');
+    const agent = String(args.agent || 'ORACLE').toUpperCase();
+    if (!/^https:\/\//i.test(url)) return 'Error: url must be a public https URL (PIKADON SSRF guard).';
+    // 1. PIKADON: scrape + secret scan + PII redact
+    const scrub = await callAPI('/api/agent-tools/run', { name: 'detect_secrets', params: { text: url } });
+    const pii = await callAPI('/api/agent-tools/run', { name: 'redact_pii', params: { text: url } });
+    const hasSecrets = scrub && scrub.ok && /"secretsFound":\s*[1-9]/.test(String(scrub.result || ''));
+    if (hasSecrets) return 'PIKADON blocked: the target content appears to contain secrets. Not ingesting.';
+    // 2. Ingest into the agent brain (same path as hall_web_scrape)
+    let ingText = '';
+    let ingOk = false;
+    try {
+      const rs = require('./lib/rag-scrape');
+      const res = await rs.ingest({ agent: agent, url: url });
+      if (res && res.ok) {
+        ingOk = true;
+        ingText = '\u{1F9E0} **' + res.agent + ' brain now holds** `' + res.slug + '` — ' + (res.chars || 0).toLocaleString() + ' chars\n' + (res.title || '') + '\n' + (res.url || url) + (res.deduped ? '\n(already indexed — no duplicate)' : '\nlive-indexed; durable copy at ' + (res.path || ''));
+      } else {
+        ingText = 'Scrape failed: ' + ((res && res.error) || 'unknown');
+      }
+    } catch (e) {
+      ingText = 'Scrape failed: ' + String((e && e.message) || e);
+    }
+    if (!ingOk) return 'Error: brain ingest failed — ' + ingText;
+    let out = 'Scanned into ' + agent + '\'s brain: ' + url + '\n' + ingText;
+    if (pii && pii.ok) out += '\n\n[PIKADON PII scan: ' + String(pii.result).slice(0, 160) + ']';
+    if (args.query) {
+      const s = await callAPIGet('/api/search?q=' + encodeURIComponent(args.query) + '&agent=' + encodeURIComponent(agent) + '&k=3');
+      const res = s && s.results ? s.results : [];
+      if (res.length) {
+        out += '\n\n--- Brain search for "' + args.query + '" ---\n' + res.map((r, i) =>
+          '[' + (i + 1) + '] ' + (r.title || r.source || '?') + ' [score: ' + (r.score != null ? Math.round(r.score * 100) : '?') + ']\n' + (r.text || '').slice(0, 300)
+        ).join('\n\n');
+      } else {
+        out += '\n\n--- No brain hits for "' + args.query + '" yet. ---';
+      }
+    }
+    return out;
+  }
+
+  if (name === 'rag_ask') {    const qs = 'q=' + encodeURIComponent(args.question) +
       '&agent=' + encodeURIComponent((args.agent || 'SHADDAI').toUpperCase());
     const d = await callAPIGet('/api/ask?' + qs);
     if (d.error) return 'Error: ' + d.error;
@@ -1246,6 +1295,8 @@ async function callTool(name, args) {
       ' or set the SHADDAI_API_KEY to unlock more.';
     let out = (d.answer || '').trim();
     if (d.llm_powered) out += '\n\n(powered by ' + d.provider + ', agent ' + d.agent + ')';
+    if (d.relevant === false) out += '\n\n[LOW RELEVANCE — the brain has no strong knowledge on this. Use web_search for current data.]';
+    else if (d.confidence != null) out += '\n\n[confidence: ' + d.confidence + ']';
     if (Array.isArray(d.sources) && d.sources.length) {
       out += '\n\nSources:\n' + d.sources.map((s, i) =>
         (i + 1) + '. ' + s.title + ' [score: ' + (s.score != null ? Math.round(s.score * 100) : '?') + ']'
