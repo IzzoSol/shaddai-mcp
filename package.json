@@ -1,7 +1,7 @@
 {
   "name": "shaddai-mcp",
-  "version": "3.0.0",
-  "description": "SHADDAI MCP — full tool surface (671 tools): 7-agent council, RAG brain, ZEROX money engine, Hall economy, PayBox, 554 backend agent tools, creative tools, and 1289 combined workflows. Requires the SHADDAI backend (port 3000) for full power. Public key-free edition (mcp-server-rag.js) still available for zero-dep use.",
+  "version": "3.1.0",
+  "description": "SHADDAI MCP — full tool surface (736 tools): 7-agent council, RAG brain, ZEROX money engine, Hall economy, PayBox/x402, 554 backend agent tools, 79 creative/business tools, NVIDIA-inspired skills, repo triggers, Grok bot teaching, and 1316 combined workflows. PIKADON-secured web scanning. Requires the SHADDAI backend (port 3000) for full power. Public key-free edition (mcp-server-rag.js) still available for zero-dep use.",
   "license": "SEE LICENSE IN LICENSE",
   "main": "mcp-unified.js",
   "bin": {
@@ -23,17 +23,21 @@
     "model-context-protocol",
     "rag",
     "claude",
+    "grok",
     "agents",
     "ai",
     "shaddai",
     "tools",
-    "workflows"
+    "workflows",
+    "x402",
+    "pikadon"
   ],
   "files": [
     "mcp-unified.js",
     "creative-tools.js",
     "mcp-server-rag.js",
     "rag-index.js",
+    "lib/",
     "data/",
     "LICENSE",
     "README.md",
