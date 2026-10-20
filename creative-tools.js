@@ -193,3 +193,58 @@ const EXTRA_TRIGGERS = [
 for (const t of EXTRA_TRIGGERS) {
   if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
 }
+
+// -- NVIDIA-inspired SHADDAI-native skills (adapted concepts, no GPU needed) --
+function ragEval(query, k) {
+  // Lightweight RAG evaluation: returns the query + suggested k for retrieval scoring.
+  // Adapted from NVIDIA rag-eval/rag-perf concepts (precision@k, MRR) but run over our TF-IDF brain.
+  const kk = Math.min(Math.max(parseInt(k) || 5, 1), 20);
+  return JSON.stringify({
+    query: query || "",
+    k: kk,
+    metrics: ["precision@k", "recall@k", "MRR", "nDCG"],
+    how_to_score: "Run rag_search with topK=" + kk + ", then mark each result relevant (1/0). precision@k = (#relevant in top-k)/k. MRR = 1/rank of first relevant. nDCG = DCG/IDCG.",
+    tip: "Use rag_search for the big brain, rag_council for cross-agent, then score manually or with a judge LLM."
+  });
+}
+function portfolioOptimize(returns, targetReturn) {
+  // Mean-variance-ish weight suggestion (equal-weight baseline + variance cap concept).
+  // Adapted from NVIDIA portfolio-optimization (cuOpt) but pure JS, no GPU.
+  const r = Array.isArray(returns) ? returns : [];
+  const n = r.length || 1;
+  // equal weight baseline
+  const w = r.map(() => Number((1 / n).toFixed(4)));
+  const mean = r.reduce((a, b) => a + b, 0) / n;
+  const variance = r.reduce((a, b) => a + (b - mean) ** 2, 0) / n;
+  return JSON.stringify({
+    tickers: n,
+    equal_weight: w,
+    mean_return: Number(mean.toFixed(6)),
+    variance: Number(variance.toFixed(6)),
+    target_return: targetReturn || null,
+    note: "For real cuOpt-grade optimization use NVIDIA cuOpt. This is a baseline; SHADDAI paper trading (zerox_paper_*) uses Kelly sizing on top."
+  });
+}
+function videoPipelinePlan(url, stages) {
+  const s = Array.isArray(stages) ? stages : ["download", "transcribe", "clip", "caption", "publish"];
+  return JSON.stringify({
+    input: url || "",
+    stages: s,
+    tools: {
+      download: "shaddai_media_fetch / shaddai_capture (mode=media)",
+      transcribe: "backend turtle-video-service.py (Whisper)",
+      clip: "shaddai_capture (mode=clip) / ffmpeg",
+      caption: "shaddai_capture + LLM",
+      publish: "bridge_call / hall_post"
+    },
+    tip: "Run stages in order; each stage feeds the next. Use workflow_run to orchestrate."
+  });
+}
+const NVIDIA_INSPIRED = [
+  { name: "rag_eval", description: "RAG evaluation helper: suggests metrics (precision@k, recall, MRR, nDCG) and scoring steps for a query. Adapted from NVIDIA rag-eval/rag-perf concepts.", inputSchema: { type: "object", properties: { query: { type: "string" }, k: { type: "number" } }, required: ["query"] }, run: (a) => ragEval(a.query, a.k) },
+  { name: "portfolio_optimize", description: "Mean-variance baseline weight suggestion (equal-weight + variance). Adapted from NVIDIA portfolio-optimization (cuOpt) but pure JS, no GPU.", inputSchema: { type: "object", properties: { returns: { type: "array", items: { type: "number" } }, target_return: { type: "number" } }, required: ["returns"] }, run: (a) => portfolioOptimize(a.returns, a.target_return) },
+  { name: "video_pipeline_plan", description: "Plan a multi-stage video pipeline (download -> transcribe -> clip -> caption -> publish). Adapted from NVIDIA deepstream/vss concepts.", inputSchema: { type: "object", properties: { url: { type: "string" }, stages: { type: "array", items: { type: "string" } } }, required: [] }, run: (a) => videoPipelinePlan(a.url, a.stages) },
+];
+for (const t of NVIDIA_INSPIRED) {
+  if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
+}
