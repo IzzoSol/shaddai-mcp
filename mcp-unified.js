@@ -1014,6 +1014,34 @@ try {
   process.stderr.write('creative tools load failed: ' + String((e && e.message) || e) + '\\n');
 }
 
+// ── Curated SKILL tools (270 methodologies from the Obsidian skills catalog) ──
+const SKILL_TOOL_NAMES = new Set();
+try {
+  const st = require('./skills-tools');
+  for (const t of (st.ALL_SKILL_TOOLS || [])) {
+    if (!TOOLS.some(x => x.name === t.name)) {
+      TOOLS.push(t);
+      SKILL_TOOL_NAMES.add(t.name);
+    }
+  }
+} catch (e) {
+  process.stderr.write('skill tools load failed: ' + String((e && e.message) || e) + '\\n');
+}
+
+// ── Knowledge frameworks (Pixar 22, Save the Cat, Story Arc, thinking models) ──
+const FRAMEWORK_TOOL_NAMES = new Set();
+try {
+  const kt = require('./knowledge-tools');
+  for (const t of (kt.FRAMEWORK_TOOLS || [])) {
+    if (!TOOLS.some(x => x.name === t.name)) {
+      TOOLS.push(t);
+      FRAMEWORK_TOOL_NAMES.add(t.name);
+    }
+  }
+} catch (e) {
+  process.stderr.write('framework tools load failed: ' + String((e && e.message) || e) + '\\n');
+}
+
 // ── Backend tool exposure: dynamically load all 554 internal agent tools ─────
 const BACKEND_TOOL_NAMES = new Set();
 let BACKEND_TOOLS_LOADED = false;
@@ -1045,7 +1073,7 @@ async function callAPI(path, body, method) {
   if (API_KEY) headers['x-shaddai-key'] = API_KEY;
   if (process.env.SHADDAI_MCP_UID) headers['x-user-id'] = process.env.SHADDAI_MCP_UID;
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 30000);
+  const timer = setTimeout(() => ctrl.abort(), 120000);
   try {
     const r = await fetch(API + path, { method: method || 'POST', headers, body: JSON.stringify(body || {}), signal: ctrl.signal });
     clearTimeout(timer);
@@ -1061,7 +1089,7 @@ async function callAPIGet(path) {
   if (API_KEY) headers['x-shaddai-key'] = API_KEY;
   if (process.env.SHADDAI_MCP_UID) headers['x-user-id'] = process.env.SHADDAI_MCP_UID;
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 30000);
+  const timer = setTimeout(() => ctrl.abort(), 120000);
   try {
     const r = await fetch(API + path, { method: 'GET', headers, signal: ctrl.signal });
     clearTimeout(timer);
@@ -1179,8 +1207,8 @@ async function callTool(name, args) {
       '  Rate limit: ' + RATE_MAX_PER_SEC + '/s\\n' +
       '  Backend tool names cached: ' + BACKEND_TOOL_NAMES.size;
   }
-  // Creative tools (ported from Shaddai-Frames): run their `run` function.
-  if (CREATIVE_TOOL_NAMES.has(name)) {
+  // Creative tools + curated SKILL tools + knowledge frameworks: run their `run`.
+  if (CREATIVE_TOOL_NAMES.has(name) || SKILL_TOOL_NAMES.has(name) || FRAMEWORK_TOOL_NAMES.has(name)) {
     const t = TOOLS.find(x => x.name === name);
     if (t && typeof t.run === 'function') return t.run(args);
   }
