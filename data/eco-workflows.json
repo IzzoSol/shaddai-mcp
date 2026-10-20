@@ -3421,7 +3421,7 @@
     "wf-d0a84591b2": {
       "id": "wf-d0a84591b2",
       "name": "tool-fetch_price",
-      "description": "Single-tool workflow: fetch_price",
+      "description": "Live crypto price from CoinGecko. Returns USD price, 24h change %, market cap, volume.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3438,7 +3438,7 @@
     "wf-f9b47398f9": {
       "id": "wf-f9b47398f9",
       "name": "tool-get_fear_greed",
-      "description": "Single-tool workflow: get_fear_greed",
+      "description": "Crypto Fear & Greed Index (0=Extreme Fear, 100=Extreme Greed). Also returns 7-day history.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3455,7 +3455,7 @@
     "wf-86eab7aadb": {
       "id": "wf-86eab7aadb",
       "name": "tool-get_trending",
-      "description": "Single-tool workflow: get_trending",
+      "description": "Top 7 trending crypto coins on CoinGecko right now.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3472,7 +3472,7 @@
     "wf-9c1bc4e36c": {
       "id": "wf-9c1bc4e36c",
       "name": "tool-get_ohlcv",
-      "description": "Single-tool workflow: get_ohlcv",
+      "description": "Price history (OHLCV candles) for a coin over last N days from CoinGecko.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3489,7 +3489,7 @@
     "wf-9bc0aaf0de": {
       "id": "wf-9bc0aaf0de",
       "name": "tool-get_global_market",
-      "description": "Single-tool workflow: get_global_market",
+      "description": "Global crypto market overview: total market cap, BTC dominance, 24h volume, active coins.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3506,7 +3506,7 @@
     "wf-7eb65aacca": {
       "id": "wf-7eb65aacca",
       "name": "tool-get_token_info",
-      "description": "Single-tool workflow: get_token_info",
+      "description": "Detailed coin data from CoinGecko: description, categories, links, ATH, supply.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3523,7 +3523,7 @@
     "wf-12d9acf636": {
       "id": "wf-12d9acf636",
       "name": "tool-whale_scan",
-      "description": "Single-tool workflow: whale_scan",
+      "description": "DexScreener whale data: top pairs, liquidity, 24h volume for any token.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3540,7 +3540,7 @@
     "wf-e72ac9abe4": {
       "id": "wf-e72ac9abe4",
       "name": "tool-get_defi_tvl",
-      "description": "Single-tool workflow: get_defi_tvl",
+      "description": "DeFi Total Value Locked data from DeFiLlama. Top protocols by TVL.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3557,7 +3557,7 @@
     "wf-bb4787269f": {
       "id": "wf-bb4787269f",
       "name": "tool-get_sol_balance",
-      "description": "Single-tool workflow: get_sol_balance",
+      "description": "Get SOL balance of any Solana wallet address. Uses mainnet-beta public RPC.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3574,7 +3574,7 @@
     "wf-ca47807c86": {
       "id": "wf-ca47807c86",
       "name": "tool-get_eth_balance",
-      "description": "Single-tool workflow: get_eth_balance",
+      "description": "Get ETH balance of any Ethereum wallet. Uses Cloudflare public RPC (no key needed).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3591,7 +3591,7 @@
     "wf-9f43d0ae8e": {
       "id": "wf-9f43d0ae8e",
       "name": "tool-get_exchange_rates",
-      "description": "Single-tool workflow: get_exchange_rates",
+      "description": "Live fiat currency exchange rates (USD base). Free, no key required.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3608,7 +3608,7 @@
     "wf-254b108a49": {
       "id": "wf-254b108a49",
       "name": "tool-get_hackernews",
-      "description": "Single-tool workflow: get_hackernews",
+      "description": "Top Hacker News stories right now. Returns titles, URLs, scores, comment counts.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3625,7 +3625,7 @@
     "wf-159018c968": {
       "id": "wf-159018c968",
       "name": "tool-calculate",
-      "description": "Single-tool workflow: calculate",
+      "description": "Safely evaluate math expressions. Supports +,-,*,/,**,sqrt,log,sin,cos,PI,E,floor,ceil.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3642,7 +3642,7 @@
     "wf-8afdc8fad3": {
       "id": "wf-8afdc8fad3",
       "name": "tool-mint_collectible",
-      "description": "Single-tool workflow: mint_collectible",
+      "description": "Mint a new collectible NFT-style receipt. Persists to backend/data/collectibles.json with HMAC signature.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3659,7 +3659,7 @@
     "wf-a1b660de3d": {
       "id": "wf-a1b660de3d",
       "name": "tool-complete_job",
-      "description": "Single-tool workflow: complete_job",
+      "description": "Mark a marketplace job as completed, store deliverable, and credit the agent earnings.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3676,7 +3676,7 @@
     "wf-5509e0b892": {
       "id": "wf-5509e0b892",
       "name": "tool-analyze_sentiment",
-      "description": "Single-tool workflow: analyze_sentiment",
+      "description": "Analyze sentiment of any text. Returns score (-1 to +1), label, and key terms.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3693,7 +3693,7 @@
     "wf-f6e1c7f29a": {
       "id": "wf-f6e1c7f29a",
       "name": "tool-get_gas_price",
-      "description": "Single-tool workflow: get_gas_price",
+      "description": "Current Ethereum gas prices (slow/standard/fast in Gwei)",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3710,7 +3710,7 @@
     "wf-182fea4539": {
       "id": "wf-182fea4539",
       "name": "tool-get_country_info",
-      "description": "Single-tool workflow: get_country_info",
+      "description": "Country facts: population, capital, currency, languages, flag",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3727,7 +3727,7 @@
     "wf-6918b35eb8": {
       "id": "wf-6918b35eb8",
       "name": "tool-get_ip_info",
-      "description": "Single-tool workflow: get_ip_info",
+      "description": "Geolocate an IP address — country, city, ISP, coordinates",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3744,7 +3744,7 @@
     "wf-76893a2273": {
       "id": "wf-76893a2273",
       "name": "tool-get_word_definition",
-      "description": "Single-tool workflow: get_word_definition",
+      "description": "Dictionary definition, pronunciation, and example usage for any English word",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3761,7 +3761,7 @@
     "wf-e4cdc74a24": {
       "id": "wf-e4cdc74a24",
       "name": "tool-get_random_quote",
-      "description": "Single-tool workflow: get_random_quote",
+      "description": "Get an inspiring or interesting random quote",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3778,7 +3778,7 @@
     "wf-37b6134339": {
       "id": "wf-37b6134339",
       "name": "tool-get_joke",
-      "description": "Single-tool workflow: get_joke",
+      "description": "Get a programming or tech joke",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3795,7 +3795,7 @@
     "wf-a26764f49d": {
       "id": "wf-a26764f49d",
       "name": "tool-get_history_today",
-      "description": "Single-tool workflow: get_history_today",
+      "description": "Historical events that happened on today's date throughout history",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3812,7 +3812,7 @@
     "wf-c5b16fde28": {
       "id": "wf-c5b16fde28",
       "name": "tool-get_moon_phase",
-      "description": "Single-tool workflow: get_moon_phase",
+      "description": "Current moon phase and next full/new moon dates",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3829,7 +3829,7 @@
     "wf-d4a12e39b1": {
       "id": "wf-d4a12e39b1",
       "name": "tool-get_timezone",
-      "description": "Single-tool workflow: get_timezone",
+      "description": "Current time and date in any timezone worldwide",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3846,7 +3846,7 @@
     "wf-65089023bf": {
       "id": "wf-65089023bf",
       "name": "tool-get_color_palette",
-      "description": "Single-tool workflow: get_color_palette",
+      "description": "Generate a harmonious color palette from a seed color",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3863,7 +3863,7 @@
     "wf-d5d164d09a": {
       "id": "wf-d5d164d09a",
       "name": "tool-get_qr_code",
-      "description": "Single-tool workflow: get_qr_code",
+      "description": "Generate a QR code image URL for any text or URL",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3880,7 +3880,7 @@
     "wf-0ceed20e33": {
       "id": "wf-0ceed20e33",
       "name": "tool-shorten_url",
-      "description": "Single-tool workflow: shorten_url",
+      "description": "Shorten any long URL using TinyURL",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3897,7 +3897,7 @@
     "wf-c201875f3e": {
       "id": "wf-c201875f3e",
       "name": "tool-check_port",
-      "description": "Single-tool workflow: check_port",
+      "description": "Check if a TCP port is open on a host",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3914,7 +3914,7 @@
     "wf-efa0309b40": {
       "id": "wf-efa0309b40",
       "name": "tool-get_public_apis",
-      "description": "Single-tool workflow: get_public_apis",
+      "description": "Search a directory of free public APIs by topic",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3931,7 +3931,7 @@
     "wf-c8d9484e97": {
       "id": "wf-c8d9484e97",
       "name": "tool-encode_base64",
-      "description": "Single-tool workflow: encode_base64",
+      "description": "Encode any text to Base64",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3948,7 +3948,7 @@
     "wf-711b1360e6": {
       "id": "wf-711b1360e6",
       "name": "tool-get_protocol_revenue",
-      "description": "Single-tool workflow: get_protocol_revenue",
+      "description": "Get DeFi protocol revenue data from DeFiLlama.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3965,7 +3965,7 @@
     "wf-80a5ffdf43": {
       "id": "wf-80a5ffdf43",
       "name": "tool-get_sol_token_info",
-      "description": "Single-tool workflow: get_sol_token_info",
+      "description": "Get Solana token info from DexScreener by contract address or symbol.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3982,7 +3982,7 @@
     "wf-74c803e672": {
       "id": "wf-74c803e672",
       "name": "tool-get_onchain_activity",
-      "description": "Single-tool workflow: get_onchain_activity",
+      "description": "Get recent on-chain activity metrics for Solana.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -3999,7 +3999,7 @@
     "wf-aa86407c9c": {
       "id": "wf-aa86407c9c",
       "name": "tool-get_funding_rates",
-      "description": "Single-tool workflow: get_funding_rates",
+      "description": "Get crypto perpetual futures funding rates from Binance.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4016,7 +4016,7 @@
     "wf-efc1d7afa4": {
       "id": "wf-efc1d7afa4",
       "name": "tool-get_dominance",
-      "description": "Single-tool workflow: get_dominance",
+      "description": "Get Bitcoin and Ethereum market dominance percentages.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4033,7 +4033,7 @@
     "wf-ee5cc1a5de": {
       "id": "wf-ee5cc1a5de",
       "name": "tool-fetch_url_clean",
-      "description": "Single-tool workflow: fetch_url_clean",
+      "description": "Fetch a URL and extract clean readable text (strips HTML tags and scripts).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4050,7 +4050,7 @@
     "wf-e5e4f714de": {
       "id": "wf-e5e4f714de",
       "name": "tool-get_news_headlines",
-      "description": "Single-tool workflow: get_news_headlines",
+      "description": "Get latest news headlines from multiple sources via RSS.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4067,7 +4067,7 @@
     "wf-1292658988": {
       "id": "wf-1292658988",
       "name": "tool-get_product_hunt",
-      "description": "Single-tool workflow: get_product_hunt",
+      "description": "Get top products from Product Hunt today.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4084,7 +4084,7 @@
     "wf-525effae10": {
       "id": "wf-525effae10",
       "name": "tool-get_github_issues",
-      "description": "Single-tool workflow: get_github_issues",
+      "description": "Get open issues from any public GitHub repository.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4101,7 +4101,7 @@
     "wf-910e00ff72": {
       "id": "wf-910e00ff72",
       "name": "tool-search_web_ddg",
-      "description": "Single-tool workflow: search_web_ddg",
+      "description": "Search the web using DuckDuckGo instant answers API. No API key needed.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4118,7 +4118,7 @@
     "wf-6b8981fc3c": {
       "id": "wf-6b8981fc3c",
       "name": "tool-get_stackoverflow",
-      "description": "Single-tool workflow: get_stackoverflow",
+      "description": "Get top Stack Overflow questions for any programming topic.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4135,7 +4135,7 @@
     "wf-47745530a1": {
       "id": "wf-47745530a1",
       "name": "tool-get_medium_articles",
-      "description": "Single-tool workflow: get_medium_articles",
+      "description": "Get latest Medium articles on any topic via RSS.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4152,7 +4152,7 @@
     "wf-3a81bab0be": {
       "id": "wf-3a81bab0be",
       "name": "tool-get_hacker_news_comments",
-      "description": "Single-tool workflow: get_hacker_news_comments",
+      "description": "Get top comments from a Hacker News story.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4169,7 +4169,7 @@
     "wf-55163f1bf3": {
       "id": "wf-55163f1bf3",
       "name": "tool-analyze_code_complexity",
-      "description": "Single-tool workflow: analyze_code_complexity",
+      "description": "Analyze code complexity: count lines, functions, nested depth, and flag issues.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4186,7 +4186,7 @@
     "wf-695f5de67e": {
       "id": "wf-695f5de67e",
       "name": "tool-generate_uuid",
-      "description": "Single-tool workflow: generate_uuid",
+      "description": "Generate a UUID v4 (or multiple UUIDs).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4203,7 +4203,7 @@
     "wf-b79e2ea5b1": {
       "id": "wf-b79e2ea5b1",
       "name": "tool-validate_json",
-      "description": "Single-tool workflow: validate_json",
+      "description": "Validate JSON string and return structure info or errors.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4220,7 +4220,7 @@
     "wf-44077a0298": {
       "id": "wf-44077a0298",
       "name": "tool-convert_units",
-      "description": "Single-tool workflow: convert_units",
+      "description": "Convert between units: temperature (C/F/K), length (m/ft/mi/km), weight (kg/lb), data (B/KB/MB/GB).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4237,7 +4237,7 @@
     "wf-79aecfaf7e": {
       "id": "wf-79aecfaf7e",
       "name": "tool-get_package_info",
-      "description": "Single-tool workflow: get_package_info",
+      "description": "Get npm package information: version, description, downloads, dependencies.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4254,7 +4254,7 @@
     "wf-a124ce24fd": {
       "id": "wf-a124ce24fd",
       "name": "tool-search_github_repos",
-      "description": "Single-tool workflow: search_github_repos",
+      "description": "Search GitHub for repositories matching a query.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4271,7 +4271,7 @@
     "wf-a750df10cf": {
       "id": "wf-a750df10cf",
       "name": "tool-diff_texts",
-      "description": "Single-tool workflow: diff_texts",
+      "description": "Compare two texts and show what changed (added/removed lines).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4288,7 +4288,7 @@
     "wf-3833ccb03b": {
       "id": "wf-3833ccb03b",
       "name": "tool-run_local_llm",
-      "description": "Single-tool workflow: run_local_llm",
+      "description": "Send a prompt directly to local Ollama LLM. Free, private, no API key needed.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4305,7 +4305,7 @@
     "wf-ea855f69c8": {
       "id": "wf-ea855f69c8",
       "name": "tool-generate_image_free",
-      "description": "Single-tool workflow: generate_image_free",
+      "description": "Generate a real AI image using the server-side HuggingFace FLUX.1-schnell key pool. Returns a served URL to the rendered",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4322,7 +4322,7 @@
     "wf-86a8e6157f": {
       "id": "wf-86a8e6157f",
       "name": "tool-summarize_text",
-      "description": "Single-tool workflow: summarize_text",
+      "description": "Summarize long text into key points (TL;DR + bullets).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4339,7 +4339,7 @@
     "wf-f1591ec27f": {
       "id": "wf-f1591ec27f",
       "name": "tool-extract_entities",
-      "description": "Single-tool workflow: extract_entities",
+      "description": "Extract named entities (people, orgs, locations, dates, amounts) from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4356,7 +4356,7 @@
     "wf-f026356b5a": {
       "id": "wf-f026356b5a",
       "name": "tool-generate_mermaid",
-      "description": "Single-tool workflow: generate_mermaid",
+      "description": "Generate a Mermaid diagram definition for flowcharts, sequences, or mind maps.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4373,7 +4373,7 @@
     "wf-6fbf05e8ad": {
       "id": "wf-6fbf05e8ad",
       "name": "tool-detect_language",
-      "description": "Single-tool workflow: detect_language",
+      "description": "Detect the programming language of a code snippet.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4390,7 +4390,7 @@
     "wf-47fe69caca": {
       "id": "wf-47fe69caca",
       "name": "tool-compress_prompt",
-      "description": "Single-tool workflow: compress_prompt",
+      "description": "Compress a long prompt to use fewer tokens while preserving meaning.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4407,7 +4407,7 @@
     "wf-2d5a3980ae": {
       "id": "wf-2d5a3980ae",
       "name": "tool-generate_code_template",
-      "description": "Single-tool workflow: generate_code_template",
+      "description": "Generate a code boilerplate template for common patterns.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4424,7 +4424,7 @@
     "wf-eaf44c6f25": {
       "id": "wf-eaf44c6f25",
       "name": "tool-weather_live",
-      "description": "Single-tool workflow: weather_live",
+      "description": "Get live weather for any city using Open-Meteo. Free, no API key needed.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4441,7 +4441,7 @@
     "wf-47701ca894": {
       "id": "wf-47701ca894",
       "name": "tool-set_agent_room_state",
-      "description": "Single-tool workflow: set_agent_room_state",
+      "description": "Update an agent room state (sleeping/idle/working/completed). Persists to backend/data/agent-rooms.json.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4458,7 +4458,7 @@
     "wf-745487a2ac": {
       "id": "wf-745487a2ac",
       "name": "tool-save_room_layout",
-      "description": "Single-tool workflow: save_room_layout",
+      "description": "Save an agent room layout (placed collectible IDs). Max 5 items per room.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4475,7 +4475,7 @@
     "wf-f80aec2df9": {
       "id": "wf-f80aec2df9",
       "name": "tool-get_agent_mood",
-      "description": "Single-tool workflow: get_agent_mood",
+      "description": "Read an agent room state and mood from persistent storage.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4492,7 +4492,7 @@
     "wf-1297f5c02a": {
       "id": "wf-1297f5c02a",
       "name": "tool-create_skill_pack",
-      "description": "Single-tool workflow: create_skill_pack",
+      "description": "Create a new skill pack with custom system prompt for an agent. Saves to backend/data/skill-packs.json.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4509,7 +4509,7 @@
     "wf-c2efd375b7": {
       "id": "wf-c2efd375b7",
       "name": "tool-list_skill_packs",
-      "description": "Single-tool workflow: list_skill_packs",
+      "description": "List all available skill packs in the marketplace. Optionally filter by target agent.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4526,7 +4526,7 @@
     "wf-9f36d2f641": {
       "id": "wf-9f36d2f641",
       "name": "tool-install_skill_pack",
-      "description": "Single-tool workflow: install_skill_pack",
+      "description": "Purchase and install a skill pack — applies its system prompt override to the target agent. Tracks installations.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4543,7 +4543,7 @@
     "wf-19b15990be": {
       "id": "wf-19b15990be",
       "name": "tool-run_workflow_chain",
-      "description": "Single-tool workflow: run_workflow_chain",
+      "description": "Run a multi-step workflow chain. Each step is {agent, goal}. Output of step N is fed as context to step N+1.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4560,7 +4560,7 @@
     "wf-19056dcaf1": {
       "id": "wf-19056dcaf1",
       "name": "tool-geocode_address",
-      "description": "Single-tool workflow: geocode_address",
+      "description": "Geocode any place/address to coordinates via OpenStreetMap Nominatim (free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4577,7 +4577,7 @@
     "wf-cd11461db3": {
       "id": "wf-cd11461db3",
       "name": "tool-get_forex_rate",
-      "description": "Single-tool workflow: get_forex_rate",
+      "description": "Live fiat currency exchange rates from Frankfurter (ECB data, free, no key, very reliable).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4594,7 +4594,7 @@
     "wf-2939e93b7e": {
       "id": "wf-2939e93b7e",
       "name": "tool-get_crypto_backup",
-      "description": "Single-tool workflow: get_crypto_backup",
+      "description": "Crypto price from CoinPaprika (free, no key) — resilient backup when CoinGecko rate-limits.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4611,7 +4611,7 @@
     "wf-d763cfa1a5": {
       "id": "wf-d763cfa1a5",
       "name": "tool-pay_api_call",
-      "description": "Single-tool workflow: pay_api_call",
+      "description": "Pay-per-use API call via pay.sh (Solana). GUARDED: per-call cap, daily budget, and human approval above a threshold. Spe",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4628,7 +4628,7 @@
     "wf-6bbb58c774": {
       "id": "wf-6bbb58c774",
       "name": "tool-paybox_pay",
-      "description": "Single-tool workflow: paybox_pay",
+      "description": "Trade, transfer, or pay via Paybox — the agent's real non-custodial wallet (Solana + EVM). GUARDED: per-call cap, daily ",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4645,7 +4645,7 @@
     "wf-dec9e0fed6": {
       "id": "wf-dec9e0fed6",
       "name": "tool-remember_fact",
-      "description": "Single-tool workflow: remember_fact",
+      "description": "Save a fact or result to agent memory for future use (persists across sessions).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4662,7 +4662,7 @@
     "wf-7c04ae4235": {
       "id": "wf-7c04ae4235",
       "name": "tool-recall_memory",
-      "description": "Single-tool workflow: recall_memory",
+      "description": "Retrieve a previously saved fact from agent memory.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4679,7 +4679,7 @@
     "wf-04bf6d3ae6": {
       "id": "wf-04bf6d3ae6",
       "name": "tool-post_webhook",
-      "description": "Single-tool workflow: post_webhook",
+      "description": "Send data to any HTTP webhook URL via POST.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4696,7 +4696,7 @@
     "wf-c7ed12130b": {
       "id": "wf-c7ed12130b",
       "name": "tool-post_to_telegram",
-      "description": "Single-tool workflow: post_to_telegram",
+      "description": "Send a message to a Telegram chat/channel via the Bot API (POST /bot<token>/sendMessage). Requires TELEGRAM_BOT_TOKEN; c",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4713,7 +4713,7 @@
     "wf-f393100fd1": {
       "id": "wf-f393100fd1",
       "name": "tool-create_github_issue",
-      "description": "Single-tool workflow: create_github_issue",
+      "description": "Create a GitHub issue in any repository. Requires GITHUB_TOKEN env var.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4730,7 +4730,7 @@
     "wf-18d0a1f038": {
       "id": "wf-18d0a1f038",
       "name": "tool-get_trending_topics",
-      "description": "Single-tool workflow: get_trending_topics",
+      "description": "Trending crypto coins/topics right now. Keyless — uses the CoinGecko /search/trending endpoint. Returns a ranked list of",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4747,7 +4747,7 @@
     "wf-84f10893a4": {
       "id": "wf-84f10893a4",
       "name": "tool-format_as_table",
-      "description": "Single-tool workflow: format_as_table",
+      "description": "Format JSON array data as a readable ASCII table.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4764,7 +4764,7 @@
     "wf-fc7382879a": {
       "id": "wf-fc7382879a",
       "name": "tool-semantic_scholar_search",
-      "description": "Single-tool workflow: semantic_scholar_search",
+      "description": "Search academic papers via Semantic Scholar (free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4781,7 +4781,7 @@
     "wf-5320cf3c88": {
       "id": "wf-5320cf3c88",
       "name": "tool-wayback_snapshot",
-      "description": "Single-tool workflow: wayback_snapshot",
+      "description": "Get the archived (Wayback Machine) version of any URL.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4798,7 +4798,7 @@
     "wf-6ea37dd201": {
       "id": "wf-6ea37dd201",
       "name": "tool-open_library_search",
-      "description": "Single-tool workflow: open_library_search",
+      "description": "Search books via Open Library (free).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4815,7 +4815,7 @@
     "wf-51107463bf": {
       "id": "wf-51107463bf",
       "name": "tool-hn_algolia_search",
-      "description": "Single-tool workflow: hn_algolia_search",
+      "description": "Search Hacker News stories via Algolia (free).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4832,7 +4832,7 @@
     "wf-80819b19ab": {
       "id": "wf-80819b19ab",
       "name": "tool-defillama_tvl",
-      "description": "Single-tool workflow: defillama_tvl",
+      "description": "Total value locked for a DeFi protocol via DefiLlama (free).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4849,7 +4849,7 @@
     "wf-2af5bcae30": {
       "id": "wf-2af5bcae30",
       "name": "tool-defillama_yields",
-      "description": "Single-tool workflow: defillama_yields",
+      "description": "Top DeFi yield pools by APY (DeFiLlama).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4866,7 +4866,7 @@
     "wf-b5e840bb1d": {
       "id": "wf-b5e840bb1d",
       "name": "tool-coingecko_trending",
-      "description": "Single-tool workflow: coingecko_trending",
+      "description": "Trending coins on CoinGecko (no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4883,7 +4883,7 @@
     "wf-dd1ccf83aa": {
       "id": "wf-dd1ccf83aa",
       "name": "tool-jupiter_token_price",
-      "description": "Single-tool workflow: jupiter_token_price",
+      "description": "Solana token price via Jupiter Price API (free).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4900,7 +4900,7 @@
     "wf-9feb162fae": {
       "id": "wf-9feb162fae",
       "name": "tool-npm_package_info",
-      "description": "Single-tool workflow: npm_package_info",
+      "description": "npm package latest version + weekly downloads.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4917,7 +4917,7 @@
     "wf-f983175b60": {
       "id": "wf-f983175b60",
       "name": "tool-bundlephobia_size",
-      "description": "Single-tool workflow: bundlephobia_size",
+      "description": "Bundle size (min+gzip) of an npm package.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4934,7 +4934,7 @@
     "wf-7107309ac5": {
       "id": "wf-7107309ac5",
       "name": "tool-cve_lookup",
-      "description": "Single-tool workflow: cve_lookup",
+      "description": "Look up CVE security vulnerabilities by package/keyword or CVE id (Red Hat security data, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4951,7 +4951,7 @@
     "wf-983f5e32b2": {
       "id": "wf-983f5e32b2",
       "name": "tool-svg_chart",
-      "description": "Single-tool workflow: svg_chart",
+      "description": "Generate an SVG bar chart from data arrays (pure JS, no API).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4968,7 +4968,7 @@
     "wf-a2689df9d7": {
       "id": "wf-a2689df9d7",
       "name": "tool-color_palette",
-      "description": "Single-tool workflow: color_palette",
+      "description": "Generate a harmonious 5-color palette from a base hex or seed word.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -4985,7 +4985,7 @@
     "wf-bd7f4ded01": {
       "id": "wf-bd7f4ded01",
       "name": "tool-font_pairing",
-      "description": "Single-tool workflow: font_pairing",
+      "description": "Suggest Google Font pairings (display + body) for a style (curated, no API).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5002,7 +5002,7 @@
     "wf-5921562ce9": {
       "id": "wf-5921562ce9",
       "name": "tool-readability_score",
-      "description": "Single-tool workflow: readability_score",
+      "description": "Flesch reading-ease score + grade estimate for text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5019,7 +5019,7 @@
     "wf-01cca64dc7": {
       "id": "wf-01cca64dc7",
       "name": "tool-tweet_thread",
-      "description": "Single-tool workflow: tweet_thread",
+      "description": "Split long text into a numbered tweet thread (<=240 chars each, pure JS).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5036,7 +5036,7 @@
     "wf-0342faf7a0": {
       "id": "wf-0342faf7a0",
       "name": "tool-rss_fetch",
-      "description": "Single-tool workflow: rss_fetch",
+      "description": "Fetch + parse any RSS feed (via rss2json, free).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5053,7 +5053,7 @@
     "wf-a23907b59a": {
       "id": "wf-a23907b59a",
       "name": "tool-get_iss_location",
-      "description": "Single-tool workflow: get_iss_location",
+      "description": "Live position (lat/long/altitude/velocity) of the International Space Station (Where the ISS at, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5070,7 +5070,7 @@
     "wf-a0757ed8e0": {
       "id": "wf-a0757ed8e0",
       "name": "tool-get_space_launches",
-      "description": "Single-tool workflow: get_space_launches",
+      "description": "Upcoming rocket launches worldwide (The Space Devs Launch Library 2, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5087,7 +5087,7 @@
     "wf-547c021340": {
       "id": "wf-547c021340",
       "name": "tool-get_public_holidays",
-      "description": "Single-tool workflow: get_public_holidays",
+      "description": "Public holidays for a country + year (Nager.Date, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5104,7 +5104,7 @@
     "wf-b7b7300bb7": {
       "id": "wf-b7b7300bb7",
       "name": "tool-get_trivia_questions",
-      "description": "Single-tool workflow: get_trivia_questions",
+      "description": "Random trivia questions with answers (Open Trivia DB, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5121,7 +5121,7 @@
     "wf-5ad27c417a": {
       "id": "wf-5ad27c417a",
       "name": "tool-gutenberg_search",
-      "description": "Single-tool workflow: gutenberg_search",
+      "description": "Search 70,000+ free public-domain books (Project Gutenberg via Gutendex, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5138,7 +5138,7 @@
     "wf-773a503abb": {
       "id": "wf-773a503abb",
       "name": "tool-get_horoscope",
-      "description": "Single-tool workflow: get_horoscope",
+      "description": "Daily horoscope for a zodiac sign (Horoscope App API, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5155,7 +5155,7 @@
     "wf-3387fd38c9": {
       "id": "wf-3387fd38c9",
       "name": "tool-get_btc_fees",
-      "description": "Single-tool workflow: get_btc_fees",
+      "description": "Recommended Bitcoin network fees in sat/vB by confirmation speed (mempool.space, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5172,7 +5172,7 @@
     "wf-b9935596e8": {
       "id": "wf-b9935596e8",
       "name": "tool-convert_currency",
-      "description": "Single-tool workflow: convert_currency",
+      "description": "Convert an amount between two fiat currencies at live rates (open.er-api.com, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5189,7 +5189,7 @@
     "wf-e2a457b9bf": {
       "id": "wf-e2a457b9bf",
       "name": "tool-github_user_info",
-      "description": "Single-tool workflow: github_user_info",
+      "description": "Public GitHub user profile: repos, followers, bio (api.github.com, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5206,7 +5206,7 @@
     "wf-dc0070acb4": {
       "id": "wf-dc0070acb4",
       "name": "tool-http_headers",
-      "description": "Single-tool workflow: http_headers",
+      "description": "Fetch a URL and return its HTTP response headers + status.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5223,7 +5223,7 @@
     "wf-9c67beec03": {
       "id": "wf-9c67beec03",
       "name": "tool-json_to_csv",
-      "description": "Single-tool workflow: json_to_csv",
+      "description": "Convert a JSON array of objects to CSV.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5240,7 +5240,7 @@
     "wf-8a6921457a": {
       "id": "wf-8a6921457a",
       "name": "tool-csv_to_json",
-      "description": "Single-tool workflow: csv_to_json",
+      "description": "Convert CSV (with header row) to JSON array.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5257,7 +5257,7 @@
     "wf-7281764842": {
       "id": "wf-7281764842",
       "name": "tool-word_synonyms",
-      "description": "Single-tool workflow: word_synonyms",
+      "description": "Find synonyms (and related words) for a word (Datamuse, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5274,7 +5274,7 @@
     "wf-2a52c33d26": {
       "id": "wf-2a52c33d26",
       "name": "tool-slugify",
-      "description": "Single-tool workflow: slugify",
+      "description": "Make a URL slug from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5291,7 +5291,7 @@
     "wf-934a16d495": {
       "id": "wf-934a16d495",
       "name": "tool-random_fact",
-      "description": "Single-tool workflow: random_fact",
+      "description": "A random interesting fact (uselessfacts, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5308,7 +5308,7 @@
     "wf-d6e91c61ba": {
       "id": "wf-d6e91c61ba",
       "name": "tool-dns_lookup",
-      "description": "Single-tool workflow: dns_lookup",
+      "description": "Resolve DNS records for a domain (A, AAAA, MX, NS, TXT).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5325,7 +5325,7 @@
     "wf-5990ea7012": {
       "id": "wf-5990ea7012",
       "name": "tool-rdap_domain",
-      "description": "Single-tool workflow: rdap_domain",
+      "description": "WHOIS/RDAP registration data for a domain: registrar, status, key dates (rdap.org, free, no key).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5342,7 +5342,7 @@
     "wf-51caabf6ab": {
       "id": "wf-51caabf6ab",
       "name": "tool-generate_password",
-      "description": "Single-tool workflow: generate_password",
+      "description": "Generate a cryptographically-strong random password (Node crypto, no API).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5359,7 +5359,7 @@
     "wf-73b8008ca8": {
       "id": "wf-73b8008ca8",
       "name": "tool-color_contrast_check",
-      "description": "Single-tool workflow: color_contrast_check",
+      "description": "Compute the WCAG contrast ratio between two hex colors and whether it passes AA/AAA (pure JS, no API).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5376,7 +5376,7 @@
     "wf-c36d32497c": {
       "id": "wf-c36d32497c",
       "name": "tool-scrape_site",
-      "description": "Single-tool workflow: scrape_site",
+      "description": "Fetch a URL and return clean stripped text (HTML tags removed). Optional CSS selector substring to focus on a section. U",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5393,7 +5393,7 @@
     "wf-76fb8ac5b6": {
       "id": "wf-76fb8ac5b6",
       "name": "tool-extract_pdf",
-      "description": "Single-tool workflow: extract_pdf",
+      "description": "Download a PDF from a URL and extract its text using pdf-parse. Returns text and page count.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5410,7 +5410,7 @@
     "wf-1864e157fd": {
       "id": "wf-1864e157fd",
       "name": "tool-csv_query",
-      "description": "Single-tool workflow: csv_query",
+      "description": "Load CSV text (or fetch from URL) and run a simple filter+aggregate. Supports filter (field=value or field>number), sele",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5427,7 +5427,7 @@
     "wf-0dea083c17": {
       "id": "wf-0dea083c17",
       "name": "tool-check_pwned",
-      "description": "Single-tool workflow: check_pwned",
+      "description": "Check if an email address appears in known data breaches using the HaveIBeenPwned k-anonymity range API. Completely keyl",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5444,7 +5444,7 @@
     "wf-a820ff113a": {
       "id": "wf-a820ff113a",
       "name": "tool-validate_jwt",
-      "description": "Single-tool workflow: validate_jwt",
+      "description": "Decode and structurally validate a JWT token — checks format, expiry, issuer, algorithm. Does NOT verify signature (no s",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5461,7 +5461,7 @@
     "wf-fdf8164297": {
       "id": "wf-fdf8164297",
       "name": "tool-pubmed_search",
-      "description": "Single-tool workflow: pubmed_search",
+      "description": "Search PubMed (NCBI) for biomedical/medical research papers. Returns titles, authors, abstracts, PMIDs and PubMed links.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5478,7 +5478,7 @@
     "wf-1d2fa24092": {
       "id": "wf-1d2fa24092",
       "name": "tool-extract_links",
-      "description": "Single-tool workflow: extract_links",
+      "description": "Fetch a URL and extract all hyperlinks (href values). Optionally filter to only external links or links matching a patte",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5495,7 +5495,7 @@
     "wf-b37a16e3b6": {
       "id": "wf-b37a16e3b6",
       "name": "tool-summarize_url",
-      "description": "Single-tool workflow: summarize_url",
+      "description": "Fetch a URL and return a structured summary: title, meta description, word count, first 600 chars of body text, and all ",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5512,7 +5512,7 @@
     "wf-fb50664a34": {
       "id": "wf-fb50664a34",
       "name": "tool-send_webhook",
-      "description": "Single-tool workflow: send_webhook",
+      "description": "POST any JSON payload to any webhook URL. No external API key required. Supports custom headers.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5529,7 +5529,7 @@
     "wf-2f226c02bf": {
       "id": "wf-2f226c02bf",
       "name": "tool-validate_json_schema",
-      "description": "Single-tool workflow: validate_json_schema",
+      "description": "Validate a JSON data object against a JSON Schema (draft-07 compatible). No external dep — uses built-in structural chec",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5546,7 +5546,7 @@
     "wf-5f1b95e1c0": {
       "id": "wf-5f1b95e1c0",
       "name": "tool-scan_dependencies",
-      "description": "Single-tool workflow: scan_dependencies",
+      "description": "Scan a package.json content string for known CVEs using the OSV.dev API (free, no key). Returns vulnerability count and ",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5563,7 +5563,7 @@
     "wf-834f2fccfb": {
       "id": "wf-834f2fccfb",
       "name": "tool-xml_to_json",
-      "description": "Single-tool workflow: xml_to_json",
+      "description": "Fetch an XML/RSS/Atom URL and parse it into structured JSON using a lightweight built-in regex parser.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5580,7 +5580,7 @@
     "wf-961bc07268": {
       "id": "wf-961bc07268",
       "name": "tool-wolfram_query",
-      "description": "Single-tool workflow: wolfram_query",
+      "description": "Computational knowledge from Wolfram Alpha (math, unit conversions, science facts, etc.).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5597,7 +5597,7 @@
     "wf-e68df45807": {
       "id": "wf-e68df45807",
       "name": "tool-send_email",
-      "description": "Single-tool workflow: send_email",
+      "description": "Send a transactional email via SendGrid or Resend. Requires SENDGRID_API_KEY or RESEND_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5614,7 +5614,7 @@
     "wf-ab7bbfbcc4": {
       "id": "wf-ab7bbfbcc4",
       "name": "tool-send_slack",
-      "description": "Single-tool workflow: send_slack",
+      "description": "Post a message to a Slack channel via Incoming Webhook. Requires SLACK_WEBHOOK_URL.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5631,7 +5631,7 @@
     "wf-b7a2484e2a": {
       "id": "wf-b7a2484e2a",
       "name": "tool-send_sms",
-      "description": "Single-tool workflow: send_sms",
+      "description": "Send an SMS via Twilio. Requires TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5648,7 +5648,7 @@
     "wf-b9e82e676e": {
       "id": "wf-b9e82e676e",
       "name": "tool-create_stripe_checkout",
-      "description": "Single-tool workflow: create_stripe_checkout",
+      "description": "Generate a Stripe Checkout session URL for a payment. Requires STRIPE_SECRET_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5665,7 +5665,7 @@
     "wf-40dfc1d68d": {
       "id": "wf-40dfc1d68d",
       "name": "tool-text_to_speech",
-      "description": "Single-tool workflow: text_to_speech",
+      "description": "Convert text to an audio file URL. Requires ELEVENLABS_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5682,7 +5682,7 @@
     "wf-d82ad50095": {
       "id": "wf-d82ad50095",
       "name": "tool-transcribe_audio",
-      "description": "Single-tool workflow: transcribe_audio",
+      "description": "Transcribe an audio file URL to text via Whisper. Requires OPENAI_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5699,7 +5699,7 @@
     "wf-5e3c173bd2": {
       "id": "wf-5e3c173bd2",
       "name": "tool-ocr_image",
-      "description": "Single-tool workflow: ocr_image",
+      "description": "Extract text from an image URL via OCR.space. Requires OCR_SPACE_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5716,7 +5716,7 @@
     "wf-bd7b9d7eb6": {
       "id": "wf-bd7b9d7eb6",
       "name": "tool-make_music",
-      "description": "Single-tool workflow: make_music",
+      "description": "Generate a real AI music clip and return a playable audio URL. Uses AceDataCloud Suno API (ACEDATACLOUD_API_TOKEN) if se",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5733,7 +5733,7 @@
     "wf-b159f291aa": {
       "id": "wf-b159f291aa",
       "name": "tool-moonpay_quote",
-      "description": "Single-tool workflow: moonpay_quote",
+      "description": "Get a MoonPay crypto buy quote. Requires MOONPAY_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5750,7 +5750,7 @@
     "wf-a9bdfd2251": {
       "id": "wf-a9bdfd2251",
       "name": "tool-price_compare",
-      "description": "Single-tool workflow: price_compare",
+      "description": "Compare product prices across retailers via SerpAPI. Requires SERP_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5767,7 +5767,7 @@
     "wf-4ea41c3137": {
       "id": "wf-4ea41c3137",
       "name": "tool-open_github_issue",
-      "description": "Single-tool workflow: open_github_issue",
+      "description": "Create a GitHub issue via the GitHub API. Requires GITHUB_TOKEN.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5784,7 +5784,7 @@
     "wf-978bd1fd9e": {
       "id": "wf-978bd1fd9e",
       "name": "tool-open_github_pr",
-      "description": "Single-tool workflow: open_github_pr",
+      "description": "Open a GitHub pull request. Requires GITHUB_TOKEN.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5801,7 +5801,7 @@
     "wf-e3c537da19": {
       "id": "wf-e3c537da19",
       "name": "tool-deploy_to_vercel",
-      "description": "Single-tool workflow: deploy_to_vercel",
+      "description": "Trigger a Vercel deployment via API. Requires VERCEL_TOKEN.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5818,7 +5818,7 @@
     "wf-2d6a0e8201": {
       "id": "wf-2d6a0e8201",
       "name": "tool-create_calendar_event",
-      "description": "Single-tool workflow: create_calendar_event",
+      "description": "Create a Google Calendar event via OAuth. Requires GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5835,7 +5835,7 @@
     "wf-842e4a500a": {
       "id": "wf-842e4a500a",
       "name": "tool-create_notion_page",
-      "description": "Single-tool workflow: create_notion_page",
+      "description": "Create a Notion page in a database. Requires NOTION_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5852,7 +5852,7 @@
     "wf-7523fbdc6c": {
       "id": "wf-7523fbdc6c",
       "name": "tool-append_google_sheet",
-      "description": "Single-tool workflow: append_google_sheet",
+      "description": "Append rows to a Google Sheet. Requires GOOGLE_SERVICE_ACCOUNT_JSON.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5869,7 +5869,7 @@
     "wf-c451ed472e": {
       "id": "wf-c451ed472e",
       "name": "tool-create_google_doc",
-      "description": "Single-tool workflow: create_google_doc",
+      "description": "Create a new Google Doc with content. Requires GOOGLE_SERVICE_ACCOUNT_JSON.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5886,7 +5886,7 @@
     "wf-a47175e271": {
       "id": "wf-a47175e271",
       "name": "tool-create_airtable_record",
-      "description": "Single-tool workflow: create_airtable_record",
+      "description": "Add a record to an Airtable base. Requires AIRTABLE_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5903,7 +5903,7 @@
     "wf-2a0aab6ef6": {
       "id": "wf-2a0aab6ef6",
       "name": "tool-search_notion",
-      "description": "Single-tool workflow: search_notion",
+      "description": "Search across a Notion workspace. Requires NOTION_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5920,7 +5920,7 @@
     "wf-4ad0e4e7c7": {
       "id": "wf-4ad0e4e7c7",
       "name": "tool-scan_url_virustotal",
-      "description": "Single-tool workflow: scan_url_virustotal",
+      "description": "Check URL reputation via VirusTotal. Requires VIRUSTOTAL_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5937,7 +5937,7 @@
     "wf-9b23e79ac3": {
       "id": "wf-9b23e79ac3",
       "name": "tool-get_linkedin_profile",
-      "description": "Single-tool workflow: get_linkedin_profile",
+      "description": "Fetch LinkedIn public profile data via Proxycurl. Requires PROXYCURL_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5954,7 +5954,7 @@
     "wf-7fedc57dfc": {
       "id": "wf-7fedc57dfc",
       "name": "tool-create_hubspot_contact",
-      "description": "Single-tool workflow: create_hubspot_contact",
+      "description": "Create or update a HubSpot CRM contact. Requires HUBSPOT_API_KEY.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5971,7 +5971,7 @@
     "wf-cb2930ab45": {
       "id": "wf-cb2930ab45",
       "name": "tool-search_x",
-      "description": "Single-tool workflow: search_x",
+      "description": "Search recent (last ~7 days) tweets on X/Twitter via API v2 (GET /2/tweets/search/recent). App-only bearer token works f",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -5988,7 +5988,7 @@
     "wf-3adc726416": {
       "id": "wf-3adc726416",
       "name": "tool-get_x_profile",
-      "description": "Single-tool workflow: get_x_profile",
+      "description": "Fetch an X/Twitter user profile by @username via API v2 (GET /2/users/by/username/:name). App-only bearer token works. R",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6005,7 +6005,7 @@
     "wf-4dd4f759a4": {
       "id": "wf-4dd4f759a4",
       "name": "tool-post_to_x",
-      "description": "Single-tool workflow: post_to_x",
+      "description": "Post a tweet to X/Twitter (POST /2/tweets). Posting requires OAuth1.0a USER context: X_API_KEY + X_API_SECRET + X_ACCESS",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6022,7 +6022,7 @@
     "wf-dfa0f2c6ce": {
       "id": "wf-dfa0f2c6ce",
       "name": "tool-get_market_news",
-      "description": "Single-tool workflow: get_market_news",
+      "description": "Crypto market news filtered to a specific coin or topic (e.g. \"ethereum\", \"regulation\", \"ETF\"). Searches the keyless pub",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6039,7 +6039,7 @@
     "wf-40454ec0b2": {
       "id": "wf-40454ec0b2",
       "name": "tool-defi_tvl",
-      "description": "Single-tool workflow: defi_tvl",
+      "description": "Total Value Locked (TVL) for a DeFi protocol via DeFiLlama (keyless). Returns current total TVL in USD plus a per-chain ",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6056,7 +6056,7 @@
     "wf-d8ca964c88": {
       "id": "wf-d8ca964c88",
       "name": "tool-defi_yields",
-      "description": "Single-tool workflow: defi_yields",
+      "description": "Top DeFi yield/farming pools by APY via DeFiLlama Yields (keyless). Optionally filter by chain (e.g. \"Ethereum\", \"Arbitr",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6073,7 +6073,7 @@
     "wf-1ed65d2217": {
       "id": "wf-1ed65d2217",
       "name": "tool-defi_token_price",
-      "description": "Single-tool workflow: defi_token_price",
+      "description": "Live token price, liquidity, and 24h change via DexScreener (keyless). Accepts a token contract address (any chain) or a",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6090,7 +6090,7 @@
     "wf-88ed7db0ea": {
       "id": "wf-88ed7db0ea",
       "name": "tool-defi_chains_tvl",
-      "description": "Single-tool workflow: defi_chains_tvl",
+      "description": "TVL ranked by blockchain across all of DeFi via DeFiLlama (keyless, https://api.llama.fi/v2/chains). Returns the top cha",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6107,7 +6107,7 @@
     "wf-3ff3143199": {
       "id": "wf-3ff3143199",
       "name": "tool-sol_account_balance",
-      "description": "Single-tool workflow: sol_account_balance",
+      "description": "Live SOL balance for a wallet/account address (Solana mainnet RPC).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6124,7 +6124,7 @@
     "wf-e5be5b3ad5": {
       "id": "wf-e5be5b3ad5",
       "name": "tool-sol_supply",
-      "description": "Single-tool workflow: sol_supply",
+      "description": "Circulating + total SOL supply from the network.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6141,7 +6141,7 @@
     "wf-0f8cca0abb": {
       "id": "wf-0f8cca0abb",
       "name": "tool-sol_token_supply",
-      "description": "Single-tool workflow: sol_token_supply",
+      "description": "Total supply + decimals for an SPL token mint.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6158,7 +6158,7 @@
     "wf-ce3b6b1d8c": {
       "id": "wf-ce3b6b1d8c",
       "name": "tool-sol_token_holders",
-      "description": "Single-tool workflow: sol_token_holders",
+      "description": "Top 20 largest holders (accounts) of an SPL token mint — concentration check.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6175,7 +6175,7 @@
     "wf-23b999b32b": {
       "id": "wf-23b999b32b",
       "name": "tool-sol_tx_history",
-      "description": "Single-tool workflow: sol_tx_history",
+      "description": "Recent transaction signatures for a Solana address (most recent first).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6192,7 +6192,7 @@
     "wf-8cc6ba0831": {
       "id": "wf-8cc6ba0831",
       "name": "tool-sol_epoch",
-      "description": "Single-tool workflow: sol_epoch",
+      "description": "Current Solana epoch info — epoch #, slot progress, absolute slot.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6209,7 +6209,7 @@
     "wf-4fdc7e839d": {
       "id": "wf-4fdc7e839d",
       "name": "tool-sol_network_tps",
-      "description": "Single-tool workflow: sol_network_tps",
+      "description": "Live Solana throughput (transactions per second) from recent performance samples.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6226,7 +6226,7 @@
     "wf-1f27bfe938": {
       "id": "wf-1f27bfe938",
       "name": "tool-jupiter_price",
-      "description": "Single-tool workflow: jupiter_price",
+      "description": "Live token price(s) in USD from Jupiter (keyless). Accepts mint(s) or symbol(s).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6243,7 +6243,7 @@
     "wf-1e74ccf4d1": {
       "id": "wf-1e74ccf4d1",
       "name": "tool-magiceden_floor",
-      "description": "Single-tool workflow: magiceden_floor",
+      "description": "Magic Eden NFT collection stats — floor price, listed count, 24h volume. Keyless.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6260,7 +6260,7 @@
     "wf-892f9b33eb": {
       "id": "wf-892f9b33eb",
       "name": "tool-rugcheck_token",
-      "description": "Single-tool workflow: rugcheck_token",
+      "description": "RugCheck safety report for an SPL token — risk score + flags. Keyless.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6277,7 +6277,7 @@
     "wf-cfd8d292fb": {
       "id": "wf-cfd8d292fb",
       "name": "tool-dexscreener_token",
-      "description": "Single-tool workflow: dexscreener_token",
+      "description": "DexScreener pairs for a token address — price, liquidity, 24h volume, FDV. Keyless, multi-chain.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6294,7 +6294,7 @@
     "wf-09c87c6afe": {
       "id": "wf-09c87c6afe",
       "name": "tool-dexscreener_search",
-      "description": "Single-tool workflow: dexscreener_search",
+      "description": "Search DexScreener for token pairs by name/symbol across chains. Keyless.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6311,7 +6311,7 @@
     "wf-e3b5becce5": {
       "id": "wf-e3b5becce5",
       "name": "tool-sol_inflation",
-      "description": "Single-tool workflow: sol_inflation",
+      "description": "Current Solana inflation rate (total, validator, foundation).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6328,7 +6328,7 @@
     "wf-152095d6c9": {
       "id": "wf-152095d6c9",
       "name": "tool-sol_validators",
-      "description": "Single-tool workflow: sol_validators",
+      "description": "Count of current + delinquent Solana validators (network health).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6345,7 +6345,7 @@
     "wf-c47b51454c": {
       "id": "wf-c47b51454c",
       "name": "tool-sol_token_meta",
-      "description": "Single-tool workflow: sol_token_meta",
+      "description": "Token metadata (symbol, name, decimals, logo) from the Jupiter strict token list. Keyless.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6362,7 +6362,7 @@
     "wf-32fe3c0ad9": {
       "id": "wf-32fe3c0ad9",
       "name": "tool-write_thread",
-      "description": "Single-tool workflow: write_thread",
+      "description": "Write a punchy X/Twitter thread (5–8 posts) on a topic. Real, ready to post.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6379,7 +6379,7 @@
     "wf-4236eec0b1": {
       "id": "wf-4236eec0b1",
       "name": "tool-write_blog_post",
-      "description": "Single-tool workflow: write_blog_post",
+      "description": "Write a complete, structured blog post (title, intro, H2 sections, conclusion).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6396,7 +6396,7 @@
     "wf-561bac8c8f": {
       "id": "wf-561bac8c8f",
       "name": "tool-blog_outline",
-      "description": "Single-tool workflow: blog_outline",
+      "description": "Generate a detailed blog post outline (title + H2/H3 bullet structure).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6413,7 +6413,7 @@
     "wf-1ced869679": {
       "id": "wf-1ced869679",
       "name": "tool-seo_keywords",
-      "description": "Single-tool workflow: seo_keywords",
+      "description": "Generate a prioritized SEO keyword list (primary, secondary, long-tail) for a topic.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6430,7 +6430,7 @@
     "wf-1d4c97225c": {
       "id": "wf-1d4c97225c",
       "name": "tool-meta_description",
-      "description": "Single-tool workflow: meta_description",
+      "description": "Write an SEO meta description (≤155 chars) for a page/topic.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6447,7 +6447,7 @@
     "wf-07e1419c52": {
       "id": "wf-07e1419c52",
       "name": "tool-generate_hooks",
-      "description": "Single-tool workflow: generate_hooks",
+      "description": "Generate 10 scroll-stopping hooks/opening lines for content on a topic.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6464,7 +6464,7 @@
     "wf-7bd596d3c8": {
       "id": "wf-7bd596d3c8",
       "name": "tool-ad_copy",
-      "description": "Single-tool workflow: ad_copy",
+      "description": "Write ad copy variants (headline + body + CTA) for a product/offer.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6481,7 +6481,7 @@
     "wf-1cb1ee452c": {
       "id": "wf-1cb1ee452c",
       "name": "tool-cold_email",
-      "description": "Single-tool workflow: cold_email",
+      "description": "Write a short, personalized cold outreach email (subject + body).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6498,7 +6498,7 @@
     "wf-167ef0e965": {
       "id": "wf-167ef0e965",
       "name": "tool-rewrite_tone",
-      "description": "Single-tool workflow: rewrite_tone",
+      "description": "Rewrite a piece of text in a specified tone (e.g. professional, casual, hype, luxury).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6515,7 +6515,7 @@
     "wf-40eb8e6e04": {
       "id": "wf-40eb8e6e04",
       "name": "tool-product_description",
-      "description": "Single-tool workflow: product_description",
+      "description": "Write a compelling e-commerce product description (benefits-led).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6532,7 +6532,7 @@
     "wf-6cc0786b3b": {
       "id": "wf-6cc0786b3b",
       "name": "tool-landing_headline",
-      "description": "Single-tool workflow: landing_headline",
+      "description": "Generate 8 landing-page hero headline + subhead pairs for an offer.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6549,7 +6549,7 @@
     "wf-db1b2811c2": {
       "id": "wf-db1b2811c2",
       "name": "tool-cta_variants",
-      "description": "Single-tool workflow: cta_variants",
+      "description": "Generate 12 call-to-action button/line variants for an offer.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6566,7 +6566,7 @@
     "wf-84697a97a6": {
       "id": "wf-84697a97a6",
       "name": "tool-hashtag_suggest",
-      "description": "Single-tool workflow: hashtag_suggest",
+      "description": "Suggest relevant hashtags (mix of broad + niche) for a post topic.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6583,7 +6583,7 @@
     "wf-6728fa89e4": {
       "id": "wf-6728fa89e4",
       "name": "tool-content_calendar",
-      "description": "Single-tool workflow: content_calendar",
+      "description": "Build a 7-day content calendar (platform + hook + format) for a theme.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6600,7 +6600,7 @@
     "wf-aefe24fcb9": {
       "id": "wf-aefe24fcb9",
       "name": "tool-tweet_variations",
-      "description": "Single-tool workflow: tweet_variations",
+      "description": "Rewrite a tweet into 6 distinct high-engagement variations.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6617,7 +6617,7 @@
     "wf-0ce00a494d": {
       "id": "wf-0ce00a494d",
       "name": "tool-youtube_title",
-      "description": "Single-tool workflow: youtube_title",
+      "description": "Generate 10 high-CTR YouTube titles for a video topic.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6634,7 +6634,7 @@
     "wf-e276fb14df": {
       "id": "wf-e276fb14df",
       "name": "tool-video_script",
-      "description": "Single-tool workflow: video_script",
+      "description": "Write a short-form video script (hook, beats, CTA) for a topic.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6651,7 +6651,7 @@
     "wf-9a600d269c": {
       "id": "wf-9a600d269c",
       "name": "tool-press_release",
-      "description": "Single-tool workflow: press_release",
+      "description": "Draft a professional press release for an announcement.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6668,7 +6668,7 @@
     "wf-b715f94fd0": {
       "id": "wf-b715f94fd0",
       "name": "tool-faq_generate",
-      "description": "Single-tool workflow: faq_generate",
+      "description": "Generate a FAQ (8 Q&A pairs) for a product/topic.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6685,7 +6685,7 @@
     "wf-529c1f91c9": {
       "id": "wf-529c1f91c9",
       "name": "tool-email_subject_lines",
-      "description": "Single-tool workflow: email_subject_lines",
+      "description": "Generate 12 high-open-rate email subject lines for a campaign.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6702,7 +6702,7 @@
     "wf-57f9f7b941": {
       "id": "wf-57f9f7b941",
       "name": "tool-slogan_generate",
-      "description": "Single-tool workflow: slogan_generate",
+      "description": "Generate 10 brand slogans/taglines for a product or brand.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6719,7 +6719,7 @@
     "wf-4231290170": {
       "id": "wf-4231290170",
       "name": "tool-elevator_pitch",
-      "description": "Single-tool workflow: elevator_pitch",
+      "description": "Write a tight 30-second elevator pitch for a product/idea.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6736,7 +6736,7 @@
     "wf-88fb61ba20": {
       "id": "wf-88fb61ba20",
       "name": "tool-brand_name_ideas",
-      "description": "Single-tool workflow: brand_name_ideas",
+      "description": "Brainstorm 15 brand/product name ideas with a one-line rationale each.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6753,7 +6753,7 @@
     "wf-1f94a09228": {
       "id": "wf-1f94a09228",
       "name": "tool-linkedin_post",
-      "description": "Single-tool workflow: linkedin_post",
+      "description": "Write a professional LinkedIn post (hook, story/insight, takeaway) on a topic.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6770,7 +6770,7 @@
     "wf-76843c20f9": {
       "id": "wf-76843c20f9",
       "name": "tool-reddit_post",
-      "description": "Single-tool workflow: reddit_post",
+      "description": "Write an authentic, non-salesy Reddit post (title + body) for a subreddit-style audience.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6787,7 +6787,7 @@
     "wf-96d417e3c6": {
       "id": "wf-96d417e3c6",
       "name": "tool-newsletter_intro",
-      "description": "Single-tool workflow: newsletter_intro",
+      "description": "Write an engaging newsletter intro paragraph for an issue theme.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6804,7 +6804,7 @@
     "wf-84fda7f2d6": {
       "id": "wf-84fda7f2d6",
       "name": "tool-value_prop",
-      "description": "Single-tool workflow: value_prop",
+      "description": "Write a sharp value proposition + 3 supporting benefit bullets for an offer.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6821,7 +6821,7 @@
     "wf-e19aad891e": {
       "id": "wf-e19aad891e",
       "name": "tool-name_the_tone",
-      "description": "Single-tool workflow: name_the_tone",
+      "description": "Analyze a text and describe its tone/voice, then suggest how to strengthen it.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6838,7 +6838,7 @@
     "wf-63ab137a4c": {
       "id": "wf-63ab137a4c",
       "name": "tool-ssl_check",
-      "description": "Single-tool workflow: ssl_check",
+      "description": "Inspect a site’s TLS certificate — issuer, validity dates, days until expiry.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6855,7 +6855,7 @@
     "wf-57363f0fa6": {
       "id": "wf-57363f0fa6",
       "name": "tool-rdap_whois",
-      "description": "Single-tool workflow: rdap_whois",
+      "description": "Domain registration info via RDAP (modern whois) — registrar, dates, status. Keyless.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6872,7 +6872,7 @@
     "wf-82088ef70b": {
       "id": "wf-82088ef70b",
       "name": "tool-security_headers",
-      "description": "Single-tool workflow: security_headers",
+      "description": "Grade a site’s security headers (HSTS, CSP, X-Frame-Options, etc.) A–F.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6889,7 +6889,7 @@
     "wf-5dcf17bcb2": {
       "id": "wf-5dcf17bcb2",
       "name": "tool-password_strength",
-      "description": "Single-tool workflow: password_strength",
+      "description": "Estimate password strength (entropy bits + rating + suggestions). Computed locally, never sent anywhere.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6906,7 +6906,7 @@
     "wf-0184fe0ec3": {
       "id": "wf-0184fe0ec3",
       "name": "tool-password_pwned",
-      "description": "Single-tool workflow: password_pwned",
+      "description": "Check if a password appears in known breaches via HaveIBeenPwned k-anonymity (only a hash prefix leaves your machine). K",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6923,7 +6923,7 @@
     "wf-fba8e28889": {
       "id": "wf-fba8e28889",
       "name": "tool-email_dns_check",
-      "description": "Single-tool workflow: email_dns_check",
+      "description": "Check a domain’s email security posture — MX, SPF, DMARC records.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6940,7 +6940,7 @@
     "wf-5b825d8ffe": {
       "id": "wf-5b825d8ffe",
       "name": "tool-ip_info",
-      "description": "Single-tool workflow: ip_info",
+      "description": "Geolocation + network/ISP info for an IP address. Keyless.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6957,7 +6957,7 @@
     "wf-b2242d142f": {
       "id": "wf-b2242d142f",
       "name": "tool-jwt_decode",
-      "description": "Single-tool workflow: jwt_decode",
+      "description": "Decode a JWT (header + payload) WITHOUT verifying — inspect claims, exp, alg. Local only.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6974,7 +6974,7 @@
     "wf-7217901bd7": {
       "id": "wf-7217901bd7",
       "name": "tool-tcp_port_check",
-      "description": "Single-tool workflow: tcp_port_check",
+      "description": "Check whether a single TCP port is OPEN on a host you control (defensive availability check).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -6991,7 +6991,7 @@
     "wf-359e631d08": {
       "id": "wf-359e631d08",
       "name": "tool-url_safety",
-      "description": "Single-tool workflow: url_safety",
+      "description": "Heuristic phishing/safety check on a URL (suspicious patterns, punycode, IP host, TLD, redirects).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7008,7 +7008,7 @@
     "wf-1ff9b575fb": {
       "id": "wf-1ff9b575fb",
       "name": "tool-breach_list",
-      "description": "Single-tool workflow: breach_list",
+      "description": "Look up a known data breach by name from HaveIBeenPwned’s public breach database. Keyless.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7025,7 +7025,7 @@
     "wf-d095d767ef": {
       "id": "wf-d095d767ef",
       "name": "tool-contrast_check",
-      "description": "Single-tool workflow: contrast_check",
+      "description": "WCAG contrast ratio between two colors + AA/AAA pass for normal & large text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7042,7 +7042,7 @@
     "wf-1eff10a912": {
       "id": "wf-1eff10a912",
       "name": "tool-tailwind_scale",
-      "description": "Single-tool workflow: tailwind_scale",
+      "description": "Generate a Tailwind-style 50→900 shade scale from a base hex.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7059,7 +7059,7 @@
     "wf-c6c0a087e8": {
       "id": "wf-c6c0a087e8",
       "name": "tool-gradient_css",
-      "description": "Single-tool workflow: gradient_css",
+      "description": "Produce ready-to-paste CSS for a linear gradient between colors.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7076,7 +7076,7 @@
     "wf-c42534fae0": {
       "id": "wf-c42534fae0",
       "name": "tool-favicon_svg",
-      "description": "Single-tool workflow: favicon_svg",
+      "description": "Generate an SVG favicon/logo mark from initials on a colored rounded square (returns SVG + data URI).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7093,7 +7093,7 @@
     "wf-24c058870c": {
       "id": "wf-24c058870c",
       "name": "tool-shadow_css",
-      "description": "Single-tool workflow: shadow_css",
+      "description": "Generate a layered, natural box-shadow CSS at a given elevation.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7110,7 +7110,7 @@
     "wf-92fe4d77f8": {
       "id": "wf-92fe4d77f8",
       "name": "tool-glassmorphism_css",
-      "description": "Single-tool workflow: glassmorphism_css",
+      "description": "Generate glassmorphism (frosted glass) CSS for a card.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7127,7 +7127,7 @@
     "wf-3e688dd939": {
       "id": "wf-3e688dd939",
       "name": "tool-color_info",
-      "description": "Single-tool workflow: color_info",
+      "description": "Break down a color — hex, rgb, hsl, luminance, and best readable text color on it.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7144,7 +7144,7 @@
     "wf-0097563a18": {
       "id": "wf-0097563a18",
       "name": "tool-logo_brief",
-      "description": "Single-tool workflow: logo_brief",
+      "description": "Write a professional logo design brief for a brand.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7161,7 +7161,7 @@
     "wf-d2db16c010": {
       "id": "wf-d2db16c010",
       "name": "tool-ui_copy",
-      "description": "Single-tool workflow: ui_copy",
+      "description": "Write UI microcopy (button, empty-state, error, tooltip) for a feature.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7178,7 +7178,7 @@
     "wf-0227d46afa": {
       "id": "wf-0227d46afa",
       "name": "tool-image_prompt",
-      "description": "Single-tool workflow: image_prompt",
+      "description": "Turn a rough idea into a rich text-to-image (FLUX/SD) prompt with style, lighting, composition.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7195,7 +7195,7 @@
     "wf-4df7f1ec09": {
       "id": "wf-4df7f1ec09",
       "name": "tool-moodboard",
-      "description": "Single-tool workflow: moodboard",
+      "description": "Describe a moodboard (aesthetic keywords, colors, textures, references) for a brand/vibe.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7212,7 +7212,7 @@
     "wf-4c8e8f7b4c": {
       "id": "wf-4c8e8f7b4c",
       "name": "tool-design_critique",
-      "description": "Single-tool workflow: design_critique",
+      "description": "Give a sharp design critique + concrete fixes for a described UI/layout.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7229,7 +7229,7 @@
     "wf-08084b31d6": {
       "id": "wf-08084b31d6",
       "name": "tool-base64_encode",
-      "description": "Single-tool workflow: base64_encode",
+      "description": "Encode text to Base64.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7246,7 +7246,7 @@
     "wf-230a6cd243": {
       "id": "wf-230a6cd243",
       "name": "tool-base64_decode",
-      "description": "Single-tool workflow: base64_decode",
+      "description": "Decode Base64 to text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7263,7 +7263,7 @@
     "wf-82483cee65": {
       "id": "wf-82483cee65",
       "name": "tool-url_encode",
-      "description": "Single-tool workflow: url_encode",
+      "description": "Percent-encode text for URLs.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7280,7 +7280,7 @@
     "wf-56bf84be24": {
       "id": "wf-56bf84be24",
       "name": "tool-url_decode",
-      "description": "Single-tool workflow: url_decode",
+      "description": "Decode a percent-encoded URL string.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7297,7 +7297,7 @@
     "wf-fa5e30ff33": {
       "id": "wf-fa5e30ff33",
       "name": "tool-html_encode",
-      "description": "Single-tool workflow: html_encode",
+      "description": "Escape HTML special characters.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7314,7 +7314,7 @@
     "wf-0ebf056548": {
       "id": "wf-0ebf056548",
       "name": "tool-html_decode",
-      "description": "Single-tool workflow: html_decode",
+      "description": "Unescape HTML entities.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7331,7 +7331,7 @@
     "wf-4e45fb60ce": {
       "id": "wf-4e45fb60ce",
       "name": "tool-hex_encode",
-      "description": "Single-tool workflow: hex_encode",
+      "description": "Encode text to hexadecimal.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7348,7 +7348,7 @@
     "wf-a5c8385e8e": {
       "id": "wf-a5c8385e8e",
       "name": "tool-hex_decode",
-      "description": "Single-tool workflow: hex_decode",
+      "description": "Decode hexadecimal to text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7365,7 +7365,7 @@
     "wf-6fe7961f30": {
       "id": "wf-6fe7961f30",
       "name": "tool-rot13",
-      "description": "Single-tool workflow: rot13",
+      "description": "Apply the ROT13 cipher.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7382,7 +7382,7 @@
     "wf-c467c8871a": {
       "id": "wf-c467c8871a",
       "name": "tool-morse_encode",
-      "description": "Single-tool workflow: morse_encode",
+      "description": "Encode text to Morse code.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7399,7 +7399,7 @@
     "wf-e0d97ee337": {
       "id": "wf-e0d97ee337",
       "name": "tool-morse_decode",
-      "description": "Single-tool workflow: morse_decode",
+      "description": "Decode Morse code to text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7416,7 +7416,7 @@
     "wf-5b214949e9": {
       "id": "wf-5b214949e9",
       "name": "tool-binary_encode",
-      "description": "Single-tool workflow: binary_encode",
+      "description": "Encode text to binary (8-bit).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7433,7 +7433,7 @@
     "wf-72bc4f410b": {
       "id": "wf-72bc4f410b",
       "name": "tool-binary_decode",
-      "description": "Single-tool workflow: binary_decode",
+      "description": "Decode 8-bit binary to text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7450,7 +7450,7 @@
     "wf-360730d9c7": {
       "id": "wf-360730d9c7",
       "name": "tool-to_uppercase",
-      "description": "Single-tool workflow: to_uppercase",
+      "description": "UPPERCASE text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7467,7 +7467,7 @@
     "wf-6bdfd64342": {
       "id": "wf-6bdfd64342",
       "name": "tool-to_lowercase",
-      "description": "Single-tool workflow: to_lowercase",
+      "description": "lowercase text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7484,7 +7484,7 @@
     "wf-55aeebd51e": {
       "id": "wf-55aeebd51e",
       "name": "tool-title_case",
-      "description": "Single-tool workflow: title_case",
+      "description": "Convert text to Title Case.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7501,7 +7501,7 @@
     "wf-aa35067c8c": {
       "id": "wf-aa35067c8c",
       "name": "tool-camel_case",
-      "description": "Single-tool workflow: camel_case",
+      "description": "Convert to camelCase.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7518,7 +7518,7 @@
     "wf-523082efe2": {
       "id": "wf-523082efe2",
       "name": "tool-snake_case",
-      "description": "Single-tool workflow: snake_case",
+      "description": "Convert to snake_case.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7535,7 +7535,7 @@
     "wf-f02c0a50db": {
       "id": "wf-f02c0a50db",
       "name": "tool-kebab_case",
-      "description": "Single-tool workflow: kebab_case",
+      "description": "Convert to kebab-case.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7552,7 +7552,7 @@
     "wf-6d8b987493": {
       "id": "wf-6d8b987493",
       "name": "tool-reverse_text",
-      "description": "Single-tool workflow: reverse_text",
+      "description": "Reverse a string.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7569,7 +7569,7 @@
     "wf-fc1450a5ba": {
       "id": "wf-fc1450a5ba",
       "name": "tool-count_words",
-      "description": "Single-tool workflow: count_words",
+      "description": "Count words, characters, lines, sentences.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7586,7 +7586,7 @@
     "wf-e4f6ad08b5": {
       "id": "wf-e4f6ad08b5",
       "name": "tool-remove_duplicates",
-      "description": "Single-tool workflow: remove_duplicates",
+      "description": "Remove duplicate lines from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7603,7 +7603,7 @@
     "wf-a8e5b3b843": {
       "id": "wf-a8e5b3b843",
       "name": "tool-sort_lines",
-      "description": "Single-tool workflow: sort_lines",
+      "description": "Sort lines alphabetically.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7620,7 +7620,7 @@
     "wf-0f0180deca": {
       "id": "wf-0f0180deca",
       "name": "tool-uuid_v4",
-      "description": "Single-tool workflow: uuid_v4",
+      "description": "Generate a random UUID v4.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7637,7 +7637,7 @@
     "wf-6fdcb5a6c9": {
       "id": "wf-6fdcb5a6c9",
       "name": "tool-random_password",
-      "description": "Single-tool workflow: random_password",
+      "description": "Generate a strong random password.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7654,7 +7654,7 @@
     "wf-6cbb3864ca": {
       "id": "wf-6cbb3864ca",
       "name": "tool-random_string",
-      "description": "Single-tool workflow: random_string",
+      "description": "Generate a random alphanumeric string.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7671,7 +7671,7 @@
     "wf-ba25abe86f": {
       "id": "wf-ba25abe86f",
       "name": "tool-random_number",
-      "description": "Single-tool workflow: random_number",
+      "description": "Random integer in a range.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7688,7 +7688,7 @@
     "wf-2a9ab00f64": {
       "id": "wf-2a9ab00f64",
       "name": "tool-dice_roll",
-      "description": "Single-tool workflow: dice_roll",
+      "description": "Roll dice, e.g. 2d6.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7705,7 +7705,7 @@
     "wf-6e3c29bd90": {
       "id": "wf-6e3c29bd90",
       "name": "tool-lorem_ipsum",
-      "description": "Single-tool workflow: lorem_ipsum",
+      "description": "Generate lorem ipsum placeholder text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7722,7 +7722,7 @@
     "wf-eeb1dbb182": {
       "id": "wf-eeb1dbb182",
       "name": "tool-json_format",
-      "description": "Single-tool workflow: json_format",
+      "description": "Pretty-print / validate JSON.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7739,7 +7739,7 @@
     "wf-459168b68b": {
       "id": "wf-459168b68b",
       "name": "tool-json_minify",
-      "description": "Single-tool workflow: json_minify",
+      "description": "Minify JSON.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7756,7 +7756,7 @@
     "wf-4eaadfe04c": {
       "id": "wf-4eaadfe04c",
       "name": "tool-json_keys",
-      "description": "Single-tool workflow: json_keys",
+      "description": "List the top-level keys of a JSON object.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7773,7 +7773,7 @@
     "wf-15a63f7ba4": {
       "id": "wf-15a63f7ba4",
       "name": "tool-temperature_convert",
-      "description": "Single-tool workflow: temperature_convert",
+      "description": "Convert temperature between C/F/K.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7790,7 +7790,7 @@
     "wf-2e0d589f16": {
       "id": "wf-2e0d589f16",
       "name": "tool-length_convert",
-      "description": "Single-tool workflow: length_convert",
+      "description": "Convert length (m, km, mi, ft, in, cm).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7807,7 +7807,7 @@
     "wf-d0e8afe840": {
       "id": "wf-d0e8afe840",
       "name": "tool-weight_convert",
-      "description": "Single-tool workflow: weight_convert",
+      "description": "Convert weight (kg, g, lb, oz, ton).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7824,7 +7824,7 @@
     "wf-043f2c3f6f": {
       "id": "wf-043f2c3f6f",
       "name": "tool-percentage",
-      "description": "Single-tool workflow: percentage",
+      "description": "Compute X% of Y, or what % X is of Y.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7841,7 +7841,7 @@
     "wf-3adae474db": {
       "id": "wf-3adae474db",
       "name": "tool-tip_calculator",
-      "description": "Single-tool workflow: tip_calculator",
+      "description": "Calculate tip + total for a bill.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7858,7 +7858,7 @@
     "wf-1324712442": {
       "id": "wf-1324712442",
       "name": "tool-is_prime",
-      "description": "Single-tool workflow: is_prime",
+      "description": "Check if a number is prime.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7875,7 +7875,7 @@
     "wf-8bd30b3ece": {
       "id": "wf-8bd30b3ece",
       "name": "tool-factorial",
-      "description": "Single-tool workflow: factorial",
+      "description": "Compute n! (factorial).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7892,7 +7892,7 @@
     "wf-bbe72a5fa8": {
       "id": "wf-bbe72a5fa8",
       "name": "tool-fibonacci",
-      "description": "Single-tool workflow: fibonacci",
+      "description": "First N Fibonacci numbers.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7909,7 +7909,7 @@
     "wf-cc5163db93": {
       "id": "wf-cc5163db93",
       "name": "tool-gcd_lcm",
-      "description": "Single-tool workflow: gcd_lcm",
+      "description": "Greatest common divisor + least common multiple of two integers.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7926,7 +7926,7 @@
     "wf-7920a94bb2": {
       "id": "wf-7920a94bb2",
       "name": "tool-roman_numeral",
-      "description": "Single-tool workflow: roman_numeral",
+      "description": "Convert an integer (1–3999) to a Roman numeral.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7943,7 +7943,7 @@
     "wf-5ce0c03995": {
       "id": "wf-5ce0c03995",
       "name": "tool-number_to_words",
-      "description": "Single-tool workflow: number_to_words",
+      "description": "Spell out a number in English words.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7960,7 +7960,7 @@
     "wf-bab18d0b6d": {
       "id": "wf-bab18d0b6d",
       "name": "tool-timestamp_now",
-      "description": "Single-tool workflow: timestamp_now",
+      "description": "Current time — ISO, Unix seconds, and ms.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7977,7 +7977,7 @@
     "wf-f4f60de4d8": {
       "id": "wf-f4f60de4d8",
       "name": "tool-unix_to_date",
-      "description": "Single-tool workflow: unix_to_date",
+      "description": "Convert a Unix timestamp (seconds) to a readable date.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -7994,7 +7994,7 @@
     "wf-77caa99bf6": {
       "id": "wf-77caa99bf6",
       "name": "tool-days_between",
-      "description": "Single-tool workflow: days_between",
+      "description": "Days between two dates (YYYY-MM-DD).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8011,7 +8011,7 @@
     "wf-93b978a080": {
       "id": "wf-93b978a080",
       "name": "tool-forex_rate",
-      "description": "Single-tool workflow: forex_rate",
+      "description": "Live exchange rate between two currencies (Frankfurter/ECB).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8028,7 +8028,7 @@
     "wf-dde986c5e0": {
       "id": "wf-dde986c5e0",
       "name": "tool-forex_convert",
-      "description": "Single-tool workflow: forex_convert",
+      "description": "Convert an amount between currencies at the live rate.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8045,7 +8045,7 @@
     "wf-ed116c2c9a": {
       "id": "wf-ed116c2c9a",
       "name": "tool-forex_historical",
-      "description": "Single-tool workflow: forex_historical",
+      "description": "Historical FX rate on a given date.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8062,7 +8062,7 @@
     "wf-1ef58e1390": {
       "id": "wf-1ef58e1390",
       "name": "tool-currency_list",
-      "description": "Single-tool workflow: currency_list",
+      "description": "List all supported currency codes + names.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8079,7 +8079,7 @@
     "wf-c362848848": {
       "id": "wf-c362848848",
       "name": "tool-stock_quote",
-      "description": "Single-tool workflow: stock_quote",
+      "description": "Live stock quote (price, change, day range) via Yahoo Finance.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8096,7 +8096,7 @@
     "wf-fd149de682": {
       "id": "wf-fd149de682",
       "name": "tool-stock_history",
-      "description": "Single-tool workflow: stock_history",
+      "description": "Recent daily closes for a stock (last ~1mo) via Yahoo Finance.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8113,7 +8113,7 @@
     "wf-afee98dd56": {
       "id": "wf-afee98dd56",
       "name": "tool-crypto_global",
-      "description": "Single-tool workflow: crypto_global",
+      "description": "Global crypto market — total mcap, 24h volume, BTC dominance.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8130,7 +8130,7 @@
     "wf-4f2dae1fb9": {
       "id": "wf-4f2dae1fb9",
       "name": "tool-crypto_categories",
-      "description": "Single-tool workflow: crypto_categories",
+      "description": "Top crypto categories by market cap (CoinGecko).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8147,7 +8147,7 @@
     "wf-7f1091b42c": {
       "id": "wf-7f1091b42c",
       "name": "tool-crypto_price_history",
-      "description": "Single-tool workflow: crypto_price_history",
+      "description": "Daily price history for a coin over N days (CoinGecko).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8164,7 +8164,7 @@
     "wf-4ad835f7d3": {
       "id": "wf-4ad835f7d3",
       "name": "tool-crypto_exchanges",
-      "description": "Single-tool workflow: crypto_exchanges",
+      "description": "Top crypto exchanges by trust score / volume (CoinGecko).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8181,7 +8181,7 @@
     "wf-dfe084acf0": {
       "id": "wf-dfe084acf0",
       "name": "tool-defillama_protocols",
-      "description": "Single-tool workflow: defillama_protocols",
+      "description": "Top DeFi protocols by TVL (DeFiLlama).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8198,7 +8198,7 @@
     "wf-a9069b41ad": {
       "id": "wf-a9069b41ad",
       "name": "tool-defillama_chains",
-      "description": "Single-tool workflow: defillama_chains",
+      "description": "Total DeFi TVL per blockchain (DeFiLlama).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8215,7 +8215,7 @@
     "wf-d18a0bddde": {
       "id": "wf-d18a0bddde",
       "name": "tool-defillama_stablecoins",
-      "description": "Single-tool workflow: defillama_stablecoins",
+      "description": "Top stablecoins by circulating market cap (DeFiLlama).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8232,7 +8232,7 @@
     "wf-fd3a2aac27": {
       "id": "wf-fd3a2aac27",
       "name": "tool-book_search",
-      "description": "Single-tool workflow: book_search",
+      "description": "Search books by title/author/subject (OpenLibrary).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8249,7 +8249,7 @@
     "wf-3e2403564c": {
       "id": "wf-3e2403564c",
       "name": "tool-define_word",
-      "description": "Single-tool workflow: define_word",
+      "description": "Dictionary definition, phonetics, examples (DictionaryAPI).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8266,7 +8266,7 @@
     "wf-6702f9b868": {
       "id": "wf-6702f9b868",
       "name": "tool-related_words",
-      "description": "Single-tool workflow: related_words",
+      "description": "Find words related in meaning to a word (Datamuse).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8283,7 +8283,7 @@
     "wf-80498fda0c": {
       "id": "wf-80498fda0c",
       "name": "tool-rhymes",
-      "description": "Single-tool workflow: rhymes",
+      "description": "Find words that rhyme with a word (Datamuse).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8300,7 +8300,7 @@
     "wf-a6914d1e85": {
       "id": "wf-a6914d1e85",
       "name": "tool-random_quote",
-      "description": "Single-tool workflow: random_quote",
+      "description": "A random inspirational quote.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8317,7 +8317,7 @@
     "wf-adcef080e4": {
       "id": "wf-adcef080e4",
       "name": "tool-number_fact",
-      "description": "Single-tool workflow: number_fact",
+      "description": "An interesting fact about a number (NumbersAPI).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8334,7 +8334,7 @@
     "wf-29fc10583b": {
       "id": "wf-29fc10583b",
       "name": "tool-random_advice",
-      "description": "Single-tool workflow: random_advice",
+      "description": "A random piece of advice (AdviceSlip).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8351,7 +8351,7 @@
     "wf-e49c0b1b8e": {
       "id": "wf-e49c0b1b8e",
       "name": "tool-public_holidays",
-      "description": "Single-tool workflow: public_holidays",
+      "description": "Public holidays for a country + year (Nager.Date).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8368,7 +8368,7 @@
     "wf-32b496123c": {
       "id": "wf-32b496123c",
       "name": "tool-recent_earthquakes",
-      "description": "Single-tool workflow: recent_earthquakes",
+      "description": "Significant earthquakes in the last day (USGS).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8385,7 +8385,7 @@
     "wf-79a4d3b689": {
       "id": "wf-79a4d3b689",
       "name": "tool-iss_location",
-      "description": "Single-tool workflow: iss_location",
+      "description": "Current location of the International Space Station.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8402,7 +8402,7 @@
     "wf-d36ba3034d": {
       "id": "wf-d36ba3034d",
       "name": "tool-predict_gender",
-      "description": "Single-tool workflow: predict_gender",
+      "description": "Predict likely gender from a first name (Genderize).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8419,7 +8419,7 @@
     "wf-67df69d434": {
       "id": "wf-67df69d434",
       "name": "tool-predict_age",
-      "description": "Single-tool workflow: predict_age",
+      "description": "Predict likely age from a first name (Agify).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8436,7 +8436,7 @@
     "wf-5d378d823d": {
       "id": "wf-5d378d823d",
       "name": "tool-predict_nationality",
-      "description": "Single-tool workflow: predict_nationality",
+      "description": "Predict likely nationality from a first name (Nationalize).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8453,7 +8453,7 @@
     "wf-1a05f8ebaa": {
       "id": "wf-1a05f8ebaa",
       "name": "tool-tv_show_search",
-      "description": "Single-tool workflow: tv_show_search",
+      "description": "Search TV shows — genre, rating, summary (TVMaze).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8470,7 +8470,7 @@
     "wf-c8400acdbc": {
       "id": "wf-c8400acdbc",
       "name": "tool-food_product",
-      "description": "Single-tool workflow: food_product",
+      "description": "Look up a food product by barcode — nutrition, ingredients (OpenFoodFacts).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8487,7 +8487,7 @@
     "wf-eeac6a6987": {
       "id": "wf-eeac6a6987",
       "name": "tool-universities",
-      "description": "Single-tool workflow: universities",
+      "description": "List universities in a country (Hipolabs).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8504,7 +8504,7 @@
     "wf-13f8902f23": {
       "id": "wf-13f8902f23",
       "name": "tool-weather_forecast",
-      "description": "Single-tool workflow: weather_forecast",
+      "description": "Current weather + 3-day forecast for coordinates (Open-Meteo, keyless).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8521,7 +8521,7 @@
     "wf-bf235ddb76": {
       "id": "wf-bf235ddb76",
       "name": "tool-on_this_day",
-      "description": "Single-tool workflow: on_this_day",
+      "description": "Notable historical events on today’s date (Wikipedia).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8538,7 +8538,7 @@
     "wf-d7eeaf1c15": {
       "id": "wf-d7eeaf1c15",
       "name": "tool-list_stats",
-      "description": "Single-tool workflow: list_stats",
+      "description": "Full statistics (mean, median, mode, min, max, stddev, sum) for a list of numbers.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8555,7 +8555,7 @@
     "wf-933271847e": {
       "id": "wf-933271847e",
       "name": "tool-sum_list",
-      "description": "Single-tool workflow: sum_list",
+      "description": "Sum a list of numbers.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8572,7 +8572,7 @@
     "wf-7e61ad785f": {
       "id": "wf-7e61ad785f",
       "name": "tool-average_list",
-      "description": "Single-tool workflow: average_list",
+      "description": "Average (mean) of a list of numbers.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8589,7 +8589,7 @@
     "wf-794acf22d9": {
       "id": "wf-794acf22d9",
       "name": "tool-min_max",
-      "description": "Single-tool workflow: min_max",
+      "description": "Min, max, and range of a list of numbers.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8606,7 +8606,7 @@
     "wf-65e89c08bb": {
       "id": "wf-65e89c08bb",
       "name": "tool-percentile",
-      "description": "Single-tool workflow: percentile",
+      "description": "Compute the Nth percentile of a list.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8623,7 +8623,7 @@
     "wf-6bdd79ef1b": {
       "id": "wf-6bdd79ef1b",
       "name": "tool-median",
-      "description": "Single-tool workflow: median",
+      "description": "Median of a list of numbers.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8640,7 +8640,7 @@
     "wf-fe17c7fdda": {
       "id": "wf-fe17c7fdda",
       "name": "tool-normalize_list",
-      "description": "Single-tool workflow: normalize_list",
+      "description": "Scale a list of numbers to the 0–1 range (min-max normalization).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8657,7 +8657,7 @@
     "wf-b0dc580ebb": {
       "id": "wf-b0dc580ebb",
       "name": "tool-correlation",
-      "description": "Single-tool workflow: correlation",
+      "description": "Pearson correlation between two equal-length number lists.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8674,7 +8674,7 @@
     "wf-01bf7c235c": {
       "id": "wf-01bf7c235c",
       "name": "tool-moving_average",
-      "description": "Single-tool workflow: moving_average",
+      "description": "Simple moving average over a window.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8691,7 +8691,7 @@
     "wf-f40131974a": {
       "id": "wf-f40131974a",
       "name": "tool-list_unique",
-      "description": "Single-tool workflow: list_unique",
+      "description": "Deduplicate a list (comma/newline separated).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8708,7 +8708,7 @@
     "wf-08a4035460": {
       "id": "wf-08a4035460",
       "name": "tool-list_frequency",
-      "description": "Single-tool workflow: list_frequency",
+      "description": "Count how often each item appears in a list.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8725,7 +8725,7 @@
     "wf-f2158374f8": {
       "id": "wf-f2158374f8",
       "name": "tool-top_n",
-      "description": "Single-tool workflow: top_n",
+      "description": "Top N most frequent items in a list.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8742,7 +8742,7 @@
     "wf-a761bbe235": {
       "id": "wf-a761bbe235",
       "name": "tool-list_diff",
-      "description": "Single-tool workflow: list_diff",
+      "description": "Items in list A that are not in list B.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8759,7 +8759,7 @@
     "wf-06ad436354": {
       "id": "wf-06ad436354",
       "name": "tool-list_intersect",
-      "description": "Single-tool workflow: list_intersect",
+      "description": "Items present in BOTH lists.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8776,7 +8776,7 @@
     "wf-0bd7505c0d": {
       "id": "wf-0bd7505c0d",
       "name": "tool-chunk_list",
-      "description": "Single-tool workflow: chunk_list",
+      "description": "Split a list into chunks of size N.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8793,7 +8793,7 @@
     "wf-43a3acafbd": {
       "id": "wf-43a3acafbd",
       "name": "tool-range_generate",
-      "description": "Single-tool workflow: range_generate",
+      "description": "Generate a numeric range [start..end] step.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8810,7 +8810,7 @@
     "wf-4d14be93fa": {
       "id": "wf-4d14be93fa",
       "name": "tool-word_frequency",
-      "description": "Single-tool workflow: word_frequency",
+      "description": "Most frequent words in text (stopwords removed).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8827,7 +8827,7 @@
     "wf-e8387cc7a6": {
       "id": "wf-e8387cc7a6",
       "name": "tool-keyword_extract",
-      "description": "Single-tool workflow: keyword_extract",
+      "description": "Extract top keywords/phrases from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8844,7 +8844,7 @@
     "wf-08871a7702": {
       "id": "wf-08871a7702",
       "name": "tool-sentiment_score",
-      "description": "Single-tool workflow: sentiment_score",
+      "description": "Lexicon-based sentiment (positive/negative/neutral) of text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8861,7 +8861,7 @@
     "wf-0178111729": {
       "id": "wf-0178111729",
       "name": "tool-count_matches",
-      "description": "Single-tool workflow: count_matches",
+      "description": "Count regex matches in text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8878,7 +8878,7 @@
     "wf-bdd06c4f61": {
       "id": "wf-bdd06c4f61",
       "name": "tool-json_path",
-      "description": "Single-tool workflow: json_path",
+      "description": "Get a nested value from JSON by dot path (e.g. a.b.0.c).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8895,7 +8895,7 @@
     "wf-d7cbddfb2e": {
       "id": "wf-d7cbddfb2e",
       "name": "tool-json_flatten",
-      "description": "Single-tool workflow: json_flatten",
+      "description": "Flatten a nested JSON object to dot-key/value pairs.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8912,7 +8912,7 @@
     "wf-ce0b54d182": {
       "id": "wf-ce0b54d182",
       "name": "tool-group_count",
-      "description": "Single-tool workflow: group_count",
+      "description": "Group a JSON array of objects by a key and count each group.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8929,7 +8929,7 @@
     "wf-f037ec0656": {
       "id": "wf-f037ec0656",
       "name": "tool-csv_column",
-      "description": "Single-tool workflow: csv_column",
+      "description": "Extract one column from CSV (with header).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8946,7 +8946,7 @@
     "wf-914e601a02": {
       "id": "wf-914e601a02",
       "name": "tool-csv_stats",
-      "description": "Single-tool workflow: csv_stats",
+      "description": "Numeric stats for one CSV column.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8963,7 +8963,7 @@
     "wf-e36a92cf8a": {
       "id": "wf-e36a92cf8a",
       "name": "tool-hex_to_rgb",
-      "description": "Single-tool workflow: hex_to_rgb",
+      "description": "Convert a hex color to rgb().",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8980,7 +8980,7 @@
     "wf-dbd62a11e9": {
       "id": "wf-dbd62a11e9",
       "name": "tool-rgb_to_hex",
-      "description": "Single-tool workflow: rgb_to_hex",
+      "description": "Convert rgb values to hex.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -8997,7 +8997,7 @@
     "wf-53a2771e53": {
       "id": "wf-53a2771e53",
       "name": "tool-hex_to_hsl",
-      "description": "Single-tool workflow: hex_to_hsl",
+      "description": "Convert a hex color to hsl().",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9014,7 +9014,7 @@
     "wf-3f5d391eec": {
       "id": "wf-3f5d391eec",
       "name": "tool-lighten_color",
-      "description": "Single-tool workflow: lighten_color",
+      "description": "Lighten a hex color by N%.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9031,7 +9031,7 @@
     "wf-8073671beb": {
       "id": "wf-8073671beb",
       "name": "tool-darken_color",
-      "description": "Single-tool workflow: darken_color",
+      "description": "Darken a hex color by N%.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9048,7 +9048,7 @@
     "wf-7cc67b2d10": {
       "id": "wf-7cc67b2d10",
       "name": "tool-complementary_color",
-      "description": "Single-tool workflow: complementary_color",
+      "description": "Get the complementary (opposite) color.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9065,7 +9065,7 @@
     "wf-8367edf366": {
       "id": "wf-8367edf366",
       "name": "tool-analogous_colors",
-      "description": "Single-tool workflow: analogous_colors",
+      "description": "Get 2 analogous colors (±30°).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9082,7 +9082,7 @@
     "wf-d28f1e729f": {
       "id": "wf-d28f1e729f",
       "name": "tool-triadic_colors",
-      "description": "Single-tool workflow: triadic_colors",
+      "description": "Get the triadic color scheme (120° apart).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9099,7 +9099,7 @@
     "wf-dc000a6153": {
       "id": "wf-dc000a6153",
       "name": "tool-blend_colors",
-      "description": "Single-tool workflow: blend_colors",
+      "description": "Blend two hex colors at a ratio.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9116,7 +9116,7 @@
     "wf-bbdad25302": {
       "id": "wf-bbdad25302",
       "name": "tool-random_color",
-      "description": "Single-tool workflow: random_color",
+      "description": "Generate a random hex color.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9133,7 +9133,7 @@
     "wf-2d94b583b8": {
       "id": "wf-2d94b583b8",
       "name": "tool-duotone_palette",
-      "description": "Single-tool workflow: duotone_palette",
+      "description": "Generate a duotone (shadow + highlight) pair from a hue.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9150,7 +9150,7 @@
     "wf-0e39e60e80": {
       "id": "wf-0e39e60e80",
       "name": "tool-text_shadow_css",
-      "description": "Single-tool workflow: text_shadow_css",
+      "description": "Generate a neon/glow text-shadow CSS.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9167,7 +9167,7 @@
     "wf-d043772555": {
       "id": "wf-d043772555",
       "name": "tool-neon_glow_css",
-      "description": "Single-tool workflow: neon_glow_css",
+      "description": "Generate a neon box-glow CSS for a color.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9184,7 +9184,7 @@
     "wf-4aa5ea68a1": {
       "id": "wf-4aa5ea68a1",
       "name": "tool-border_radius_css",
-      "description": "Single-tool workflow: border_radius_css",
+      "description": "Generate an organic blob border-radius.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9201,7 +9201,7 @@
     "wf-4fdf17a49d": {
       "id": "wf-4fdf17a49d",
       "name": "tool-transition_css",
-      "description": "Single-tool workflow: transition_css",
+      "description": "Generate a smooth CSS transition shorthand.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9218,7 +9218,7 @@
     "wf-d244b56c0f": {
       "id": "wf-d244b56c0f",
       "name": "tool-flexbox_css",
-      "description": "Single-tool workflow: flexbox_css",
+      "description": "Generate flexbox CSS for a layout intent (center, row, spread).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9235,7 +9235,7 @@
     "wf-130304a579": {
       "id": "wf-130304a579",
       "name": "tool-grid_css",
-      "description": "Single-tool workflow: grid_css",
+      "description": "Generate a responsive CSS grid.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9252,7 +9252,7 @@
     "wf-65c15b55b4": {
       "id": "wf-65c15b55b4",
       "name": "tool-keyframes_css",
-      "description": "Single-tool workflow: keyframes_css",
+      "description": "Generate a CSS @keyframes animation (pulse, float, spin, fade).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9269,7 +9269,7 @@
     "wf-570ecefbd6": {
       "id": "wf-570ecefbd6",
       "name": "tool-clamp_css",
-      "description": "Single-tool workflow: clamp_css",
+      "description": "Generate a fluid-typography clamp() value.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9286,7 +9286,7 @@
     "wf-465e071a17": {
       "id": "wf-465e071a17",
       "name": "tool-svg_circle",
-      "description": "Single-tool workflow: svg_circle",
+      "description": "Generate an SVG circle with a fill.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9303,7 +9303,7 @@
     "wf-de00056018": {
       "id": "wf-de00056018",
       "name": "tool-svg_wave",
-      "description": "Single-tool workflow: svg_wave",
+      "description": "Generate a decorative SVG wave divider.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9320,7 +9320,7 @@
     "wf-8a0d4cdc44": {
       "id": "wf-8a0d4cdc44",
       "name": "tool-svg_star",
-      "description": "Single-tool workflow: svg_star",
+      "description": "Generate an SVG star.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9337,7 +9337,7 @@
     "wf-7af07ec166": {
       "id": "wf-7af07ec166",
       "name": "tool-type_scale",
-      "description": "Single-tool workflow: type_scale",
+      "description": "Generate a modular typographic scale (base × ratio).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9354,7 +9354,7 @@
     "wf-3b93cf897a": {
       "id": "wf-3b93cf897a",
       "name": "tool-golden_ratio",
-      "description": "Single-tool workflow: golden_ratio",
+      "description": "Split a length by the golden ratio (1.618).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9371,7 +9371,7 @@
     "wf-1257ba6f0f": {
       "id": "wf-1257ba6f0f",
       "name": "tool-aspect_ratio",
-      "description": "Single-tool workflow: aspect_ratio",
+      "description": "Compute height for a width at an aspect ratio (e.g. 16:9).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9388,7 +9388,7 @@
     "wf-598b8aaff4": {
       "id": "wf-598b8aaff4",
       "name": "tool-px_to_rem",
-      "description": "Single-tool workflow: px_to_rem",
+      "description": "Convert px to rem (16px base).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9405,7 +9405,7 @@
     "wf-f7eb11355c": {
       "id": "wf-f7eb11355c",
       "name": "tool-rem_to_px",
-      "description": "Single-tool workflow: rem_to_px",
+      "description": "Convert rem to px (16px base).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9422,7 +9422,7 @@
     "wf-f4fc834ae8": {
       "id": "wf-f4fc834ae8",
       "name": "tool-shannon_entropy",
-      "description": "Single-tool workflow: shannon_entropy",
+      "description": "Compute Shannon entropy (bits/char) of a string — randomness measure.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9439,7 +9439,7 @@
     "wf-f952aca41e": {
       "id": "wf-f952aca41e",
       "name": "tool-base32_encode",
-      "description": "Single-tool workflow: base32_encode",
+      "description": "Encode text to Base32 (RFC 4648).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9456,7 +9456,7 @@
     "wf-1a84913e30": {
       "id": "wf-1a84913e30",
       "name": "tool-generate_token",
-      "description": "Single-tool workflow: generate_token",
+      "description": "Generate a cryptographically-secure random token (hex).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9473,7 +9473,7 @@
     "wf-006a18ed70": {
       "id": "wf-006a18ed70",
       "name": "tool-hmac_sign",
-      "description": "Single-tool workflow: hmac_sign",
+      "description": "Compute an HMAC-SHA256 signature of a message with a secret.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9490,7 +9490,7 @@
     "wf-97d2c0e95a": {
       "id": "wf-97d2c0e95a",
       "name": "tool-luhn_check",
-      "description": "Single-tool workflow: luhn_check",
+      "description": "Validate a number (e.g. credit card) with the Luhn checksum.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9507,7 +9507,7 @@
     "wf-b906ce414c": {
       "id": "wf-b906ce414c",
       "name": "tool-card_type",
-      "description": "Single-tool workflow: card_type",
+      "description": "Detect a credit-card brand from its number prefix.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9524,7 +9524,7 @@
     "wf-d36a7e4262": {
       "id": "wf-d36a7e4262",
       "name": "tool-validate_ipv4",
-      "description": "Single-tool workflow: validate_ipv4",
+      "description": "Validate an IPv4 address + classify (private/public/loopback).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9541,7 +9541,7 @@
     "wf-aaae107a9e": {
       "id": "wf-aaae107a9e",
       "name": "tool-cidr_info",
-      "description": "Single-tool workflow: cidr_info",
+      "description": "Subnet math for a CIDR block — network, broadcast, host count.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9558,7 +9558,7 @@
     "wf-3df19ca9f2": {
       "id": "wf-3df19ca9f2",
       "name": "tool-validate_email",
-      "description": "Single-tool workflow: validate_email",
+      "description": "Validate an email address format + extract domain.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9575,7 +9575,7 @@
     "wf-ade2b78f4c": {
       "id": "wf-ade2b78f4c",
       "name": "tool-redact_pii",
-      "description": "Single-tool workflow: redact_pii",
+      "description": "Redact emails, phone numbers, credit cards, and SSNs from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9592,7 +9592,7 @@
     "wf-247860d962": {
       "id": "wf-247860d962",
       "name": "tool-detect_secrets",
-      "description": "Single-tool workflow: detect_secrets",
+      "description": "Scan text for likely secrets/API keys (AWS, Google, GitHub, JWT, private keys).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9609,7 +9609,7 @@
     "wf-59ed9c35cd": {
       "id": "wf-59ed9c35cd",
       "name": "tool-password_policy",
-      "description": "Single-tool workflow: password_policy",
+      "description": "Check a password against a policy (length, upper, lower, digit, symbol).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9626,7 +9626,7 @@
     "wf-10ed5324af": {
       "id": "wf-10ed5324af",
       "name": "tool-parse_csp",
-      "description": "Single-tool workflow: parse_csp",
+      "description": "Parse a Content-Security-Policy header into directives.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9643,7 +9643,7 @@
     "wf-7ec033c60d": {
       "id": "wf-7ec033c60d",
       "name": "tool-parse_cookie_flags",
-      "description": "Single-tool workflow: parse_cookie_flags",
+      "description": "Analyze a Set-Cookie string for Secure/HttpOnly/SameSite.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9660,7 +9660,7 @@
     "wf-5e2ed960f5": {
       "id": "wf-5e2ed960f5",
       "name": "tool-parse_spf",
-      "description": "Single-tool workflow: parse_spf",
+      "description": "Parse an SPF record — mechanisms and policy.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9677,7 +9677,7 @@
     "wf-0ea208050f": {
       "id": "wf-0ea208050f",
       "name": "tool-defang_url",
-      "description": "Single-tool workflow: defang_url",
+      "description": "Defang a URL/IP for safe sharing (hxxp, [.]).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9694,7 +9694,7 @@
     "wf-4b537832c8": {
       "id": "wf-4b537832c8",
       "name": "tool-refang_url",
-      "description": "Single-tool workflow: refang_url",
+      "description": "Re-fang a defanged URL back to normal.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9711,7 +9711,7 @@
     "wf-f75a375af4": {
       "id": "wf-f75a375af4",
       "name": "tool-totp_code",
-      "description": "Single-tool workflow: totp_code",
+      "description": "Generate a time-based OTP (TOTP, RFC 6238) from a hex secret.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9728,7 +9728,7 @@
     "wf-ac8da7fae5": {
       "id": "wf-ac8da7fae5",
       "name": "tool-gravatar_url",
-      "description": "Single-tool workflow: gravatar_url",
+      "description": "Build the Gravatar image URL for an email (MD5 hash).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9745,7 +9745,7 @@
     "wf-0ea8e4a996": {
       "id": "wf-0ea8e4a996",
       "name": "tool-constant_time_equal",
-      "description": "Single-tool workflow: constant_time_equal",
+      "description": "Constant-time compare two strings (timing-safe).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9762,7 +9762,7 @@
     "wf-eba3eb0bd0": {
       "id": "wf-eba3eb0bd0",
       "name": "tool-regex_extract",
-      "description": "Single-tool workflow: regex_extract",
+      "description": "Extract all matches (and capture groups) of a regex from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9779,7 +9779,7 @@
     "wf-09ac5f4bdd": {
       "id": "wf-09ac5f4bdd",
       "name": "tool-regex_replace",
-      "description": "Single-tool workflow: regex_replace",
+      "description": "Replace regex matches in text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9796,7 +9796,7 @@
     "wf-863ef0809c": {
       "id": "wf-863ef0809c",
       "name": "tool-jwt_sign",
-      "description": "Single-tool workflow: jwt_sign",
+      "description": "Sign a JSON payload into a JWT (HS256) with a secret.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9813,7 +9813,7 @@
     "wf-b4a996a22b": {
       "id": "wf-b4a996a22b",
       "name": "tool-jwt_verify",
-      "description": "Single-tool workflow: jwt_verify",
+      "description": "Verify a JWT (HS256) signature with a secret.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9830,7 +9830,7 @@
     "wf-4c82c7e133": {
       "id": "wf-4c82c7e133",
       "name": "tool-semver_compare",
-      "description": "Single-tool workflow: semver_compare",
+      "description": "Compare two semantic versions (-1, 0, 1).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9847,7 +9847,7 @@
     "wf-3cc2cafbe2": {
       "id": "wf-3cc2cafbe2",
       "name": "tool-semver_bump",
-      "description": "Single-tool workflow: semver_bump",
+      "description": "Bump a semantic version (major/minor/patch).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9864,7 +9864,7 @@
     "wf-892df21a2b": {
       "id": "wf-892df21a2b",
       "name": "tool-query_parse",
-      "description": "Single-tool workflow: query_parse",
+      "description": "Parse a URL query string into JSON.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9881,7 +9881,7 @@
     "wf-1c9168000f": {
       "id": "wf-1c9168000f",
       "name": "tool-query_build",
-      "description": "Single-tool workflow: query_build",
+      "description": "Build a URL query string from JSON.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9898,7 +9898,7 @@
     "wf-9370a1dafe": {
       "id": "wf-9370a1dafe",
       "name": "tool-url_parse",
-      "description": "Single-tool workflow: url_parse",
+      "description": "Parse a URL into its parts.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9915,7 +9915,7 @@
     "wf-3b5dba2b42": {
       "id": "wf-3b5dba2b42",
       "name": "tool-http_status",
-      "description": "Single-tool workflow: http_status",
+      "description": "Explain an HTTP status code.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9932,7 +9932,7 @@
     "wf-1b9ae6a31e": {
       "id": "wf-1b9ae6a31e",
       "name": "tool-mime_type",
-      "description": "Single-tool workflow: mime_type",
+      "description": "Get the MIME type for a file extension.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9949,7 +9949,7 @@
     "wf-7df8cd62d8": {
       "id": "wf-7df8cd62d8",
       "name": "tool-base_convert",
-      "description": "Single-tool workflow: base_convert",
+      "description": "Convert a number between bases (2–36).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9966,7 +9966,7 @@
     "wf-5ac463041e": {
       "id": "wf-5ac463041e",
       "name": "tool-bytes_human",
-      "description": "Single-tool workflow: bytes_human",
+      "description": "Convert a byte count to a human-readable size.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -9983,7 +9983,7 @@
     "wf-ff372f807d": {
       "id": "wf-ff372f807d",
       "name": "tool-duration_human",
-      "description": "Single-tool workflow: duration_human",
+      "description": "Convert seconds to a human-readable duration.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10000,7 +10000,7 @@
     "wf-9c17f33bdf": {
       "id": "wf-9c17f33bdf",
       "name": "tool-cron_describe",
-      "description": "Single-tool workflow: cron_describe",
+      "description": "Describe a 5-field cron expression in plain English.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10017,7 +10017,7 @@
     "wf-ae48503c88": {
       "id": "wf-ae48503c88",
       "name": "tool-escape_regex",
-      "description": "Single-tool workflow: escape_regex",
+      "description": "Escape a string for safe use inside a regex.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10034,7 +10034,7 @@
     "wf-3da59642f6": {
       "id": "wf-3da59642f6",
       "name": "tool-env_to_json",
-      "description": "Single-tool workflow: env_to_json",
+      "description": "Parse a .env file into JSON.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10051,7 +10051,7 @@
     "wf-fb04ecc63c": {
       "id": "wf-fb04ecc63c",
       "name": "tool-json_to_env",
-      "description": "Single-tool workflow: json_to_env",
+      "description": "Convert a flat JSON object to .env lines.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10068,7 +10068,7 @@
     "wf-a324ef6feb": {
       "id": "wf-a324ef6feb",
       "name": "tool-markdown_table",
-      "description": "Single-tool workflow: markdown_table",
+      "description": "Convert CSV to a Markdown table.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10085,7 +10085,7 @@
     "wf-a491671384": {
       "id": "wf-a491671384",
       "name": "tool-wrap_text",
-      "description": "Single-tool workflow: wrap_text",
+      "description": "Word-wrap text to a max line width.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10102,7 +10102,7 @@
     "wf-c91f6a25eb": {
       "id": "wf-c91f6a25eb",
       "name": "tool-estimate_tokens",
-      "description": "Single-tool workflow: estimate_tokens",
+      "description": "Estimate LLM token count for text (~4 chars/token).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10119,7 +10119,7 @@
     "wf-b5faec0020": {
       "id": "wf-b5faec0020",
       "name": "tool-curl_build",
-      "description": "Single-tool workflow: curl_build",
+      "description": "Build a curl command from method, URL, and JSON body.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10136,7 +10136,7 @@
     "wf-a43f876ec7": {
       "id": "wf-a43f876ec7",
       "name": "tool-uuid_validate",
-      "description": "Single-tool workflow: uuid_validate",
+      "description": "Validate a UUID and report its version.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10153,7 +10153,7 @@
     "wf-a642d291a3": {
       "id": "wf-a642d291a3",
       "name": "tool-unicode_escape",
-      "description": "Single-tool workflow: unicode_escape",
+      "description": "Escape non-ASCII characters to \\uXXXX.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10170,7 +10170,7 @@
     "wf-9e9824e9a4": {
       "id": "wf-9e9824e9a4",
       "name": "tool-compound_interest",
-      "description": "Single-tool workflow: compound_interest",
+      "description": "Compound interest final value.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10187,7 +10187,7 @@
     "wf-bf3989ca85": {
       "id": "wf-bf3989ca85",
       "name": "tool-loan_payment",
-      "description": "Single-tool workflow: loan_payment",
+      "description": "Monthly payment for a loan (amortized).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10204,7 +10204,7 @@
     "wf-b09a538de3": {
       "id": "wf-b09a538de3",
       "name": "tool-roi",
-      "description": "Single-tool workflow: roi",
+      "description": "Return on investment %.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10221,7 +10221,7 @@
     "wf-7a86c4368c": {
       "id": "wf-7a86c4368c",
       "name": "tool-profit_margin",
-      "description": "Single-tool workflow: profit_margin",
+      "description": "Gross profit margin %.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10238,7 +10238,7 @@
     "wf-414174fc26": {
       "id": "wf-414174fc26",
       "name": "tool-markup",
-      "description": "Single-tool workflow: markup",
+      "description": "Selling price from cost + markup %.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10255,7 +10255,7 @@
     "wf-e5fe8e5a2e": {
       "id": "wf-e5fe8e5a2e",
       "name": "tool-discount",
-      "description": "Single-tool workflow: discount",
+      "description": "Price after a discount %.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10272,7 +10272,7 @@
     "wf-d61425a31a": {
       "id": "wf-d61425a31a",
       "name": "tool-sales_tax",
-      "description": "Single-tool workflow: sales_tax",
+      "description": "Add sales tax to a price.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10289,7 +10289,7 @@
     "wf-76cb2d181a": {
       "id": "wf-76cb2d181a",
       "name": "tool-break_even",
-      "description": "Single-tool workflow: break_even",
+      "description": "Break-even units = fixed / (price - variable).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10306,7 +10306,7 @@
     "wf-631547e1c9": {
       "id": "wf-631547e1c9",
       "name": "tool-ltv_cac",
-      "description": "Single-tool workflow: ltv_cac",
+      "description": "LTV:CAC ratio for unit economics.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10323,7 +10323,7 @@
     "wf-594a58f591": {
       "id": "wf-594a58f591",
       "name": "tool-mrr_arr",
-      "description": "Single-tool workflow: mrr_arr",
+      "description": "MRR → ARR and per-customer averages.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10340,7 +10340,7 @@
     "wf-af4315f075": {
       "id": "wf-af4315f075",
       "name": "tool-percentage_change",
-      "description": "Single-tool workflow: percentage_change",
+      "description": "Percent change from old to new value.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10357,7 +10357,7 @@
     "wf-ae214d5296": {
       "id": "wf-ae214d5296",
       "name": "tool-runway",
-      "description": "Single-tool workflow: runway",
+      "description": "Cash runway in months.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10374,7 +10374,7 @@
     "wf-18cc9f6a26": {
       "id": "wf-18cc9f6a26",
       "name": "tool-power",
-      "description": "Single-tool workflow: power",
+      "description": "Raise base to an exponent.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10391,7 +10391,7 @@
     "wf-2effdb16d9": {
       "id": "wf-2effdb16d9",
       "name": "tool-sqrt",
-      "description": "Single-tool workflow: sqrt",
+      "description": "Square root of a number.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10408,7 +10408,7 @@
     "wf-d7746e0539": {
       "id": "wf-d7746e0539",
       "name": "tool-nth_root",
-      "description": "Single-tool workflow: nth_root",
+      "description": "Nth root of a number.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10425,7 +10425,7 @@
     "wf-f350fd19ba": {
       "id": "wf-f350fd19ba",
       "name": "tool-log",
-      "description": "Single-tool workflow: log",
+      "description": "Logarithm of a number (any base).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10442,7 +10442,7 @@
     "wf-7a80009fac": {
       "id": "wf-7a80009fac",
       "name": "tool-permutations",
-      "description": "Single-tool workflow: permutations",
+      "description": "nPr — permutations of n taken r.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10459,7 +10459,7 @@
     "wf-b3fb53f9bf": {
       "id": "wf-b3fb53f9bf",
       "name": "tool-combinations",
-      "description": "Single-tool workflow: combinations",
+      "description": "nCr — combinations of n taken r.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10476,7 +10476,7 @@
     "wf-676c478592": {
       "id": "wf-676c478592",
       "name": "tool-quadratic",
-      "description": "Single-tool workflow: quadratic",
+      "description": "Solve ax²+bx+c=0.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10493,7 +10493,7 @@
     "wf-60547657ce": {
       "id": "wf-60547657ce",
       "name": "tool-hypotenuse",
-      "description": "Single-tool workflow: hypotenuse",
+      "description": "Hypotenuse from two sides (Pythagoras).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10510,7 +10510,7 @@
     "wf-c7306800b1": {
       "id": "wf-c7306800b1",
       "name": "tool-circle_area",
-      "description": "Single-tool workflow: circle_area",
+      "description": "Area + circumference of a circle.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10527,7 +10527,7 @@
     "wf-dfa473a76f": {
       "id": "wf-dfa473a76f",
       "name": "tool-weighted_average",
-      "description": "Single-tool workflow: weighted_average",
+      "description": "Weighted average of values with weights.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10544,7 +10544,7 @@
     "wf-3f0e61a572": {
       "id": "wf-3f0e61a572",
       "name": "tool-area_convert",
-      "description": "Single-tool workflow: area_convert",
+      "description": "Convert area (m2, km2, ft2, acre, hectare).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10561,7 +10561,7 @@
     "wf-cae87b3225": {
       "id": "wf-cae87b3225",
       "name": "tool-volume_convert",
-      "description": "Single-tool workflow: volume_convert",
+      "description": "Convert volume (l, ml, gal, cup, floz, m3).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10578,7 +10578,7 @@
     "wf-051fe4358b": {
       "id": "wf-051fe4358b",
       "name": "tool-speed_convert",
-      "description": "Single-tool workflow: speed_convert",
+      "description": "Convert speed (kmh, mph, ms, knot).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10595,7 +10595,7 @@
     "wf-83b87f3199": {
       "id": "wf-83b87f3199",
       "name": "tool-data_convert",
-      "description": "Single-tool workflow: data_convert",
+      "description": "Convert data sizes (B, KB, MB, GB, TB).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10612,7 +10612,7 @@
     "wf-2013b314c3": {
       "id": "wf-2013b314c3",
       "name": "tool-time_convert",
-      "description": "Single-tool workflow: time_convert",
+      "description": "Convert time (s, min, hr, day, week).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10629,7 +10629,7 @@
     "wf-84aad8ad30": {
       "id": "wf-84aad8ad30",
       "name": "tool-angle_convert",
-      "description": "Single-tool workflow: angle_convert",
+      "description": "Convert between degrees and radians.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10646,7 +10646,7 @@
     "wf-5015830263": {
       "id": "wf-5015830263",
       "name": "tool-bmi",
-      "description": "Single-tool workflow: bmi",
+      "description": "Body Mass Index from weight (kg) and height (cm).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10663,7 +10663,7 @@
     "wf-f399d40248": {
       "id": "wf-f399d40248",
       "name": "tool-age_calculator",
-      "description": "Single-tool workflow: age_calculator",
+      "description": "Age (years/months/days) from a birthdate.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10680,7 +10680,7 @@
     "wf-06d795822d": {
       "id": "wf-06d795822d",
       "name": "tool-ordinal",
-      "description": "Single-tool workflow: ordinal",
+      "description": "Ordinal form of a number (1 → 1st).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10697,7 +10697,7 @@
     "wf-7aff503d50": {
       "id": "wf-7aff503d50",
       "name": "tool-gpa",
-      "description": "Single-tool workflow: gpa",
+      "description": "GPA from a list of letter grades.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10714,7 +10714,7 @@
     "wf-d668a74487": {
       "id": "wf-d668a74487",
       "name": "tool-random_pick",
-      "description": "Single-tool workflow: random_pick",
+      "description": "Randomly pick one item from a list.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10731,7 +10731,7 @@
     "wf-0d1cd4847e": {
       "id": "wf-0d1cd4847e",
       "name": "tool-shuffle_list",
-      "description": "Single-tool workflow: shuffle_list",
+      "description": "Randomly shuffle a list.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10748,7 +10748,7 @@
     "wf-e90ce6c79b": {
       "id": "wf-e90ce6c79b",
       "name": "tool-extract_emails",
-      "description": "Single-tool workflow: extract_emails",
+      "description": "Extract all email addresses from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10765,7 +10765,7 @@
     "wf-f2a644aa75": {
       "id": "wf-f2a644aa75",
       "name": "tool-extract_urls",
-      "description": "Single-tool workflow: extract_urls",
+      "description": "Extract all URLs from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10782,7 +10782,7 @@
     "wf-0c67de4fe8": {
       "id": "wf-0c67de4fe8",
       "name": "tool-extract_numbers",
-      "description": "Single-tool workflow: extract_numbers",
+      "description": "Extract all numbers from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10799,7 +10799,7 @@
     "wf-167561dd69": {
       "id": "wf-167561dd69",
       "name": "tool-extract_hashtags",
-      "description": "Single-tool workflow: extract_hashtags",
+      "description": "Extract #hashtags from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10816,7 +10816,7 @@
     "wf-195c9d131b": {
       "id": "wf-195c9d131b",
       "name": "tool-extract_mentions",
-      "description": "Single-tool workflow: extract_mentions",
+      "description": "Extract @mentions from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10833,7 +10833,7 @@
     "wf-9fbfcab227": {
       "id": "wf-9fbfcab227",
       "name": "tool-extract_domain",
-      "description": "Single-tool workflow: extract_domain",
+      "description": "Extract the domain from a URL or email.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10850,7 +10850,7 @@
     "wf-6a33d810a8": {
       "id": "wf-6a33d810a8",
       "name": "tool-truncate_text",
-      "description": "Single-tool workflow: truncate_text",
+      "description": "Truncate text to N chars with an ellipsis.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10867,7 +10867,7 @@
     "wf-680f91c36b": {
       "id": "wf-680f91c36b",
       "name": "tool-pad_string",
-      "description": "Single-tool workflow: pad_string",
+      "description": "Pad a string to a length.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10884,7 +10884,7 @@
     "wf-e589d83ab4": {
       "id": "wf-e589d83ab4",
       "name": "tool-repeat_text",
-      "description": "Single-tool workflow: repeat_text",
+      "description": "Repeat text N times.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10901,7 +10901,7 @@
     "wf-1bbad9e4e5": {
       "id": "wf-1bbad9e4e5",
       "name": "tool-count_occurrences",
-      "description": "Single-tool workflow: count_occurrences",
+      "description": "Count occurrences of a substring in text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10918,7 +10918,7 @@
     "wf-cd86fa57d4": {
       "id": "wf-cd86fa57d4",
       "name": "tool-remove_punctuation",
-      "description": "Single-tool workflow: remove_punctuation",
+      "description": "Strip punctuation from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10935,7 +10935,7 @@
     "wf-1d9f831d32": {
       "id": "wf-1d9f831d32",
       "name": "tool-initials",
-      "description": "Single-tool workflow: initials",
+      "description": "Get the initials of a name.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10952,7 +10952,7 @@
     "wf-b1df95949a": {
       "id": "wf-b1df95949a",
       "name": "tool-reverse_words",
-      "description": "Single-tool workflow: reverse_words",
+      "description": "Reverse the order of words in text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10969,7 +10969,7 @@
     "wf-cf05f4e5b9": {
       "id": "wf-cf05f4e5b9",
       "name": "tool-longest_word",
-      "description": "Single-tool workflow: longest_word",
+      "description": "Find the longest word in text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -10986,7 +10986,7 @@
     "wf-3817c53ef6": {
       "id": "wf-3817c53ef6",
       "name": "tool-mask_string",
-      "description": "Single-tool workflow: mask_string",
+      "description": "Mask all but the last N chars of a string.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11003,7 +11003,7 @@
     "wf-8189087bb3": {
       "id": "wf-8189087bb3",
       "name": "tool-char_frequency",
-      "description": "Single-tool workflow: char_frequency",
+      "description": "Count frequency of each character in text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11020,7 +11020,7 @@
     "wf-b84a37538b": {
       "id": "wf-b84a37538b",
       "name": "tool-count_vowels",
-      "description": "Single-tool workflow: count_vowels",
+      "description": "Count vowels and consonants in text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11037,7 +11037,7 @@
     "wf-291fbc830d": {
       "id": "wf-291fbc830d",
       "name": "tool-palindrome_check",
-      "description": "Single-tool workflow: palindrome_check",
+      "description": "Check if text is a palindrome.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11054,7 +11054,7 @@
     "wf-b0926bdc49": {
       "id": "wf-b0926bdc49",
       "name": "tool-anagram_check",
-      "description": "Single-tool workflow: anagram_check",
+      "description": "Check if two strings are anagrams.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11071,7 +11071,7 @@
     "wf-446514539e": {
       "id": "wf-446514539e",
       "name": "tool-levenshtein",
-      "description": "Single-tool workflow: levenshtein",
+      "description": "Edit distance between two strings.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11088,7 +11088,7 @@
     "wf-d0886b89f9": {
       "id": "wf-d0886b89f9",
       "name": "tool-string_similarity",
-      "description": "Single-tool workflow: string_similarity",
+      "description": "Similarity % between two strings (0–100).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11105,7 +11105,7 @@
     "wf-160d27c8ef": {
       "id": "wf-160d27c8ef",
       "name": "tool-caesar_cipher",
-      "description": "Single-tool workflow: caesar_cipher",
+      "description": "Shift letters by N (Caesar cipher).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11122,7 +11122,7 @@
     "wf-d95b66d7bf": {
       "id": "wf-d95b66d7bf",
       "name": "tool-atbash_cipher",
-      "description": "Single-tool workflow: atbash_cipher",
+      "description": "Encode/decode with the Atbash cipher.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11139,7 +11139,7 @@
     "wf-2ec6edc444": {
       "id": "wf-2ec6edc444",
       "name": "tool-leetspeak",
-      "description": "Single-tool workflow: leetspeak",
+      "description": "Convert text to leetspeak.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11156,7 +11156,7 @@
     "wf-cc56f6fec6": {
       "id": "wf-cc56f6fec6",
       "name": "tool-nato_phonetic",
-      "description": "Single-tool workflow: nato_phonetic",
+      "description": "Spell text in the NATO phonetic alphabet.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11173,7 +11173,7 @@
     "wf-13ee3a9251": {
       "id": "wf-13ee3a9251",
       "name": "tool-format_phone",
-      "description": "Single-tool workflow: format_phone",
+      "description": "Format a 10-digit US phone number.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11190,7 +11190,7 @@
     "wf-95225df421": {
       "id": "wf-95225df421",
       "name": "tool-is_leap_year",
-      "description": "Single-tool workflow: is_leap_year",
+      "description": "Check whether a year is a leap year.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11207,7 +11207,7 @@
     "wf-6cc0dafed1": {
       "id": "wf-6cc0dafed1",
       "name": "tool-day_of_week",
-      "description": "Single-tool workflow: day_of_week",
+      "description": "Day of week for a date (YYYY-MM-DD).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11224,7 +11224,7 @@
     "wf-cfbcd94804": {
       "id": "wf-cfbcd94804",
       "name": "tool-add_days",
-      "description": "Single-tool workflow: add_days",
+      "description": "Add N days to a date.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11241,7 +11241,7 @@
     "wf-dd462c36f2": {
       "id": "wf-dd462c36f2",
       "name": "tool-week_number",
-      "description": "Single-tool workflow: week_number",
+      "description": "ISO week number for a date.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11258,7 +11258,7 @@
     "wf-4ce0e4efb0": {
       "id": "wf-4ce0e4efb0",
       "name": "tool-quarter",
-      "description": "Single-tool workflow: quarter",
+      "description": "Fiscal quarter for a date.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11275,7 +11275,7 @@
     "wf-0a32637dde": {
       "id": "wf-0a32637dde",
       "name": "tool-zodiac_sign",
-      "description": "Single-tool workflow: zodiac_sign",
+      "description": "Western zodiac sign for a birthdate.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11292,7 +11292,7 @@
     "wf-9340d2177c": {
       "id": "wf-9340d2177c",
       "name": "tool-business_days",
-      "description": "Single-tool workflow: business_days",
+      "description": "Count business days (Mon–Fri) between two dates.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11309,7 +11309,7 @@
     "wf-82506b1db2": {
       "id": "wf-82506b1db2",
       "name": "tool-time_until",
-      "description": "Single-tool workflow: time_until",
+      "description": "Time remaining until a future date.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11326,7 +11326,7 @@
     "wf-664a0b6f11": {
       "id": "wf-664a0b6f11",
       "name": "tool-rectangle_area",
-      "description": "Single-tool workflow: rectangle_area",
+      "description": "Area + perimeter of a rectangle.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11343,7 +11343,7 @@
     "wf-91ae5988ce": {
       "id": "wf-91ae5988ce",
       "name": "tool-triangle_area",
-      "description": "Single-tool workflow: triangle_area",
+      "description": "Area of a triangle (base × height ÷ 2).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11360,7 +11360,7 @@
     "wf-272ed58f3c": {
       "id": "wf-272ed58f3c",
       "name": "tool-trapezoid_area",
-      "description": "Single-tool workflow: trapezoid_area",
+      "description": "Area of a trapezoid.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11377,7 +11377,7 @@
     "wf-14a2f45b32": {
       "id": "wf-14a2f45b32",
       "name": "tool-sphere_volume",
-      "description": "Single-tool workflow: sphere_volume",
+      "description": "Volume + surface area of a sphere.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11394,7 +11394,7 @@
     "wf-3401700429": {
       "id": "wf-3401700429",
       "name": "tool-cylinder_volume",
-      "description": "Single-tool workflow: cylinder_volume",
+      "description": "Volume of a cylinder.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11411,7 +11411,7 @@
     "wf-faa954d737": {
       "id": "wf-faa954d737",
       "name": "tool-cone_volume",
-      "description": "Single-tool workflow: cone_volume",
+      "description": "Volume of a cone.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11428,7 +11428,7 @@
     "wf-6d26b2b6bd": {
       "id": "wf-6d26b2b6bd",
       "name": "tool-distance_2d",
-      "description": "Single-tool workflow: distance_2d",
+      "description": "Distance between two 2D points.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11445,7 +11445,7 @@
     "wf-6a1d6eb076": {
       "id": "wf-6a1d6eb076",
       "name": "tool-midpoint",
-      "description": "Single-tool workflow: midpoint",
+      "description": "Midpoint between two 2D points.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11462,7 +11462,7 @@
     "wf-f5da9fd2ef": {
       "id": "wf-f5da9fd2ef",
       "name": "tool-slope",
-      "description": "Single-tool workflow: slope",
+      "description": "Slope of the line through two points.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11479,7 +11479,7 @@
     "wf-162b606896": {
       "id": "wf-162b606896",
       "name": "tool-simple_interest",
-      "description": "Single-tool workflow: simple_interest",
+      "description": "Simple interest earned.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11496,7 +11496,7 @@
     "wf-dd4b6c532d": {
       "id": "wf-dd4b6c532d",
       "name": "tool-future_value",
-      "description": "Single-tool workflow: future_value",
+      "description": "Future value of a present sum.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11513,7 +11513,7 @@
     "wf-ec13777f89": {
       "id": "wf-ec13777f89",
       "name": "tool-present_value",
-      "description": "Single-tool workflow: present_value",
+      "description": "Present value of a future sum.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11530,7 +11530,7 @@
     "wf-86042d3d08": {
       "id": "wf-86042d3d08",
       "name": "tool-rule_of_72",
-      "description": "Single-tool workflow: rule_of_72",
+      "description": "Years to double an investment at a rate (Rule of 72).",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11547,7 +11547,7 @@
     "wf-51c4d06fb5": {
       "id": "wf-51c4d06fb5",
       "name": "tool-savings_goal",
-      "description": "Single-tool workflow: savings_goal",
+      "description": "Monthly savings needed to reach a goal.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11564,7 +11564,7 @@
     "wf-9888432213": {
       "id": "wf-9888432213",
       "name": "tool-decimal_to_binary",
-      "description": "Single-tool workflow: decimal_to_binary",
+      "description": "Convert a decimal number to binary.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11581,7 +11581,7 @@
     "wf-059d3a0f9b": {
       "id": "wf-059d3a0f9b",
       "name": "tool-binary_to_decimal",
-      "description": "Single-tool workflow: binary_to_decimal",
+      "description": "Convert a binary string to decimal.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11598,7 +11598,7 @@
     "wf-5f4f9e80b7": {
       "id": "wf-5f4f9e80b7",
       "name": "tool-decimal_to_hex",
-      "description": "Single-tool workflow: decimal_to_hex",
+      "description": "Convert a decimal number to hexadecimal.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11615,7 +11615,7 @@
     "wf-af8b5a994b": {
       "id": "wf-af8b5a994b",
       "name": "tool-hex_to_decimal",
-      "description": "Single-tool workflow: hex_to_decimal",
+      "description": "Convert a hexadecimal string to decimal.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11632,7 +11632,7 @@
     "wf-e3e7ab95c7": {
       "id": "wf-e3e7ab95c7",
       "name": "tool-swap_case",
-      "description": "Single-tool workflow: swap_case",
+      "description": "Swap the case of every letter.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11649,7 +11649,7 @@
     "wf-4020d72ed1": {
       "id": "wf-4020d72ed1",
       "name": "tool-sentence_case",
-      "description": "Single-tool workflow: sentence_case",
+      "description": "Capitalize the first letter of each sentence.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11666,7 +11666,7 @@
     "wf-e6c1066e36": {
       "id": "wf-e6c1066e36",
       "name": "tool-remove_vowels",
-      "description": "Single-tool workflow: remove_vowels",
+      "description": "Remove all vowels from text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11683,7 +11683,7 @@
     "wf-b07742f4ab": {
       "id": "wf-b07742f4ab",
       "name": "tool-count_syllables",
-      "description": "Single-tool workflow: count_syllables",
+      "description": "Estimate the syllable count of a word/text.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11700,7 +11700,7 @@
     "wf-923b1d438a": {
       "id": "wf-923b1d438a",
       "name": "tool-snake_to_camel",
-      "description": "Single-tool workflow: snake_to_camel",
+      "description": "Convert snake_case to camelCase.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11717,7 +11717,7 @@
     "wf-33cf9d2a6b": {
       "id": "wf-33cf9d2a6b",
       "name": "tool-camel_to_snake",
-      "description": "Single-tool workflow: camel_to_snake",
+      "description": "Convert camelCase to snake_case.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11734,7 +11734,7 @@
     "wf-9b1bb6d235": {
       "id": "wf-9b1bb6d235",
       "name": "tool-acronym",
-      "description": "Single-tool workflow: acronym",
+      "description": "Build an acronym from a phrase.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11751,7 +11751,7 @@
     "wf-2be77a9379": {
       "id": "wf-2be77a9379",
       "name": "tool-is_weekend",
-      "description": "Single-tool workflow: is_weekend",
+      "description": "Check if a date falls on a weekend.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11768,7 +11768,7 @@
     "wf-2d17171cbf": {
       "id": "wf-2d17171cbf",
       "name": "tool-add_hours",
-      "description": "Single-tool workflow: add_hours",
+      "description": "Add N hours to an ISO datetime.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11785,7 +11785,7 @@
     "wf-0784d8405f": {
       "id": "wf-0784d8405f",
       "name": "tool-clamp_number",
-      "description": "Single-tool workflow: clamp_number",
+      "description": "Clamp a number to a [min,max] range.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11802,7 +11802,7 @@
     "wf-a8c7453e2f": {
       "id": "wf-a8c7453e2f",
       "name": "tool-coin_flip",
-      "description": "Single-tool workflow: coin_flip",
+      "description": "Flip a fair coin.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11819,7 +11819,7 @@
     "wf-460f25abde": {
       "id": "wf-460f25abde",
       "name": "tool-magic_8ball",
-      "description": "Single-tool workflow: magic_8ball",
+      "description": "Ask the Magic 8-Ball a yes/no question.",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11836,7 +11836,7 @@
     "wf-3080d08221": {
       "id": "wf-3080d08221",
       "name": "tool-mint_nft",
-      "description": "Single-tool workflow: mint_nft",
+      "description": "Mint a SHADDAI collectible as a REAL Solana NFT using Metaplex Core. Devnet by default (simulate-safe); mainnet-beta onl",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11938,7 +11938,7 @@
     "wf-f745d701f2": {
       "id": "wf-f745d701f2",
       "name": "tool-rag_search",
-      "description": "Single-tool workflow: rag_search",
+      "description": "Search the SHADDAI RAG brain",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -11955,7 +11955,7 @@
     "wf-5be4274ab4": {
       "id": "wf-5be4274ab4",
       "name": "tool-rag_ask",
-      "description": "Single-tool workflow: rag_ask",
+      "description": "Ask the RAG brain a question",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -12278,7 +12278,7 @@
     "wf-e9628b23a7": {
       "id": "wf-e9628b23a7",
       "name": "tool-zerox_price",
-      "description": "Single-tool workflow: zerox_price",
+      "description": "Live crypto price",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -13230,7 +13230,7 @@
     "wf-f3a69a3e37": {
       "id": "wf-f3a69a3e37",
       "name": "tool-hall_moon",
-      "description": "Single-tool workflow: hall_moon",
+      "description": "Moon phase",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -13298,7 +13298,7 @@
     "wf-29b6986c80": {
       "id": "wf-29b6986c80",
       "name": "tool-web_search",
-      "description": "Single-tool workflow: web_search",
+      "description": "Web search",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
@@ -13451,7 +13451,7 @@
     "wf-4b4f63dae4": {
       "id": "wf-4b4f63dae4",
       "name": "tool-tool_search",
-      "description": "Single-tool workflow: tool_search",
+      "description": "Search tools",
       "price_usdc": 0,
       "status": "published",
       "creator": "",
