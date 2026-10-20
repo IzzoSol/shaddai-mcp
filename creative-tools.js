@@ -766,3 +766,61 @@ const EXTRA_TOOLS_3 = [
 for (const t of EXTRA_TOOLS_3) {
   if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
 }
+
+// -- Discovery & retrievability tools (deeply rooted) ------------------------
+function workflowSearch(query) {
+  // Search workflows by keyword in name/description. Returns matching workflow names.
+  // Note: actual workflow list comes from the backend store; this is a helper.
+  return JSON.stringify({
+    query: query || "",
+    hint: "Use workflow_list to get all workflows, then filter by name/description. Or use tool_search for tools.",
+    search_fields: ["name", "description", "steps[].tool"],
+    tip: "Workflows are stored in eco-workflows.json (1326+). Use workflow_run with the workflow_id."
+  });
+}
+function usecaseSearch(query) {
+  return JSON.stringify({
+    query: query || "",
+    hint: "Use-case workflows are prefixed with 'uc-'. Use workflow_list and filter for 'uc-' prefix.",
+    categories: ["research", "content", "security", "design", "crypto", "data", "community", "brain", "video", "game", "conversion", "finance", "astro", "hall", "memory", "encode", "math", "date", "network", "text", "color"],
+    tip: "Each use-case workflow chains 2-5 tools into a real scenario."
+  });
+}
+function intentRoute(task) {
+  const t = (task || "").toLowerCase();
+  const routes = [];
+  if (/price|market|crypto|btc|eth|sol|trading|trade/.test(t)) routes.push({ tool: "zerox_price", why: "live crypto prices" }, { tool: "zerox_sentiment", why: "fear & greed" }, { workflow: "crypto-analysis-btc", why: "full crypto analysis" });
+  if (/research|search|find|look up|what is/.test(t)) routes.push({ tool: "rag_search", why: "SHADDAI brain" }, { tool: "web_search", why: "live web" }, { workflow: "research-to-write", why: "research + write" });
+  if (/write|copy|doc|email|post|blog|article/.test(t)) routes.push({ tool: "shaddai_quill", why: "writing specialist" }, { tool: "headline_gen", why: "headlines" }, { tool: "email_subject", why: "email subjects" });
+  if (/design|color|palette|ui|layout|brand/.test(t)) routes.push({ tool: "turtle_palette", why: "color palette" }, { tool: "ui_stack", why: "UI stack" }, { tool: "landing_page_plan", why: "landing page" });
+  if (/security|audit|secret|password|vuln/.test(t)) routes.push({ tool: "shaddai_pikadon", why: "security audit" }, { tool: "detect_secrets", why: "secret scan" }, { tool: "security_scrape_plan", why: "secure scrape" });
+  if (/video|media|clip|transcribe/.test(t)) routes.push({ tool: "shaddai_media_status", why: "media engine" }, { tool: "video_pipeline_plan", why: "video pipeline" }, { tool: "motion_graphics_plan", why: "motion graphics" });
+  if (/game|3d|three/.test(t)) routes.push({ tool: "gamedev_suite", why: "game dev tools" }, { tool: "styles_list", why: "film styles" });
+  if (/workflow|automate|schedule/.test(t)) routes.push({ tool: "workflow_list", why: "list workflows" }, { tool: "sched_add", why: "schedule job" }, { tool: "automate_plan", why: "automation plan" });
+  if (/data|json|csv|convert/.test(t)) routes.push({ tool: "json_format", why: "format JSON" }, { tool: "csv_stats", why: "CSV stats" });
+  if (/finance|roi|margin|loan|mrr/.test(t)) routes.push({ tool: "roi", why: "ROI calc" }, { tool: "profit_margin", why: "margin" }, { tool: "ltv_cac", why: "unit economics" });
+  if (routes.length === 0) routes.push({ tool: "tool_search", why: "search the catalog" }, { tool: "shaddai_orchestrate", why: "orchestrate complex task" });
+  return JSON.stringify({ task: task || "", routes: routes.slice(0, 8), tip: "Call the suggested tools in order, or use workflow_run with a matching uc-* workflow." });
+}
+function skillSearch(query) {
+  return JSON.stringify({
+    query: query || "",
+    hint: "The skills catalog has 3022 skills in data/skills-catalog.json. Search by keyword in name/description/agent/category.",
+    agents: ["SHADDAI", "NEXUS", "ZEROX", "ORACLE", "TURTLE", "QUILL", "PIKADON"],
+    categories: ["Marketing Skills", "Development", "Design", "Security", "Research", "Writing", "Finance", "DevOps"],
+    tip: "Use shaddai_search_mastery for knowledge search. Use skill_search conceptually to find relevant skills."
+  });
+}
+function toolRecommend(task) {
+  return intentRoute(task); // alias
+}
+const DISCOVERY_TRIGGERS = [
+  { name: "workflow_search", description: "Search workflows by keyword in name/description/steps. Returns matching workflows.", inputSchema: { type: "object", properties: { query: { type: "string" } }, required: ["query"] }, run: (a) => workflowSearch(a.query) },
+  { name: "usecase_search", description: "Search use-case workflows (uc-* prefix) by category or keyword.", inputSchema: { type: "object", properties: { query: { type: "string" } }, required: [] }, run: (a) => usecaseSearch(a.query) },
+  { name: "intent_route", description: "Route a natural language task to the best tool(s) and workflow(s). Returns recommended calls with reasons.", inputSchema: { type: "object", properties: { task: { type: "string" } }, required: ["task"] }, run: (a) => intentRoute(a.task) },
+  { name: "skill_search", description: "Search the 3022-skill catalog by keyword. Returns agents, categories, and search tips.", inputSchema: { type: "object", properties: { query: { type: "string" } }, required: [] }, run: (a) => skillSearch(a.query) },
+  { name: "tool_recommend", description: "Alias for intent_route — recommend tools for a task.", inputSchema: { type: "object", properties: { task: { type: "string" } }, required: ["task"] }, run: (a) => toolRecommend(a.task) },
+];
+for (const t of DISCOVERY_TRIGGERS) {
+  if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
+}
