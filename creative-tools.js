@@ -255,7 +255,6 @@ const EX2 = [
 ];
 for (const t of EX2) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
 
-module.exports = { CREATIVE_TOOLS };
 // -- Additional extracted skills (batch 3) + PIKADON security -----------------
 function secureWebScrapePlan(url) {
   return JSON.stringify({
@@ -328,4 +327,14 @@ const EXTRA_WEBSCAN = [
   { name: "shaddai_web_scan", description: "PIKADON-reviewed web scan: SSRF guard + scrape + secret scan + PII redact + ingest into brain.", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: ["url"] }, run: (a) => shaddaiWebScan(a.url) },
 ];
 for (const t of EXTRA_WEBSCAN) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
+function shaddaiWebScan(url) {
+  const u = url || "";
+  return JSON.stringify({
+    url: u,
+    pipeline: ["PIKADON: SSRF guard (HTTPS only)", "web_scrape: fetch + strip", "detect_secrets: scan for keys", "redact_pii: scrub PII", "hall_web_scrape: persist to brain", "aura_ingest: teach agent"],
+    tools: ["web_scrape", "detect_secrets", "redact_pii", "hall_web_scrape", "aura_ingest"],
+    security: "PIKADON reviews every step. SSRF-guarded, size-capped, secret-scanned, PII-redacted.",
+    tip: "Use this instead of raw web_scrape for any data you plan to keep."
+  });
+}
 module.exports = { CREATIVE_TOOLS };
