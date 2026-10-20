@@ -28387,6 +28387,1190 @@
         }
       ],
       "created_at": "2026-10-20T00:12:36.461Z"
+    },
+    "wf-80a02daf12": {
+      "id": "wf-80a02daf12",
+      "name": "uc-research-topic",
+      "description": "Use case: research a topic end-to-end (RAG + web + Quill summary)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "rag_search",
+          "args": {
+            "query": "{{topic}}",
+            "topK": 5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "web_search",
+          "args": {
+            "query": "{{topic}}",
+            "count": 5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "shaddai_quill",
+          "args": {
+            "task": "Summarize findings"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.465Z"
+    },
+    "wf-82f14df7a0": {
+      "id": "wf-82f14df7a0",
+      "name": "uc-competitive-intel",
+      "description": "Use case: competitive intelligence (web scrape + rag + quill)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "web_scrape",
+          "args": {
+            "url": "https://example.com"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "rag_search",
+          "args": {
+            "query": "competitor analysis",
+            "topK": 5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "shaddai_quill",
+          "args": {
+            "task": "Write competitive intel brief"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.512Z"
+    },
+    "wf-4c10801ba3": {
+      "id": "wf-4c10801ba3",
+      "name": "uc-write-blog",
+      "description": "Use case: write a blog post (RAG + web + Quill)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "rag_search",
+          "args": {
+            "query": "blog topic",
+            "topK": 3
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "web_search",
+          "args": {
+            "query": "blog topic",
+            "count": 3
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "shaddai_quill",
+          "args": {
+            "task": "Write blog post"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.554Z"
+    },
+    "wf-7b90c7f1d3": {
+      "id": "wf-7b90c7f1d3",
+      "name": "uc-write-email",
+      "description": "Use case: write an email (Quill)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "shaddai_quill",
+          "args": {
+            "task": "Write professional email"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.590Z"
+    },
+    "wf-fff1621234": {
+      "id": "wf-fff1621234",
+      "name": "uc-social-post",
+      "description": "Use case: social media post (Quill + rag)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "rag_search",
+          "args": {
+            "query": "social media",
+            "topK": 3
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "shaddai_quill",
+          "args": {
+            "task": "Write social post"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.631Z"
+    },
+    "wf-a0fd12a27e": {
+      "id": "wf-a0fd12a27e",
+      "name": "uc-security-audit",
+      "description": "Use case: security audit (Pikadon + detect_secrets + password_policy + redact_pii)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "shaddai_pikadon",
+          "args": {
+            "task": "Audit codebase"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "detect_secrets",
+          "args": {
+            "text": "{{code}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "password_policy",
+          "args": {
+            "password": "{{pw}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "redact_pii",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.669Z"
+    },
+    "wf-ca75e866ec": {
+      "id": "wf-ca75e866ec",
+      "name": "uc-secret-scan",
+      "description": "Use case: scan text for secrets and PII",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "detect_secrets",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "redact_pii",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.710Z"
+    },
+    "wf-c94e776ffc": {
+      "id": "wf-c94e776ffc",
+      "name": "uc-design-brand",
+      "description": "Use case: brand design (palette + geometry + ui_stack)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "turtle_palette",
+          "args": {
+            "mood": "cyber",
+            "count": 5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "turtle_geometry",
+          "args": {
+            "form": "metatron"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "ui_stack",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.753Z"
+    },
+    "wf-ff1ba5219d": {
+      "id": "wf-ff1ba5219d",
+      "name": "uc-design-ui",
+      "description": "Use case: UI design (ui_resource + palette)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "ui_resource",
+          "args": {
+            "key": "brief"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "turtle_palette",
+          "args": {
+            "mood": "minimal",
+            "count": 5
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.790Z"
+    },
+    "wf-65e75c343b": {
+      "id": "wf-65e75c343b",
+      "name": "uc-generate-image",
+      "description": "Use case: generate image (TURTLE)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "shaddai_generate_image",
+          "args": {
+            "prompt": "{{prompt}}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.825Z"
+    },
+    "wf-55aa820929": {
+      "id": "wf-55aa820929",
+      "name": "uc-crypto-brief",
+      "description": "Use case: crypto brief (price + sentiment + market scan)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "zerox_price",
+          "args": {
+            "symbols": "BTC,ETH,SOL"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "zerox_sentiment",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "zerox_market_scan",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.865Z"
+    },
+    "wf-cc1a971592": {
+      "id": "wf-cc1a971592",
+      "name": "uc-paper-trade",
+      "description": "Use case: paper trade (price + open + portfolio)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "zerox_price",
+          "args": {
+            "symbols": "BTC"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "zerox_paper_open",
+          "args": {
+            "symbol": "BTC",
+            "side": "buy",
+            "confidence": 0.6
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "zerox_paper_portfolio",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.902Z"
+    },
+    "wf-cbe1fc17ae": {
+      "id": "wf-cbe1fc17ae",
+      "name": "uc-finance-calc",
+      "description": "Use case: finance calculations (ROI + margin + LTV)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "roi",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "profit_margin",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "ltv_cac",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.944Z"
+    },
+    "wf-0d0533b7da": {
+      "id": "wf-0d0533b7da",
+      "name": "uc-data-transform",
+      "description": "Use case: data transform (json + csv + stats)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "json_format",
+          "args": {
+            "text": "{}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "csv_stats",
+          "args": {
+            "csv": "a,b\n1,2",
+            "column": "a"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "list_stats",
+          "args": {
+            "list": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:27.988Z"
+    },
+    "wf-6c8eb734c6": {
+      "id": "wf-6c8eb734c6",
+      "name": "uc-text-process",
+      "description": "Use case: text processing (extract + count + sentiment)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "extract_emails",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "count_vowels",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "sentiment_score",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:28.024Z"
+    },
+    "wf-fe330a481e": {
+      "id": "wf-fe330a481e",
+      "name": "uc-community-daily",
+      "description": "Use case: community daily (bonus + quests + leaderboard)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hall_daily_bonus",
+          "args": {
+            "uid": "u1"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "hall_quests",
+          "args": {
+            "uid": "u1"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "hall_leaderboard",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:28.084Z"
+    },
+    "wf-31f6a69d9f": {
+      "id": "wf-31f6a69d9f",
+      "name": "uc-brain-search",
+      "description": "Use case: brain search (overview + knowledge map + rag)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "brain_overview",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "brain_knowledge_map",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "rag_search",
+          "args": {
+            "query": "{{topic}}",
+            "topK": 5
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:28.148Z"
+    },
+    "wf-25336f7771": {
+      "id": "wf-25336f7771",
+      "name": "uc-hall-economy",
+      "description": "Use case: hall economy (daily bonus + quests + referral + leaderboard)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hall_daily_bonus",
+          "args": {
+            "uid": "u1"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "hall_quests",
+          "args": {
+            "uid": "u1"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "hall_referral",
+          "args": {
+            "uid": "u1"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "hall_leaderboard",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:28.261Z"
+    },
+    "wf-db2e0ef2cc": {
+      "id": "wf-db2e0ef2cc",
+      "name": "uc-portfolio-opt",
+      "description": "Use case: portfolio optimization (portfolio_optimize + paper trade)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "portfolio_optimize",
+          "args": {
+            "returns": [
+              0.05,
+              -0.02,
+              0.03,
+              0.01
+            ]
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "zerox_paper_open",
+          "args": {
+            "symbol": "BTC",
+            "side": "buy",
+            "confidence": 0.6
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:28.352Z"
+    },
+    "wf-64d048234a": {
+      "id": "wf-64d048234a",
+      "name": "uc-landing-page",
+      "description": "Use case: landing page (ui_stack + palette + ui_resource)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "ui_stack",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "turtle_palette",
+          "args": {
+            "mood": "minimal",
+            "count": 5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "ui_resource",
+          "args": {
+            "key": "brief"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.159Z"
+    },
+    "wf-b19317b2b5": {
+      "id": "wf-b19317b2b5",
+      "name": "uc-logo-design",
+      "description": "Use case: logo design (generate image + palette)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "shaddai_generate_image",
+          "args": {
+            "prompt": "{{prompt}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "turtle_palette",
+          "args": {
+            "mood": "luxury",
+            "count": 4
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.206Z"
+    },
+    "wf-de6fd02bbb": {
+      "id": "wf-de6fd02bbb",
+      "name": "uc-video-shorts",
+      "description": "Use case: video shorts (media fetch + capture + plan)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "shaddai_media_status",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "shaddai_capture",
+          "args": {
+            "mode": "media",
+            "url": "{{url}}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.252Z"
+    },
+    "wf-4d0b5696a9": {
+      "id": "wf-4d0b5696a9",
+      "name": "uc-music-track",
+      "description": "Use case: music track (hall_music + turtle)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hall_music",
+          "args": {
+            "genre": "lofi",
+            "bars": 8
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "shaddai_turtle",
+          "args": {
+            "task": "Design album art"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.295Z"
+    },
+    "wf-222cab3ed5": {
+      "id": "wf-222cab3ed5",
+      "name": "uc-astro-report",
+      "description": "Use case: astro report (moon + astro + conviction)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hall_moon",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "hall_astro",
+          "args": {
+            "sign": "aries"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "hall_conviction",
+          "args": {
+            "uid": "u1",
+            "symbol": "SOL",
+            "amount": 10
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.338Z"
+    },
+    "wf-80d037a346": {
+      "id": "wf-80d037a346",
+      "name": "uc-arena-battle",
+      "description": "Use case: arena battle (arena + history)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hall_arena",
+          "args": {
+            "uid": "u1",
+            "a": "ORACLE",
+            "b": "ZEROX",
+            "bet": 10
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "hall_arena_history",
+          "args": {
+            "n": 5
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.386Z"
+    },
+    "wf-658297a564": {
+      "id": "wf-658297a564",
+      "name": "uc-arcade-play",
+      "description": "Use case: arcade play (arcade + gem profile)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hall_arcade",
+          "args": {
+            "uid": "u1",
+            "game": "basketball",
+            "bet": 10
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "hall_gem_profile",
+          "args": {
+            "uid": "u1"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.427Z"
+    },
+    "wf-3a3b0c74e8": {
+      "id": "wf-3a3b0c74e8",
+      "name": "uc-referral-growth",
+      "description": "Use case: referral growth (referral + claim + leaderboard)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hall_referral",
+          "args": {
+            "uid": "u1"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "hall_claim_referral",
+          "args": {
+            "uid": "u2",
+            "code": "ref_x"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "hall_leaderboard",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.471Z"
+    },
+    "wf-e073f25777": {
+      "id": "wf-e073f25777",
+      "name": "uc-plot-invest",
+      "description": "Use case: plot investment (status + buy)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "plot_status",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "plot_buy",
+          "args": {
+            "plot_id": "p1",
+            "owner": "u1"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.516Z"
+    },
+    "wf-ff816451a4": {
+      "id": "wf-ff816451a4",
+      "name": "uc-mastery-sell",
+      "description": "Use case: mastery sell (create + list)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "mastery_create",
+          "args": {
+            "instance_id": "u1",
+            "name": "My Pack",
+            "price_usdc": 5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "mastery_list",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.561Z"
+    },
+    "wf-f13e162ca7": {
+      "id": "wf-f13e162ca7",
+      "name": "uc-workflow-build",
+      "description": "Use case: build workflow (create + run + list)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "workflow_create",
+          "args": {
+            "name": "my-wf",
+            "steps": "[{\"tool\":\"hall_moon\",\"args\":{}}]"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "workflow_list",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.620Z"
+    },
+    "wf-00b2ed9de7": {
+      "id": "wf-00b2ed9de7",
+      "name": "uc-bridge-external",
+      "description": "Use case: bridge external agent (register + call)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "bridge_register",
+          "args": {
+            "id": "grok-1",
+            "name": "Grok",
+            "platform": "grok",
+            "url": "https://example.com"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "bridge_call",
+          "args": {
+            "agent_id": "grok-1",
+            "tool": "search",
+            "params": "{}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.661Z"
+    },
+    "wf-fa2d4681c5": {
+      "id": "wf-fa2d4681c5",
+      "name": "uc-x402-pay",
+      "description": "Use case: x402 payment (info + quote + intent)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "x402_info",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "x402_quote",
+          "args": {
+            "tool": "zerox_market_scan"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "x402_intent",
+          "args": {
+            "tool": "zerox_market_scan",
+            "user_id": "u1"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.704Z"
+    },
+    "wf-06b74b5d5a": {
+      "id": "wf-06b74b5d5a",
+      "name": "uc-forge-sub",
+      "description": "Use case: forge sub-agent (spawn + delegate + complete)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "forge_spawn_sub",
+          "args": {
+            "parent_id": "zerox-acct-1",
+            "role": "scanner"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "forge_delegate",
+          "args": {
+            "sub_id": "sub-1",
+            "tasks": "[\"scan\"]"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "forge_complete_work",
+          "args": {
+            "work_id": "wk-1",
+            "results": "{}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.743Z"
+    },
+    "wf-08820b1224": {
+      "id": "wf-08820b1224",
+      "name": "uc-graph-discovery",
+      "description": "Use case: graph discovery (log + context + neighbors)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "graph_log_discovery",
+          "args": {
+            "agent_id": "u1",
+            "type": "alpha",
+            "reason": "test",
+            "target": "SOL"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "graph_context",
+          "args": {
+            "target": "SOL"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "graph_neighbors",
+          "args": {
+            "id": "SOL",
+            "depth": 2
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.789Z"
+    },
+    "wf-75b256ebf9": {
+      "id": "wf-75b256ebf9",
+      "name": "uc-sched-automation",
+      "description": "Use case: scheduled automation (add + list + cancel)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "sched_add",
+          "args": {
+            "type": "zerox.watch",
+            "data": "{\"symbol\":\"BTC\"}",
+            "every_ms": 3600000
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "sched_list",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.834Z"
+    },
+    "wf-263205ca5d": {
+      "id": "wf-263205ca5d",
+      "name": "uc-telegram-hall",
+      "description": "Use case: telegram hall (post + bind)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hall_post",
+          "args": {
+            "text": "Hello Hall"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "hall_bind",
+          "args": {
+            "user_id": "u1",
+            "chat_id": "123"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.876Z"
+    },
+    "wf-48d5b415a2": {
+      "id": "wf-48d5b415a2",
+      "name": "uc-text-analysis",
+      "description": "Use case: text analysis (extract + count + sentiment + keywords)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "extract_emails",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "count_vowels",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "sentiment_score",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "keyword_extract",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T05:43:33.968Z"
     }
   }
 }
