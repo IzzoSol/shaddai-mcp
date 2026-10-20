@@ -963,3 +963,112 @@ for (const t of DISCOVERY_TRIGGERS_2) {
   const idx = CREATIVE_TOOLS.findIndex(x => x.name === t.name);
   if (idx >= 0) CREATIVE_TOOLS[idx] = t; else CREATIVE_TOOLS.push(t);
 }
+// -- Extracted skills from cloned repos (converted to SHADDAI-native tools) --
+// Patterns extracted from: Hunyuan3D, firecrawl, browser-use, crawlee, crawl4ai,
+// autoscraper, adaptive-style-transfer, handdraw, artcrafter.
+// Original repos can now be deleted — all value is captured here.
+
+function hunyuan3dPlan(prompt, format) {
+  return JSON.stringify({
+    repo: "Tencent Hunyuan3D-2.1", pattern: "text/image -> 3D model generation",
+    input: prompt || "", outputFormat: format || "glb",
+    pipeline: ["text/image prompt", "Hunyuan3D shape generation", "texture synthesis", "export (glb/obj/fbx)", "import into Three.js/Blender"],
+    tools: { generate: "hunyuan3d generate --prompt '...'", export: "glb/obj/fbx", view: "Three.js GLTFLoader" },
+    shaddai_integration: "TURTLE generates 3D assets for games/design. Use with game design repo for 3D worlds.",
+    tip: "Run locally: python gradio_app.py. Or use HF API. Models on HuggingFace."
+  });
+}
+function firecrawlPlan(url, mode) {
+  return JSON.stringify({
+    repo: "firecrawl", pattern: "URL -> clean markdown/text for LLM consumption",
+    input: url || "", mode: mode || "scrape",
+    pipeline: ["URL input", "JS rendering (Playwright)", "content extraction", "markdown conversion", "metadata (title, links, images)"],
+    modes: ["scrape (single page)", "crawl (multi-page)", "extract (structured data)", "map (site map)", "search (web search)"],
+    api: { scrape: "POST /v1/scrape {url, formats:['markdown']}", crawl: "POST /v1/crawl {url, limit:N}", extract: "POST /v1/extract {url, schema:{}}" },
+    shaddai_integration: "ORACLE uses firecrawl for deep web research. Complements web_scrape (basic) with JS rendering + structured extraction.",
+    tip: "Self-host or use firecrawl.dev API. API key required for cloud."
+  });
+}
+function browserUsePlan(task, url) {
+  return JSON.stringify({
+    repo: "browser-use", pattern: "AI agent controls browser to complete tasks",
+    task: task || "", url: url || "",
+    pipeline: ["task description", "LLM plans actions", "browser executes (click, type, scroll, navigate)", "extract results", "return answer"],
+    actions: ["navigate(url)", "click(selector)", "type(text)", "scroll(direction)", "extract(selector)", "screenshot()"],
+    shaddai_integration: "ORACLE/NEXUS can use browser-use for complex web tasks beyond simple scraping. Automates multi-step browser workflows.",
+    tip: "pip install browser-use. Requires Playwright + LLM API key (OpenAI/Anthropic)."
+  });
+}
+function crawleePlan(mode, url) {
+  return JSON.stringify({
+    repo: "crawlee", pattern: "Scalable web crawling framework (Cheerio/Playwright/Puppeteer)",
+    mode: mode || "cheerio", url: url || "",
+    modes: ["cheerio (fast, no JS)", "playwright (JS rendering)", "puppeteer (Chrome)", "http (API calls)"],
+    features: ["request queue", "session pool", "proxy rotation", "auto-scaling", "storage (key-value, dataset)"],
+    shaddai_integration: "NEXUS can build robust crawlers for data collection. Use for large-scale scraping tasks.",
+    tip: "npm install crawlee. TypeScript/JS. Great for production scraping."
+  });
+}
+function crawl4aiPlan(url, mode) {
+  return JSON.stringify({
+    repo: "crawl4ai", pattern: "LLM-friendly web crawler (markdown, structured extraction)",
+    url: url || "", mode: mode || "scrape",
+    features: ["markdown output", "structured extraction (CSS/XPath/LLM)", "screenshot", "PDF extraction", "media handling", "chunking for RAG"],
+    api: { scrape: "AsyncWebCrawler().arun(url, config=CrawlerRunConfig())", extract: "ExtractionStrategy (CSS, XPath, LLM-based)" },
+    shaddai_integration: "ORACLE uses crawl4ai for RAG ingestion. Markdown output feeds directly into brain. Better than basic scraping for LLM consumption.",
+    tip: "pip install crawl4ai. Async Python. Great for RAG pipelines."
+  });
+}
+function autoscraperPlan(url, samples) {
+  return JSON.stringify({
+    repo: "autoscraper", pattern: "Learn scraping rules from sample data, apply to similar pages",
+    url: url || "", samples: samples || [],
+    pipeline: ["provide URL + sample data", "autoscraper learns rules", "apply learned rules to new URLs", "extract similar elements"],
+    shaddai_integration: "ORACLE can auto-learn scraping patterns for recurring data collection. No manual CSS selectors needed.",
+    tip: "pip install autoscraper. Great for scraping similar pages (product listings, search results)."
+  });
+}
+function adaptiveStyleTransferPlan(content, style) {
+  return JSON.stringify({
+    repo: "CompVis adaptive-style-transfer", pattern: "Real-time HD style transfer (feed-forward, adaptive instance norm)",
+    content: content || "", style: style || "",
+    pipeline: ["content image", "style image", "adaptive instance normalization", "feed-forward network", "stylized output"],
+    technique: "Adaptive Instance Normalization (AdaIN) — transfers style by aligning feature statistics",
+    shaddai_integration: "TURTLE can apply artistic styles to images. Use for UGC ads, game art, brand visuals.",
+    tip: "Requires TensorFlow + GPU. Pre-trained models on GitHub. For CPU, use neural-style (slower)."
+  });
+}
+function handdrawPlan(project) {
+  return JSON.stringify({
+    repo: "HandDraw", pattern: "JSON animation DSL -> SVG/text animation -> Remotion -> MP4",
+    project: project || "example",
+    pipeline: ["write project.json (DSL)", "validate", "render SVG animations", "Edge TTS narration (optional)", "Remotion -> MP4"],
+    dsl: { scenes: [{ id: "scene1", duration: 5, elements: [{ type: "text", content: "Hello", animation: "draw" }] }] },
+    shaddai_integration: "TURTLE creates whiteboard/explainer videos. Use for UGC ads, tutorials, game trailers. No API key needed (Edge TTS free).",
+    tip: "npm install && npm run build. node scripts/handdraw.mjs validate project.json. node scripts/handdraw.mjs render project.json --output out.mp4"
+  });
+}
+function artcrafterPlan(content, style) {
+  return JSON.stringify({
+    repo: "ArtCrafter", pattern: "Text-image aligning artistic attribute transfer (TVCG 2026)",
+    content: content || "", style: style || "",
+    pipeline: ["content image", "style text prompt", "embedding reframing", "attribute transfer", "stylized output"],
+    technique: "Embedding reframing — aligns text and image embeddings for precise style control",
+    shaddai_integration: "TURTLE applies precise artistic styles guided by text prompts. Use for brand-consistent art, game assets, UGC.",
+    tip: "Requires PyTorch + GPU. Models on HuggingFace. Research code — may need adaptation."
+  });
+}
+const EXTRACTED_SKILLS = [
+  { name: "hunyuan3d_plan", description: "Plan 3D model generation from text/image (Tencent Hunyuan3D). Output: glb/obj/fbx for Three.js/Blender.", inputSchema: { type: "object", properties: { prompt: { type: "string" }, format: { type: "string" } }, required: [] }, run: (a) => hunyuan3dPlan(a.prompt, a.format) },
+  { name: "firecrawl_plan", description: "Plan web scraping with Firecrawl (JS rendering, markdown, structured extraction, crawl, map, search).", inputSchema: { type: "object", properties: { url: { type: "string" }, mode: { type: "string" } }, required: [] }, run: (a) => firecrawlPlan(a.url, a.mode) },
+  { name: "browser_use_plan", description: "Plan browser automation task (navigate, click, type, scroll, extract, screenshot).", inputSchema: { type: "object", properties: { task: { type: "string" }, url: { type: "string" } }, required: [] }, run: (a) => browserUsePlan(a.task, a.url) },
+  { name: "crawlee_plan", description: "Plan web crawling with Crawlee (cheerio/playwright/puppeteer, request queue, proxy rotation).", inputSchema: { type: "object", properties: { mode: { type: "string" }, url: { type: "string" } }, required: [] }, run: (a) => crawleePlan(a.mode, a.url) },
+  { name: "crawl4ai_plan", description: "Plan LLM-friendly web crawling (markdown, structured extraction, PDF, chunking for RAG).", inputSchema: { type: "object", properties: { url: { type: "string" }, mode: { type: "string" } }, required: [] }, run: (a) => crawl4aiPlan(a.url, a.mode) },
+  { name: "autoscraper_plan", description: "Plan auto-scraping (learn rules from sample data, apply to similar pages).", inputSchema: { type: "object", properties: { url: { type: "string" }, samples: { type: "array", items: { type: "string" } } }, required: [] }, run: (a) => autoscraperPlan(a.url, a.samples) },
+  { name: "adaptive_style_transfer_plan", description: "Plan artistic style transfer (AdaIN, feed-forward, real-time HD). CompVis adaptive-style-transfer.", inputSchema: { type: "object", properties: { content: { type: "string" }, style: { type: "string" } }, required: [] }, run: (a) => adaptiveStyleTransferPlan(a.content, a.style) },
+  { name: "handdraw_plan", description: "Plan whiteboard animation (JSON DSL -> SVG -> Remotion -> MP4, free Edge TTS).", inputSchema: { type: "object", properties: { project: { type: "string" } }, required: [] }, run: (a) => handdrawPlan(a.project) },
+  { name: "artcrafter_plan", description: "Plan artistic attribute transfer (embedding reframing, text-guided style). ArtCrafter TVCG 2026.", inputSchema: { type: "object", properties: { content: { type: "string" }, style: { type: "string" } }, required: [] }, run: (a) => artcrafterPlan(a.content, a.style) },
+];
+for (const t of EXTRACTED_SKILLS) {
+  if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
+}
