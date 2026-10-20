@@ -397,4 +397,43 @@ const REPO_TRIGGERS = [
   { name: "shaddai_gamedev_info", description: "Info + install link for SHADDAI game-dev tools (Three.js suite, MCP bridge, genre templates).", inputSchema: { type: "object", properties: {}, required: [] }, run: shaddaiGamedevInfo },
 ];
 for (const t of REPO_TRIGGERS) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
+// -- Grok bot teaching + template export (monetized) --------------------------
+function teachGrokBot(topic, template) {
+  const t = topic || "general";
+  const tmpl = template || "basic";
+  return JSON.stringify({
+    topic: t,
+    template: tmpl,
+    package: {
+      name: "SHADDAI Skill Pack: " + t,
+      description: "A curated skill pack for Grok bots covering " + t,
+      contents: ["SKILL.md (the skill definition)", "workflow.json (multi-step workflow)", "tools.json (tool list)", "examples/ (usage examples)", "README.md (setup guide)"],
+      pricing: { model: "per-pack", suggested_usd: 5, x402_rail: "Solana USDC", alternative: "gem-based (hall economy)" },
+      distribution: "Register via bridge_register (external agent), sell via mastery_create (75% royalty), or x402 micropayment (per-call)."
+    },
+    grok_integration: {
+      register: "bridge_register with platform=grok, url=<your endpoint>",
+      teach: "Export this pack as a mastery pack (mastery_create) or as a workflow (workflow_create)",
+      charge: "Use x402_intent/confirm for per-call payment, or mastery_create for pack sales (75% royalty)"
+    },
+    tip: "The MCP itself is the teaching tool. Grok bots call bridge_call to use SHADDAI tools. Charge via x402 or mastery packs."
+  });
+}
+function exportTemplate(name, tools, description) {
+  const n = name || "custom-pack";
+  const t = Array.isArray(tools) ? tools : (tools || "").split(",").map(s => s.trim()).filter(Boolean);
+  return JSON.stringify({
+    name: n,
+    description: description || "A SHADDAI skill pack",
+    tools: t,
+    format: "JSON (importable into any MCP client)",
+    usage: "Import into Grok/Claude/Cursor via MCP config. Tools are called via the shaddai-mcp server.",
+    pricing: "Suggested: $5/pack or per-call via x402"
+  });
+}
+const GROK_TOOLS = [
+  { name: "teach_grok_bot", description: "Package a SHADDAI skill pack for teaching Grok bots. Includes skill definition, workflow, tools list, examples, and pricing. Charge via x402 or mastery packs.", inputSchema: { type: "object", properties: { topic: { type: "string" }, template: { type: "string" } }, required: ["topic"] }, run: (a) => teachGrokBot(a.topic, a.template) },
+  { name: "export_template", description: "Export a tool bundle as a template for external agents (Grok, Claude, Cursor).", inputSchema: { type: "object", properties: { name: { type: "string" }, tools: { type: "array", items: { type: "string" } }, description: { type: "string" } }, required: ["name"] }, run: (a) => exportTemplate(a.name, a.tools, a.description) },
+];
+for (const t of GROK_TOOLS) { if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t); }
 module.exports = { CREATIVE_TOOLS };
