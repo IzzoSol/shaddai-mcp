@@ -1710,31 +1710,6 @@
       ],
       "created_at": "2026-10-20T00:10:16.498Z"
     },
-    "wf-28b983e9bb": {
-      "id": "wf-28b983e9bb",
-      "name": "crypto-analysis-btc",
-      "description": "Crypto analysis: BTC price + sentiment",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "zerox_price",
-          "args": {
-            "symbols": "BTC"
-          },
-          "on_fail": "stop"
-        },
-        {
-          "step": 2,
-          "tool": "zerox_sentiment",
-          "args": {},
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:10:19.431Z"
-    },
     "wf-bebd15f1a6": {
       "id": "wf-bebd15f1a6",
       "name": "crypto-analysis-eth",
@@ -1759,31 +1734,6 @@
         }
       ],
       "created_at": "2026-10-20T00:10:19.447Z"
-    },
-    "wf-90abf8e8bb": {
-      "id": "wf-90abf8e8bb",
-      "name": "crypto-analysis-sol",
-      "description": "Crypto analysis: SOL price + sentiment",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "zerox_price",
-          "args": {
-            "symbols": "SOL"
-          },
-          "on_fail": "stop"
-        },
-        {
-          "step": 2,
-          "tool": "zerox_sentiment",
-          "args": {},
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:10:19.468Z"
     },
     "wf-530547ff63": {
       "id": "wf-530547ff63",
@@ -3757,23 +3707,6 @@
       ],
       "created_at": "2026-10-20T00:11:04.747Z"
     },
-    "wf-e24033a14d": {
-      "id": "wf-e24033a14d",
-      "name": "tool-get_token_info",
-      "description": "test",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "get_token_info",
-          "args": {},
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:11:06.653Z"
-    },
     "wf-182fea4539": {
       "id": "wf-182fea4539",
       "name": "tool-get_country_info",
@@ -4045,23 +3978,6 @@
         }
       ],
       "created_at": "2026-10-20T00:11:11.429Z"
-    },
-    "wf-083b396ea3": {
-      "id": "wf-083b396ea3",
-      "name": "tool-get_sol_token_info",
-      "description": "Single-tool workflow: get_sol_token_info",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "get_sol_token_info",
-          "args": {},
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:11:30.332Z"
     },
     "wf-74c803e672": {
       "id": "wf-74c803e672",
@@ -6102,23 +6018,6 @@
         }
       ],
       "created_at": "2026-10-20T00:11:32.359Z"
-    },
-    "wf-b5aeaec63f": {
-      "id": "wf-b5aeaec63f",
-      "name": "tool-post_to_telegram",
-      "description": "Single-tool workflow: post_to_telegram",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "post_to_telegram",
-          "args": {},
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:11:32.379Z"
     },
     "wf-dfa0f2c6ce": {
       "id": "wf-dfa0f2c6ce",
@@ -11950,40 +11849,6 @@
         }
       ],
       "created_at": "2026-10-20T00:11:43.063Z"
-    },
-    "wf-17eb75fe0c": {
-      "id": "wf-17eb75fe0c",
-      "name": "tool-search_x",
-      "description": "Single-tool workflow: search_x",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "search_x",
-          "args": {},
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:11:43.083Z"
-    },
-    "wf-577cf1ef5b": {
-      "id": "wf-577cf1ef5b",
-      "name": "tool-post_to_x",
-      "description": "Single-tool workflow: post_to_x",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "post_to_x",
-          "args": {},
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:11:43.106Z"
     },
     "wf-44da969f33": {
       "id": "wf-44da969f33",
@@ -19391,32 +19256,6 @@
         }
       ],
       "created_at": "2026-10-20T00:12:20.371Z"
-    },
-    "wf-68a1b16fb4": {
-      "id": "wf-68a1b16fb4",
-      "name": "combo-post_to_telegram-rag",
-      "description": "Combo: post_to_telegram then RAG search",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "post_to_telegram",
-          "args": {},
-          "on_fail": "stop"
-        },
-        {
-          "step": 2,
-          "tool": "rag_search",
-          "args": {
-            "query": "post_to_telegram",
-            "topK": 3
-          },
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:12:20.395Z"
     },
     "wf-22d4aab732": {
       "id": "wf-22d4aab732",
@@ -28335,58 +28174,6 @@
         }
       ],
       "created_at": "2026-10-20T00:12:36.381Z"
-    },
-    "wf-1770a4dda4": {
-      "id": "wf-1770a4dda4",
-      "name": "combo-search_x-rag",
-      "description": "Combo: search_x then RAG search",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "search_x",
-          "args": {},
-          "on_fail": "stop"
-        },
-        {
-          "step": 2,
-          "tool": "rag_search",
-          "args": {
-            "query": "search_x",
-            "topK": 3
-          },
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:12:36.419Z"
-    },
-    "wf-c391c0f903": {
-      "id": "wf-c391c0f903",
-      "name": "combo-post_to_x-rag",
-      "description": "Combo: post_to_x then RAG search",
-      "price_usdc": 0,
-      "status": "published",
-      "creator": "",
-      "steps": [
-        {
-          "step": 1,
-          "tool": "post_to_x",
-          "args": {},
-          "on_fail": "stop"
-        },
-        {
-          "step": 2,
-          "tool": "rag_search",
-          "args": {
-            "query": "post_to_x",
-            "topK": 3
-          },
-          "on_fail": "stop"
-        }
-      ],
-      "created_at": "2026-10-20T00:12:36.461Z"
     },
     "wf-80a02daf12": {
       "id": "wf-80a02daf12",
