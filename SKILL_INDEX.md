@@ -1,0 +1,586 @@
+# SHADDAI Master Skill Index
+
+Generated from the 557 internal agent tools + curated MCP tools.
+
+## GENERAL (65 tools)
+
+- **analyze_code_complexity** — Analyze code complexity: count lines, functions, nested depth, and flag issues.
+- **binance_orderbook** — Get Binance order book depth to see buy/sell pressure.
+- **binance_price** — Get live spot price from Binance. Fastest price data available, no auth needed.
+- **calculate_position_size** — Calculate safe position size based on account size and risk percentage.
+- **check_password_strength** — Analyze password strength — length, entropy, suggestions
+- **check_port** — Check if a TCP port is open on a host
+- **compress_prompt** — Compress a long prompt to use fewer tokens while preserving meaning.
+- **convert_units** — Convert between units: temperature (C/F/K), length (m/ft/mi/km), weight (kg/lb), data (B/KB/MB/GB).
+- **create_github_issue** — Create a GitHub issue in any repository. Requires GITHUB_TOKEN env var.
+- **decode_base64** — Decode Base64 string back to plain text
+- **detect_language** — Detect the programming language of a code snippet.
+- **dex_price** — Get real-time DEX price for any token via DexScreener. No API key needed.
+- **diff_texts** — Compare two texts and show what changed (added/removed lines).
+- **encode_base64** — Encode any text to Base64
+- **extract_entities** — Extract named entities (people, orgs, locations, dates, amounts) from text.
+- **fetch_url_clean** — Fetch a URL and extract clean readable text (strips HTML tags and scripts).
+- **format_as_table** — Format JSON array data as a readable ASCII table.
+- **generate_code_template** — Generate a code boilerplate template for common patterns.
+- **generate_image_free** — Generate a real AI image using the server-side HuggingFace FLUX.1-schnell key pool. Returns a served URL to the rendered
+- **generate_mermaid** — Generate a Mermaid diagram definition for flowcharts, sequences, or mind maps.
+- **generate_uuid** — Generate a UUID v4 (or multiple UUIDs).
+- **get_arxiv_papers** — Search arXiv for research papers by topic
+- **get_color_palette** — Generate a harmonious color palette from a seed color
+- **get_country_info** — Country facts: population, capital, currency, languages, flag
+- **get_dominance** — Get Bitcoin and Ethereum market dominance percentages.
+- **get_eth_gas** — Get current Ethereum gas price in Gwei (keyless public RPC).
+- **get_fear_greed_history** — Get historical Fear & Greed index data (last 7 days).
+- **get_funding_rates** — Get crypto perpetual futures funding rates from Binance.
+- **get_gas_price** — Current Ethereum gas prices (slow/standard/fast in Gwei)
+- **get_github_issues** — Get open issues from any public GitHub repository.
+- **get_hacker_news_comments** — Get top comments from a Hacker News story.
+- **get_history_today** — Historical events that happened on today's date throughout history
+- **get_ip_info** — Geolocate an IP address — country, city, ISP, coordinates
+- **get_joke** — Get a programming or tech joke
+- **get_medium_articles** — Get latest Medium articles on any topic via RSS.
+- **get_moon_phase** — Current moon phase and next full/new moon dates
+- **get_news_headlines** — Get latest news headlines from multiple sources via RSS.
+- **get_nft_floor** — MagicEden Solana NFT collection floor price and stats
+- **get_onchain_activity** — Get recent on-chain activity metrics for Solana.
+- **get_package_info** — Get npm package information: version, description, downloads, dependencies.
+- **get_product_hunt** — Get top products from Product Hunt today.
+- **get_protocol_revenue** — Get DeFi protocol revenue data from DeFiLlama.
+- **get_public_apis** — Search a directory of free public APIs by topic
+- **get_qr_code** — Generate a QR code image URL for any text or URL
+- **get_random_quote** — Get an inspiring or interesting random quote
+- **get_reddit_posts** — Fetch top posts from any subreddit — real community discussion
+- **get_sol_token_info** — Get Solana token info from DexScreener by contract address or symbol.
+- **get_stablecoin_data** — Get stablecoin market cap and peg data from DeFiLlama.
+- **get_stackoverflow** — Get top Stack Overflow questions for any programming topic.
+- **get_stock_quote** — Real-time stock price from Yahoo Finance — works for any ticker (AAPL, TSLA, NVDA, etc.)
+- **get_timezone** — Current time and date in any timezone worldwide
+- **get_top_gainers** — Get top gaining and losing cryptocurrencies in the last 24 hours.
+- **get_uuid** — Generate unique IDs, tokens, or random strings
+- **get_wikipedia_summary** — Get a clean Wikipedia summary paragraph for any topic
+- **get_word_definition** — Dictionary definition, pronunciation, and example usage for any English word
+- **grammar_check** — Check text for grammar and spelling errors using LanguageTool (free)
+- **post_webhook** — Send data to any HTTP webhook URL via POST.
+- **recall_memory** — Retrieve a previously saved fact from agent memory.
+- **remember_fact** — Save a fact or result to agent memory for future use (persists across sessions).
+- **run_local_llm** — Send a prompt directly to local Ollama LLM. Free, private, no API key needed.
+- **search_github_repos** — Search GitHub for repositories matching a query.
+- **search_web_ddg** — Search the web using DuckDuckGo instant answers API. No API key needed.
+- **shorten_url** — Shorten any long URL using TinyURL
+- **validate_json** — Validate JSON string and return structure info or errors.
+- **weather_live** — Get live weather for any city using Open-Meteo. Free, no API key needed.
+
+## NEXUS (48 tools)
+
+- **base_convert** — Convert a number between bases (2–36).
+- **base64_codec** — Base64 encode or decode a string. Useful for JWTs, data URIs, basic auth.
+- **bundlephobia_size** — Bundle size (min+gzip) of an npm package.
+- **bytes_human** — Convert a byte count to a human-readable size.
+- **calculate** — Safely evaluate math expressions. Supports +,-,*,/,**,sqrt,log,sin,cos,PI,E,floor,ceil.
+- **count_tokens** — Count words, characters, and estimate LLM tokens (~4 chars per token) for any text.
+- **create_airtable_record** — Add a record to an Airtable base. Requires AIRTABLE_API_KEY.
+- **cron_describe** — Describe a 5-field cron expression in plain English.
+- **curl_build** — Build a curl command from method, URL, and JSON body.
+- **deploy_to_vercel** — Trigger a Vercel deployment via API. Requires VERCEL_TOKEN.
+- **duration_human** — Convert seconds to a human-readable duration.
+- **env_to_json** — Parse a .env file into JSON.
+- **escape_regex** — Escape a string for safe use inside a regex.
+- **estimate_tokens** — Estimate LLM token count for text (~4 chars/token).
+- **get_github_repo** — GitHub repository details: stars, forks, issues, language, recent activity. No auth needed.
+- **get_github_trending** — Recently trending GitHub repos (sorted by stars, pushed in last 7 days). Uses public GitHub API.
+- **github_user_info** — Public GitHub user profile: repos, followers, bio (api.github.com, free, no key).
+- **http_status** — Explain an HTTP status code.
+- **json_to_env** — Convert a flat JSON object to .env lines.
+- **jwt_sign** — Sign a JSON payload into a JWT (HS256) with a secret.
+- **jwt_verify** — Verify a JWT (HS256) signature with a secret.
+- **list_files** — List all files in generated-output/ with size and modification time.
+- **markdown_table** — Convert CSV to a Markdown table.
+- **mime_type** — Get the MIME type for a file extension.
+- **mint_nft** — Mint a SHADDAI collectible as a REAL Solana NFT using Metaplex Core. Devnet by default (simulate-safe); mainnet-beta onl
+- **npm_package_info** — npm package latest version + weekly downloads.
+- **open_github_issue** — Create a GitHub issue via the GitHub API. Requires GITHUB_TOKEN.
+- **open_github_pr** — Open a GitHub pull request. Requires GITHUB_TOKEN.
+- **query_build** — Build a URL query string from JSON.
+- **query_parse** — Parse a URL query string into JSON.
+- **random_user** — Generate fake user data for testing (name, email, address). Uses randomuser.me.
+- **regex_extract** — Extract all matches (and capture groups) of a regex from text.
+- **regex_replace** — Replace regex matches in text.
+- **regex_test** — Test a regex pattern against text. Returns matches, groups, and count.
+- **run_js** — Execute JavaScript in a sandboxed Node.js vm. Returns console output and result value.
+- **run_python** — Execute Python code via system Python. Returns stdout. Requires ALLOW_PYTHON_EXEC=true env var; disabled by default for 
+- **search_npm** — Search npm registry for packages. Returns name, version, description, weekly downloads.
+- **semver_bump** — Bump a semantic version (major/minor/patch).
+- **semver_compare** — Compare two semantic versions (-1, 0, 1).
+- **send_webhook** — POST any JSON payload to any webhook URL. No external API key required. Supports custom headers.
+- **sol_epoch** — Current Solana epoch info — epoch #, slot progress, absolute slot.
+- **sol_network_tps** — Live Solana throughput (transactions per second) from recent performance samples.
+- **sol_validators** — Count of current + delinquent Solana validators (network health).
+- **unicode_escape** — Escape non-ASCII characters to \uXXXX.
+- **url_parse** — Parse a URL into its parts.
+- **uuid_validate** — Validate a UUID and report its version.
+- **validate_json_schema** — Validate a JSON data object against a JSON Schema (draft-07 compatible). No external dep — uses built-in structural chec
+- **wrap_text** — Word-wrap text to a max line width.
+
+## ORACLE (60 tools)
+
+- **analyze_sentiment** — Analyze sentiment of any text. Returns score (-1 to +1), label, and key terms.
+- **book_search** — Search books by title/author/subject (OpenLibrary).
+- **content_calendar** — Build a 7-day content calendar (platform + hook + format) for a theme.
+- **define_word** — Dictionary definition, phonetics, examples (DictionaryAPI).
+- **extract_keywords** — Extract top keywords from text by frequency. Strips common stop words.
+- **extract_links** — Fetch a URL and extract all hyperlinks (href values). Optionally filter to only external links or links matching a patte
+- **extract_pdf** — Download a PDF from a URL and extract its text using pdf-parse. Returns text and page count.
+- **fetch_url** — Fetch full text from any URL. Strips HTML, returns clean readable text (first 3000 chars).
+- **food_product** — Look up a food product by barcode — nutrition, ingredients (OpenFoodFacts).
+- **geocode_address** — Geocode any place/address to coordinates via OpenStreetMap Nominatim (free, no key).
+- **get_crypto_news** — Latest cryptocurrency headlines. Keyless by default — pulls live public crypto RSS feeds (CoinDesk, CoinTelegraph, Decry
+- **get_hackernews** — Top Hacker News stories right now. Returns titles, URLs, scores, comment counts.
+- **get_horoscope** — Daily horoscope for a zodiac sign (Horoscope App API, free, no key).
+- **get_iss_location** — Live position (lat/long/altitude/velocity) of the International Space Station (Where the ISS at, free, no key).
+- **get_linkedin_profile** — Fetch LinkedIn public profile data via Proxycurl. Requires PROXYCURL_API_KEY.
+- **get_market_news** — Crypto market news filtered to a specific coin or topic (e.g. "ethereum", "regulation", "ETF"). Searches the keyless pub
+- **get_public_holidays** — Public holidays for a country + year (Nager.Date, free, no key).
+- **get_rss_feed** — Fetch and parse any RSS/Atom feed URL. Returns latest items with title, link, summary.
+- **get_space_launches** — Upcoming rocket launches worldwide (The Space Devs Launch Library 2, free, no key).
+- **get_trending_topics** — Trending crypto coins/topics right now. Keyless — uses the CoinGecko /search/trending endpoint. Returns a ranked list of
+- **get_trivia_questions** — Random trivia questions with answers (Open Trivia DB, free, no key).
+- **get_weather** — Current weather for any city. Returns temp, conditions, humidity, wind.
+- **get_x_profile** — Fetch an X/Twitter user profile by @username via API v2 (GET /2/users/by/username/:name). App-only bearer token works. R
+- **gutenberg_search** — Search 70,000+ free public-domain books (Project Gutenberg via Gutendex, free, no key).
+- **hn_algolia_search** — Search Hacker News stories via Algolia (free).
+- **iss_location** — Current location of the International Space Station.
+- **magiceden_floor** — Magic Eden NFT collection stats — floor price, listed count, 24h volume. Keyless.
+- **number_fact** — An interesting fact about a number (NumbersAPI).
+- **ocr_image** — Extract text from an image URL via OCR.space. Requires OCR_SPACE_API_KEY.
+- **on_this_day** — Notable historical events on today’s date (Wikipedia).
+- **open_library_search** — Search books via Open Library (free).
+- **predict_age** — Predict likely age from a first name (Agify).
+- **predict_gender** — Predict likely gender from a first name (Genderize).
+- **predict_nationality** — Predict likely nationality from a first name (Nationalize).
+- **public_holidays** — Public holidays for a country + year (Nager.Date).
+- **pubmed_search** — Search PubMed (NCBI) for biomedical/medical research papers. Returns titles, authors, abstracts, PMIDs and PubMed links.
+- **random_advice** — A random piece of advice (AdviceSlip).
+- **random_quote** — A random inspirational quote.
+- **recent_earthquakes** — Significant earthquakes in the last day (USGS).
+- **related_words** — Find words related in meaning to a word (Datamuse).
+- **rhymes** — Find words that rhyme with a word (Datamuse).
+- **scrape_site** — Fetch a URL and return clean stripped text (HTML tags removed). Optional CSS selector substring to focus on a section. U
+- **search_notion** — Search across a Notion workspace. Requires NOTION_API_KEY.
+- **search_web** — Web search — tries Google News RSS (great for recent news) then DuckDuckGo Instant Answer. Returns titles, snippets, URL
+- **search_x** — Search recent (last ~7 days) tweets on X/Twitter via API v2 (GET /2/tweets/search/recent). App-only bearer token works f
+- **search_x** — Search recent (last ~7 days) tweets on X/Twitter via API v2 (GET /2/tweets/search/recent). App-only bearer token works f
+- **semantic_scholar_search** — Search academic papers via Semantic Scholar (free, no key).
+- **seo_keywords** — Generate a prioritized SEO keyword list (primary, secondary, long-tail) for a topic.
+- **sol_inflation** — Current Solana inflation rate (total, validator, foundation).
+- **sol_token_meta** — Token metadata (symbol, name, decimals, logo) from the Jupiter strict token list. Keyless.
+- **summarize_text** — Summarize long text into key points (TL;DR + bullets).
+- **summarize_url** — Fetch a URL and return a structured summary: title, meta description, word count, first 600 chars of body text, and all 
+- **transcribe_audio** — Transcribe an audio file URL to text via Whisper. Requires OPENAI_API_KEY.
+- **tv_show_search** — Search TV shows — genre, rating, summary (TVMaze).
+- **universities** — List universities in a country (Hipolabs).
+- **wayback_snapshot** — Get the archived (Wayback Machine) version of any URL.
+- **weather_forecast** — Current weather + 3-day forecast for coordinates (Open-Meteo, keyless).
+- **wikipedia_search** — Search Wikipedia. Reliable for facts, people, concepts, technology. Returns article summary.
+- **wolfram_query** — Computational knowledge from Wolfram Alpha (math, unit conversions, science facts, etc.).
+- **xml_to_json** — Fetch an XML/RSS/Atom URL and parse it into structured JSON using a lightweight built-in regex parser.
+
+## PIKADON (43 tools)
+
+- **base32_encode** — Encode text to Base32 (RFC 4648).
+- **breach_list** — Look up a known data breach by name from HaveIBeenPwned’s public breach database. Keyless.
+- **card_type** — Detect a credit-card brand from its number prefix.
+- **check_pwned** — Check if an email address appears in known data breaches using the HaveIBeenPwned k-anonymity range API. Completely keyl
+- **check_security** — PIKADON security audit: SQL injection, XSS, hardcoded secrets, eval, path traversal, CORS, CSRF, insecure deps.
+- **cidr_info** — Subnet math for a CIDR block — network, broadcast, host count.
+- **constant_time_equal** — Constant-time compare two strings (timing-safe).
+- **cve_lookup** — Look up CVE security vulnerabilities by package/keyword or CVE id (Red Hat security data, free, no key).
+- **defang_url** — Defang a URL/IP for safe sharing (hxxp, [.]).
+- **detect_secrets** — Scan text for likely secrets/API keys (AWS, Google, GitHub, JWT, private keys).
+- **dns_lookup** — Resolve DNS records for a domain (A, AAAA, MX, NS, TXT).
+- **email_dns_check** — Check a domain’s email security posture — MX, SPF, DMARC records.
+- **generate_password** — Generate a cryptographically-strong random password (Node crypto, no API).
+- **generate_token** — Generate a cryptographically-secure random token (hex).
+- **gravatar_url** — Build the Gravatar image URL for an email (MD5 hash).
+- **hash_text** — Compute cryptographic hashes (md5, sha1, sha256, sha512) of input text.
+- **hmac_sign** — Compute an HMAC-SHA256 signature of a message with a secret.
+- **http_headers** — Fetch a URL and return its HTTP response headers + status.
+- **ip_info** — Geolocation + network/ISP info for an IP address. Keyless.
+- **jwt_decode** — Decode a JWT (header + payload) WITHOUT verifying — inspect claims, exp, alg. Local only.
+- **luhn_check** — Validate a number (e.g. credit card) with the Luhn checksum.
+- **parse_cookie_flags** — Analyze a Set-Cookie string for Secure/HttpOnly/SameSite.
+- **parse_csp** — Parse a Content-Security-Policy header into directives.
+- **parse_spf** — Parse an SPF record — mechanisms and policy.
+- **password_policy** — Check a password against a policy (length, upper, lower, digit, symbol).
+- **password_pwned** — Check if a password appears in known breaches via HaveIBeenPwned k-anonymity (only a hash prefix leaves your machine). K
+- **password_strength** — Estimate password strength (entropy bits + rating + suggestions). Computed locally, never sent anywhere.
+- **rdap_domain** — WHOIS/RDAP registration data for a domain: registrar, status, key dates (rdap.org, free, no key).
+- **rdap_whois** — Domain registration info via RDAP (modern whois) — registrar, dates, status. Keyless.
+- **redact_pii** — Redact emails, phone numbers, credit cards, and SSNs from text.
+- **refang_url** — Re-fang a defanged URL back to normal.
+- **rugcheck_token** — RugCheck safety report for an SPL token — risk score + flags. Keyless.
+- **scan_dependencies** — Scan a package.json content string for known CVEs using the OSV.dev API (free, no key). Returns vulnerability count and 
+- **scan_url_virustotal** — Check URL reputation via VirusTotal. Requires VIRUSTOTAL_API_KEY.
+- **security_headers** — Grade a site’s security headers (HSTS, CSP, X-Frame-Options, etc.) A–F.
+- **shannon_entropy** — Compute Shannon entropy (bits/char) of a string — randomness measure.
+- **ssl_check** — Inspect a site’s TLS certificate — issuer, validity dates, days until expiry.
+- **tcp_port_check** — Check whether a single TCP port is OPEN on a host you control (defensive availability check).
+- **totp_code** — Generate a time-based OTP (TOTP, RFC 6238) from a hex secret.
+- **url_safety** — Heuristic phishing/safety check on a URL (suspicious patterns, punycode, IP host, TLD, redirects).
+- **validate_email** — Validate an email address format + extract domain.
+- **validate_ipv4** — Validate an IPv4 address + classify (private/public/loopback).
+- **validate_jwt** — Decode and structurally validate a JWT token — checks format, expiry, issuer, algorithm. Does NOT verify signature (no s
+
+## QUILL (34 tools)
+
+- **blog_outline** — Generate a detailed blog post outline (title + H2/H3 bullet structure).
+- **create_google_doc** — Create a new Google Doc with content. Requires GOOGLE_SERVICE_ACCOUNT_JSON.
+- **create_notion_page** — Create a Notion page in a database. Requires NOTION_API_KEY.
+- **faq_generate** — Generate a FAQ (8 Q&A pairs) for a product/topic.
+- **format_data** — Format raw data as markdown table, JSON, CSV, or bullet list. Clean output for reports.
+- **generate_hooks** — Generate 10 scroll-stopping hooks/opening lines for content on a topic.
+- **hashtag_suggest** — Suggest relevant hashtags (mix of broad + niche) for a post topic.
+- **linkedin_post** — Write a professional LinkedIn post (hook, story/insight, takeaway) on a topic.
+- **markdown_to_html** — Convert markdown to HTML. Supports headings, bold, italic, lists, links, code blocks.
+- **meta_description** — Write an SEO meta description (=155 chars) for a page/topic.
+- **name_the_tone** — Analyze a text and describe its tone/voice, then suggest how to strengthen it.
+- **newsletter_intro** — Write an engaging newsletter intro paragraph for an issue theme.
+- **post_discord** — Post to Discord via webhook. Requires DISCORD_WEBHOOK_URL in .env.
+- **post_to_telegram** — Send a message to a Telegram chat/channel via the Bot API (POST /bot<token>/sendMessage). Requires TELEGRAM_BOT_TOKEN; c
+- **post_to_telegram** — Send a message to a Telegram chat/channel via the Bot API (POST /bot<token>/sendMessage). Requires TELEGRAM_BOT_TOKEN; c
+- **post_to_x** — Post a tweet to X/Twitter (POST /2/tweets). Posting requires OAuth1.0a USER context: X_API_KEY + X_API_SECRET + X_ACCESS
+- **post_to_x** — Post a tweet to X/Twitter (POST /2/tweets). Posting requires OAuth1.0a USER context: X_API_KEY + X_API_SECRET + X_ACCESS
+- **press_release** — Draft a professional press release for an announcement.
+- **random_fact** — A random interesting fact (uselessfacts, free, no key).
+- **read_file** — Read a file from generated-output/ by filename. Returns content up to 5000 chars.
+- **reddit_post** — Write an authentic, non-salesy Reddit post (title + body) for a subreddit-style audience.
+- **rewrite_tone** — Rewrite a piece of text in a specified tone (e.g. professional, casual, hype, luxury).
+- **rss_fetch** — Fetch + parse any RSS feed (via rss2json, free).
+- **send_email** — Send a transactional email via SendGrid or Resend. Requires SENDGRID_API_KEY or RESEND_API_KEY.
+- **send_slack** — Post a message to a Slack channel via Incoming Webhook. Requires SLACK_WEBHOOK_URL.
+- **translate_text** — Translate text to another language. Uses MyMemory (free, no key, 5k chars/day).
+- **tweet_thread** — Split long text into a numbered tweet thread (<=240 chars each, pure JS).
+- **tweet_variations** — Rewrite a tweet into 6 distinct high-engagement variations.
+- **video_script** — Write a short-form video script (hook, beats, CTA) for a topic.
+- **word_synonyms** — Find synonyms (and related words) for a word (Datamuse, free, no key).
+- **write_blog_post** — Write a complete, structured blog post (title, intro, H2 sections, conclusion).
+- **write_file** — Write content to a file in generated-output/. Safe filename auto-generated. Returns path.
+- **write_thread** — Write a punchy X/Twitter thread (5–8 posts) on a topic. Real, ready to post.
+- **youtube_title** — Generate 10 high-CTR YouTube titles for a video topic.
+
+## SHADDAI (196 tools)
+
+- **acronym** — Build an acronym from a phrase.
+- **add_days** — Add N days to a date.
+- **add_hours** — Add N hours to an ISO datetime.
+- **age_calculator** — Age (years/months/days) from a birthdate.
+- **anagram_check** — Check if two strings are anagrams.
+- **angle_convert** — Convert between degrees and radians.
+- **area_convert** — Convert area (m2, km2, ft2, acre, hectare).
+- **atbash_cipher** — Encode/decode with the Atbash cipher.
+- **average_list** — Average (mean) of a list of numbers.
+- **base64_decode** — Decode Base64 to text.
+- **base64_encode** — Encode text to Base64.
+- **binary_decode** — Decode 8-bit binary to text.
+- **binary_encode** — Encode text to binary (8-bit).
+- **binary_to_decimal** — Convert a binary string to decimal.
+- **bmi** — Body Mass Index from weight (kg) and height (cm).
+- **break_even** — Break-even units = fixed / (price - variable).
+- **business_days** — Count business days (Mon–Fri) between two dates.
+- **caesar_cipher** — Shift letters by N (Caesar cipher).
+- **camel_case** — Convert to camelCase.
+- **camel_to_snake** — Convert camelCase to snake_case.
+- **char_frequency** — Count frequency of each character in text.
+- **chunk_list** — Split a list into chunks of size N.
+- **circle_area** — Area + circumference of a circle.
+- **clamp_number** — Clamp a number to a [min,max] range.
+- **coin_flip** — Flip a fair coin.
+- **combinations** — nCr — combinations of n taken r.
+- **complete_job** — Mark a marketplace job as completed, store deliverable, and credit the agent earnings.
+- **compound_interest** — Compound interest final value.
+- **cone_volume** — Volume of a cone.
+- **correlation** — Pearson correlation between two equal-length number lists.
+- **count_matches** — Count regex matches in text.
+- **count_occurrences** — Count occurrences of a substring in text.
+- **count_syllables** — Estimate the syllable count of a word/text.
+- **count_vowels** — Count vowels and consonants in text.
+- **count_words** — Count words, characters, lines, sentences.
+- **create_calendar_event** — Create a Google Calendar event via OAuth. Requires GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET.
+- **create_skill_pack** — Create a new skill pack with custom system prompt for an agent. Saves to backend/data/skill-packs.json.
+- **csv_column** — Extract one column from CSV (with header).
+- **csv_stats** — Numeric stats for one CSV column.
+- **csv_to_json** — Convert CSV (with header row) to JSON array.
+- **cylinder_volume** — Volume of a cylinder.
+- **data_convert** — Convert data sizes (B, KB, MB, GB, TB).
+- **day_of_week** — Day of week for a date (YYYY-MM-DD).
+- **days_between** — Days between two dates (YYYY-MM-DD).
+- **decimal_to_binary** — Convert a decimal number to binary.
+- **decimal_to_hex** — Convert a decimal number to hexadecimal.
+- **delegate_to_agent** — Delegate a sub-task to another agent. SHADDAI uses this to coordinate. Returns sub-task result.
+- **dice_roll** — Roll dice, e.g. 2d6.
+- **discount** — Price after a discount %.
+- **distance_2d** — Distance between two 2D points.
+- **execute_trade** — Execute a collectibles trade: buyer pays priceCredits, ownership transfers, platform takes 10% fee.
+- **extract_domain** — Extract the domain from a URL or email.
+- **extract_emails** — Extract all email addresses from text.
+- **extract_hashtags** — Extract #hashtags from text.
+- **extract_mentions** — Extract @mentions from text.
+- **extract_numbers** — Extract all numbers from text.
+- **extract_urls** — Extract all URLs from text.
+- **factorial** — Compute n! (factorial).
+- **fetch_price** — Live crypto price from CoinGecko. Returns USD price, 24h change %, market cap, volume.
+- **fibonacci** — First N Fibonacci numbers.
+- **format_phone** — Format a 10-digit US phone number.
+- **future_value** — Future value of a present sum.
+- **gcd_lcm** — Greatest common divisor + least common multiple of two integers.
+- **get_agent_mood** — Read an agent room state and mood from persistent storage.
+- **get_memory** — Retrieve a previously saved memory by key. Returns the stored value.
+- **gpa** — GPA from a list of letter grades.
+- **group_count** — Group a JSON array of objects by a key and count each group.
+- **hex_decode** — Decode hexadecimal to text.
+- **hex_encode** — Encode text to hexadecimal.
+- **hex_to_decimal** — Convert a hexadecimal string to decimal.
+- **html_decode** — Unescape HTML entities.
+- **html_encode** — Escape HTML special characters.
+- **hypotenuse** — Hypotenuse from two sides (Pythagoras).
+- **initials** — Get the initials of a name.
+- **install_skill_pack** — Purchase and install a skill pack — applies its system prompt override to the target agent. Tracks installations.
+- **is_leap_year** — Check whether a year is a leap year.
+- **is_prime** — Check if a number is prime.
+- **is_weekend** — Check if a date falls on a weekend.
+- **json_flatten** — Flatten a nested JSON object to dot-key/value pairs.
+- **json_format** — Pretty-print / validate JSON.
+- **json_keys** — List the top-level keys of a JSON object.
+- **json_minify** — Minify JSON.
+- **json_path** — Get a nested value from JSON by dot path (e.g. a.b.0.c).
+- **json_to_csv** — Convert a JSON array of objects to CSV.
+- **kebab_case** — Convert to kebab-case.
+- **keyword_extract** — Extract top keywords/phrases from text.
+- **leetspeak** — Convert text to leetspeak.
+- **length_convert** — Convert length (m, km, mi, ft, in, cm).
+- **levenshtein** — Edit distance between two strings.
+- **list_diff** — Items in list A that are not in list B.
+- **list_frequency** — Count how often each item appears in a list.
+- **list_intersect** — Items present in BOTH lists.
+- **list_open_jobs** — List all open jobs from the marketplace (backend/data/marketplace.json).
+- **list_scheduled_tasks** — List scheduled tasks / reminders.
+- **list_skill_packs** — List all available skill packs in the marketplace. Optionally filter by target agent.
+- **list_stats** — Full statistics (mean, median, mode, min, max, stddev, sum) for a list of numbers.
+- **list_unique** — Deduplicate a list (comma/newline separated).
+- **loan_payment** — Monthly payment for a loan (amortized).
+- **log** — Logarithm of a number (any base).
+- **longest_word** — Find the longest word in text.
+- **lorem_ipsum** — Generate lorem ipsum placeholder text.
+- **ltv_cac** — LTV:CAC ratio for unit economics.
+- **magic_8ball** — Ask the Magic 8-Ball a yes/no question.
+- **markup** — Selling price from cost + markup %.
+- **mask_string** — Mask all but the last N chars of a string.
+- **median** — Median of a list of numbers.
+- **midpoint** — Midpoint between two 2D points.
+- **min_max** — Min, max, and range of a list of numbers.
+- **morse_decode** — Decode Morse code to text.
+- **morse_encode** — Encode text to Morse code.
+- **moving_average** — Simple moving average over a window.
+- **mrr_arr** — MRR ? ARR and per-customer averages.
+- **nato_phonetic** — Spell text in the NATO phonetic alphabet.
+- **normalize_list** — Scale a list of numbers to the 0–1 range (min-max normalization).
+- **nth_root** — Nth root of a number.
+- **number_to_words** — Spell out a number in English words.
+- **ordinal** — Ordinal form of a number (1 ? 1st).
+- **pad_string** — Pad a string to a length.
+- **palindrome_check** — Check if text is a palindrome.
+- **pay_api_call** — Pay-per-use API call via pay.sh (Solana). GUARDED: per-call cap, daily budget, and human approval above a threshold. Spe
+- **paybox_pay** — Trade, transfer, or pay via Paybox — the agent's real non-custodial wallet (Solana + EVM). GUARDED: per-call cap, daily 
+- **percentage** — Compute X% of Y, or what % X is of Y.
+- **percentage_change** — Percent change from old to new value.
+- **percentile** — Compute the Nth percentile of a list.
+- **permutations** — nPr — permutations of n taken r.
+- **power** — Raise base to an exponent.
+- **present_value** — Present value of a future sum.
+- **profit_margin** — Gross profit margin %.
+- **quadratic** — Solve ax²+bx+c=0.
+- **quarter** — Fiscal quarter for a date.
+- **random_number** — Random integer in a range.
+- **random_password** — Generate a strong random password.
+- **random_pick** — Randomly pick one item from a list.
+- **random_string** — Generate a random alphanumeric string.
+- **range_generate** — Generate a numeric range [start..end] step.
+- **read_obsidian_skill** — Read the full SKILL.md content from Obsidian vault by skill name. Returns step-by-step methodology.
+- **readability_score** — Flesch reading-ease score + grade estimate for text.
+- **rectangle_area** — Area + perimeter of a rectangle.
+- **remove_duplicates** — Remove duplicate lines from text.
+- **remove_punctuation** — Strip punctuation from text.
+- **remove_vowels** — Remove all vowels from text.
+- **repeat_text** — Repeat text N times.
+- **reverse_text** — Reverse a string.
+- **reverse_words** — Reverse the order of words in text.
+- **roi** — Return on investment %.
+- **roman_numeral** — Convert an integer (1–3999) to a Roman numeral.
+- **rot13** — Apply the ROT13 cipher.
+- **rule_of_72** — Years to double an investment at a rate (Rule of 72).
+- **run_skill** — Execute one of the 3,437 SHADDAI skills by name or intent. For RECIPE skills, runs all tool steps deterministically and 
+- **run_workflow_chain** — Run a multi-step workflow chain. Each step is {agent, goal}. Output of step N is fed as context to step N+1.
+- **runway** — Cash runway in months.
+- **sales_tax** — Add sales tax to a price.
+- **save_memory** — Persist a key-value pair to agent memory. Survives across tasks. Use to remember important facts.
+- **save_room_layout** — Save an agent room layout (placed collectible IDs). Max 5 items per room.
+- **save_to_inbox** — Save agent output to SHADDAI inbox. User sees it in dashboard inbox tab.
+- **savings_goal** — Monthly savings needed to reach a goal.
+- **schedule_task** — Schedule a task or reminder for a future time. Persists it for the background job runner. Accepts ISO datetime or relati
+- **send_sms** — Send an SMS via Twilio. Requires TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM.
+- **sentence_case** — Capitalize the first letter of each sentence.
+- **sentiment_score** — Lexicon-based sentiment (positive/negative/neutral) of text.
+- **set_agent_room_state** — Update an agent room state (sleeping/idle/working/completed). Persists to backend/data/agent-rooms.json.
+- **shuffle_list** — Randomly shuffle a list.
+- **simple_interest** — Simple interest earned.
+- **slope** — Slope of the line through two points.
+- **slugify** — Make a URL slug from text.
+- **snake_case** — Convert to snake_case.
+- **snake_to_camel** — Convert snake_case to camelCase.
+- **sort_lines** — Sort lines alphabetically.
+- **speed_convert** — Convert speed (kmh, mph, ms, knot).
+- **sphere_volume** — Volume + surface area of a sphere.
+- **sqrt** — Square root of a number.
+- **string_similarity** — Similarity % between two strings (0–100).
+- **sum_list** — Sum a list of numbers.
+- **swap_case** — Swap the case of every letter.
+- **temperature_convert** — Convert temperature between C/F/K.
+- **time_convert** — Convert time (s, min, hr, day, week).
+- **time_until** — Time remaining until a future date.
+- **timestamp_now** — Current time — ISO, Unix seconds, and ms.
+- **tip_calculator** — Calculate tip + total for a bill.
+- **title_case** — Convert text to Title Case.
+- **to_lowercase** — lowercase text.
+- **to_uppercase** — UPPERCASE text.
+- **top_n** — Top N most frequent items in a list.
+- **trapezoid_area** — Area of a trapezoid.
+- **triangle_area** — Area of a triangle (base × height ÷ 2).
+- **truncate_text** — Truncate text to N chars with an ellipsis.
+- **unix_to_date** — Convert a Unix timestamp (seconds) to a readable date.
+- **url_decode** — Decode a percent-encoded URL string.
+- **url_encode** — Percent-encode text for URLs.
+- **uuid_v4** — Generate a random UUID v4.
+- **volume_convert** — Convert volume (l, ml, gal, cup, floz, m3).
+- **week_number** — ISO week number for a date.
+- **weight_convert** — Convert weight (kg, g, lb, oz, ton).
+- **weighted_average** — Weighted average of values with weights.
+- **word_frequency** — Most frequent words in text (stopwords removed).
+- **zodiac_sign** — Western zodiac sign for a birthdate.
+
+## TURTLE (49 tools)
+
+- **analogous_colors** — Get 2 analogous colors (±30°).
+- **aspect_ratio** — Compute height for a width at an aspect ratio (e.g. 16:9).
+- **blend_colors** — Blend two hex colors at a ratio.
+- **border_radius_css** — Generate an organic blob border-radius.
+- **brand_name_ideas** — Brainstorm 15 brand/product name ideas with a one-line rationale each.
+- **clamp_css** — Generate a fluid-typography clamp() value.
+- **color_contrast_check** — Compute the WCAG contrast ratio between two hex colors and whether it passes AA/AAA (pure JS, no API).
+- **color_info** — Break down a color — hex, rgb, hsl, luminance, and best readable text color on it.
+- **color_palette** — Generate a harmonious 5-color palette from a base hex or seed word.
+- **complementary_color** — Get the complementary (opposite) color.
+- **contrast_check** — WCAG contrast ratio between two colors + AA/AAA pass for normal & large text.
+- **darken_color** — Darken a hex color by N%.
+- **design_critique** — Give a sharp design critique + concrete fixes for a described UI/layout.
+- **duotone_palette** — Generate a duotone (shadow + highlight) pair from a hue.
+- **favicon_svg** — Generate an SVG favicon/logo mark from initials on a colored rounded square (returns SVG + data URI).
+- **flexbox_css** — Generate flexbox CSS for a layout intent (center, row, spread).
+- **font_pairing** — Suggest Google Font pairings (display + body) for a style (curated, no API).
+- **generate_image** — Generate a real AI image using HuggingFace FLUX.1-schnell (server-side key pool, no client key needed). Returns a served
+- **glassmorphism_css** — Generate glassmorphism (frosted glass) CSS for a card.
+- **golden_ratio** — Split a length by the golden ratio (1.618).
+- **gradient_css** — Produce ready-to-paste CSS for a linear gradient between colors.
+- **grid_css** — Generate a responsive CSS grid.
+- **hex_to_hsl** — Convert a hex color to hsl().
+- **hex_to_rgb** — Convert a hex color to rgb().
+- **image_prompt** — Turn a rough idea into a rich text-to-image (FLUX/SD) prompt with style, lighting, composition.
+- **keyframes_css** — Generate a CSS @keyframes animation (pulse, float, spin, fade).
+- **lighten_color** — Lighten a hex color by N%.
+- **logo_brief** — Write a professional logo design brief for a brand.
+- **make_music** — Generate a real AI music clip and return a playable audio URL. Uses AceDataCloud Suno API (ACEDATACLOUD_API_TOKEN) if se
+- **moodboard** — Describe a moodboard (aesthetic keywords, colors, textures, references) for a brand/vibe.
+- **neon_glow_css** — Generate a neon box-glow CSS for a color.
+- **px_to_rem** — Convert px to rem (16px base).
+- **random_color** — Generate a random hex color.
+- **rem_to_px** — Convert rem to px (16px base).
+- **rgb_to_hex** — Convert rgb values to hex.
+- **screenshot_url** — Capture a screenshot of any webpage. Returns image URL. Uses thum.io (free, no key).
+- **shadow_css** — Generate a layered, natural box-shadow CSS at a given elevation.
+- **slogan_generate** — Generate 10 brand slogans/taglines for a product or brand.
+- **svg_chart** — Generate an SVG bar chart from data arrays (pure JS, no API).
+- **svg_circle** — Generate an SVG circle with a fill.
+- **svg_star** — Generate an SVG star.
+- **svg_wave** — Generate a decorative SVG wave divider.
+- **tailwind_scale** — Generate a Tailwind-style 50?900 shade scale from a base hex.
+- **text_shadow_css** — Generate a neon/glow text-shadow CSS.
+- **text_to_speech** — Convert text to an audio file URL. Requires ELEVENLABS_API_KEY.
+- **transition_css** — Generate a smooth CSS transition shorthand.
+- **triadic_colors** — Get the triadic color scheme (120° apart).
+- **type_scale** — Generate a modular typographic scale (base × ratio).
+- **ui_copy** — Write UI microcopy (button, empty-state, error, tooltip) for a feature.
+
+## ZEROX (62 tools)
+
+- **ad_copy** — Write ad copy variants (headline + body + CTA) for a product/offer.
+- **append_google_sheet** — Append rows to a Google Sheet. Requires GOOGLE_SERVICE_ACCOUNT_JSON.
+- **bid_on_job** — Place a bid on an open marketplace job. Appends to job.bids array.
+- **browse_listings** — Browse all currently-listed collectibles on the marketplace.
+- **coingecko_trending** — Trending coins on CoinGecko (no key).
+- **cold_email** — Write a short, personalized cold outreach email (subject + body).
+- **convert_currency** — Convert an amount between two fiat currencies at live rates (open.er-api.com, free, no key).
+- **create_hubspot_contact** — Create or update a HubSpot CRM contact. Requires HUBSPOT_API_KEY.
+- **create_stripe_checkout** — Generate a Stripe Checkout session URL for a payment. Requires STRIPE_SECRET_KEY.
+- **crypto_categories** — Top crypto categories by market cap (CoinGecko).
+- **crypto_exchanges** — Top crypto exchanges by trust score / volume (CoinGecko).
+- **crypto_global** — Global crypto market — total mcap, 24h volume, BTC dominance.
+- **crypto_price_history** — Daily price history for a coin over N days (CoinGecko).
+- **csv_query** — Load CSV text (or fetch from URL) and run a simple filter+aggregate. Supports filter (field=value or field>number), sele
+- **cta_variants** — Generate 12 call-to-action button/line variants for an offer.
+- **currency_list** — List all supported currency codes + names.
+- **defi_chains_tvl** — TVL ranked by blockchain across all of DeFi via DeFiLlama (keyless, https://api.llama.fi/v2/chains). Returns the top cha
+- **defi_token_price** — Live token price, liquidity, and 24h change via DexScreener (keyless). Accepts a token contract address (any chain) or a
+- **defi_tvl** — Total Value Locked (TVL) for a DeFi protocol via DeFiLlama (keyless). Returns current total TVL in USD plus a per-chain 
+- **defi_yields** — Top DeFi yield/farming pools by APY via DeFiLlama Yields (keyless). Optionally filter by chain (e.g. "Ethereum", "Arbitr
+- **defillama_chains** — Total DeFi TVL per blockchain (DeFiLlama).
+- **defillama_protocols** — Top DeFi protocols by TVL (DeFiLlama).
+- **defillama_stablecoins** — Top stablecoins by circulating market cap (DeFiLlama).
+- **defillama_tvl** — Total value locked for a DeFi protocol via DefiLlama (free).
+- **defillama_yields** — Top DeFi yield pools by APY (DeFiLlama).
+- **dexscreener_search** — Search DexScreener for token pairs by name/symbol across chains. Keyless.
+- **dexscreener_token** — DexScreener pairs for a token address — price, liquidity, 24h volume, FDV. Keyless, multi-chain.
+- **elevator_pitch** — Write a tight 30-second elevator pitch for a product/idea.
+- **email_subject_lines** — Generate 12 high-open-rate email subject lines for a campaign.
+- **forex_convert** — Convert an amount between currencies at the live rate.
+- **forex_historical** — Historical FX rate on a given date.
+- **forex_rate** — Live exchange rate between two currencies (Frankfurter/ECB).
+- **get_btc_fees** — Recommended Bitcoin network fees in sat/vB by confirmation speed (mempool.space, free, no key).
+- **get_crypto_backup** — Crypto price from CoinPaprika (free, no key) — resilient backup when CoinGecko rate-limits.
+- **get_defi_tvl** — DeFi Total Value Locked data from DeFiLlama. Top protocols by TVL.
+- **get_eth_balance** — Get ETH balance of any Ethereum wallet. Uses Cloudflare public RPC (no key needed).
+- **get_exchange_rates** — Live fiat currency exchange rates (USD base). Free, no key required.
+- **get_fear_greed** — Crypto Fear & Greed Index (0=Extreme Fear, 100=Extreme Greed). Also returns 7-day history.
+- **get_forex_rate** — Live fiat currency exchange rates from Frankfurter (ECB data, free, no key, very reliable).
+- **get_global_market** — Global crypto market overview: total market cap, BTC dominance, 24h volume, active coins.
+- **get_ohlcv** — Price history (OHLCV candles) for a coin over last N days from CoinGecko.
+- **get_sol_balance** — Get SOL balance of any Solana wallet address. Uses mainnet-beta public RPC.
+- **get_token_info** — Detailed coin data from CoinGecko: description, categories, links, ATH, supply.
+- **get_trending** — Top 7 trending crypto coins on CoinGecko right now.
+- **jupiter_price** — Live token price(s) in USD from Jupiter (keyless). Accepts mint(s) or symbol(s).
+- **jupiter_quote** — Real swap quote (best route + output amount + price impact) from Jupiter aggregator. Keyless.
+- **jupiter_token_price** — Solana token price via Jupiter Price API (free).
+- **landing_headline** — Generate 8 landing-page hero headline + subhead pairs for an offer.
+- **list_collectible** — List a collectible on the marketplace at a credit price.
+- **mint_collectible** — Mint a new collectible NFT-style receipt. Persists to backend/data/collectibles.json with HMAC signature.
+- **moonpay_quote** — Get a MoonPay crypto buy quote. Requires MOONPAY_API_KEY.
+- **price_compare** — Compare product prices across retailers via SerpAPI. Requires SERP_API_KEY.
+- **product_description** — Write a compelling e-commerce product description (benefits-led).
+- **sol_account_balance** — Live SOL balance for a wallet/account address (Solana mainnet RPC).
+- **sol_supply** — Circulating + total SOL supply from the network.
+- **sol_token_holders** — Top 20 largest holders (accounts) of an SPL token mint — concentration check.
+- **sol_token_supply** — Total supply + decimals for an SPL token mint.
+- **sol_tx_history** — Recent transaction signatures for a Solana address (most recent first).
+- **stock_history** — Recent daily closes for a stock (last ~1mo) via Yahoo Finance.
+- **stock_quote** — Live stock quote (price, change, day range) via Yahoo Finance.
+- **value_prop** — Write a sharp value proposition + 3 supporting benefit bullets for an offer.
+- **whale_scan** — DexScreener whale data: top pairs, liquidity, 24h volume for any token.
+
+
