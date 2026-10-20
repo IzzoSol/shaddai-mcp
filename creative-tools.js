@@ -866,3 +866,100 @@ const RT2 = [
   { name:"error_rate", description:"Error rate (errors, total).", inputSchema:{type:"object",properties:{errors:{type:"number"},total:{type:"number"}},required:["errors","total"]}, run:(a)=>errorRate(a.errors,a.total) },
 ];
 for (const t of RT2) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
+// -- Improved intent routing + workflow categories (deeply rooted retrievability) --
+// Enhance intent_route with more patterns (override by redefining)
+function intentRouteDeep(task) {
+  const t = (task || "").toLowerCase();
+  const routes = [];
+  const add = (tool, why) => routes.push({ tool, why });
+  const addWf = (wf, why) => routes.push({ workflow: wf, why });
+
+  // Research & knowledge
+  if (/research|search|find|look up|what is|explain|learn|study|investigate/.test(t)) { add("rag_search", "SHADDAI brain (91k chunks)"); add("rag_ask", "grounded answer"); add("web_search", "live web"); addWf("research-to-write", "research + write"); }
+  // Pricing & business
+  if (/pric|cost|revenue|mrr|arr|ltv|cac|saas|business|monetiz/.test(t)) { add("zerox_price", "live prices"); add("saas_metrics", "SaaS metrics"); add("pricing_strategy", "pricing model"); addWf("pricing-intel", "pricing research"); addWf("uc-pricing-research-saas", "SaaS pricing"); }
+  // Trading & finance
+  if (/trade|invest|portfolio|stock|crypto|defi|yield|staking/.test(t)) { add("zerox_price", "prices"); add("zerox_sentiment", "fear & greed"); add("portfolio_optimize", "mean-variance"); addWf("crypto-analysis-btc", "crypto analysis"); }
+  // Design & UI
+  if (/design|color|palette|ui|ux|layout|brand|logo|landing/.test(t)) { add("turtle_palette", "color palette"); add("ui_stack", "UI stack"); add("landing_page_plan", "landing page"); add("motion_graphics_plan", "motion graphics"); addWf("uc-design-brand", "brand design"); }
+  // Security
+  if (/security|audit|secret|password|vuln|scan|safe/.test(t)) { add("shaddai_pikadon", "security audit"); add("detect_secrets", "secret scan"); add("security_scrape_plan", "secure scrape"); addWf("uc-security-audit", "security audit"); }
+  // Content & writing
+  if (/write|copy|doc|email|post|blog|article|content/.test(t)) { add("shaddai_quill", "writing"); add("headline_gen", "headlines"); add("email_subject", "email subjects"); add("social_post", "social posts"); addWf("uc-write-blog", "blog post"); }
+  // Video & media
+  if (/video|media|clip|transcribe|motion/.test(t)) { add("shaddai_media_status", "media engine"); add("video_pipeline_plan", "video pipeline"); add("motion_graphics_plan", "motion graphics"); addWf("uc-video-pipeline", "video pipeline"); }
+  // Game & 3D
+  if (/game|3d|three|style|film/.test(t)) { add("gamedev_suite", "game dev"); add("styles_list", "film styles"); add("forge_run", "binary forge"); }
+  // Data & analytics
+  if (/data|json|csv|analyze|stats|metrics/.test(t)) { add("json_format", "JSON"); add("csv_stats", "CSV stats"); add("list_stats", "list stats"); addWf("uc-data-analysis", "data analysis"); }
+  // Community & growth
+  if (/community|user|growth|referral|gamif|engage/.test(t)) { add("hall_referral", "referral"); add("hall_leaderboard", "leaderboard"); add("viral_plan", "viral growth"); addWf("uc-community-daily", "community daily"); }
+  // Real estate & finance
+  if (/real estate|property|mortgage|rent|cap rate/.test(t)) { add("real_estate_roi", "ROI/cap rate"); add("mortgage_calc", "mortgage"); }
+  if (/saas|mrr|arr|churn|ltv|cac/.test(t)) { add("saas_metrics", "SaaS metrics"); add("churn_analysis", "churn"); add("ltv_cac", "unit economics"); }
+  // Workflow & automation
+  if (/workflow|automate|schedule|cron/.test(t)) { add("workflow_list", "list workflows"); add("sched_add", "schedule job"); add("automate_plan", "automation plan"); }
+  // Brain & knowledge
+  if (/brain|knowledge|learn|ingest|scrape/.test(t)) { add("brain_overview", "brain stats"); add("rag_search", "brain search"); add("hall_web_scrape", "scrape into brain"); addWf("uc-brain-grow", "grow brain"); }
+  // Security scrape
+  if (/scrape.*secure|secure.*scrape/.test(t)) { add("security_scrape_plan", "secure scrape plan"); add("web_scrape", "scrape"); add("detect_secrets", "secret scan"); }
+  if (routes.length === 0) { add("tool_search", "search catalog"); add("shaddai_orchestrate", "orchestrate"); }
+  // dedup
+  const seen = new Set(); const unique = routes.filter(r => { const key = r.tool || r.workflow; if (seen.has(key)) return false; seen.add(key); return true; });
+  return JSON.stringify({ task: task || "", routes: unique.slice(0, 12), tip: "Call suggested tools in order, or workflow_run with a matching uc-* workflow. Use tool_info for schemas." });
+}
+function workflowCategories() {
+  return JSON.stringify({
+    categories: {
+      "research": "rag_search, web_search, web_scrape, brain_*, uc-research-topic, uc-competitive-intel",
+      "content": "shaddai_quill, headline_gen, social_post, email_*, uc-write-blog, uc-social-post",
+      "security": "shaddai_pikadon, detect_secrets, redact_pii, security_scrape_plan, uc-security-audit",
+      "design": "turtle_palette, turtle_geometry, ui_stack, motion_graphics_plan, uc-design-brand",
+      "crypto": "zerox_price, zerox_sentiment, zerox_market_scan, uc-crypto-brief",
+      "finance": "roi, profit_margin, ltv_cac, saas_metrics, uc-finance-calc",
+      "data": "json_format, csv_stats, list_stats, uc-data-analysis",
+      "community": "hall_*, uc-community-daily, uc-referral-growth",
+      "brain": "brain_overview, rag_search, aura_ingest, uc-brain-grow",
+      "video": "shaddai_media_*, video_pipeline_plan, uc-video-pipeline",
+      "game": "gamedev_suite, styles_list, forge_run, uc-game-design",
+      "conversion": "temperature_convert, length_convert, weight_convert, uc-convert-all-units",
+      "astro": "hall_moon, hall_astro, uc-astro-daily",
+      "hall": "hall_*, uc-hall-economy",
+      "memory": "memory_search, aura_search, uc-memory-knowledge",
+      "encode": "base64_encode, url_encode, html_encode, uc-encode-decode",
+      "math": "sqrt, factorial, gcd_lcm, uc-math-full",
+      "date": "timestamp_now, day_of_week, uc-date-full",
+      "network": "validate_ipv4, url_parse, http_status, uc-network-security",
+      "text": "extract_emails, count_vowels, sentiment_score, uc-text-analysis",
+      "color": "hex_to_rgb, complementary_color, uc-color-design",
+      "planning": "landing_page_plan, seo_plan, growth_plan, launch_plan, etc.",
+      "real_estate": "real_estate_roi, mortgage_calc",
+      "saas": "saas_metrics, churn_analysis, conversion_funnel, ab_test_calc, nps_score",
+      "marketing": "seo_keyword_score, email_deliverability, headline_gen, cta_gen, social_post",
+      "analytics": "cache_hit_rate, error_rate, response_time, throughput, dau_mau_ratio, etc.",
+      "trading": "position_size, kelly_criterion, sharpe_ratio, rsi, macd, etc.",
+      "defi": "impermanent_loss, liquidity_pool, yield_farming, staking_reward, etc."
+    },
+    tip: "Use intent_route(task) to get recommended tools/workflows for any task. Use tool_search(keyword) to find specific tools."
+  });
+}
+function usecaseList() {
+  return JSON.stringify({
+    prefix: "uc-",
+    count: "30+",
+    categories: ["research", "content", "security", "design", "crypto", "data", "community", "brain", "video", "game", "conversion", "finance", "astro", "hall", "memory", "encode", "math", "date", "network", "text", "color", "landing-page", "logo-design", "video-shorts", "music-track", "astro-report", "arena-battle", "arcade-play", "referral-growth", "plot-invest", "mastery-sell", "workflow-build", "bridge-external", "x402-pay", "forge-sub", "graph-discovery", "sched-automation", "telegram-hall", "memory-knowledge", "encode-decode", "convert-all-units", "finance-full", "security-full-scan", "data-analysis", "text-analysis", "color-design", "math-full", "date-full", "network-security", "orchestrate", "run-agent", "rag-eval", "portfolio-opt", "landing-page", "logo-design", "video-shorts", "music-track", "astro-report", "arena-battle", "arcade-play", "referral-growth", "plot-invest", "mastery-sell", "workflow-build", "bridge-external", "x402-pay", "forge-sub", "graph-discovery", "sched-automation", "telegram-hall", "memory-knowledge", "encode-decode", "convert-all-units", "finance-full", "security-full-scan", "data-analysis", "text-analysis", "color-design", "math-full", "date-full", "network-security"],
+    tip: "Use workflow_list to see all, or workflow_run with a uc-* workflow_id."
+  });
+}
+// Override intent_route with the deep version
+const _origIntentRoute = intentRoute;
+function intentRoute(task) { return intentRouteDeep(task); }
+const DISCOVERY_TRIGGERS_2 = [
+  { name: "intent_route", description: "Route a natural language task to the best tool(s) and workflow(s). Deeply rooted: covers research, pricing, trading, design, security, content, video, game, data, community, real estate, SaaS, marketing, analytics, finance, crypto, DeFi, planning, and more.", inputSchema: { type: "object", properties: { task: { type: "string" } }, required: ["task"] }, run: (a) => intentRoute(a.task) },
+  { name: "workflow_categories", description: "List all workflow categories (research, content, security, design, crypto, finance, data, community, brain, video, game, conversion, astro, hall, memory, encode, math, date, network, text, color, planning, real_estate, saas, marketing, analytics, trading, defi) with example workflows.", inputSchema: { type: "object", properties: {}, required: [] }, run: workflowCategories },
+  { name: "usecase_list", description: "List all use-case workflows (uc-* prefix) organized by category.", inputSchema: { type: "object", properties: {}, required: [] }, run: usecaseList },
+];
+for (const t of DISCOVERY_TRIGGERS_2) {
+  const idx = CREATIVE_TOOLS.findIndex(x => x.name === t.name);
+  if (idx >= 0) CREATIVE_TOOLS[idx] = t; else CREATIVE_TOOLS.push(t);
+}
