@@ -337,4 +337,19 @@ function shaddaiWebScan(url) {
     tip: "Use this instead of raw web_scrape for any data you plan to keep."
   });
 }
+function designStudioCatalog() { const p = "C:\\Users\\Brittany\\shaddai-design-studio\\tools\\catalog.json"; if (!require("fs").existsSync(p)) return "NOT FOUND: " + p; const txt = require("fs").readFileSync(p, "utf8"); return txt.length > 8000 ? txt.slice(0,8000) + "\n...[truncated]" : txt; }
+function designStudioGallery() { const p = "C:\\Users\\Brittany\\shaddai-design-studio\\portfolio\\portfolio.json"; if (!require("fs").existsSync(p)) return "NOT FOUND: " + p; const txt = require("fs").readFileSync(p, "utf8"); return txt.length > 8000 ? txt.slice(0,8000) + "\n...[truncated]" : txt; }
+function designStudioLint() { return JSON.stringify({ tool: "dash-visual-lint.mjs", path: "C:\\Users\\Brittany\\shaddai-design-studio\\tools\\dash-visual-lint.mjs", usage: "node tools/dash-visual-lint.mjs <html-file>", note: "Run via shell for UGC ad / game pitch / trailer QA." }); }
+function motionGraphicsPlan(style, duration) { return JSON.stringify({ style: style||"hyperframes", duration: duration||"30s", pipeline: ["brief","storyboard","design tokens","components","animation (GSAP)","render (hyperframes)","QA","publish"], tip: "Use hyperframes skill for full pipeline." }); }
+function gamedevSuite() { return JSON.stringify({ repo: "https://github.com/IzzoSol/shaddai-gamedev-tools", description: "MIT-licensed Three.js game-dev suite: flat-library reference, AI SKILLS-HUB, six GENRE-TEMPLATES, MCP bridge.", install: "git clone https://github.com/IzzoSol/shaddai-gamedev-tools.git", use_cases: ["build a 3D game from a prompt", "scaffold a genre template", "query Three.js flat library"] }); }
+function securityScrapePlan(url) { return JSON.stringify({ url: url||"", steps: ["PIKADON: validate URL (SSRF guard)", "web_scrape: fetch + strip", "detect_secrets: scan", "redact_pii: scrub PII", "hall_web_scrape: persist to brain"], tools: ["web_scrape","detect_secrets","redact_pii","hall_web_scrape","aura_ingest"], tip: "PIKADON reviews every step." }); }
+const EXTRA_TRIGGERS = [
+  { name: "design_studio_catalog", description: "Read the SHADDAI design studio catalog.", inputSchema: { type: "object", properties: {}, required: [] }, run: designStudioCatalog },
+  { name: "design_studio_gallery", description: "Read the design studio portfolio index.", inputSchema: { type: "object", properties: {}, required: [] }, run: designStudioGallery },
+  { name: "design_studio_lint", description: "Info for running the design studio visual linter.", inputSchema: { type: "object", properties: {}, required: [] }, run: designStudioLint },
+  { name: "motion_graphics_plan", description: "Plan a motion graphics pipeline.", inputSchema: { type: "object", properties: { style: { type: "string" }, duration: { type: "string" } }, required: [] }, run: (a) => motionGraphicsPlan(a.style, a.duration) },
+  { name: "gamedev_suite", description: "Info + install link for SHADDAI game-dev tools repo.", inputSchema: { type: "object", properties: {}, required: [] }, run: gamedevSuite },
+  { name: "security_scrape_plan", description: "Plan a PIKADON-reviewed web scrape.", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: [] }, run: (a) => securityScrapePlan(a.url) },
+];
+for (const t of EXTRA_TRIGGERS) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
 module.exports = { CREATIVE_TOOLS };
