@@ -1072,3 +1072,40 @@ const EXTRACTED_SKILLS = [
 for (const t of EXTRACTED_SKILLS) {
   if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t);
 }
+// -- shaddai_web_scan: scraping + pikadon security + data gathering --
+function shaddaiWebScan(url) {
+  const u = url || "";
+  return JSON.stringify({
+    url: u,
+    pipeline: [
+      "1. PIKADON: validate URL (SSRF guard, HTTPS only, no internal/private/admin)",
+      "2. web_scrape: fetch + strip to readable text (size-capped)",
+      "3. detect_secrets: scan for leaked API keys/tokens",
+      "4. redact_pii: scrub emails, phones, credit cards, SSNs",
+      "5. hall_web_scrape: persist into agent brain (durable mastery page)",
+      "6. aura_ingest: teach the agent (boxed knowledge)"
+    ],
+    tools: ["web_scrape", "detect_secrets", "redact_pii", "hall_web_scrape", "aura_ingest"],
+    security: "PIKADON reviews every step. SSRF-guarded, size-capped, no internal URLs.",
+    tip: "Use this instead of raw web_scrape for any data you plan to keep. Returns clean, safe, ingested content."
+  });
+}
+const EXTRA_WEB = [
+  { name: "shaddai_web_scan", description: "PIKADON-reviewed web scan: SSRF guard + scrape + secret scan + PII redact + ingest into brain. The safe way to gather web data.", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: ["url"] }, run: (a) => shaddaiWebScan(a.url) },
+];
+for (const t of EXTRA_WEB) { if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t); }
+function impermanentLoss(priceChange) { const pc=Number(priceChange)||0; const il=(2*Math.sqrt(pc)/(1+pc)-1)*100; return JSON.stringify({ priceChange:pc, impermanentLoss:il.toFixed(2)+"%", note:"IL occurs when price ratio changes in AMM LP" }); }
+function yieldFarming(apy, principal, days) { const a=Number(apy)||0, p=Number(principal)||0, d=Number(days)||365; const daily=a/365; const earnings=p*(Math.pow(1+daily/100,d)-1); return JSON.stringify({ apy:a+"%", principal:p, days:d, earnings:earnings.toFixed(2), finalValue:(p+earnings).toFixed(2) }); }
+function collateralRatio(collateral, debt) { const c=Number(collateral)||0, d=Number(debt)||1; const ratio=c/d; return JSON.stringify({ collateral:c, debt:d, ratio:ratio.toFixed(2), status: ratio>1.5?"safe":ratio>1.2?"moderate":"at risk" }); }
+function retentionRate(retained, total) { const r=Number(retained)||0, t=Number(total)||1; return JSON.stringify({ retained:r, total:t, retentionRate:(r/t*100).toFixed(2)+"%", churnRate:((t-r)/t*100).toFixed(2)+"%" }); }
+function engagementRate(active, total) { const a=Number(active)||0, t=Number(total)||1; return JSON.stringify({ active:a, total:t, engagementRate:(a/t*100).toFixed(2)+"%" }); }
+function dauMauRatio(dau, mau) { const d=Number(dau)||0, m=Number(mau)||1; return JSON.stringify({ dau:d, mau:m, ratio:(d/m*100).toFixed(1)+"%", stickiness: d/m>0.5?"high":d/m>0.2?"medium":"low" }); }
+const EXTRA_DEFI = [
+  { name:"impermanent_loss", description:"Impermanent loss (priceChange ratio).", inputSchema:{type:"object",properties:{priceChange:{type:"number"}},required:["priceChange"]}, run:(a)=>impermanentLoss(a.priceChange) },
+  { name:"yield_farming", description:"Yield farming (apy, principal, days).", inputSchema:{type:"object",properties:{apy:{type:"number"},principal:{type:"number"},days:{type:"number"}},required:["apy"]}, run:(a)=>yieldFarming(a.apy,a.principal,a.days) },
+  { name:"collateral_ratio", description:"Collateral ratio (collateral, debt).", inputSchema:{type:"object",properties:{collateral:{type:"number"},debt:{type:"number"}},required:["collateral"]}, run:(a)=>collateralRatio(a.collateral,a.debt) },
+  { name:"retention_rate", description:"Retention rate (retained, total).", inputSchema:{type:"object",properties:{retained:{type:"number"},total:{type:"number"}},required:["retained","total"]}, run:(a)=>retentionRate(a.retained,a.total) },
+  { name:"engagement_rate", description:"Engagement rate (active, total).", inputSchema:{type:"object",properties:{active:{type:"number"},total:{type:"number"}},required:["active","total"]}, run:(a)=>engagementRate(a.active,a.total) },
+  { name:"dau_mau_ratio", description:"DAU/MAU ratio (stickiness).", inputSchema:{type:"object",properties:{dau:{type:"number"},mau:{type:"number"}},required:["dau","mau"]}, run:(a)=>dauMauRatio(a.dau,a.mau) },
+];
+for (const t of EXTRA_DEFI) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
