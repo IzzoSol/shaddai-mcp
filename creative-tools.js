@@ -352,4 +352,49 @@ const EXTRA_TRIGGERS = [
   { name: "security_scrape_plan", description: "Plan a PIKADON-reviewed web scrape.", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: [] }, run: (a) => securityScrapePlan(a.url) },
 ];
 for (const t of EXTRA_TRIGGERS) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
+// -- Repo trigger tools (access all SHADDAI repos from one MCP) ---------------
+function shaddaiClipperInfo() {
+  return JSON.stringify({
+    repo: "https://github.com/IzzoSol/shaddai-clipper",
+    description: "Free self-hosted Opus Clip alternative — turn long videos into 9:16 shorts with local Whisper transcription and ffmpeg captions. No API key, no upload, no per-minute cost.",
+    features: ["local Whisper transcription", "ffmpeg captions", "9:16 shorts", "no API key needed", "self-hosted"],
+    integration: "Use shaddai_capture (mode=clip) to forward to the clipper. Use shaddai_media_fetch for downloads.",
+    tip: "Clone and run locally. Pair with handdraw_plan for animated captions."
+  });
+}
+function shaddaiArcadeInfo() {
+  return JSON.stringify({
+    repo: "https://github.com/IzzoSol/Shaddai-Arcade",
+    description: "The Hall — one platform where humans and AI agents sit at the same tables. Blackjack live, 7 agent rivals, Sparks economy, new game packs. Node + Socket.IO.",
+    features: ["blackjack", "7 agent rivals", "Sparks economy", "game packs", "Socket.IO multiplayer"],
+    integration: "Use hall_arcade for headless CPU battles. Use hall_arena for agent-vs-agent bouts.",
+    tip: "Public repo. Clone and run: node server.js. Pair with hall_* tools for economy."
+  });
+}
+function shaddaiDesignStudioInfo() {
+  return JSON.stringify({
+    repo: "https://github.com/IzzoSol/shaddai-design-studio",
+    description: "The SHADDAI design studio — design system, visual linter, creative workflow playbooks (UGC ads, game pitches, trailers, long-video-to-shorts).",
+    features: ["design system", "visual linter (dash-visual-lint)", "portfolio gallery", "diagram engine", "UGC playbooks"],
+    local: "C:\\Users\\Brittany\\shaddai-design-studio",
+    integration: "Use design_studio_catalog, design_studio_gallery, design_studio_lint, motion_graphics_plan. Use shaddai-diagrams skill for validated HTML diagrams.",
+    tip: "Run: node tools/serve.mjs. Open portfolio/index.html for the gallery."
+  });
+}
+function shaddaiGamedevInfo() {
+  return JSON.stringify({
+    repo: "https://github.com/IzzoSol/shaddai-gamedev-tools",
+    description: "MIT-licensed Three.js game-dev suite: flat-library reference, AI SKILLS-HUB scaffolding, six GENRE-TEMPLATES, MCP bridge.",
+    features: ["flat-library reference", "SKILLS-HUB scaffolding", "six genre templates", "MCP bridge for agents", "Three.js deep reference"],
+    integration: "Install separately and point your agent at it. Use gamedev_suite tool for info.",
+    tip: "git clone https://github.com/IzzoSol/shaddai-gamedev-tools.git. Public repo, free to use."
+  });
+}
+const REPO_TRIGGERS = [
+  { name: "shaddai_clipper_info", description: "Info + install link for SHADDAI video clipper (Opus Clip alternative, Whisper + ffmpeg).", inputSchema: { type: "object", properties: {}, required: [] }, run: shaddaiClipperInfo },
+  { name: "shaddai_arcade_info", description: "Info + install link for SHADDAI Arcade (The Hall, blackjack, agent rivals, Sparks economy).", inputSchema: { type: "object", properties: {}, required: [] }, run: shaddaiArcadeInfo },
+  { name: "shaddai_design_studio_info", description: "Info + local path for SHADDAI design studio (design system, visual linter, UGC playbooks).", inputSchema: { type: "object", properties: {}, required: [] }, run: shaddaiDesignStudioInfo },
+  { name: "shaddai_gamedev_info", description: "Info + install link for SHADDAI game-dev tools (Three.js suite, MCP bridge, genre templates).", inputSchema: { type: "object", properties: {}, required: [] }, run: shaddaiGamedevInfo },
+];
+for (const t of REPO_TRIGGERS) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
 module.exports = { CREATIVE_TOOLS };
