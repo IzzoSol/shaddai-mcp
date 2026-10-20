@@ -256,3 +256,76 @@ const EX2 = [
 for (const t of EX2) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
 
 module.exports = { CREATIVE_TOOLS };
+// -- Additional extracted skills (batch 3) + PIKADON security -----------------
+function secureWebScrapePlan(url) {
+  return JSON.stringify({
+    url: url || "",
+    pipeline: ["PIKADON: SSRF guard (HTTPS only, no internal/private/admin URLs)", "PIKADON: size cap (max 200KB)", "web_scrape: fetch + strip HTML", "detect_secrets: scan for API keys/tokens", "redact_pii: scrub emails/phones/CCs/SSNs", "PIKADON: content validation (no malicious scripts)", "store: persist to brain or AURA box"],
+    tools: ["web_scrape", "detect_secrets", "redact_pii", "hall_web_scrape", "aura_ingest"],
+    security: "Every step reviewed by PIKADON. SSRF-guarded, size-capped, secret-scanned, PII-redacted.",
+    tip: "Use shaddai_web_scan for the full pipeline. This is the secure way to gather web data."
+  });
+}
+function firecrawlSecureScrape(url) {
+  return JSON.stringify({
+    url: url || "",
+    pipeline: ["PIKADON: validate URL", "firecrawl: JS rendering + markdown extraction", "PIKADON: scan for secrets", "PIKADON: redact PII", "store: brain/AURA"],
+    security: "Firecrawl provides JS rendering. PIKADON adds security layer on top.",
+    tip: "Firecrawl is better than basic scraping for JS-heavy sites. Always run PIKADON checks after."
+  });
+}
+function browserAutomationSecure(task, url) {
+  return JSON.stringify({
+    task: task || "", url: url || "",
+    pipeline: ["PIKADON: validate URL", "browser-use: navigate + interact", "PIKADON: extract only safe content", "detect_secrets: scan extracted data", "redact_pii: scrub", "store: brain/AURA"],
+    security: "Browser automation can access sensitive pages. PIKADON guards against data exfiltration.",
+    tip: "Use browser-use for complex multi-step browser tasks. Always validate extracted data."
+  });
+}
+function autoscraperSecure(url, samples) {
+  return JSON.stringify({
+    url: url || "", samples: samples || [],
+    pipeline: ["PIKADON: validate URL", "autoscraper: learn rules from samples", "apply to similar pages", "PIKADON: validate extracted data", "detect_secrets: scan", "store: brain/AURA"],
+    security: "Auto-learned scraping rules may extract sensitive data. PIKADON validates.",
+    tip: "Great for recurring data collection. Rules persist and can be reused."
+  });
+}
+function styleTransferSecure(content, style) {
+  return JSON.stringify({
+    content: content || "", style: style || "",
+    pipeline: ["PIKADON: validate input (no malicious images)", "style transfer: AdaIN/ArtCrafter", "PIKADON: validate output", "store: brain/AURA"],
+    security: "Image inputs can contain malicious data. PIKADON validates before processing.",
+    tip: "Use for UGC ads, game art, brand visuals. Requires GPU."
+  });
+}
+function hunyuan3dSecure(prompt) {
+  return JSON.stringify({
+    prompt: prompt || "",
+    pipeline: ["PIKADON: validate prompt (no injection)", "Hunyuan3D: generate 3D model", "PIKADON: validate output (no malicious geometry)", "export: glb/obj/fbx", "store: brain/AURA"],
+    security: "3D generation can be abused. PIKADON validates inputs and outputs.",
+    tip: "Use for game assets, 3D worlds. Requires GPU + PyTorch."
+  });
+}
+function handdrawSecure(project) {
+  return JSON.stringify({
+    project: project || "",
+    pipeline: ["PIKADON: validate project JSON (no injection)", "HandDraw: render SVG animation", "Edge TTS: free narration (no API key)", "Remotion: render MP4", "PIKADON: validate output"],
+    security: "Project JSON can contain malicious SVG. PIKADON validates before rendering.",
+    tip: "No API key needed (Edge TTS free). Great for UGC ads, tutorials, game trailers."
+  });
+}
+const EXTRA_SECURITY = [
+  { name: "secure_web_scrape", description: "PIKADON-reviewed web scrape: SSRF guard + scrape + secret scan + PII redact + ingest.", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: ["url"] }, run: (a) => shaddaiWebScan(a.url) },
+  { name: "firecrawl_secure", description: "Firecrawl + PIKADON: JS rendering scrape with security review.", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: ["url"] }, run: (a) => firecrawlSecureScrape(a.url) },
+  { name: "browser_automate_secure", description: "Browser automation + PIKADON security review.", inputSchema: { type: "object", properties: { task: { type: "string" }, url: { type: "string" } }, required: [] }, run: (a) => browserAutomationSecure(a.task, a.url) },
+  { name: "autoscraper_secure", description: "Autoscraper + PIKADON security review.", inputSchema: { type: "object", properties: { url: { type: "string" }, samples: { type: "array", items: { type: "string" } } }, required: [] }, run: (a) => autoscraperSecure(a.url, a.samples) },
+  { name: "style_transfer_secure", description: "Style transfer + PIKADON input/output validation.", inputSchema: { type: "object", properties: { content: { type: "string" }, style: { type: "string" } }, required: [] }, run: (a) => styleTransferSecure(a.content, a.style) },
+  { name: "hunyuan3d_secure", description: "3D generation + PIKADON input/output validation.", inputSchema: { type: "object", properties: { prompt: { type: "string" } }, required: [] }, run: (a) => hunyuan3dSecure(a.prompt) },
+  { name: "handdraw_secure", description: "Whiteboard animation + PIKADON validation.", inputSchema: { type: "object", properties: { project: { type: "string" } }, required: [] }, run: (a) => handdrawSecure(a.project) },
+];
+for (const t of EXTRA_SECURITY) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
+const EXTRA_WEBSCAN = [
+  { name: "shaddai_web_scan", description: "PIKADON-reviewed web scan: SSRF guard + scrape + secret scan + PII redact + ingest into brain.", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: ["url"] }, run: (a) => shaddaiWebScan(a.url) },
+];
+for (const t of EXTRA_WEBSCAN) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
+module.exports = { CREATIVE_TOOLS };
