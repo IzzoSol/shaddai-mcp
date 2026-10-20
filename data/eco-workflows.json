@@ -29358,6 +29358,672 @@
         }
       ],
       "created_at": "2026-10-20T05:43:33.968Z"
+    },
+    "wf-1b3a939d05": {
+      "id": "wf-1b3a939d05",
+      "name": "uc-3d-generate",
+      "description": "Use case: 3D generation (Hunyuan3D plan + styles)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hunyuan3d_plan",
+          "args": {
+            "prompt": "a dragon",
+            "format": "glb"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "styles_list",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.573Z"
+    },
+    "wf-6848af8b52": {
+      "id": "wf-6848af8b52",
+      "name": "uc-web-scrape-deep",
+      "description": "Use case: deep web scrape (firecrawl + crawl4ai + autoscraper)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "firecrawl_plan",
+          "args": {
+            "url": "https://example.com",
+            "mode": "scrape"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "crawl4ai_plan",
+          "args": {
+            "url": "https://example.com"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "autoscraper_plan",
+          "args": {
+            "url": "https://example.com"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.624Z"
+    },
+    "wf-7dd9602bf7": {
+      "id": "wf-7dd9602bf7",
+      "name": "uc-browser-automate",
+      "description": "Use case: browser automation (browser-use plan)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "browser_use_plan",
+          "args": {
+            "task": "search",
+            "url": "https://example.com"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.664Z"
+    },
+    "wf-cd8c6ec165": {
+      "id": "wf-cd8c6ec165",
+      "name": "uc-style-transfer",
+      "description": "Use case: style transfer (adaptive + artcrafter)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "adaptive_style_transfer_plan",
+          "args": {
+            "content": "photo.jpg",
+            "style": "starry night"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "artcrafter_plan",
+          "args": {
+            "content": "photo.jpg",
+            "style": "impressionist"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.700Z"
+    },
+    "wf-53ff95810e": {
+      "id": "wf-53ff95810e",
+      "name": "uc-whiteboard-video",
+      "description": "Use case: whiteboard video (handdraw plan)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "handdraw_plan",
+          "args": {
+            "project": "explainer"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "motion_graphics_plan",
+          "args": {
+            "style": "hyperframes",
+            "duration": "60s"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.739Z"
+    },
+    "wf-3d47bc0e8d": {
+      "id": "wf-3d47bc0e8d",
+      "name": "uc-secure-scrape-full",
+      "description": "Use case: secure scrape (security_scrape_plan + detect + redact + ingest)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "security_scrape_plan",
+          "args": {
+            "url": "https://example.com"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "web_scrape",
+          "args": {
+            "url": "https://example.com"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "detect_secrets",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "redact_pii",
+          "args": {
+            "text": "{{text}}"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 5,
+          "tool": "hall_web_scrape",
+          "args": {
+            "url": "https://example.com",
+            "agent": "ORACLE"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.786Z"
+    },
+    "wf-4bdd1de32c": {
+      "id": "wf-4bdd1de32c",
+      "name": "uc-real-estate",
+      "description": "Use case: real estate analysis (ROI + mortgage)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "real_estate_roi",
+          "args": {
+            "price": 200000,
+            "rent": 1500,
+            "expenses": 300
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "mortgage_calc",
+          "args": {
+            "price": 300000,
+            "rate": 6.5,
+            "years": 30,
+            "down": 60000
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.832Z"
+    },
+    "wf-0f32425e73": {
+      "id": "wf-0f32425e73",
+      "name": "uc-saas-dashboard",
+      "description": "Use case: SaaS dashboard (metrics + churn + funnel)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "saas_metrics",
+          "args": {
+            "mrr": 10000,
+            "customers": 100,
+            "churn": 2,
+            "cac": 500
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "churn_analysis",
+          "args": {
+            "customers": 1000,
+            "churned": 50
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "conversion_funnel",
+          "args": {
+            "visitors": 1000,
+            "signups": 100,
+            "activations": 50,
+            "purchases": 10
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.877Z"
+    },
+    "wf-ea4acac080": {
+      "id": "wf-ea4acac080",
+      "name": "uc-ecommerce",
+      "description": "Use case: ecommerce analysis (margin + pricing + seo)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "ecommerce_margin",
+          "args": {
+            "price": 50,
+            "cost": 15,
+            "shipping": 5,
+            "fees": 3
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "pricing_strategy",
+          "args": {
+            "cost": 15,
+            "value": 200,
+            "competitor": 45
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "seo_keyword_score",
+          "args": {
+            "keyword": "product",
+            "volume": 1000,
+            "difficulty": 30
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.925Z"
+    },
+    "wf-4618f9196e": {
+      "id": "wf-4618f9196e",
+      "name": "uc-hiring",
+      "description": "Use case: hiring (score + salary benchmark)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "hiring_score",
+          "args": {
+            "skills": 80,
+            "experience": 70,
+            "culture": 90
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "salary_benchmark",
+          "args": {
+            "role": "engineer",
+            "level": "senior",
+            "location": "us"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:15.967Z"
+    },
+    "wf-cb4d0d6ab6": {
+      "id": "wf-cb4d0d6ab6",
+      "name": "uc-legal-compliance",
+      "description": "Use case: legal & compliance (contract check + compliance)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "legal_contract_check",
+          "args": {
+            "clauses": [
+              "termination",
+              "liability",
+              "payment"
+            ]
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "compliance_checklist",
+          "args": {
+            "industry": "saas"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:16.005Z"
+    },
+    "wf-a9ca428ad2": {
+      "id": "wf-a9ca428ad2",
+      "name": "uc-marketing",
+      "description": "Use case: marketing (headline + CTA + SEO + social)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "headline_gen",
+          "args": {
+            "topic": "SHADDAI"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "cta_gen",
+          "args": {
+            "goal": "sign up"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "seo_title",
+          "args": {
+            "topic": "MCP",
+            "keyword": "AI agents"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "social_post",
+          "args": {
+            "topic": "SHADDAI",
+            "platform": "twitter"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:16.038Z"
+    },
+    "wf-db1eafd5ec": {
+      "id": "wf-db1eafd5ec",
+      "name": "uc-finance-full",
+      "description": "Use case: finance full (ROI + margin + LTV + runway + break-even)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "roi",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "profit_margin",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "ltv_cac",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "runway_months",
+          "args": {
+            "cash": 100000,
+            "burnRate": 5000
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:16.078Z"
+    },
+    "wf-7a7900c638": {
+      "id": "wf-7a7900c638",
+      "name": "uc-growth",
+      "description": "Use case: growth (viral + referral + community)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "viral_plan",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "referral_rate",
+          "args": {
+            "referrals": 50,
+            "users": 1000
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "community_plan",
+          "args": {},
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:16.112Z"
+    },
+    "wf-676f4fc9fa": {
+      "id": "wf-676f4fc9fa",
+      "name": "uc-analytics",
+      "description": "Use case: analytics (funnel + retention + engagement + DAU/MAU)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "funnel_plan",
+          "args": {},
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "retention_rate",
+          "args": {
+            "retained": 800,
+            "total": 1000
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "engagement_rate",
+          "args": {
+            "active": 500,
+            "total": 1000
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 4,
+          "tool": "dau_mau_ratio",
+          "args": {
+            "dau": 200,
+            "mau": 1000
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:16.150Z"
+    },
+    "wf-2e809ecd4e": {
+      "id": "wf-2e809ecd4e",
+      "name": "uc-launch",
+      "description": "Use case: product launch (launch plan + changelog + readme)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "launch_plan",
+          "args": {
+            "product": "MCP"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "changelog_plan",
+          "args": {
+            "version": "1.0.0"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "readme_plan",
+          "args": {
+            "project": "shaddai-mcp"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:16.196Z"
+    },
+    "wf-2b6aacee97": {
+      "id": "wf-2b6aacee97",
+      "name": "uc-defi",
+      "description": "Use case: DeFi analysis (impermanent loss + yield farming + collateral)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "impermanent_loss",
+          "args": {
+            "priceChange": 1.5
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "yield_farming",
+          "args": {
+            "apy": 12,
+            "principal": 1000,
+            "days": 30
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "collateral_ratio",
+          "args": {
+            "collateral": 1000,
+            "debt": 500
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:16.275Z"
+    },
+    "wf-e545c46d10": {
+      "id": "wf-e545c46d10",
+      "name": "uc-performance",
+      "description": "Use case: performance (perf plan + response time + throughput)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "perf_plan",
+          "args": {
+            "metric": "latency"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "response_time",
+          "args": {
+            "p50": 50,
+            "p95": 200,
+            "p99": 500
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 3,
+          "tool": "throughput",
+          "args": {
+            "rps": 100,
+            "capacity": 1000
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:16.383Z"
+    },
+    "wf-ff073547e8": {
+      "id": "wf-ff073547e8",
+      "name": "uc-docs",
+      "description": "Use case: documentation (doc plan + readme plan)",
+      "price_usdc": 0,
+      "status": "published",
+      "creator": "",
+      "steps": [
+        {
+          "step": 1,
+          "tool": "doc_plan",
+          "args": {
+            "topic": "MCP"
+          },
+          "on_fail": "stop"
+        },
+        {
+          "step": 2,
+          "tool": "readme_plan",
+          "args": {
+            "project": "shaddai-mcp"
+          },
+          "on_fail": "stop"
+        }
+      ],
+      "created_at": "2026-10-20T17:48:16.474Z"
     }
   }
 }
