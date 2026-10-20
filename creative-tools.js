@@ -233,4 +233,26 @@ const EXTRA_PLANNING = [
 ];
 for (const t of EXTRA_PLANNING) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
 
+
+
+
+
+const EX2 = [
+  { name: "firecrawl_scrape", description: "Firecrawl scrape: URL -> clean markdown + metadata.", inputSchema: { type: "object", properties: { url: { type: "string" }, formats: { type: "array", items: { type: "string" } } }, required: ["url"] }, run: (a) => JSON.stringify({ url: a.url||"", formats: a.formats||["markdown"], api: "POST /v1/scrape", tip: "JS rendering + markdown. Use for LLM consumption." }) },
+  { name: "firecrawl_crawl", description: "Firecrawl crawl: multi-page crawl.", inputSchema: { type: "object", properties: { url: { type: "string" }, limit: { type: "number" } }, required: ["url"] }, run: (a) => JSON.stringify({ url: a.url||"", limit: a.limit||10, api: "POST /v1/crawl", tip: "Async job. Poll for status." }) },
+  { name: "firecrawl_extract", description: "Firecrawl extract: structured data with schema.", inputSchema: { type: "object", properties: { url: { type: "string" }, schema: { type: "object" } }, required: ["url"] }, run: (a) => JSON.stringify({ url: a.url||"", schema: a.schema||{}, api: "POST /v1/extract", tip: "Extract specific data from pages." }) },
+  { name: "firecrawl_map", description: "Firecrawl map: discover all URLs on a site.", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: ["url"] }, run: (a) => JSON.stringify({ url: a.url||"", api: "POST /v1/map", tip: "Discover all pages before crawling." }) },
+  { name: "firecrawl_search", description: "Firecrawl search: web search + scrape.", inputSchema: { type: "object", properties: { query: { type: "string" } }, required: ["query"] }, run: (a) => JSON.stringify({ query: a.query||"", api: "POST /v1/search", tip: "Search + scrape in one call." }) },
+  { name: "browser_use_action", description: "Browser-use: navigate, click, type, scroll, extract, screenshot.", inputSchema: { type: "object", properties: { action: { type: "string" }, selector: { type: "string" }, value: { type: "string" } }, required: ["action"] }, run: (a) => JSON.stringify({ action: a.action||"navigate", selector: a.selector||"", value: a.value||"", tip: "Playwright-based browser automation." }) },
+  { name: "browser_use_extract", description: "Browser-use extract: get text/html from selector.", inputSchema: { type: "object", properties: { selector: { type: "string" } }, required: ["selector"] }, run: (a) => JSON.stringify({ selector: a.selector||"", tip: "Extract data after navigate + wait." }) },
+  { name: "crawl4ai_extract", description: "Crawl4AI extract: CSS/XPath/LLM/cosine strategies.", inputSchema: { type: "object", properties: { url: { type: "string" }, strategy: { type: "string" } }, required: ["url"] }, run: (a) => JSON.stringify({ url: a.url||"", strategy: a.strategy||"css", strategies: ["css","xpath","llm","cosine"], tip: "LLM strategy for structured data." }) },
+  { name: "crawl4ai_screenshot", description: "Crawl4AI screenshot: capture page visual.", inputSchema: { type: "object", properties: { url: { type: "string" } }, required: ["url"] }, run: (a) => JSON.stringify({ url: a.url||"", tip: "Capture page visuals for analysis." }) },
+  { name: "autoscraper_apply", description: "Autoscraper apply: apply learned rules to new URL.", inputSchema: { type: "object", properties: { learnedRules: { type: "object" }, newUrl: { type: "string" } }, required: ["newUrl"] }, run: (a) => JSON.stringify({ learnedRules: a.learnedRules||{}, newUrl: a.newUrl||"", tip: "Apply learned rules to similar pages." }) },
+  { name: "style_transfer_adain", description: "Style transfer AdaIN: content + style -> stylized image (real-time).", inputSchema: { type: "object", properties: { content: { type: "string" }, style: { type: "string" }, alpha: { type: "number" } }, required: [] }, run: (a) => JSON.stringify({ content: a.content||"", style: a.style||"", alpha: a.alpha||1.0, technique: "AdaIN", tip: "Requires TensorFlow + GPU." }) },
+  { name: "handdraw_scene", description: "HandDraw scene: text/svg/image/shape with animations.", inputSchema: { type: "object", properties: { type: { type: "string" }, content: { type: "string" }, duration: { type: "number" } }, required: [] }, run: (a) => JSON.stringify({ type: a.type||"text", content: a.content||"", duration: a.duration||5, tip: "Write project.json, validate, render." }) },
+  { name: "artcrafter_transfer", description: "ArtCrafter: text-guided artistic attribute transfer.", inputSchema: { type: "object", properties: { content: { type: "string" }, stylePrompt: { type: "string" } }, required: [] }, run: (a) => JSON.stringify({ content: a.content||"", stylePrompt: a.stylePrompt||"", technique: "embedding reframing", tip: "Requires PyTorch + GPU." }) },
+  { name: "hunyuan3d_texture", description: "Hunyuan3D texture: generate 3D with textures.", inputSchema: { type: "object", properties: { image: { type: "string" }, seed: { type: "number" } }, required: [] }, run: (a) => JSON.stringify({ image: a.image||"", seed: a.seed||1234, tip: "API: POST /generate {image, texture, seed}." }) },
+];
+for (const t of EX2) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) CREATIVE_TOOLS.push(t); }
+
 module.exports = { CREATIVE_TOOLS };
