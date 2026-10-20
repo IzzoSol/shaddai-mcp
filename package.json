@@ -1,40 +1,32 @@
 {
-  "name": "shaddai-mcp",
-  "version": "3.1.0",
-  "description": "SHADDAI MCP — full tool surface (736 tools): 7-agent council, RAG brain, ZEROX money engine, Hall economy, PayBox/x402, 554 backend agent tools, 79 creative/business tools, NVIDIA-inspired skills, repo triggers, Grok bot teaching, and 1316 combined workflows. PIKADON-secured web scanning. Requires the SHADDAI backend (port 3000) for full power. Public key-free edition (mcp-server-rag.js) still available for zero-dep use.",
-  "license": "SEE LICENSE IN LICENSE",
-  "main": "mcp-unified.js",
+  "name": "shaddai-mcp-unified",
+  "version": "3.2.0",
+  "description": "SHADDAI MCP - full tool surface (1029 tools): 7-agent council, RAG brain with semantic concept expansion, ZEROX money engine, Hall economy, PayBox/x402, 557 backend agent tools, 118 creative/business tools, 270 curated skill playbooks (3022-skill catalog), 16 knowledge frameworks, and 1623 combined workflows. PIKADON-secured web scanning.",
   "bin": {
-    "shaddai-mcp": "mcp-unified.js",
-    "shaddai-mcp-lite": "mcp-server-rag.js"
+    "shaddai-mcp-unified": "mcp-unified.js"
   },
-  "scripts": {
-    "start": "node mcp-unified.js",
-    "mcp": "node mcp-unified.js",
-    "lite": "node mcp-server-rag.js",
-    "self": "node mcp-server-rag.js --self-test",
-    "test": "node mcp-server-rag.js --self-test"
-  },
+  "type": "commonjs",
   "engines": {
     "node": ">=18"
   },
   "keywords": [
     "mcp",
     "model-context-protocol",
-    "rag",
+    "ai-agents",
     "claude",
-    "grok",
-    "agents",
-    "ai",
+    "cursor",
     "shaddai",
-    "tools",
-    "workflows",
-    "x402",
-    "pikadon"
+    "rag"
   ],
+  "license": "MIT",
   "files": [
     "mcp-unified.js",
     "creative-tools.js",
+    "skills-tools.js",
+    "knowledge-tools.js",
+    "concept-map.js",
+    "concept-map.json",
+    "skills-list.json",
     "mcp-server-rag.js",
     "rag-index.js",
     "lib/",
@@ -43,14 +35,5 @@
     "README.md",
     "SKILL_INDEX.md",
     "TOOL_USAGE_GUIDE.md"
-  ],
-  "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IzzoSol/shaddai-mcp.git"
-  },
-  "bugs": {
-    "url": "https://github.com/IzzoSol/shaddai-mcp/issues"
-  },
-  "homepage": "https://github.com/IzzoSol/shaddai-mcp"
+  ]
 }
