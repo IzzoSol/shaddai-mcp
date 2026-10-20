@@ -985,6 +985,11 @@ TOOLS.push({
   description: 'List the tool categories/agents (SHADDAI, ZEROX, ORACLE, NEXUS, TURTLE, QUILL, PIKADON, GENERAL) with counts and a short "when to use" guide. Start here to orient yourself in the 652-tool catalog.',
   inputSchema: { type: 'object', properties: {}, required: [] },
 });
+TOOLS.push({
+  name: 'health_check',
+  description: 'Check MCP + backend health: API reachability, tool count, money gate state, rate limit. Run this first if anything seems broken.',
+  inputSchema: { type: 'object', properties: {}, required: [] },
+});
 
 // ── Creative tools (ported from Shaddai-Frames) so ONE MCP carries everything ─
 const CREATIVE_TOOL_NAMES = new Set();
@@ -1030,10 +1035,14 @@ async function callAPI(path, body, method) {
   const headers = { 'Content-Type': 'application/json' };
   if (API_KEY) headers['x-shaddai-key'] = API_KEY;
   if (process.env.SHADDAI_MCP_UID) headers['x-user-id'] = process.env.SHADDAI_MCP_UID;
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 30000);
   try {
-    const r = await fetch(API + path, { method: method || 'POST', headers, body: JSON.stringify(body || {}) });
+    const r = await fetch(API + path, { method: method || 'POST', headers, body: JSON.stringify(body || {}), signal: ctrl.signal });
+    clearTimeout(timer);
     return r.json().catch(() => ({ error: 'bad response from SHADDAI API (' + r.status + ')' }));
   } catch (e) {
+    clearTimeout(timer);
     return { error: 'request failed: ' + ((e && e.message) || e) };
   }
 }
@@ -1042,10 +1051,14 @@ async function callAPIGet(path) {
   const headers = {};
   if (API_KEY) headers['x-shaddai-key'] = API_KEY;
   if (process.env.SHADDAI_MCP_UID) headers['x-user-id'] = process.env.SHADDAI_MCP_UID;
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 30000);
   try {
-    const r = await fetch(API + path, { method: 'GET', headers });
+    const r = await fetch(API + path, { method: 'GET', headers, signal: ctrl.signal });
+    clearTimeout(timer);
     return r.json().catch(() => ({ error: 'bad response from SHADDAI API (' + r.status + ')' }));
   } catch (e) {
+    clearTimeout(timer);
     return { error: 'request failed: ' + ((e && e.message) || e) };
   }
 }
@@ -1090,7 +1103,7 @@ async function callTool(name, args) {
     const limit = Math.min(Number(args.limit) || 15, 40);
     const hits = TOOLS.filter(t => {
       const hay = (t.name + ' ' + (t.description || '')).toLowerCase();
-      return q.split(/\\s+/).every(w => hay.includes(w));
+      return q.split(/\s+/).every(w => hay.includes(w));
     }).slice(0, limit);
     if (!hits.length) return 'No tools match "' + args.query + '". Try broader keywords.';
     return hits.map(t => '• ' + t.name + ' — ' + String(t.description || '').slice(0, 110)).join('\\n');
@@ -1137,7 +1150,26 @@ async function callTool(name, args) {
     lines.push('Use tool_search <keyword> to find tools, tool_info <name> for full schema.');
     return lines.join('\\n');
   }
-
+  if (name === 'health_check') {
+    await loadBackendTools();
+    let backendOk = false, toolCount = 0;
+    try {
+      const d = await callAPIGet('/api/health');
+      backendOk = !!d && (d.ok !== false);
+    } catch (_) {}
+    try {
+      const d = await callAPIGet('/api/agent-tools/list');
+      if (d && d.ok) toolCount = d.count || 0;
+    } catch (_) {}
+    return 'MCP health:\\n' +
+      '  API base: ' + API + '\\n' +
+      '  Backend reachable: ' + backendOk + '\\n' +
+      '  Backend tools: ' + toolCount + '\\n' +
+      '  MCP tools loaded: ' + TOOLS.length + '\\n' +
+      '  Money gate: ' + (MONEY_ENABLED ? 'ON' : 'OFF') + '\\n' +
+      '  Rate limit: ' + RATE_MAX_PER_SEC + '/s\\n' +
+      '  Backend tool names cached: ' + BACKEND_TOOL_NAMES.size;
+  }
   // Creative tools (ported from Shaddai-Frames): run their `run` function.
   if (CREATIVE_TOOL_NAMES.has(name)) {
     const t = TOOLS.find(x => x.name === name);
