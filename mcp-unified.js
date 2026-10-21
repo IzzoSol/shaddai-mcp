@@ -2160,7 +2160,7 @@ async function callTool(name, args) {
   if (name === 'workflow_list') {
     const wf = ecoWorkflows.list();
     if (!wf.length) return 'No workflows yet. Build one with workflow_create (steps are MCP tool names).';
-    return wf.map((w) => '• ' + w.id + ' · "' + w.name + '" · ' + w.status + ' · ' + w.steps.length + ' steps' + (w.price_usdc ? ' · ' + w.price_usdc.toFixed(2) + ' USDC' : '')).join('\n');
+    return wf.map((w) => '• ' + w.id + ' · "' + w.name + '" · ' + w.status + ' · ' + w.steps.length + ' steps' + (w.price_usdc ? ' · ' + w.price_usdc.toFixed(2) + ' USDC' : '') + (w.requires && w.requires.length ? ' — NEEDS: ' + w.requires.join(' + ') : '')).join('\n');
   }
 
   if (name === 'bridge_register') {
