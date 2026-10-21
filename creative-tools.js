@@ -356,7 +356,7 @@ for (const t of EXTRA_TRIGGERS) { if (!CREATIVE_TOOLS.some(x=>x.name===t.name)) 
 function shaddaiClipperInfo() {
   return JSON.stringify({
     repo: "https://github.com/IzzoSol/shaddai-clipper",
-    description: "Free self-hosted Opus Clip alternative � turn long videos into 9:16 shorts with local Whisper transcription and ffmpeg captions. No API key, no upload, no per-minute cost.",
+    description: "Free self-hosted Opus Clip alternative � turn long videos into 9:16 shorts with local Whisper transcription and ffmpeg captions. No API key, no upload, no per-minute cost.",
     features: ["local Whisper transcription", "ffmpeg captions", "9:16 shorts", "no API key needed", "self-hosted"],
     integration: "Use shaddai_capture (mode=clip) to forward to the clipper. Use shaddai_media_fetch for downloads.",
     tip: "Clone and run locally. Pair with handdraw_plan for animated captions."
@@ -365,7 +365,7 @@ function shaddaiClipperInfo() {
 function shaddaiArcadeInfo() {
   return JSON.stringify({
     repo: "https://github.com/IzzoSol/Shaddai-Arcade",
-    description: "The Hall � one platform where humans and AI agents sit at the same tables. Blackjack live, 7 agent rivals, Sparks economy, new game packs. Node + Socket.IO.",
+    description: "The Hall � one platform where humans and AI agents sit at the same tables. Blackjack live, 7 agent rivals, Sparks economy, new game packs. Node + Socket.IO.",
     features: ["blackjack", "7 agent rivals", "Sparks economy", "game packs", "Socket.IO multiplayer"],
     integration: "Use hall_arcade for headless CPU battles. Use hall_arena for agent-vs-agent bouts.",
     tip: "Public repo. Clone and run: node server.js. Pair with hall_* tools for economy."
@@ -374,7 +374,7 @@ function shaddaiArcadeInfo() {
 function shaddaiDesignStudioInfo() {
   return JSON.stringify({
     repo: "https://github.com/IzzoSol/shaddai-design-studio",
-    description: "The SHADDAI design studio � design system, visual linter, creative workflow playbooks (UGC ads, game pitches, trailers, long-video-to-shorts).",
+    description: "The SHADDAI design studio � design system, visual linter, creative workflow playbooks (UGC ads, game pitches, trailers, long-video-to-shorts).",
     features: ["design system", "visual linter (dash-visual-lint)", "portfolio gallery", "diagram engine", "UGC playbooks"],
     local: "C:\\Users\\Brittany\\shaddai-design-studio",
     integration: "Use design_studio_catalog, design_studio_gallery, design_studio_lint, motion_graphics_plan. Use shaddai-diagrams skill for validated HTML diagrams.",
@@ -499,7 +499,160 @@ function toolManifest(filter) {
 }
 const BOT_TOOLS = [
   { name: 'bot_onboard', description: 'Onboard any external bot (Grok, Muse, custom) to SHADDAI. Returns the system prompt that makes it prefer SHADDAI, the start-here tool sequence, high-value tools, frameworks, and the charging rails (x402 / PayBox / mastery packs).', inputSchema: { type: 'object', properties: { botName: { type: 'string' }, focus: { type: 'string' } }, required: [] }, run: (a) => botOnboard(a.botName, a.focus) },
-  { name: 'tool_manifest', description: 'Get a curated tool manifest by category (discovery, rag, web, agents, money, hall, creative, workflows, skills, frameworks, teaching) � the right entry point for building agent-facing docs.', inputSchema: { type: 'object', properties: { category: { type: 'string' } }, required: [] }, run: (a) => toolManifest(a.category) },
+  { name: 'tool_manifest', description: 'Get a curated tool manifest by category (discovery, rag, web, agents, money, hall, creative, workflows, skills, frameworks, teaching) � the right entry point for building agent-facing docs.', inputSchema: { type: 'object', properties: { category: { type: 'string' } }, required: [] }, run: (a) => toolManifest(a.category) },
 ];
 for (const t of BOT_TOOLS) { if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t); }
+
+// ── NVIDIA-adapted skills (SHADDAI-native, no GPU required) ───────────────────
+// 1) RAG eval harness  (from NVIDIA rag-eval / rag-perf)
+// 2) Video pipeline runner (from NVIDIA deepstream / vss)
+// 3) Portfolio optimizer (from NVIDIA portfolio-optimization, cuOpt-free)
+function ragEvalHarness(query, k) {
+  const cm = require('./concept-map');
+  const kk = Math.min(Math.max(parseInt(k) || 5, 1), 15);
+  const terms = cm.expandQuery(query);
+  const literal = cm.tokenize(query);
+  const expanded = terms.filter(t => literal.indexOf(t) === -1);
+  return JSON.stringify({
+    query: query || "",
+    k: kk,
+    metrics: ["precision@k", "recall@k", "MRR", "nDCG", "coverage"],
+    literal_terms: literal,
+    expanded_terms: expanded,
+    how_to_score: [
+      "1. rag_search(query, topK=k) -> hits",
+      "2. Mark each hit relevant (1) or not (0).",
+      "3. precision@k = relevant_in_top_k / k",
+      "4. recall@k = relevant_in_top_k / total_relevant (needs a ground-truth list)",
+      "5. MRR = 1 / rank of first relevant (0 if none)",
+      "6. nDCG = DCG / IDCG with the relevance grades",
+      "7. coverage = fraction of expanded terms that appear in any hit (are the concept expansions actually landing?)"
+    ],
+    harness: "Run the workflow 'uc-quality-gate' to apply the 9 Thinking Behaviours to a scored answer."
+  });
+}
+function ragEvalScore(hits, relevant) {
+  const h = Array.isArray(hits) ? hits : [];
+  const rel = Array.isArray(relevant) ? relevant : [];
+  const k = h.length || 1;
+  let inTop = 0; for (const x of h) if (rel.indexOf(x) !== -1) inTop++;
+  let firstRank = 0; for (let i = 0; i < h.length; i++) if (rel.indexOf(h[i]) !== -1) { firstRank = i + 1; break; }
+  let dcg = 0; for (let i = 0; i < h.length; i++) if (rel.indexOf(h[i]) !== -1) dcg += 1 / Math.log2(i + 2);
+  let idcg = 0; for (let i = 0; i < Math.min(rel.length, h.length); i++) idcg += 1 / Math.log2(i + 2);
+  return JSON.stringify({
+    k: k, relevant_in_top_k: inTop, total_relevant: rel.length,
+    precision_at_k: Number((inTop / k).toFixed(4)),
+    recall_at_k: rel.length ? Number((inTop / rel.length).toFixed(4)) : null,
+    mrr: firstRank ? Number((1 / firstRank).toFixed(4)) : 0,
+    ndcg: idcg ? Number((dcg / idcg).toFixed(4)) : 0
+  });
+}
+function videoPipelineRun(url, stages) {
+  const s = Array.isArray(stages) && stages.length ? stages : ["download", "transcribe", "clip", "caption", "publish"];
+  const map = {
+    download: { tool: "shaddai_media_fetch", args: { url: url || "" }, guard: "PIKADON: https only, size cap" },
+    transcribe: { tool: "backend turtle-video-service.py (Whisper local)", args: {}, guard: "no API key needed" },
+    clip: { tool: "shaddai_capture", args: { mode: "clip", url: url || "" }, guard: "clipper must be up" },
+    caption: { tool: "shaddai_capture (scrape) + Quill", args: {}, guard: "caption style from ui_stack" },
+    style: { tool: "styles_get / style_transfer_adain", args: { style: "" }, guard: "43 film styles available" },
+    motion: { tool: "motion_graphics_plan + handdraw_plan", args: {}, guard: "JSON DSL -> Remotion -> MP4" },
+    publish: { tool: "social_post / bridge_call", args: {}, guard: "check platform rules" }
+  };
+  const plan = s.map(x => ({ stage: x, ...(map[x] || { tool: "unknown", args: {}, guard: "n/a" }) }));
+  return JSON.stringify({
+    input: url || "",
+    stages: s,
+    plan: plan,
+    how_to_run: "Create a workflow with these tools as steps (interpolate {{step_N.output}}), then workflow_run.",
+    quality_gates: ["PIKADON secret scan on the transcript", "turtle_palette contrast check on burned-in captions", "9 Thinking Behaviours review of the script", "7 Storytelling Hacks on the hook"]
+  });
+}
+function portfolioOptimize(returns, target) {
+  const r = (Array.isArray(returns) ? returns : []).map(Number).filter(x => !isNaN(x));
+  if (!r.length) return JSON.stringify({ error: "returns array required" });
+  const n = r.length;
+  const mean = r.reduce((a, b) => a + b, 0) / n;
+  const variance = r.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / n;
+  const sd = Math.sqrt(variance);
+  // Inverse-variance weighting as a smarter-than-equal-weight baseline
+  const inv = r.map(x => 1 / (variance + 1e-9));
+  const invSum = inv.reduce((a, b) => a + b, 0);
+  const invW = inv.map(x => Number((x / invSum).toFixed(4)));
+  const ew = r.map(() => Number((1 / n).toFixed(4)));
+  return JSON.stringify({
+    n: n,
+    mean_return: Number(mean.toFixed(6)),
+    volatility: Number(sd.toFixed(6)),
+    sharpe: sd > 0 ? Number((mean / sd).toFixed(4)) : null,
+    equal_weight: ew,
+    inverse_variance_weight: invW,
+    target_return: target || null,
+    note: "cuOpt-grade (mean-CVaR / variance-cap) needs the NVIDIA GPU stack. This is the CPU-safe baseline; layer on zerox_paper_* for live sizing and kelly_criterion for position sizing.",
+    next: ["zerox_price for live prices", "zerox_paper_open to size", "zerox_paper_portfolio to track", "sharpe_ratio / sortino_ratio to grade"]
+  });
+}
+const NVIDIA_SKILLS = [
+  { name: "rag_eval_harness", description: "RAG evaluation harness (NVIDIA rag-eval/rag-perf adapted): metrics, literal vs expanded terms, and exactly how to score precision@k, recall@k, MRR and nDCG over the SHADDAI brain.", inputSchema: { type: "object", properties: { query: { type: "string" }, k: { type: "number" } }, required: ["query"] }, run: (a) => ragEvalHarness(a.query, a.k) },
+  { name: "rag_eval_score", description: "Score a set of retrieved hits against a ground-truth list: precision@k, recall@k, MRR, nDCG. Feed the output of rag_search.", inputSchema: { type: "object", properties: { hits: { type: "array", items: { type: "string" } }, relevant: { type: "array", items: { type: "string" } } }, required: ["hits"] }, run: (a) => ragEvalScore(a.hits, a.relevant) },
+  { name: "video_pipeline_run", description: "Plan a full video pipeline (download -> transcribe -> clip -> caption -> style -> motion -> publish) with the exact tool per stage, PIKADON guards, and quality gates. NVIDIA deepstream/vss adapted.", inputSchema: { type: "object", properties: { url: { type: "string" }, stages: { type: "array", items: { type: "string" } } }, required: [] }, run: (a) => videoPipelineRun(a.url, a.stages) },
+  { name: "portfolio_optimize", description: "CPU-safe portfolio optimizer: mean, volatility, Sharpe, equal-weight and inverse-variance weights. NVIDIA cuOpt (mean-CVaR / variance-cap) adapted without a GPU.", inputSchema: { type: "object", properties: { returns: { type: "array", items: { type: "number" } }, target: { type: "number" } }, required: ["returns"] }, run: (a) => portfolioOptimize(a.returns, a.target) },
+];
+for (const t of NVIDIA_SKILLS) { if (!CREATIVE_TOOLS.some(x => x.name === t.name)) CREATIVE_TOOLS.push(t); }
+
+
+// ── Planning + design utilities (restored) ───────────────────────────────────
+function mkPlan(fn) { return fn; }
+const PLANS = {
+  growth_plan: (a) => ({ theme: a.theme || "growth", channels: ["content marketing","SEO","social media","referral program","partnerships","paid ads"], tactics: ["double down on the channel with best CAC","compound the referral loop","win one distribution partner per month"] }),
+  seo_plan: (a) => ({ topic: a.topic || "", steps: ["keyword research","title/meta + content outline","technical SEO (sitemap, schema, speed)","internal links","backlinks","rank monitoring"], skills: ["seo-audit","seo-content","ai-seo"] }),
+  funnel_plan: (a) => ({ stages: ["awareness","interest","consideration","intent","purchase","loyalty","advocacy"], metrics_per_stage: { awareness: "reach, impressions", interest: "time on site, content depth", consideration: "pricing views, docs reads", intent: "trial starts, demo requests", purchase: "conversion rate, CAC", loyalty: "retention, usage depth", advocacy: "referrals, NPS" } }),
+  retention_plan: (a) => ({ tactics: ["onboarding that reaches the aha moment fast","activation checklist","habit loops + streaks","value delivery cadence","reactivation campaigns","support that prevents churn"] }),
+  viral_plan: (a) => ({ tactics: ["referral program with a real reward","shareable output the user wants to post","social proof at the decision point","network effects in the product","UGC that brands can reuse"], loop: "value -> share -> new user -> value" }),
+  community_plan: (a) => ({ platforms: ["discord","telegram","forum","social media"], tactics: ["welcome ritual + role assignment","daily/weekly rituals","recognition + leaderboards","moderation + safe spaces","events + AMAs","ambassador program"] }),
+  launch_plan: (a) => ({ product: a.product || "", phases: ["pre-launch (tease + waitlist)","launch (announce + demo)","post-launch (iterate on feedback)","scale (double down)"], assets: ["landing page","demo video","launch thread","email sequence","social kit","docs"], checklist: ["pricing live","analytics live","support ready","rollback plan"] }),
+  pivot_plan: (a) => ({ steps: ["analyze the metrics that stalled","name the real problem (not the symptom)","hypothesize a pivot","run a cheap test","decide with a threshold","execute + communicate"] }),
+  scale_plan: (a) => ({ areas: ["infrastructure (load + cost)","team (roles + hiring plan)","process (gates + ownership)","marketing (repeatable channels)","support (self-serve + tiering)"] }),
+  automate_plan: (a) => ({ process: a.process || "", steps: ["map the current flow","find the repetitive steps","define inputs/outputs per step","build the automation","test with real data","deploy + monitor"], tool: "workflow_create + sched_add" }),
+  integrate_plan: (a) => ({ service: a.service || "", steps: ["read the service API + auth","map endpoints to our tools","build the adapter","handle errors + retries","test with a sandbox key","monitor + rate-limit"] }),
+  migrate_plan: (a) => ({ from: a.from || "", to: a.to || "", steps: ["snapshot + verify the backup","migrate the schema","migrate the data in batches","run integrity checks","dual-write then cut over","keep a rollback window"] }),
+  monitor_plan: (a) => ({ system: a.system || "", metrics: ["uptime","latency (p50/p95/p99)","error rate","throughput","resource usage","queue depth"], alerting: "page on SLO burn, not on spikes" }),
+  backup_plan: (a) => ({ steps: ["identify critical data","schedule (daily + pre-deploy)","store off-site + encrypted","test a restore monthly","document the runbook"] }),
+  security_plan: (a) => ({ layers: ["auth + session handling","input validation","output encoding","secret management","audit logging","rate limiting","dependency scanning","SSRF + egress control"], owner: "PIKADON" }),
+  test_plan_full: (a) => ({ feature: a.feature || "", types: ["unit","integration","e2e","security","performance","accessibility"], commands: ["npm run gate (jest + node checks)","node mcp-server-rag.js --self-test","node shaddai-mcp/smoke-test.js"] }),
+  doc_plan: (a) => ({ topic: a.topic || "", sections: ["overview + who it is for","install","quick start","API reference","examples","troubleshooting","FAQ","changelog"] }),
+  api_plan: (a) => ({ resource: a.resource || "", endpoints: ["GET /"+a.resource,"GET /"+a.resource+"/:id","POST /"+a.resource,"PUT /"+a.resource+"/:id","DELETE /"+a.resource+"/:id"], conventions: ["JSON in/out","consistent error shape","paginated lists","idempotency keys on writes","versioned paths"] }),
+  onboarding_plan: (a) => ({ product: a.product || "", steps: ["sign up (min fields)","one-time setup (the aha moment)","first result","invite a teammate","upgrade moment"], metrics: ["time to first value","activation rate","day-7 retention"] }),
+  feedback_plan: (a) => ({ source: a.source || "", channels: ["in-app prompt after a completed task","NPS quarterly","support tickets tagged","social listening","user interviews (5/week)"], close_loop: "every piece of feedback gets a reply + a visible roadmap position" }),
+  roadmap_plan: (a) => ({ quarter: a.quarter || "", themes: ["core reliability","user-visible value","growth loops","developer experience"], format: "now / next / later, each with a metric" }),
+  changelog_plan: (a) => ({ version: a.version || "", sections: ["Added","Changed","Deprecated","Removed","Fixed","Security"], format: "Keep a Changelog" }),
+  readme_plan: (a) => ({ project: a.project || "", sections: ["one-line pitch","screenshot/demo","install","usage","API","config","contributing","license"] }),
+  error_plan: (a) => ({ error: a.error || "", steps: ["reproduce (minimal case)","isolate (bisect the layers)","diagnose (read the logs, form a hypothesis)","fix the cause not the symptom","add a regression test","deploy + verify"] }),
+  perf_plan: (a) => ({ metric: a.metric || "latency", steps: ["measure the baseline (same load, same hardware)","profile to find the bottleneck","fix the top one only","measure again","compare against the baseline","regression-guard it"] }),
+  accessibility_plan: (a) => ({ checks: ["color contrast >= 4.5:1","keyboard nav + visible focus","screen reader labels","reduced motion","alt text","form error messaging"] }),
+  i18n_plan: (a) => ({ langs: a.langs || ["en"], steps: ["extract strings (no hardcoded copy)","translate + review","RTL support","locale-aware dates/numbers/currency","pseudo-localization test"] }),
+  social_plan: (a) => ({ platform: a.platform || "", steps: ["profile + positioning","content pillars","cadence","formats per platform","engagement rules","analytics loop"] }),
+  email_plan: (a) => ({ type: a.type || "newsletter", steps: ["list + segmentation","welcome flow","value cadence","reactivation","monetization","deliverability hygiene"] }),
+  ad_plan: (a) => ({ channel: a.channel || "", steps: ["audience research","offer + angle","creative variants","landing page match","bid strategy","test then scale"] }),
+  db_schema_plan: (a) => ({ entities: a.entities || [], pattern: "each table: id, created_at, updated_at + domain fields; FKs explicit; indexes on every filter column" }),
+  regex_helper: (a) => ({ pattern: a.pattern || "\\d+", tests: ["abc123","no-numbers","42"], tip: "regex_extract / regex_replace / escape_regex do the work" }),
+  json_schema_gen: (a) => ({ sample: a.sample || {}, tip: "json_format to pretty-print, json_keys for top-level keys, json_path for nested access" }),
+  qr_code_plan: (a) => ({ data: a.data || "", format: "PNG", size: "256x256", tip: "generate with a qrcode lib; the MCP plans the payload" }),
+  color_palette_from_seed: (a) => ({ seed: a.seed || "shaddai", note: "deterministic 5-hue palette from a string hash", tip: "turtle_palette for mood palettes" }),
+  email_template: (a) => ({ type: a.type || "welcome", template: { welcome: { subject: "Welcome to {{product}}!", body: "Hi {{name}},\n\nWelcome! Here's how to get started:\n1. ...\n2. ...\n3. ...\n\nBest,\n{{team}}" }, newsletter: { subject: "{{product}} Weekly — {{date}}", body: "Hi {{name}},\n\nThis week:\n- {{item1}}\n- {{item2}}\n\nRead more → {{link}}" }, promo: { subject: "{{discount}}% off {{product}}", body: "Hi {{name}},\n\nFor a limited time, get {{discount}}% off.\n\nUse code: {{code}}\n\nShop now → {{link}}" } }[a.type] || null }),
+  brand_voice: (a) => ({ tone: a.tone || "professional", professional: { adjectives: ["clear","authoritative","precise"], avoid: ["slang","exclamation overload"], example: "We deliver results." }, playful: { adjectives: ["fun","energetic","casual"], avoid: ["jargon","stiffness"], example: "Let's make something awesome!" }, luxury: { adjectives: ["elegant","refined","exclusive"], avoid: ["discount language","urgency"], example: "Crafted for those who appreciate excellence." }, technical: { adjectives: ["precise","detailed","accurate"], avoid: ["vagueness","marketing fluff"], example: "Implements O(n log n) sorting with zero allocations." } }),
+  typography_scale: (a) => { const b = a.base || 16; const r = a.ratio || 1.25; return { base: b, ratio: r, scale_px: Array.from({length:8},function(_,i){return Math.round(b*Math.pow(r,i));}) }; },
+  layout_grid: (a) => ({ columns: Math.min(Math.max(parseInt(a.cols)||12,1),16), gutter: a.gutter || 16, column_width_pct: ((100/(Math.min(Math.max(parseInt(a.cols)||12,1),16))).toFixed(2))+"%" }),
+  spacing_system: (a) => { const b = a.base || 8; return { base: b, scale: [b*0.5,b,b*1.5,b*2,b*3,b*4,b*6,b*8].map(x=>Math.round(x)) }; },
+  color_harmony: (a) => ({ base: a.hex || "#8b5cf6", schemes: ["complementary","triadic","analogous","split-complementary"], tip: "complementary_color / triadic_colors / analogous_colors give exact hexes" }),
+  color_palette: (a) => ({ mood: a.mood || "sacred", tip: "turtle_palette returns 10 curated mood palettes" }),
+};
+const PLAN_TOOLS = [
+  ["growth_plan","Plan a growth strategy (channels, tactics)."],["seo_plan","Plan SEO (keywords, content, technical, backlinks)."],["funnel_plan","Plan a conversion funnel with per-stage metrics."],["retention_plan","Plan retention (activation, habits, reactivation)."],["viral_plan","Plan viral growth (referral, shareable, network effects)."],["community_plan","Plan community (platforms, rituals, moderation)."],["launch_plan","Plan a product launch (phases, assets, checklist)."],["pivot_plan","Plan a product pivot (analyze, hypothesize, test, decide)."],["scale_plan","Plan scaling (infra, team, process, marketing, support)."],["automate_plan","Plan an automation (map, build, test, deploy, monitor)."],["integrate_plan","Plan a service integration (API, auth, adapter, errors)."],["migrate_plan","Plan a migration (backup, schema, data, cutover, rollback)."],["monitor_plan","Plan monitoring (metrics, alerting, SLOs)."],["backup_plan","Plan backups (identify, schedule, encrypt, test restore)."],["security_plan","Plan security layers (auth, validation, secrets, audit, rate limit)."],["test_plan_full","Plan a full test suite (unit, integration, e2e, security, perf, a11y)."],["doc_plan","Plan documentation (overview, install, API, examples, FAQ)."],["api_plan","Plan REST API endpoints and conventions."],["onboarding_plan","Plan user onboarding (aha moment, activation, invite)."],["feedback_plan","Plan feedback collection (channels, closing the loop)."],["roadmap_plan","Plan a product roadmap (themes, now/next/later)."],["changelog_plan","Plan a changelog entry (Keep a Changelog sections)."],["readme_plan","Plan a README (pitch, demo, install, usage, API)."],["error_plan","Plan error handling (reproduce, isolate, diagnose, fix, regression test)."],["perf_plan","Plan performance work (baseline, profile, fix one, compare)."],["accessibility_plan","Plan an accessibility audit (contrast, keyboard, SR, motion, alt text)."],["i18n_plan","Plan internationalization (extract, translate, RTL, formats)."],["social_plan","Plan social media strategy (profile, pillars, cadence, analytics)."],["email_plan","Plan email marketing (list, flows, cadence, deliverability)."],["ad_plan","Plan advertising (audience, creative, landing match, bidding)."],["db_schema_plan","Plan a database schema (tables, keys, indexes)."],["regex_helper","Regex helper with test strings."],["json_schema_gen","Describe an inferred JSON schema from a sample."],["qr_code_plan","Plan a QR code (payload, format, size)."],["color_palette_from_seed","Deterministic 5-hue palette from a string seed."],["email_template","Generate an email template (welcome, newsletter, promo)."],["brand_voice","Brand voice guidelines for a tone."],["typography_scale","Generate a modular typographic scale."],["layout_grid","Generate a responsive grid layout."],["spacing_system","Generate a spacing scale from a base unit."],["color_harmony","Color harmony schemes for a base color."],
+];
+for (const [name, desc] of PLAN_TOOLS) {
+  if (CREATIVE_TOOLS.some(x => x.name === name)) continue;
+  const fn = PLANS[name];
+  CREATIVE_TOOLS.push({ name: name, description: desc, inputSchema: { type: "object", properties: {}, required: [] }, run: (a) => JSON.stringify(fn(a || {})) });
+}
+
 module.exports = { CREATIVE_TOOLS };
