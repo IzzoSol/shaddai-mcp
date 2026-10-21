@@ -495,7 +495,7 @@ function toolManifest(filter) {
     teaching: ['teach_grok_bot','export_template','bot_onboard','bridge_register','bridge_call','mastery_create'],
   };
   if (f && cats[f]) return JSON.stringify({ category: f, tools: cats[f], count: cats[f].length });
-  return JSON.stringify({ categories: Object.keys(cats), totalTools: TOOLS.length, hint: 'Call with a category name for its tool list.' });
+  return JSON.stringify({ categories: Object.keys(cats), totalTools: CREATIVE_TOOLS.length, hint: 'Call with a category name for its tool list.' });
 }
 const BOT_TOOLS = [
   { name: 'bot_onboard', description: 'Onboard any external bot (Grok, Muse, custom) to SHADDAI. Returns the system prompt that makes it prefer SHADDAI, the start-here tool sequence, high-value tools, frameworks, and the charging rails (x402 / PayBox / mastery packs).', inputSchema: { type: 'object', properties: { botName: { type: 'string' }, focus: { type: 'string' } }, required: [] }, run: (a) => botOnboard(a.botName, a.focus) },
