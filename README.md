@@ -2,7 +2,8 @@
 
 The **7 SHADDAI agents** and their **RAG knowledge bases** (the mastery stores) as a
 **Model Context Protocol** server for Claude Desktop, Claude Code, Cursor, or any
-MCP stdio client.
+MCP stdio client — plus a curated **NVIDIA/skills** catalog (Omniverse/Cosmos
+physical AI, Earth2Studio climate, TAO, RAG Blueprint) exposed as callable tools.
 
 **Key-free.** No API keys. No external LLM calls. No localhost server. You paste
 one line, and Claude instantly gets a knowledge-grounded 7-agent council it can
@@ -52,6 +53,45 @@ copy instead of npx, `npm i -g shaddai-mcp` then use the `shaddai-mcp` binary.
   grounded-answer instruction. **Claude synthesizes the answer from the passages.**
 - `run_agent` — routes a goal to the right agent, injects its knowledge as
   passages, and returns a persona + instruction for Claude to complete the task.
+- `nvidia_skills` — the curated **NVIDIA/skills** catalog: 48 entries with id,
+  description, category, GPU requirement, and S.A.P. relevance. Call it with no
+  arguments for the catalog, `{ skill: "<id>" }` for one skill's full `SKILL.md`,
+  `{ category, limit }` to page full entries, or `{ skill, part }` to page a long
+  body.
+- `skills_search` — keyword (+ optional category) filter over the NVIDIA catalog.
+
+## NVIDIA skills
+
+The repo ships a curated 48-skill slice of [NVIDIA/skills](https://github.com/NVIDIA/skills)
+as a static manifest (`skills/nvidia-skills.json`). The `SKILL.md` bodies are
+**not** vendored — they are read at call time from your local skill catalog, so
+the repo stays small and the catalog stays editable.
+
+| Category | Count | What it covers |
+|----------|-------|----------------|
+| `tao` | 22 | TAO data services, AutoML, DEFT loops, dataset formats |
+| `climate` | 7 | Earth2Studio deterministic forecasts and diagnostics |
+| `physical-ai` | 5 | Defect generation, video augmentation, infrastructure |
+| `omniverse` | 4 | USD/SimReady/CAD-to-SimReady workflows |
+| `meta` | 3 | Skill discovery and environment setup |
+| `rag` | 3 | NVIDIA RAG Blueprint deploy/configure/troubleshoot |
+| `vision` | 2 | FoundationPose perception pipeline |
+| `cosmos` | 1 | Cosmos AnomalyGen synthetic defect generation |
+| `data` | 1 | TAO dataset conversion and validation |
+
+**25 of the 48 require an NVIDIA GPU** to complete their stated execution path;
+the other 23 run CPU-only. Every GPU-flagged entry carries a `gpuReason` saying
+exactly which step needs the GPU — no guessing.
+
+Point the server at your catalog with:
+
+```bash
+SHADDAI_NVIDIA_SKILLS_ROOT=~/.agents/skills   # default
+```
+
+Only skill ids listed in the manifest can be read, ids are charset-restricted,
+and the resolved path must sit directly inside the catalog root — path
+traversal is rejected before any filesystem access.
 
 ## Resources
 
@@ -98,6 +138,7 @@ suite, billing, and server routes are **not** included.
 npm install
 node mcp-server-rag.js --self-test        # fast protocol test
 node mcp-server-rag.js --self-test-full   # + rag_ask & run_agent
+node test-nvidia-unified.js               # NVIDIA tools against the unified server
 ```
 
 Logs go to **stderr**; stdout is reserved for the MCP protocol.

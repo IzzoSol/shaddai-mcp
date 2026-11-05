@@ -1,13 +1,17 @@
 {
   "name": "shaddai-mcp-unified",
-  "version": "3.2.0",
-  "description": "SHADDAI MCP - full tool surface (1029 tools): 7-agent council, RAG brain with semantic concept expansion, ZEROX money engine, Hall economy, PayBox/x402, 557 backend agent tools, 118 creative/business tools, 270 curated skill playbooks (3022-skill catalog), 16 knowledge frameworks, and 1623 combined workflows. PIKADON-secured web scanning.",
+  "version": "3.3.0",
+  "description": "SHADDAI MCP - full tool surface (1031 tools): 7-agent council, RAG brain with semantic concept expansion, ZEROX money engine, Hall economy, PayBox/x402, 557 backend agent tools, 118 creative/business tools, 270 curated skill playbooks (3022-skill catalog), 48 curated NVIDIA skills (Omniverse/Cosmos physical AI, Earth2Studio climate, TAO, RAG), 16 knowledge frameworks, and 1623 combined workflows. PIKADON-secured web scanning.",
   "bin": {
     "shaddai-mcp-unified": "mcp-unified.js"
   },
   "type": "commonjs",
   "engines": {
     "node": ">=18"
+  },
+  "scripts": {
+    "test": "node mcp-server-rag.js --self-test",
+    "test:nvidia": "node test-nvidia-unified.js"
   },
   "keywords": [
     "mcp",
@@ -16,13 +20,18 @@
     "claude",
     "cursor",
     "shaddai",
-    "rag"
+    "rag",
+    "nvidia",
+    "physical-ai",
+    "cosmos",
+    "tao"
   ],
   "license": "MIT",
   "files": [
     "mcp-unified.js",
     "creative-tools.js",
     "skills-tools.js",
+    "nvidia-skills-tools.js",
     "knowledge-tools.js",
     "concept-map.js",
     "concept-map.json",
@@ -31,6 +40,7 @@
     "rag-index.js",
     "lib/",
     "data/",
+    "skills/",
     "LICENSE",
     "README.md",
     "SKILL_INDEX.md",

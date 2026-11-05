@@ -1028,6 +1028,20 @@ try {
   process.stderr.write('skill tools load failed: ' + String((e && e.message) || e) + '\\n');
 }
 
+// ── Curated NVIDIA skills (48 entries from NVIDIA/skills) ──
+const NVIDIA_TOOL_NAMES = new Set();
+try {
+  const nt = require('./nvidia-skills-tools');
+  for (const t of (nt.ALL_NVIDIA_TOOLS || [])) {
+    if (!TOOLS.some(x => x.name === t.name)) {
+      TOOLS.push(t);
+      NVIDIA_TOOL_NAMES.add(t.name);
+    }
+  }
+} catch (e) {
+  process.stderr.write('nvidia skill tools load failed: ' + String((e && e.message) || e) + '\\n');
+}
+
 // ── Knowledge frameworks (Pixar 22, Save the Cat, Story Arc, thinking models) ──
 const FRAMEWORK_TOOL_NAMES = new Set();
 try {
@@ -1203,12 +1217,13 @@ async function callTool(name, args) {
       '  Backend reachable: ' + backendOk + '\\n' +
       '  Backend tools: ' + toolCount + '\\n' +
       '  MCP tools loaded: ' + TOOLS.length + '\\n' +
+      '  NVIDIA skill tools: ' + NVIDIA_TOOL_NAMES.size + '\\n' +
       '  Money gate: ' + (MONEY_ENABLED ? 'ON' : 'OFF') + '\\n' +
       '  Rate limit: ' + RATE_MAX_PER_SEC + '/s\\n' +
       '  Backend tool names cached: ' + BACKEND_TOOL_NAMES.size;
   }
-  // Creative tools + curated SKILL tools + knowledge frameworks: run their `run`.
-  if (CREATIVE_TOOL_NAMES.has(name) || SKILL_TOOL_NAMES.has(name) || FRAMEWORK_TOOL_NAMES.has(name)) {
+  // Creative tools + curated SKILL tools + NVIDIA skills + knowledge frameworks: run their `run`.
+  if (CREATIVE_TOOL_NAMES.has(name) || SKILL_TOOL_NAMES.has(name) || NVIDIA_TOOL_NAMES.has(name) || FRAMEWORK_TOOL_NAMES.has(name)) {
     const t = TOOLS.find(x => x.name === name);
     if (t && typeof t.run === 'function') return t.run(args);
   }

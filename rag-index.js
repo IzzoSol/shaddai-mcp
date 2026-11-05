@@ -11,6 +11,8 @@
  *   - persists per-user docs to backend/data/rag/{user}/docs.json
  *   - rebuilds the user's TF-IDF + IDF on every write so search reflects
  *     the latest corpus (re-normalizing each chunk vector)
+ *   - serves the static NVIDIA skills manifest (skills/nvidia-skills.json) as
+ *     a searchable catalog alongside the per-user stores
  */
 
 const fs = require('fs');
@@ -158,6 +160,69 @@ function vectorizeQuery(query, idf) {
   return vec;
 }
 
+// -- static corpus: NVIDIA skills manifest ---------------------------------------
+// The curated NVIDIA skill catalog is a static, repo-local data source that
+// sits beside the per-user RAG stores. It is loaded on demand (no cache, so a
+// manifest edit is picked up without restarting the server) and exposed through
+// the same module boundary the server already uses for knowledge access.
+const NVIDIA_SKILLS_MANIFEST = path.join(__dirname, 'skills', 'nvidia-skills.json');
+const NVIDIA_SKILL_CATEGORIES = ['omniverse', 'physical-ai', 'cosmos', 'climate', 'rag', 'vision', 'tao', 'data', 'meta'];
+const SAFE_SKILL_ID = /^[a-z0-9][a-z0-9._-]*$/;
+
+function loadNvidiaSkills() {
+  let raw;
+  try { raw = JSON.parse(fs.readFileSync(NVIDIA_SKILLS_MANIFEST, 'utf8')); }
+  catch { return []; }
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .filter((s) => s && typeof s.id === 'string' && SAFE_SKILL_ID.test(s.id))
+    .map((s) => ({
+      id: s.id,
+      name: String(s.name || s.id),
+      version: String(s.version || ''),
+      license: String(s.license || ''),
+      description: String(s.description || ''),
+      category: NVIDIA_SKILL_CATEGORIES.includes(s.category) ? s.category : 'meta',
+      source: String(s.source || 'NVIDIA/skills'),
+      requiresGpu: !!s.requiresGpu,
+      gpuReason: s.requiresGpu ? String(s.gpuReason || '') : '',
+      sapRelevance: String(s.sapRelevance || ''),
+    }));
+}
+
+function listNvidiaSkills() {
+  return loadNvidiaSkills();
+}
+
+function getNvidiaSkill(id) {
+  const key = String(id || '').trim();
+  return loadNvidiaSkills().find((s) => s.id === key) || null;
+}
+
+/**
+ * Keyword filter over the NVIDIA skill manifest. Matches on id, name,
+ * description, category, and sapRelevance. Returns the matched entries with a
+ * simple token-hit score, sorted by score then id.
+ */
+function searchNvidiaSkills(query, opts) {
+  const o = opts || {};
+  const limit = Math.max(1, Math.min(48, Number(o.limit) || 10));
+  const category = o.category ? String(o.category) : null;
+  const tokens = tokenize(query);
+  if (!tokens.length) return [];
+  const hits = [];
+  for (const s of loadNvidiaSkills()) {
+    if (category && s.category !== category) continue;
+    const hay = `${s.id} ${s.name} ${s.description} ${s.category} ${s.sapRelevance} ${s.requiresGpu ? 'gpu' : ''}`.toLowerCase();
+    const matched = [];
+    for (const t of tokens) if (hay.includes(t)) matched.push(t);
+    if (!matched.length) continue;
+    hits.push({ ...s, score: matched.length, matched });
+  }
+  hits.sort((a, b) => (b.score - a.score) || a.id.localeCompare(b.id));
+  return hits.slice(0, limit);
+}
+
 // ─── public API ──────────────────────────────────────────────────────────────
 
 /**
@@ -254,6 +319,9 @@ module.exports = {
   searchUser,
   listUserDocs,
   deleteDocument,
+  listNvidiaSkills,
+  getNvidiaSkill,
+  searchNvidiaSkills,
   // exposed for testing
   _internal: { tokenize, termFrequency, cosineSim, chunkText },
 };

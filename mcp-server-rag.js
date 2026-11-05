@@ -19,6 +19,8 @@
  *   rag_search       → raw TF-IDF chunk hits (score + source doc) for a query
  *   rag_ask          → passages + grounded-answer instruction for the host model
  *   run_agent        → routed agent + RAG passages + persona/instruction for the host
+ *   nvidia_skills    -> the 48-skill NVIDIA manifest, or one skill's full SKILL.md
+ *   skills_search    -> keyword filter over the NVIDIA skill manifest
  *
  * Resources:
  *   kb://<agent>     → an agent's knowledge-base document list (browsable)
@@ -45,9 +47,10 @@
 
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const { spawn } = require('child_process');
 
-const VERSION = '2.3.0';
+const VERSION = '2.4.0';
 
 // ── Logging ────────────────────────────────────────────────────────────────────
 // stdout must carry ONLY protocol frames — redirect ALL logging to stderr.
@@ -63,6 +66,13 @@ try { require('dotenv').config({ path: path.join(__dirname, '.env') }); } catch 
 const BACKEND   = __dirname;
 const KB_PREFIX = process.env.SHADDAI_RAG_KB_PREFIX || 'kb_';
 const MAX_RAG_CHUNKS = 8;
+
+// Root of the locally installed NVIDIA skill catalog. The manifest in the repo
+// is the source of truth for WHICH skills exist; the SKILL.md bodies are read
+// from here at call time so the repo stays small.
+const nv = require('./nvidia-skills-tools');
+const NVIDIA_SKILLS_ROOT = nv.skillsRoot();
+const NVIDIA_SKILL_CATEGORIES = nv.NVIDIA_SKILL_CATEGORIES;
 
 const ragIndex = require('./rag-index');
 
@@ -133,6 +143,33 @@ const TOOLS = [
         agent: { type: 'string', enum: STATIC_AGENT_IDS, description: 'Agent to run. Optional — auto-routed by goal when omitted.' },
       },
       required: ['goal'],
+    },
+  },
+  {
+    name: 'nvidia_skills',
+    description: 'List the curated NVIDIA skills catalog (48 entries with id, description, category, GPU requirement, and S.A.P. relevance) or fetch one skill\'s full SKILL.md body. Call with no arguments for the whole manifest; call with { skill: "<id>" } for one skill.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        skill: { type: 'string', description: 'Skill id to fetch, e.g. "rag-blueprint". Omit to get the full manifest.' },
+        category: { type: 'string', enum: NVIDIA_SKILL_CATEGORIES, description: 'Optional category filter for manifest mode.' },
+        limit: { type: 'number', minimum: 1, maximum: 48, description: 'Max manifest entries to return.' },
+        part: { type: 'number', minimum: 1, maximum: 8, description: 'Which part of a long SKILL.md body.' },
+      },
+      required: [],
+    },
+  },
+  {
+    name: 'skills_search',
+    description: 'Filter the NVIDIA skills catalog by keyword over id, name, description, category, and S.A.P. relevance.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        query: { type: 'string', description: 'Keywords to match against the skill manifest' },
+        category: { type: 'string', enum: NVIDIA_SKILL_CATEGORIES, description: 'Optional category filter' },
+        limit: { type: 'number', minimum: 1, maximum: 48, description: 'Max skills to return (default 10)' },
+      },
+      required: ['query'],
     },
   },
 ];
@@ -275,6 +312,25 @@ async function runAgent(goal, agentId, progressCb) {
   };
 }
 
+// -- NVIDIA skills ----------------------------------------------------------------
+// The manifest (skills/nvidia-skills.json) is the allow-list: only ids listed
+// there can be read from disk. The SKILL.md bodies are NOT stored in the repo;
+// they are read from the local skill catalog at call time.
+// Shared implementation with the unified server: nvidia-skills-tools.js.
+
+function nvidiaSkills(args) {
+  const a = args || {};
+  const r = nv.nvidiaSkills({ skill: a.skill ? String(a.skill) : null, category: a.category || null, limit: a.limit || 0, part: a.part || 1 });
+  if (!r.ok) throw new TypeError(r.error);
+  return { content: [{ type: 'text', text: r.text }] };
+}
+
+async function skillsSearch(query, category, limit) {
+  const r = nv.skillsSearch({ query, category: category || null, limit: limit || 10 });
+  if (!r.ok) throw new TypeError(r.error);
+  return { content: [{ type: 'text', text: r.text }] };
+}
+
 // ── MCP protocol plumbing (MCP 2024-11-05, stdio, JSON-RPC 2.0) ────────────────
 const RESOURCES = STATIC_AGENT_IDS.map((id) => ({
   uri: `kb://${id.toLowerCase()}`,
@@ -316,6 +372,8 @@ function toolsCall(args, id, meta) {
       case 'rag_search': return { content: [{ type: 'text', text: JSON.stringify(await ragSearch(normalizeAgent(input), input.query, input.limit || 3, progressCb), null, 2) }] };
       case 'rag_ask': return { content: [{ type: 'text', text: JSON.stringify(await ragAsk(normalizeAgent(input), input.question, progressCb), null, 2) }] };
       case 'run_agent': return { content: [{ type: 'text', text: JSON.stringify(await runAgent(input.goal, input.agent ? normalizeAgent(input) : null, progressCb), null, 2) }] };
+      case 'nvidia_skills': return nvidiaSkills(input);
+      case 'skills_search': return skillsSearch(input.query, input.category, input.limit);
       default: return { isError: true, content: [{ type: 'text', text: `Unknown tool "${name}".` }] };
     }
   };
@@ -341,6 +399,7 @@ Key-free: this server needs no API keys, no external LLM, and no localhost.
 The connected host model (Claude) synthesizes answers from the retrieved
 passages. Optional env (all safe defaults):
   SHADDAI_RAG_KB_PREFIX   (default kb_)
+  SHADDAI_NVIDIA_SKILLS_ROOT   (default ~/.agents/skills)
 `;
 
 async function selfTest(full) {
@@ -390,6 +449,22 @@ async function selfTest(full) {
   r = await call('tools/call', { name: 'list_rag_docs', arguments: { agent: 'NEXUS' } });
   const docsOk = r && r.result && !r.result.isError && /count/.test(JSON.stringify(r.result));
   docsOk ? pass('list_rag_docs returns docs') : fail('list_rag_docs');
+
+  r = await call('tools/call', { name: 'nvidia_skills', arguments: {} });
+  const nvidiaOk = r && r.result && !r.result.isError && /rag-blueprint/.test(JSON.stringify(r.result));
+  nvidiaOk ? pass('nvidia_skills returns the manifest') : fail('nvidia_skills manifest');
+
+  r = await call('tools/call', { name: 'nvidia_skills', arguments: { skill: 'rag-blueprint' } });
+  const nvidiaOneOk = r && r.result && !r.result.isError && /NVIDIA RAG Blueprint/.test(JSON.stringify(r.result));
+  nvidiaOneOk ? pass('nvidia_skills returns one skill body') : fail('nvidia_skills one skill');
+
+  r = await call('tools/call', { name: 'skills_search', arguments: { query: 'carbon forecast', category: 'climate' } });
+  const skillsSearchOk = r && r.result && !r.result.isError && /earth2studio/.test(JSON.stringify(r.result));
+  skillsSearchOk ? pass('skills_search filters the manifest') : fail('skills_search');
+
+  r = await call('tools/call', { name: 'nvidia_skills', arguments: { skill: '../../etc/passwd' } });
+  const nvidiaBadOk = r && r.result && r.result.isError;
+  nvidiaBadOk ? pass('unknown nvidia skill -> isError') : fail('unknown nvidia skill -> isError');
 
   r = await call('tools/call', { name: 'definitely_not_a_tool', arguments: {} });
   const isErr = r && r.result && r.result.isError;
